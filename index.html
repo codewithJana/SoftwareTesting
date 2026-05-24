@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Software Testing Fundamentals - STLC & SDLC Deep Dive</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <!-- Lucide Icons for premium feel -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Top Navigation / Progress Bar -->
+  <div class="presentation-header">
+    <div class="header-left">
+      <i data-lucide="layers" class="brand-icon"></i>
+      <span class="presentation-title">Software Testing Fundamentals</span>
+    </div>
+    <div class="header-right">
+      <button id="theme-toggle" class="header-btn" title="Toggle Theme (L)">
+        <i data-lucide="sun" class="icon-sun"></i>
+        <i data-lucide="moon" class="icon-moon"></i>
+      </button>
+      <button id="fullscreen-toggle" class="header-btn" title="Fullscreen (F)">
+        <i data-lucide="maximize" class="icon-max"></i>
+        <i data-lucide="minimize" class="icon-min" style="display: none;"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="progress-container">
+    <div class="progress-bar" id="progress-bar"></div>
+  </div>
+
+  <!-- Slides Container -->
+  <div class="slides-container" id="slides-container">
+    
+    <!-- SLIDE 1: Title Slide -->
+    <section class="slide active title-slide" id="slide-1">
+      <div class="slide-content">
+        <div class="title-badge">STLC & SDLC Deep Dive</div>
+        <h1 class="main-title">Software Testing Fundamentals</h1>
+        <p class="subtitle">Complete guide to testing principles, lifecycle phases, and enterprise applications</p>
+        <div class="title-footer">
+          <div class="footer-item">
+            <i data-lucide="book-open"></i>
+            <span>Software Testing Class</span>
+          </div>
+          <div class="footer-item">
+            <i data-lucide="calendar"></i>
+            <span>May 2026</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 2: Table of Contents -->
+    <section class="slide" id="slide-2">
+      <div class="slide-content">
+        <h2 class="slide-header">Session Overview</h2>
+        <div class="toc-grid">
+          <div class="toc-card" onclick="goToSlide(3)">
+            <span class="toc-num color-1">01</span>
+            <div class="toc-info">
+              <h3>Definition & Importance</h3>
+              <p>What is software testing and why is it critical?</p>
+            </div>
+            <i data-lucide="arrow-right" class="toc-arrow"></i>
+          </div>
+          <div class="toc-card" onclick="goToSlide(5)">
+            <span class="toc-num color-2">02</span>
+            <div class="toc-info">
+              <h3>7 Principles of Testing</h3>
+              <p>Core rules that guide high-quality software testing.</p>
+            </div>
+            <i data-lucide="arrow-right" class="toc-arrow"></i>
+          </div>
+          <div class="toc-card" onclick="goToSlide(7)">
+            <span class="toc-num color-3">03</span>
+            <div class="toc-info">
+              <h3>STLC (Deep Dive)</h3>
+              <p>Software Testing Life Cycle: Flow, phases, and criteria.</p>
+            </div>
+            <i data-lucide="arrow-right" class="toc-arrow"></i>
+          </div>
+          <div class="toc-card" onclick="goToSlide(15)">
+            <span class="toc-num color-4">04</span>
+            <div class="toc-info">
+              <h3>SDLC Fundamentals</h3>
+              <p>Software Development Life Cycle & QA alignment.</p>
+            </div>
+            <i data-lucide="arrow-right" class="toc-arrow"></i>
+          </div>
+          <div class="toc-card" onclick="goToSlide(17)">
+            <span class="toc-num color-5">05</span>
+            <div class="toc-info">
+              <h3>STLC vs SDLC</h3>
+              <p>Key differences, integration, & modern DevOps pipelines.</p>
+            </div>
+            <i data-lucide="arrow-right" class="toc-arrow"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 3: What is Software Testing -->
+    <section class="slide" id="slide-3">
+      <div class="slide-content">
+        <h2 class="slide-header">What is Software Testing?</h2>
+        <div class="split-layout">
+          <div class="content-left">
+            <div class="glass-card accent-card">
+              <div class="card-header">
+                <i data-lucide="help-circle" class="icon-primary"></i>
+                <h3>Definition</h3>
+              </div>
+              <p>The process of <strong>evaluating and verifying</strong> that a software application meets specified requirements and works as expected under controlled conditions.</p>
+            </div>
+            <div class="glass-card success-card margin-top">
+              <div class="card-header">
+                <i data-lucide="shield-check" class="icon-success"></i>
+                <h3>Why is it Critical?</h3>
+              </div>
+              <ul class="styled-list">
+                <li>Bugs found in production cost <span class="badge danger-badge">10-100x more</span> to fix</li>
+                <li>Prevents critical security vulnerabilities</li>
+                <li>Protects brand reputation & customer trust</li>
+                <li>Reduces catastrophic financial and operational losses</li>
+              </ul>
+            </div>
+          </div>
+          <div class="content-right">
+            <div class="glass-card alert-card height-full">
+              <div class="card-header">
+                <i data-lucide="alert-triangle" class="icon-warning"></i>
+                <h3>Real-World Catastrophe</h3>
+              </div>
+              <h4 class="card-subtitle">NASA Mars Climate Orbiter (1999)</h4>
+              <p class="card-desc">The spacecraft was lost due to a simple <strong>unit conversion bug</strong>: one engineering team used metric units, while another team used imperial units.</p>
+              <div class="metrics-panel">
+                <div class="metric-item">
+                  <span class="metric-val">$327M</span>
+                  <span class="metric-label">Financial Cost</span>
+                </div>
+                <div class="metric-item">
+                  <span class="metric-val">100%</span>
+                  <span class="metric-label">Mission Failure</span>
+                </div>
+              </div>
+              <div class="card-tip">
+                <i data-lucide="lightbulb"></i>
+                <span>Proper Integration Testing would have caught this mismatch early in the lifecycle.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 4: Types of Testing -->
+    <section class="slide" id="slide-4">
+      <div class="slide-content">
+        <h2 class="slide-header">Testing Types - From Micro to Macro</h2>
+        <div class="testing-types-grid">
+          <div class="type-card" style="--border-color: var(--primary);">
+            <div class="type-badge" style="background: var(--primary);">U</div>
+            <h3>Unit Testing</h3>
+            <p>Testing individual components, functions, or methods in isolation. Primarily written by developers.</p>
+          </div>
+          <div class="type-card" style="--border-color: var(--secondary);">
+            <div class="type-badge" style="background: var(--secondary);">I</div>
+            <h3>Integration Testing</h3>
+            <p>Verifying interactions between modules, third-party APIs, database systems, or microservices.</p>
+          </div>
+          <div class="type-card" style="--border-color: var(--accent-green);">
+            <div class="type-badge" style="background: var(--accent-green);">S</div>
+            <h3>System Testing</h3>
+            <p>Validating the complete, integrated software package as a whole against the functional specs.</p>
+          </div>
+          <div class="type-card" style="--border-color: var(--accent-yellow);">
+            <div class="type-badge" style="background: var(--accent-yellow);">A</div>
+            <h3>Acceptance Testing</h3>
+            <p>User Acceptance Testing (UAT). Confirms the application aligns with actual user expectations and business needs.</p>
+          </div>
+          <div class="type-card" style="--border-color: var(--accent-orange);">
+            <div class="type-badge" style="background: var(--accent-orange);">P</div>
+            <h3>Performance Testing</h3>
+            <p>Assessing responsiveness, scalability, speed, and reliability under load, stress, or spikes.</p>
+          </div>
+          <div class="type-card" style="--border-color: var(--accent-red);">
+            <div class="type-badge" style="background: var(--accent-red);">X</div>
+            <h3>Security Testing</h3>
+            <p>Scanning for system vulnerabilities, authorization bypasses, data leaks, and external threats.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 5: 7 Principles - Part 1 -->
+    <section class="slide" id="slide-5">
+      <div class="slide-content">
+        <h2 class="slide-header">7 Principles of Software Testing (Part 1)</h2>
+        <div class="principles-container">
+          <div class="principle-item">
+            <div class="principle-number">1</div>
+            <div class="principle-body">
+              <h3>Testing shows defects, not their absence</h3>
+              <p class="principle-desc">Testing dramatically reduces the probability of undiscovered bugs, but it is mathematically impossible to prove that a software application is 100% bug-free.</p>
+              <div class="principle-example">
+                <strong>Example:</strong> A login form passes 1,000 regression tests successfully, but a unique special character in a password still crashes the database query.
+              </div>
+            </div>
+          </div>
+          <div class="principle-item">
+            <div class="principle-number">2</div>
+            <div class="principle-body">
+              <h3>Exhaustive testing is impossible</h3>
+              <p class="principle-desc">Testing every single combination of data inputs, permutations, and preconditions is mathematically infeasible. Instead, we must use Risk-Based Testing to prioritize scenarios.</p>
+              <div class="principle-example">
+                <strong>Example:</strong> A simple text field accepting up to 256 characters has 26<sup>256</sup> alphanumeric permutations—more than the atoms in the observable universe.
+              </div>
+            </div>
+          </div>
+          <div class="principle-item">
+            <div class="principle-number">3</div>
+            <div class="principle-body">
+              <h3>Early testing saves time & money</h3>
+              <p class="principle-desc">Finding bugs early in the lifecycle is infinitely cheaper. A defect caught during requirement drafting costs pennies, while the same defect caught in production demands expensive patches.</p>
+              <div class="principle-example">
+                <strong>Example:</strong> Fixing a missing field in a requirements doc takes 30 mins. In production, it requires db schema migration, API updates, client app releases, and a hotfix.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 6: 7 Principles - Part 2 -->
+    <section class="slide" id="slide-6">
+      <div class="slide-content">
+        <h2 class="slide-header">7 Principles of Software Testing (Part 2)</h2>
+        <div class="principles-grid">
+          <div class="principle-card">
+            <div class="card-top">
+              <span class="p-num">4</span>
+              <h3>Defect Clustering</h3>
+            </div>
+            <p>Similar to the Pareto Principle (80/20 Rule), 80% of application failures are typically found in 20% of the modules. Focus testing on complex, highly integrated, or legacy code areas.</p>
+            <div class="p-ex"><strong>Flipkart Cart Example:</strong> Payment integrations and discount coupon processing contain 70% of checkout failures.</div>
+          </div>
+          <div class="principle-card">
+            <div class="card-top">
+              <span class="p-num">5</span>
+              <h3>Pesticide Paradox</h3>
+            </div>
+            <p>If you execute the same set of automated tests repeatedly, they will eventually stop finding new bugs. Test cases must be continuously revised, upgraded, and expanded to remain effective.</p>
+            <div class="p-ex"><strong>Regression Example:</strong> An unmodified 6-month-old test suite stays green, while newly written feature code goes completely untested.</div>
+          </div>
+          <div class="principle-card">
+            <div class="card-top">
+              <span class="p-num">6</span>
+              <h3>Testing is Context-Dependent</h3>
+              <i data-lucide="git-pull-request" class="p-icon"></i>
+            </div>
+            <p>Testing strategies vary drastically depending on the product type, audience, and risk profile. An e-commerce app, a flight guidance system, and a banking API require completely different lifecycles.</p>
+            <div class="p-ex"><strong>Context Example:</strong> A mobile game focuses on frame rate and UX, while an AI medical tool focuses on strict HIPAA compliance and algorithm bias.</div>
+          </div>
+          <div class="principle-card">
+            <div class="card-top">
+              <span class="p-num">7</span>
+              <h3>Absence-of-Errors Fallacy</h3>
+            </div>
+            <p>Finding and fixing defects is useless if the system remains unusable or fails to fulfill user needs. A "zero-bug" application that has a horrible user experience will still fail commercially.</p>
+            <div class="p-ex"><strong>User Flow Example:</strong> A flawlessly coded 12-step checkout flow loses 80% of customers to a competitor's simple 2-click buy setup.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 7: STLC Introduction -->
+    <section class="slide dark-bg" id="slide-7">
+      <div class="slide-content centered">
+        <div class="splash-badge">Phase-by-Phase Quality Assurance</div>
+        <h1 class="giant-headline">STLC</h1>
+        <h2 class="sub-headline">Software Testing Life Cycle</h2>
+        <p class="splash-text">A highly structured, sequential framework defining <strong>when</strong>, <strong>what</strong>, <strong>how</strong>, and <strong>who</strong> tests inside a software delivery organization.</p>
+        <div class="criteria-highlight">
+          <i data-lucide="check-square"></i>
+          <span>Contains 6 core phases, each with strict **Entry** and **Exit** Criteria</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 8: STLC Flow Diagram -->
+    <section class="slide" id="slide-8">
+      <div class="slide-content">
+        <h2 class="slide-header">STLC - Interactive Flow Dashboard</h2>
+        <p class="slide-intro">Click on any phase of the Software Testing Life Cycle to explore its entry criteria, exit criteria, key activities, and real-world examples below.</p>
+        
+        <!-- Interactive STLC Flow Chart -->
+        <div class="stlc-flow">
+          <div class="stlc-node active" id="node-1" onclick="selectStlcPhase(1)">
+            <span class="node-num">01</span>
+            <span class="node-name">Requirement Analysis</span>
+          </div>
+          <div class="stlc-arrow"><i data-lucide="chevron-right"></i></div>
+          <div class="stlc-node" id="node-2" onclick="selectStlcPhase(2)">
+            <span class="node-num">02</span>
+            <span class="node-name">Test Planning</span>
+          </div>
+          <div class="stlc-arrow"><i data-lucide="chevron-right"></i></div>
+          <div class="stlc-node" id="node-3" onclick="selectStlcPhase(3)">
+            <span class="node-num">03</span>
+            <span class="node-name">Test Case Design</span>
+          </div>
+          <div class="stlc-arrow"><i data-lucide="chevron-right"></i></div>
+          <div class="stlc-node" id="node-4" onclick="selectStlcPhase(4)">
+            <span class="node-num">04</span>
+            <span class="node-name">Test Env Setup</span>
+          </div>
+          <div class="stlc-arrow"><i data-lucide="chevron-right"></i></div>
+          <div class="stlc-node" id="node-5" onclick="selectStlcPhase(5)">
+            <span class="node-num">05</span>
+            <span class="node-name">Test Execution</span>
+          </div>
+          <div class="stlc-arrow"><i data-lucide="chevron-right"></i></div>
+          <div class="stlc-node" id="node-6" onclick="selectStlcPhase(6)">
+            <span class="node-num">06</span>
+            <span class="node-name">Test Closure</span>
+          </div>
+        </div>
+
+        <!-- Dynamic Content Panel -->
+        <div class="stlc-details-container glass-card" id="stlc-details-container">
+          <!-- Populated dynamically via app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 9: Phase 1: Requirement Analysis -->
+    <section class="slide" id="slide-9">
+      <div class="slide-content">
+        <div class="slide-subheader color-1">STLC Phase 1</div>
+        <h2 class="slide-header">Requirement Analysis</h2>
+        <div class="split-layout">
+          <div class="content-left">
+            <div class="glass-card criteria-card success-border">
+              <div class="criteria-header color-green">
+                <i data-lucide="log-in"></i>
+                <h3>Entry Criteria</h3>
+              </div>
+              <p>Finalized Business Requirement Document (BRD), Functional Requirement Specifications (FRS), or approved agile User Stories.</p>
+            </div>
+            <div class="glass-card criteria-card danger-border margin-top">
+              <div class="criteria-header color-red">
+                <i data-lucide="log-out"></i>
+                <h3>Exit Criteria</h3>
+              </div>
+              <p>Requirement Traceability Matrix (RTM) created, testable items mapped, and stakeholder clarifications closed.</p>
+            </div>
+          </div>
+          <div class="content-right">
+            <div class="glass-card dark-card height-full">
+              <h3><i data-lucide="activity"></i> Core QA Activities</h3>
+              <ul class="activities-list">
+                <li>Identify types of testing required (Functional, API, Performance, Security).</li>
+                <li>Analyze requirements for feasibility, logic gaps, or ambiguities.</li>
+                <li>Clarify gaps directly with Product Owners and Business Analysts.</li>
+                <li>Draft the first version of the Requirement Traceability Matrix (RTM).</li>
+              </ul>
+              <div class="enterprise-box">
+                <strong>Enterprise Case (Temenos T24):</strong> In a banking system, QA flags a missing requirement in "NEFT Transfer": What should happen if the destination bank times out? This gaps is fixed before developers write a single line of code.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 10: Phase 2: Test Planning -->
+    <section class="slide" id="slide-10">
+      <div class="slide-content">
+        <div class="slide-subheader color-2">STLC Phase 2</div>
+        <h2 class="slide-header">Test Planning & Strategy</h2>
+        <div class="split-layout">
+          <div class="content-left">
+            <div class="glass-card criteria-card success-border">
+              <div class="criteria-header color-green">
+                <i data-lucide="log-in"></i>
+                <h3>Entry Criteria</h3>
+              </div>
+              <p>Completed Requirement Analysis phase, signed-off RTM, and resource availability confirmed.</p>
+            </div>
+            <div class="glass-card criteria-card danger-border margin-top">
+              <div class="criteria-header color-red">
+                <i data-lucide="log-out"></i>
+                <h3>Exit Criteria</h3>
+              </div>
+              <p>Approved Test Strategy and Test Plan documents, tool selections finalized, and effort estimation signed-off.</p>
+            </div>
+          </div>
+          <div class="content-right">
+            <div class="glass-card dark-card height-full">
+              <h3><i data-lucide="activity"></i> Core QA Activities</h3>
+              <ul class="activities-list">
+                <li>Define testing scope (in-scope vs out-of-scope).</li>
+                <li>Select test management and automation tools (e.g. Playwright, Cypress, k6).</li>
+                <li>Perform effort estimation using WBS (Work Breakdown Structure) or PERT.</li>
+                <li>Establish risk registers, contingency plans, and release schedules.</li>
+              </ul>
+              <div class="enterprise-box">
+                <strong>Enterprise Case (Flipkart):</strong> During big sale events, QA creates a dedicated performance test plan specifying p99 latency target (<500ms at 15,000 API requests/sec) and load generators configured in AWS.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 11: Phase 3: Test Case Design -->
+    <section class="slide" id="slide-11">
+      <div class="slide-content">
+        <div class="slide-subheader color-3">STLC Phase 3</div>
+        <h2 class="slide-header">Test Case Design & Development</h2>
+        <div class="split-layout">
+          <div class="content-left">
+            <div class="glass-card criteria-card success-border">
+              <div class="criteria-header color-green">
+                <i data-lucide="log-in"></i>
+                <h3>Entry Criteria</h3>
+              </div>
+              <p>Signed-off Test Plan, stable architecture documentation, and approved requirements.</p>
+            </div>
+            <div class="glass-card criteria-card danger-border margin-top">
+              <div class="criteria-header color-red">
+                <i data-lucide="log-out"></i>
+                <h3>Exit Criteria</h3>
+              </div>
+              <p>Reviewed and approved manual test cases, functional automation scripts, and test data datasets.</p>
+            </div>
+          </div>
+          <div class="content-right">
+            <div class="glass-card dark-card height-full">
+              <h3><i data-lucide="activity"></i> Core QA Activities</h3>
+              <ul class="activities-list">
+                <li>Draft detailed step-by-step test cases with exact expected results.</li>
+                <li>Create and sanitise test data (mock databases, user profiles, API responses).</li>
+                <li>Develop automated testing scripts (Playwright, Cypress, REST Assured).</li>
+                <li>Conduct peer reviews of test cases to ensure complete test coverage.</li>
+              </ul>
+              <div class="enterprise-box">
+                <strong>Enterprise Case (DocuSign AI):</strong> For an AI extraction feature, QA designs positive cases (clean PDFs), negative cases (corrupted files), and boundary cases (extremely large documents, low-res scans).
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 12: Phase 4: Test Environment Setup -->
+    <section class="slide" id="slide-12">
+      <div class="slide-content">
+        <div class="slide-subheader color-4">STLC Phase 4</div>
+        <h2 class="slide-header">Test Environment Setup</h2>
+        <div class="split-layout">
+          <div class="content-left">
+            <div class="glass-card criteria-card success-border">
+              <div class="criteria-header color-green">
+                <i data-lucide="log-in"></i>
+                <h3>Entry Criteria</h3>
+              </div>
+              <p>Completed Test Cases, infrastructure specs locked, and deployment scripts ready.</p>
+            </div>
+            <div class="glass-card criteria-card danger-border margin-top">
+              <div class="criteria-header color-red">
+                <i data-lucide="log-out"></i>
+                <h3>Exit Criteria</h3>
+              </div>
+              <p>Stable QA environment, successful smoke tests completed, and environment sign-off provided.</p>
+            </div>
+          </div>
+          <div class="content-right">
+            <div class="glass-card dark-card height-full">
+              <h3><i data-lucide="activity"></i> Core QA Activities</h3>
+              <ul class="activities-list">
+                <li>Set up hardware, OS, and cloud environments (AWS, GCP, Azure Dev environments).</li>
+                <li>Deploy application builds using Docker containers, Kubernetes, or CI pipelines.</li>
+                <li>Inject static and dynamic test data into QA databases.</li>
+                <li>Run initial **Smoke Tests** to verify environment sanity and readiness.</li>
+              </ul>
+              <div class="enterprise-box">
+                <strong>Enterprise Case (Healthcare FHIR Platform):</strong> Epic/FHIR sandbox is configured with mock patient histories. Ephemeral QA environments are spun up automatically using Terraform for every branch.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 13: Phase 5: Test Execution -->
+    <section class="slide" id="slide-13">
+      <div class="slide-content">
+        <div class="slide-subheader color-5">STLC Phase 5</div>
+        <h2 class="slide-header">Test Execution & Defect Management</h2>
+        <div class="split-layout">
+          <div class="content-left">
+            <div class="glass-card criteria-card success-border">
+              <div class="criteria-header color-green">
+                <i data-lucide="log-in"></i>
+                <h3>Entry Criteria</h3>
+              </div>
+              <p>Smoke test passed, environment stable, test cases approved, and build deployed in QA environment.</p>
+            </div>
+            <div class="glass-card criteria-card danger-border margin-top">
+              <div class="criteria-header color-red">
+                <i data-lucide="log-out"></i>
+                <h3>Exit Criteria</h3>
+              </div>
+              <p>>95% of test cases executed, all Critical/High severity bugs closed, and regression suite passed.</p>
+            </div>
+          </div>
+          <div class="content-right">
+            <div class="glass-card dark-card height-full">
+              <h3><i data-lucide="activity"></i> Core QA Activities</h3>
+              <ul class="activities-list">
+                <li>Run manual and automated regression/feature test suites.</li>
+                <li>Log defects in JIRA/Azure DevOps with screenshots, logs, and replication steps.</li>
+                <li>Participate in Defect Triage meetings to assign Severity and Priority.</li>
+                <li>Re-test fixed defects and conduct extensive regression testing.</li>
+              </ul>
+              <div class="enterprise-box">
+                <strong>Enterprise Case (LLM Chatbot):</strong> Testing includes latency tests, hallucination rate tests, and prompt injection benchmarks (e.g. using Ragas or Promptfoo) to ensure chatbot safety and speed.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 14: Phase 6: Test Closure -->
+    <section class="slide" id="slide-14">
+      <div class="slide-content">
+        <div class="slide-subheader color-6">STLC Phase 6</div>
+        <h2 class="slide-header">Test Closure & Metrics Reporting</h2>
+        <div class="split-layout">
+          <div class="content-left">
+            <div class="glass-card criteria-card success-border">
+              <div class="criteria-header color-green">
+                <i data-lucide="log-in"></i>
+                <h3>Entry Criteria</h3>
+              </div>
+              <p>Test execution completed, all critical defects resolved or formally deferred, and product owner sign-off.</p>
+            </div>
+            <div class="glass-card criteria-card danger-border margin-top">
+              <div class="criteria-header color-red">
+                <i data-lucide="log-out"></i>
+                <h3>Exit Criteria</h3>
+              </div>
+              <p>Test Closure Report signed-off, release notes published, and retro meeting concluded.</p>
+            </div>
+          </div>
+          <div class="content-right">
+            <div class="glass-card dark-card height-full">
+              <h3><i data-lucide="activity"></i> Core QA Activities</h3>
+              <ul class="activities-list">
+                <li>Conduct sprint retrospects to review lessons learned and root cause analyses.</li>
+                <li>Publish the **Test Closure Report** summarizing execution metrics.</li>
+                <li>Archive test environments, automated codebases, and databases.</li>
+                <li>Build live quality metrics dashboards (Grafana, Jira widgets).</li>
+              </ul>
+              <div class="enterprise-box">
+                <strong>Enterprise Case (ERP Upgrade):</strong> Execution summary shows 1,240 tests run, 97.2% pass rate, 43 total bugs found, 40 closed, 3 deferred. Quality scorecard feeds release gating committee.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 15: SDLC Introduction -->
+    <section class="slide dark-bg" id="slide-15">
+      <div class="slide-content centered">
+        <div class="splash-badge text-glow">The Big Picture Framework</div>
+        <h1 class="giant-headline">SDLC</h1>
+        <h2 class="sub-headline">Software Development Life Cycle</h2>
+        <p class="splash-text">The overarching engineering lifecycle that guides a software product from a vague customer business concept to active, live production support.</p>
+        <div class="criteria-highlight bg-glow">
+          <i data-lucide="arrow-up-right"></i>
+          <span>Crucial Rule: **STLC lives and breathes inside the SDLC**</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 16: SDLC 6 Phases -->
+    <section class="slide" id="slide-16">
+      <div class="slide-content">
+        <h2 class="slide-header">SDLC - 6 Core Phases & QA Alignment</h2>
+        <p class="slide-intro">Hover over or click on any phase to see the core engineering activities and how QA syncs at that exact stage.</p>
+        
+        <div class="sdlc-timeline">
+          <div class="sdlc-card">
+            <div class="sdlc-header">
+              <span class="sdlc-badge">01</span>
+              <h3>Requirement Planning</h3>
+            </div>
+            <div class="sdlc-body">
+              <p><strong>Dev Activity:</strong> BAs write requirements; study budgets and timelines.</p>
+              <div class="sdlc-sync">
+                <i data-lucide="refresh-cw"></i>
+                <span><strong>QA Sync:</strong> STLC Requirement Analysis (Phase 1) begins.</span>
+              </div>
+            </div>
+          </div>
+          <div class="sdlc-card">
+            <div class="sdlc-header">
+              <span class="sdlc-badge">02</span>
+              <h3>System Design</h3>
+            </div>
+            <div class="sdlc-body">
+              <p><strong>Dev Activity:</strong> High-Level & Low-Level architectural design, API schemas.</p>
+              <div class="sdlc-sync">
+                <i data-lucide="refresh-cw"></i>
+                <span><strong>QA Sync:</strong> Test Planning starts; write test strategies; define env specs.</span>
+              </div>
+            </div>
+          </div>
+          <div class="sdlc-card">
+            <div class="sdlc-header">
+              <span class="sdlc-badge">03</span>
+              <h3>Implementation</h3>
+            </div>
+            <div class="sdlc-body">
+              <p><strong>Dev Activity:</strong> Feature coding in sprints, PR reviews, unit testing.</p>
+              <div class="sdlc-sync">
+                <i data-lucide="refresh-cw"></i>
+                <span><strong>QA Sync:</strong> Test Case Design (Phase 3) & Automation script writing.</span>
+              </div>
+            </div>
+          </div>
+          <div class="sdlc-card text-highlight-border">
+            <div class="sdlc-header">
+              <span class="sdlc-badge highlight-bg">04</span>
+              <h3>Testing Phase</h3>
+            </div>
+            <div class="sdlc-body">
+              <p><strong>Dev Activity:</strong> Bug fixing, addressing regression defects.</p>
+              <div class="sdlc-sync">
+                <i data-lucide="refresh-cw" class="spin-icon"></i>
+                <span><strong>QA Sync:</strong> Full Test Execution & Defect Management. Release gating.</span>
+              </div>
+            </div>
+          </div>
+          <div class="sdlc-card">
+            <div class="sdlc-header">
+              <span class="sdlc-badge">05</span>
+              <h3>Deployment</h3>
+            </div>
+            <div class="sdlc-body">
+              <p><strong>Dev Activity:</strong> Release to prod (Blue-Green, Canary updates).</p>
+              <div class="sdlc-sync">
+                <i data-lucide="refresh-cw"></i>
+                <span><strong>QA Sync:</strong> Run production smoke tests, close STLC.</span>
+              </div>
+            </div>
+          </div>
+          <div class="sdlc-card">
+            <div class="sdlc-header">
+              <span class="sdlc-badge">06</span>
+              <h3>Maintenance</h3>
+            </div>
+            <div class="sdlc-body">
+              <p><strong>Dev Activity:</strong> Live monitoring, server maintenance, patch deployments.</p>
+              <div class="sdlc-sync">
+                <i data-lucide="refresh-cw"></i>
+                <span><strong>QA Sync:</strong> Run automated regression suite on patches, log prod bugs.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 17: STLC vs SDLC Comparison -->
+    <section class="slide" id="slide-17">
+      <div class="slide-content">
+        <h2 class="slide-header">STLC vs SDLC - Key Differences</h2>
+        <div class="table-container">
+          <table class="premium-table">
+            <thead>
+              <tr>
+                <th>Dimension</th>
+                <th>STLC</th>
+                <th>SDLC</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="td-header">Focus Area</td>
+                <td>Quality validation, finding system defects & user story verification.</td>
+                <td>Architecting, coding, deploying, and maintaining the software application.</td>
+              </tr>
+              <tr>
+                <td class="td-header">Scope of Work</td>
+                <td>Limited strictly to verification and validation activities.</td>
+                <td>Encompasses the entire software lifecycle, including business strategy and design.</td>
+              </tr>
+              <tr>
+                <td class="td-header">Ownership</td>
+                <td>QA Analysts, Automation Engineers, and Test Leads.</td>
+                <td>Product Managers, Architects, Developers, DevOps, and QA.</td>
+              </tr>
+              <tr>
+                <td class="td-header">Relationship</td>
+                <td>A subset and integral phase inside the SDLC.</td>
+                <td>The parent project lifecycle governing all delivery phases.</td>
+              </tr>
+              <tr>
+                <td class="td-header">Enterprise Tools</td>
+                <td>Jira, Zephyr, Xray, TestRail, Playwright, Cypress.</td>
+                <td>Jira, Azure DevOps, Git, Jenkins, Terraform, AWS.</td>
+              </tr>
+              <tr>
+                <td class="td-header">Modern Approach</td>
+                <td>Shift-Left testing, automated regression, and CI gating.</td>
+                <td>Agile Scrum/Kanban, DevOps microservices, and Continuous Deployment.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 18: Modern Enterprise Integration -->
+    <section class="slide" id="slide-18">
+      <div class="slide-content">
+        <h2 class="slide-header">Modern Enterprise: STLC + SDLC Integration</h2>
+        <div class="split-layout">
+          <div class="content-left">
+            <div class="glass-card devops-card height-full">
+              <div class="card-header">
+                <i data-lucide="infinity" class="icon-primary"></i>
+                <h3>Agile + DevOps Flow</h3>
+              </div>
+              <ul class="styled-list dark-list">
+                <li><strong>Parallel Execution:</strong> SDLC runs in 2-week agile sprints; STLC runs concurrently in the same sprint.</li>
+                <li><strong>Continuous Integration:</strong> Automated regression suites trigger on every git merge request.</li>
+                <li><strong>Exploratory Testing:</strong> Carried out by QA during feature demos to capture unexpected edge cases.</li>
+                <li><strong>Shift-Left:</strong> Involving QA in design sessions saves up to 100x bug-fixing costs.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="content-right">
+            <div class="glass-card ai-card">
+              <div class="card-header">
+                <i data-lucide="cpu" class="icon-success"></i>
+                <h3>AI/ML Testing Extension</h3>
+              </div>
+              <p>Traditional STLC has expanded to cover non-deterministic AI chatbot or model behaviors:</p>
+              <div class="ai-tags">
+                <span class="ai-tag">Hallucination Checks</span>
+                <span class="ai-tag">Prompt Injection</span>
+                <span class="ai-tag">Bias & Fairness</span>
+                <span class="ai-tag">Latency Metrics</span>
+              </div>
+              <p class="tag-tools">Tools: <strong>Promptfoo, Ragas, Langfuse</strong></p>
+            </div>
+            <div class="glass-card tools-card margin-top">
+              <div class="card-header">
+                <i data-lucide="wrench" class="icon-warning"></i>
+                <h3>Modern QA Tech Stack</h3>
+              </div>
+              <div class="tools-grid-icons">
+                <div class="tool-ic"><i data-lucide="terminal"></i><span>Playwright</span></div>
+                <div class="tool-ic"><i data-lucide="server"></i><span>k6 (Load)</span></div>
+                <div class="tool-ic"><i data-lucide="github"></i><span>CI/CD</span></div>
+                <div class="tool-ic"><i data-lucide="line-chart"></i><span>Grafana</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 19: Key Takeaways -->
+    <section class="slide" id="slide-19">
+      <div class="slide-content">
+        <h2 class="slide-header">Key Session Takeaways</h2>
+        <div class="takeaways-list">
+          <div class="takeaway-card">
+            <span class="takeaway-badge">01</span>
+            <div>
+              <h4>7 Principles are Paramount</h4>
+              <p>They apply to all modern systems—from standard database APIs to complex AI/ML chatbots.</p>
+            </div>
+          </div>
+          <div class="takeaway-card">
+            <span class="takeaway-badge">02</span>
+            <div>
+              <h4>STLC is Structured Quality</h4>
+              <p>6 robust phases with strict entry and exit criteria prevent defective releases.</p>
+            </div>
+          </div>
+          <div class="takeaway-card">
+            <span class="takeaway-badge">03</span>
+            <div>
+              <h4>STLC Fits Inside SDLC</h4>
+              <p>Testing is not an isolated final step; it is woven through the entire engineering lifecycle.</p>
+            </div>
+          </div>
+          <div class="takeaway-card">
+            <span class="takeaway-badge">04</span>
+            <div>
+              <h4>Shift-Left Prevents Loss</h4>
+              <p>Catching requirements gaps in Phase 1 guarantees massive speed and financial savings.</p>
+            </div>
+          </div>
+          <div class="takeaway-card">
+            <span class="takeaway-badge">05</span>
+            <div>
+              <h4>DevOps & Automation are Key</h4>
+              <p>CI/CD, regression automation, and ephemeral QA environments are standard in major enterprises.</p>
+            </div>
+          </div>
+          <div class="takeaway-card">
+            <span class="takeaway-badge">06</span>
+            <div>
+              <h4>AI Testing is the Next Frontier</h4>
+              <p>Model evaluations, safety checks, and deterministic wrappers are modern extensions to STLC.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 20: Thank You / QA -->
+    <section class="slide dark-bg" id="slide-20">
+      <div class="slide-content centered">
+        <div class="splash-badge text-glow animate-pulse">End of Session</div>
+        <h1 class="giant-headline scale-in">Thank You!</h1>
+        <h2 class="sub-headline">Any Questions?</h2>
+        <div class="qa-links">
+          <div class="qa-item">
+            <i data-lucide="mail"></i>
+            <span>qa-class@enterprise.com</span>
+          </div>
+          <div class="qa-item">
+            <i data-lucide="globe"></i>
+            <span>testing-fundamentals.io</span>
+          </div>
+        </div>
+        <p class="small-copyright">Software Testing Fundamentals | STLC & SDLC Deep Dive</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- Bottom Navigation Panel -->
+  <div class="presentation-controls">
+    <div class="controls-left">
+      <button id="prev-btn" class="control-btn" title="Previous (Left Arrow / PageUp)">
+        <i data-lucide="chevron-left"></i>
+      </button>
+      <span class="slide-index" id="slide-index">Slide 1 of 20</span>
+      <button id="next-btn" class="control-btn" title="Next (Right Arrow / Space / PageDown)">
+        <i data-lucide="chevron-right"></i>
+      </button>
+    </div>
+    <div class="controls-center">
+      <div class="select-container">
+        <select id="slide-select" class="slide-select">
+          <!-- Populated dynamically via app.js -->
+        </select>
+        <i data-lucide="chevron-down" class="select-arrow"></i>
+      </div>
+    </div>
+    <div class="controls-right">
+      <button id="play-btn" class="control-btn" title="Auto-Play Slideshow (P)">
+        <i data-lucide="play" class="icon-play"></i>
+        <i data-lucide="pause" class="icon-pause" style="display: none;"></i>
+      </button>
+      <button id="help-btn" class="control-btn" title="Show Keyboard Shortcuts (H)">
+        <i data-lucide="help-circle"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Keyboard Help Modal -->
+  <div class="modal" id="help-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Keyboard Shortcuts</h3>
+        <button id="close-modal-btn" class="close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="shortcut-row">
+          <span class="key">Space</span> or <span class="key">&rarr;</span> or <span class="key">PgDn</span>
+          <span>Next Slide</span>
+        </div>
+        <div class="shortcut-row">
+          <span class="key">&larr;</span> or <span class="key">PgUp</span>
+          <span>Previous Slide</span>
+        </div>
+        <div class="shortcut-row">
+          <span class="key">Home</span> / <span class="key">End</span>
+          <span>First / Last Slide</span>
+        </div>
+        <div class="shortcut-row">
+          <span class="key">F</span>
+          <span>Toggle Fullscreen</span>
+        </div>
+        <div class="shortcut-row">
+          <span class="key">L</span>
+          <span>Toggle Light/Dark Theme</span>
+        </div>
+        <div class="shortcut-row">
+          <span class="key">P</span>
+          <span>Toggle Auto-Play Slideshow</span>
+        </div>
+        <div class="shortcut-row">
+          <span class="key">H</span>
+          <span>Toggle this Help Dialog</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
