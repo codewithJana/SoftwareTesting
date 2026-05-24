@@ -1,0 +1,1293 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - img [ref=e270]
+      - generic [ref=e8]: Software Testing Fundamentals
+    - generic [ref=e9]:
+      - button "Toggle Theme (L)" [ref=e10] [cursor=pointer]:
+        - img [ref=e274]
+      - button "Fullscreen (F)" [ref=e13] [cursor=pointer]:
+        - img [ref=e276]
+  - generic [ref=e20]:
+    - generic:
+      - generic:
+        - generic: STLC & SDLC Deep Dive
+        - heading "Software Testing Fundamentals" [level=1]
+        - paragraph: Complete guide to testing principles, lifecycle phases, and enterprise applications
+        - generic:
+          - generic:
+            - img
+            - generic: Software Testing Class
+          - generic:
+            - img
+            - generic: May 2026
+    - generic:
+      - generic:
+        - heading "Session Overview" [level=2]
+        - generic:
+          - generic:
+            - generic: "01"
+            - generic:
+              - heading "Definition & Importance" [level=3]
+              - paragraph: What is software testing and why is it critical?
+            - img
+          - generic:
+            - generic: "02"
+            - generic:
+              - heading "7 Principles of Testing" [level=3]
+              - paragraph: Core rules that guide high-quality software testing.
+            - img
+          - generic:
+            - generic: "03"
+            - generic:
+              - heading "STLC (Deep Dive)" [level=3]
+              - paragraph: "Software Testing Life Cycle: Flow, phases, and criteria."
+            - img
+          - generic:
+            - generic: "04"
+            - generic:
+              - heading "SDLC Fundamentals" [level=3]
+              - paragraph: Software Development Life Cycle & QA alignment.
+            - img
+          - generic:
+            - generic: "05"
+            - generic:
+              - heading "STLC vs SDLC" [level=3]
+              - paragraph: Key differences, integration, & modern DevOps pipelines.
+            - img
+          - generic:
+            - generic: "06"
+            - generic:
+              - 'heading "SDLC Models: Waterfall vs. Agile" [level=3]'
+              - paragraph: Deep dive into sequential vs. iterative engineering lifecycles and criteria.
+            - img
+          - generic:
+            - generic: "07"
+            - generic:
+              - heading "The Testing Pyramid" [level=3]
+              - paragraph: Conceptual model for automated test distribution, shape heuristics, and anti-patterns.
+            - img
+    - generic:
+      - generic:
+        - heading "What is Software Testing?" [level=2]
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - img
+                - heading "Definition" [level=3]
+              - paragraph:
+                - text: The process of
+                - strong: evaluating and verifying
+                - text: that a software application meets specified requirements and works as expected under controlled conditions.
+            - generic:
+              - generic:
+                - img
+                - heading "Why is it Critical?" [level=3]
+              - list:
+                - listitem:
+                  - text: ✓ Bugs found in production cost
+                  - generic: 10-100x more
+                  - text: to fix
+                - listitem: ✓ Prevents critical security vulnerabilities
+                - listitem: ✓ Protects brand reputation & customer trust
+                - listitem: ✓ Reduces catastrophic financial and operational losses
+          - generic:
+            - generic:
+              - generic:
+                - img
+                - heading "Real-World Catastrophe" [level=3]
+              - heading "NASA Mars Climate Orbiter (1999)" [level=4]
+              - paragraph:
+                - text: The spacecraft was lost due to a simple
+                - strong: unit conversion bug
+                - text: ": one engineering team used metric units, while another team used imperial units."
+              - generic:
+                - generic:
+                  - generic: $327M
+                  - text: Financial Cost
+                - generic:
+                  - generic: 100%
+                  - text: Mission Failure
+              - generic:
+                - img
+                - generic: Proper Integration Testing would have caught this mismatch early in the lifecycle.
+    - generic:
+      - generic:
+        - heading "Testing Types - From Micro to Macro" [level=2]
+        - generic:
+          - generic:
+            - generic: U
+            - heading "Unit Testing" [level=3]
+            - paragraph: Testing individual components, functions, or methods in isolation. Primarily written by developers.
+            - text: Click for Details
+          - generic:
+            - generic: I
+            - heading "Integration Testing" [level=3]
+            - paragraph: Verifying interactions between modules, third-party APIs, database systems, or microservices.
+            - text: Click for Details
+          - generic:
+            - generic: S
+            - heading "System Testing" [level=3]
+            - paragraph: Validating the complete, integrated software package as a whole against the functional specs.
+            - text: Click for Details
+          - generic:
+            - generic: A
+            - heading "Acceptance Testing" [level=3]
+            - paragraph: User Acceptance Testing (UAT). Confirms the application aligns with actual user expectations and business needs.
+            - text: Click for Details
+          - generic:
+            - generic: P
+            - heading "Performance Testing" [level=3]
+            - paragraph: Assessing responsiveness, scalability, speed, and reliability under load, stress, or spikes.
+            - text: Click for Details
+          - generic:
+            - generic: X
+            - heading "Security Testing" [level=3]
+            - paragraph: Scanning for system vulnerabilities, authorization bypasses, data leaks, and external threats.
+            - text: Click for Details
+        - generic:
+          - generic:
+            - img
+            - heading "Interactive Testing Type Details" [level=3]
+            - paragraph: Click any testing type card above to explore detailed explanation, ownership, tools, goals, entry/exit criteria, and enterprise examples.
+    - generic:
+      - generic:
+        - heading "7 Principles of Software Testing (Part 1)" [level=2]
+        - generic:
+          - generic:
+            - generic: "1"
+            - generic:
+              - heading "Testing shows defects, not their absence" [level=3]
+              - paragraph: Testing dramatically reduces the probability of undiscovered bugs, but it is mathematically impossible to prove that a software application is 100% bug-free.
+              - generic:
+                - strong: "Example:"
+                - text: A login form passes 1,000 regression tests successfully, but a unique special character in a password still crashes the database query.
+          - generic:
+            - generic: "2"
+            - generic:
+              - heading "Exhaustive testing is impossible" [level=3]
+              - paragraph: Testing every single combination of data inputs, permutations, and preconditions is mathematically infeasible. Instead, we must use Risk-Based Testing to prioritize scenarios.
+              - generic:
+                - strong: "Example:"
+                - text: A simple text field accepting up to 256 characters has 26
+                - superscript: "256"
+                - text: alphanumeric permutations—more than the atoms in the observable universe.
+          - generic:
+            - generic: "3"
+            - generic:
+              - heading "Early testing saves time & money" [level=3]
+              - paragraph: Finding bugs early in the lifecycle is infinitely cheaper. A defect caught during requirement drafting costs pennies, while the same defect caught in production demands expensive patches.
+              - generic:
+                - strong: "Example:"
+                - text: Fixing a missing field in a requirements doc takes 30 mins. In production, it requires db schema migration, API updates, client app releases, and a hotfix.
+    - generic:
+      - generic:
+        - heading "7 Principles of Software Testing (Part 2)" [level=2]
+        - generic:
+          - generic:
+            - generic:
+              - generic: "4"
+              - heading "Defect Clustering" [level=3]
+            - paragraph: Similar to the Pareto Principle (80/20 Rule), 80% of application failures are typically found in 20% of the modules. Focus testing on complex, highly integrated, or legacy code areas.
+            - generic:
+              - strong: "Flipkart Cart Example:"
+              - text: Payment integrations and discount coupon processing contain 70% of checkout failures.
+          - generic:
+            - generic:
+              - generic: "5"
+              - heading "Pesticide Paradox" [level=3]
+            - paragraph: If you execute the same set of automated tests repeatedly, they will eventually stop finding new bugs. Test cases must be continuously revised, upgraded, and expanded to remain effective.
+            - generic:
+              - strong: "Regression Example:"
+              - text: An unmodified 6-month-old test suite stays green, while newly written feature code goes completely untested.
+          - generic:
+            - generic:
+              - generic: "6"
+              - heading "Testing is Context-Dependent" [level=3]
+              - img
+            - paragraph: Testing strategies vary drastically depending on the product type, audience, and risk profile. An e-commerce app, a flight guidance system, and a banking API require completely different lifecycles.
+            - generic:
+              - strong: "Context Example:"
+              - text: A mobile game focuses on frame rate and UX, while an AI medical tool focuses on strict HIPAA compliance and algorithm bias.
+          - generic:
+            - generic:
+              - generic: "7"
+              - heading "Absence-of-Errors Fallacy" [level=3]
+            - paragraph: Finding and fixing defects is useless if the system remains unusable or fails to fulfill user needs. A "zero-bug" application that has a horrible user experience will still fail commercially.
+            - generic:
+              - strong: "User Flow Example:"
+              - text: A flawlessly coded 12-step checkout flow loses 80% of customers to a competitor's simple 2-click buy setup.
+    - generic:
+      - generic:
+        - generic: Phase-by-Phase Quality Assurance
+        - heading "STLC" [level=1]
+        - heading "Software Testing Life Cycle" [level=2]
+        - paragraph:
+          - text: A highly structured, sequential framework defining
+          - strong: when
+          - text: ","
+          - strong: what
+          - text: ","
+          - strong: how
+          - text: ", and"
+          - strong: who
+          - text: tests inside a software delivery organization.
+        - generic:
+          - img
+          - generic: Contains 6 core phases, each with strict **Entry** and **Exit** Criteria
+    - generic:
+      - generic:
+        - heading "STLC - Interactive Flow Dashboard" [level=2]
+        - paragraph: Click on any phase of the Software Testing Life Cycle to explore its entry criteria, exit criteria, key activities, and real-world examples below.
+        - generic:
+          - generic:
+            - generic: "01"
+            - generic: Requirement Analysis
+          - generic:
+            - img
+          - generic:
+            - generic: "02"
+            - generic: Test Planning
+          - generic:
+            - img
+          - generic:
+            - generic: "03"
+            - generic: Test Case Design
+          - generic:
+            - img
+          - generic:
+            - generic: "04"
+            - generic: Test Env Setup
+          - generic:
+            - img
+          - generic:
+            - generic: "05"
+            - generic: Test Execution
+          - generic:
+            - img
+          - generic:
+            - generic: "06"
+            - generic: Test Closure
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - text: Phase 1
+                  - heading "Requirement Analysis" [level=3]
+              - generic:
+                - heading "Entry Criteria" [level=4]:
+                  - img
+                  - text: Entry Criteria
+                - paragraph: Finalized BRD, Functional Specifications (FRS), or approved agile User Stories.
+              - generic:
+                - heading "Exit Criteria" [level=4]:
+                  - img
+                  - text: Exit Criteria
+                - paragraph: Approved Requirement Traceability Matrix (RTM), mapped test scenarios, and stakeholder clarifications closed.
+            - generic:
+              - generic:
+                - heading "Core QA Activities" [level=4]:
+                  - img
+                  - text: Core QA Activities
+                - list:
+                  - listitem: • Analyze requirements for testability, logic gaps, or ambiguities.
+                  - listitem: • Identify scope and types of testing required (Functional, API, Performance, Security).
+                  - listitem: • Collaborate with Product Owners and Business Analysts to resolve open gaps.
+                  - listitem: • Draft the initial version of the Requirement Traceability Matrix (RTM).
+              - generic:
+                - strong: "Banking App Case (Temenos T24):"
+                - text: "In a cash transfer user story, QA queries: 'What is the system timeout limit for high-value transfers?' This gets specified in requirements before developers begin coding."
+    - generic:
+      - generic:
+        - generic: STLC Phase 1
+        - heading "Requirement Analysis" [level=2]
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - img
+                - heading "Entry Criteria" [level=3]
+              - paragraph: Finalized Business Requirement Document (BRD), Functional Requirement Specifications (FRS), or approved agile User Stories.
+            - generic:
+              - generic:
+                - img
+                - heading "Exit Criteria" [level=3]
+              - paragraph: Requirement Traceability Matrix (RTM) created, testable items mapped, and stakeholder clarifications closed.
+          - generic:
+            - generic:
+              - heading "Core QA Activities" [level=3]:
+                - img
+                - text: Core QA Activities
+              - list:
+                - listitem: • Identify types of testing required (Functional, API, Performance, Security).
+                - listitem: • Analyze requirements for feasibility, logic gaps, or ambiguities.
+                - listitem: • Clarify gaps directly with Product Owners and Business Analysts.
+                - listitem: • Draft the first version of the Requirement Traceability Matrix (RTM).
+              - generic:
+                - strong: "Enterprise Case (Temenos T24):"
+                - text: "In a banking system, QA flags a missing requirement in \"NEFT Transfer\": What should happen if the destination bank times out? This gaps is fixed before developers write a single line of code."
+    - generic:
+      - generic:
+        - generic: STLC Phase 2
+        - heading "Test Planning & Strategy" [level=2]
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - img
+                - heading "Entry Criteria" [level=3]
+              - paragraph: Completed Requirement Analysis phase, signed-off RTM, and resource availability confirmed.
+            - generic:
+              - generic:
+                - img
+                - heading "Exit Criteria" [level=3]
+              - paragraph: Approved Test Strategy and Test Plan documents, tool selections finalized, and effort estimation signed-off.
+          - generic:
+            - generic:
+              - heading "Core QA Activities" [level=3]:
+                - img
+                - text: Core QA Activities
+              - list:
+                - listitem: • Define testing scope (in-scope vs out-of-scope).
+                - listitem: • Select test management and automation tools (e.g. Playwright, Cypress, k6).
+                - listitem: • Perform effort estimation using WBS (Work Breakdown Structure) or PERT.
+                - listitem: • Establish risk registers, contingency plans, and release schedules.
+              - generic:
+                - strong: "Enterprise Case (Flipkart):"
+                - text: During big sale events, QA creates a dedicated performance test plan specifying p99 latency target (<500ms at 15,000 API requests/sec) and load generators configured in AWS.
+    - generic:
+      - generic:
+        - generic: STLC Phase 3
+        - heading "Test Case Design & Development" [level=2]
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - img
+                - heading "Entry Criteria" [level=3]
+              - paragraph: Signed-off Test Plan, stable architecture documentation, and approved requirements.
+            - generic:
+              - generic:
+                - img
+                - heading "Exit Criteria" [level=3]
+              - paragraph: Reviewed and approved manual test cases, functional automation scripts, and test data datasets.
+          - generic:
+            - generic:
+              - heading "Core QA Activities" [level=3]:
+                - img
+                - text: Core QA Activities
+              - list:
+                - listitem: • Draft detailed step-by-step test cases with exact expected results.
+                - listitem: • Create and sanitise test data (mock databases, user profiles, API responses).
+                - listitem: • Develop automated testing scripts (Playwright, Cypress, REST Assured).
+                - listitem: • Conduct peer reviews of test cases to ensure complete test coverage.
+              - generic:
+                - strong: "Enterprise Case (DocuSign AI):"
+                - text: For an AI extraction feature, QA designs positive cases (clean PDFs), negative cases (corrupted files), and boundary cases (extremely large documents, low-res scans).
+    - generic:
+      - generic:
+        - generic: STLC Phase 4
+        - heading "Test Environment Setup" [level=2]
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - img
+                - heading "Entry Criteria" [level=3]
+              - paragraph: Completed Test Cases, infrastructure specs locked, and deployment scripts ready.
+            - generic:
+              - generic:
+                - img
+                - heading "Exit Criteria" [level=3]
+              - paragraph: Stable QA environment, successful smoke tests completed, and environment sign-off provided.
+          - generic:
+            - generic:
+              - heading "Core QA Activities" [level=3]:
+                - img
+                - text: Core QA Activities
+              - list:
+                - listitem: • Set up hardware, OS, and cloud environments (AWS, GCP, Azure Dev environments).
+                - listitem: • Deploy application builds using Docker containers, Kubernetes, or CI pipelines.
+                - listitem: • Inject static and dynamic test data into QA databases.
+                - listitem: • Run initial **Smoke Tests** to verify environment sanity and readiness.
+              - generic:
+                - strong: "Enterprise Case (Healthcare FHIR Platform):"
+                - text: Epic/FHIR sandbox is configured with mock patient histories. Ephemeral QA environments are spun up automatically using Terraform for every branch.
+    - generic:
+      - generic:
+        - generic: STLC Phase 5
+        - heading "Test Execution & Defect Management" [level=2]
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - img
+                - heading "Entry Criteria" [level=3]
+              - paragraph: Smoke test passed, environment stable, test cases approved, and build deployed in QA environment.
+            - generic:
+              - generic:
+                - img
+                - heading "Exit Criteria" [level=3]
+              - paragraph: ">95% of test cases executed, all Critical/High severity bugs closed, and regression suite passed."
+          - generic:
+            - generic:
+              - heading "Core QA Activities" [level=3]:
+                - img
+                - text: Core QA Activities
+              - list:
+                - listitem: • Run manual and automated regression/feature test suites.
+                - listitem: • Log defects in JIRA/Azure DevOps with screenshots, logs, and replication steps.
+                - listitem: • Participate in Defect Triage meetings to assign Severity and Priority.
+                - listitem: • Re-test fixed defects and conduct extensive regression testing.
+              - generic:
+                - strong: "Enterprise Case (LLM Chatbot):"
+                - text: Testing includes latency tests, hallucination rate tests, and prompt injection benchmarks (e.g. using Ragas or Promptfoo) to ensure chatbot safety and speed.
+    - generic:
+      - generic:
+        - generic: STLC Phase 6
+        - heading "Test Closure & Metrics Reporting" [level=2]
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - img
+                - heading "Entry Criteria" [level=3]
+              - paragraph: Test execution completed, all critical defects resolved or formally deferred, and product owner sign-off.
+            - generic:
+              - generic:
+                - img
+                - heading "Exit Criteria" [level=3]
+              - paragraph: Test Closure Report signed-off, release notes published, and retro meeting concluded.
+          - generic:
+            - generic:
+              - heading "Core QA Activities" [level=3]:
+                - img
+                - text: Core QA Activities
+              - list:
+                - listitem: • Conduct sprint retrospects to review lessons learned and root cause analyses.
+                - listitem: • Publish the **Test Closure Report** summarizing execution metrics.
+                - listitem: • Archive test environments, automated codebases, and databases.
+                - listitem: • Build live quality metrics dashboards (Grafana, Jira widgets).
+              - generic:
+                - strong: "Enterprise Case (ERP Upgrade):"
+                - text: Execution summary shows 1,240 tests run, 97.2% pass rate, 43 total bugs found, 40 closed, 3 deferred. Quality scorecard feeds release gating committee.
+    - generic:
+      - generic:
+        - generic: The Big Picture Framework
+        - heading "SDLC" [level=1]
+        - heading "Software Development Life Cycle" [level=2]
+        - paragraph: The overarching engineering lifecycle that guides a software product from a vague customer business concept to active, live production support.
+        - generic:
+          - img
+          - generic: "Crucial Rule: **STLC lives and breathes inside the SDLC**"
+    - generic:
+      - generic:
+        - heading "SDLC - 6 Core Phases & QA Alignment" [level=2]
+        - paragraph: Hover over or click on any phase to see the core engineering activities and how QA syncs at that exact stage.
+        - generic:
+          - generic:
+            - generic:
+              - generic: "01"
+              - heading "Requirement Planning" [level=3]
+            - generic:
+              - paragraph:
+                - strong: "Dev Activity:"
+                - text: BAs write requirements; study budgets and timelines.
+              - generic:
+                - img
+                - generic:
+                  - strong: "QA Sync:"
+                  - text: STLC Requirement Analysis (Phase 1) begins.
+          - generic:
+            - generic:
+              - generic: "02"
+              - heading "System Design" [level=3]
+            - generic:
+              - paragraph:
+                - strong: "Dev Activity:"
+                - text: High-Level & Low-Level architectural design, API schemas.
+              - generic:
+                - img
+                - generic:
+                  - strong: "QA Sync:"
+                  - text: Test Planning starts; write test strategies; define env specs.
+          - generic:
+            - generic:
+              - generic: "03"
+              - heading "Implementation" [level=3]
+            - generic:
+              - paragraph:
+                - strong: "Dev Activity:"
+                - text: Feature coding in sprints, PR reviews, unit testing.
+              - generic:
+                - img
+                - generic:
+                  - strong: "QA Sync:"
+                  - text: Test Case Design (Phase 3) & Automation script writing.
+          - generic:
+            - generic:
+              - generic: "04"
+              - heading "Testing Phase" [level=3]
+            - generic:
+              - paragraph:
+                - strong: "Dev Activity:"
+                - text: Bug fixing, addressing regression defects.
+              - generic:
+                - img
+                - generic:
+                  - strong: "QA Sync:"
+                  - text: Full Test Execution & Defect Management. Release gating.
+          - generic:
+            - generic:
+              - generic: "05"
+              - heading "Deployment" [level=3]
+            - generic:
+              - paragraph:
+                - strong: "Dev Activity:"
+                - text: Release to prod (Blue-Green, Canary updates).
+              - generic:
+                - img
+                - generic:
+                  - strong: "QA Sync:"
+                  - text: Run production smoke tests, close STLC.
+          - generic:
+            - generic:
+              - generic: "06"
+              - heading "Maintenance" [level=3]
+            - generic:
+              - paragraph:
+                - strong: "Dev Activity:"
+                - text: Live monitoring, server maintenance, patch deployments.
+              - generic:
+                - img
+                - generic:
+                  - strong: "QA Sync:"
+                  - text: Run automated regression suite on patches, log prod bugs.
+    - generic:
+      - generic:
+        - heading "STLC vs SDLC - Key Differences" [level=2]
+        - generic:
+          - table:
+            - rowgroup:
+              - row "Dimension STLC SDLC":
+                - columnheader "Dimension"
+                - columnheader "STLC"
+                - columnheader "SDLC"
+            - rowgroup:
+              - row "Focus Area Quality validation, finding system defects & user story verification. Architecting, coding, deploying, and maintaining the software application.":
+                - cell "Focus Area"
+                - cell "Quality validation, finding system defects & user story verification."
+                - cell "Architecting, coding, deploying, and maintaining the software application."
+              - row "Scope of Work Limited strictly to verification and validation activities. Encompasses the entire software lifecycle, including business strategy and design.":
+                - cell "Scope of Work"
+                - cell "Limited strictly to verification and validation activities."
+                - cell "Encompasses the entire software lifecycle, including business strategy and design."
+              - row "Ownership QA Analysts, Automation Engineers, and Test Leads. Product Managers, Architects, Developers, DevOps, and QA.":
+                - cell "Ownership"
+                - cell "QA Analysts, Automation Engineers, and Test Leads."
+                - cell "Product Managers, Architects, Developers, DevOps, and QA."
+              - row "Relationship A subset and integral phase inside the SDLC. The parent project lifecycle governing all delivery phases.":
+                - cell "Relationship"
+                - cell "A subset and integral phase inside the SDLC."
+                - cell "The parent project lifecycle governing all delivery phases."
+              - row "Enterprise Tools Jira, Zephyr, Xray, TestRail, Playwright, Cypress. Jira, Azure DevOps, Git, Jenkins, Terraform, AWS.":
+                - cell "Enterprise Tools"
+                - cell "Jira, Zephyr, Xray, TestRail, Playwright, Cypress."
+                - cell "Jira, Azure DevOps, Git, Jenkins, Terraform, AWS."
+              - row "Modern Approach Shift-Left testing, automated regression, and CI gating. Agile Scrum/Kanban, DevOps microservices, and Continuous Deployment.":
+                - cell "Modern Approach"
+                - cell "Shift-Left testing, automated regression, and CI gating."
+                - cell "Agile Scrum/Kanban, DevOps microservices, and Continuous Deployment."
+    - generic:
+      - generic:
+        - 'heading "SDLC Models: Waterfall vs. Agile" [level=2]'
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - img
+                - 'heading "The Pre-Agile Era: Waterfall Model" [level=3]'
+              - paragraph: A linear, sequential engineering model where each phase must be fully completed and signed off before the next phase begins.
+              - generic:
+                - generic:
+                  - img
+                  - generic: Reqs
+                - generic: →
+                - generic:
+                  - img
+                  - generic: Design
+                - generic: →
+                - generic:
+                  - img
+                  - generic: Code
+                - generic: →
+                - generic:
+                  - img
+                  - generic: Verify
+              - list:
+                - listitem:
+                  - text: ✓
+                  - strong: "Rigid Sequential Flow:"
+                  - text: Going back to a prior stage is highly expensive and bureaucratic.
+                - listitem:
+                  - text: ✓
+                  - strong: "Late Verification:"
+                  - text: Working software and testing occur only at the final stages.
+                - listitem:
+                  - text: ✓
+                  - strong: "Waterfall Pain Points:"
+                  - text: According to the Standish CHAOS reports, over 60-70% of Waterfall software projects historically failed or ran significantly over budget.
+              - generic:
+                - strong: "V-Model & Spiral variations:"
+                - text: Heavy documentation gates attempting to manage risks upfront, borrowed from physical construction engineering.
+          - generic:
+            - generic:
+              - generic:
+                - img
+                - 'heading "The Modern Era: Agile Methodology" [level=3]'
+              - paragraph: An iterative, incremental approach dividing development into small timeboxes (Sprints of 1–4 weeks) focused on continuous adaptation and collaboration.
+              - generic:
+                - table:
+                  - rowgroup:
+                    - row "We Value (Agile Principles) Over (Waterfall Constraints)":
+                      - columnheader "We Value (Agile Principles)"
+                      - columnheader "Over (Waterfall Constraints)"
+                  - rowgroup:
+                    - row "Individuals and interactions Processes and tools":
+                      - cell "Individuals and interactions":
+                        - strong: Individuals and interactions
+                      - cell "Processes and tools"
+                    - row "Working software Comprehensive documentation":
+                      - cell "Working software":
+                        - strong: Working software
+                      - cell "Comprehensive documentation"
+                    - row "Customer collaboration Contract negotiation":
+                      - cell "Customer collaboration":
+                        - strong: Customer collaboration
+                      - cell "Contract negotiation"
+                    - row "Responding to change Following a plan":
+                      - cell "Responding to change":
+                        - strong: Responding to change
+                      - cell "Following a plan"
+              - generic:
+                - img
+                - generic:
+                  - strong: "The Mindset Shift:"
+                  - text: Software is malleable (like clay), not concrete. While documentation and processes have value, we prioritize shipping working code and adapting to user feedback.
+    - generic:
+      - generic:
+        - heading "The 12 Principles of Agile" [level=2]
+        - generic:
+          - generic:
+            - paragraph:
+              - text: The operational foundation of Agile. Hover over cards to explore. Cards highlighted in
+              - strong: emerald green
+              - text: represent principles that directly empower high-fidelity Quality Assurance.
+          - generic:
+            - generic:
+              - generic: "01"
+              - heading "Satisfy Customers First" [level=4]
+              - paragraph: Continuous early delivery of valuable software builds client trust.
+            - generic:
+              - generic: "02"
+              - heading "Welcome Changing Reqs" [level=4]
+              - paragraph: Adapt to change, even late in development, for customer competitive edge.
+            - generic:
+              - generic: "03"
+              - heading "Frequent Delivery" [level=4]
+              - paragraph: Deliver working software in weeks rather than months for rapid feedback.
+            - generic:
+              - generic: "04"
+              - heading "Daily Collaboration" [level=4]
+              - paragraph: Business experts and developers must work together daily throughout the project.
+            - generic:
+              - generic: "05"
+              - heading "Motivated Individuals" [level=4]
+              - paragraph: Provide team members with environment, trust, and support to get work done.
+            - generic:
+              - generic: "06"
+              - heading "Face-to-Face Chat" [level=4]
+              - paragraph: Conveying information via direct face-to-face conversation is most efficient.
+            - generic:
+              - generic: "07"
+              - heading "Working Software" [level=4]
+              - paragraph: Functional, tested working software is the primary progress metric.
+            - generic:
+              - generic: "08"
+              - heading "Sustainable Development" [level=4]
+              - paragraph: Maintain a constant, sustainable, repeatable delivery pace indefinitely.
+            - generic:
+              - generic: "09"
+              - heading "Technical Excellence" [level=4]
+              - paragraph: Continuous focus on high-fidelity designs and clean engineering improves agility.
+            - generic:
+              - generic: "10"
+              - heading "Simplicity is Essential" [level=4]
+              - paragraph: Simplicity is the critical art of maximizing the amount of work NOT done.
+            - generic:
+              - generic: "11"
+              - heading "Self-Organizing Teams" [level=4]
+              - paragraph: Autonomous self-organizing teams produce optimal architectures and designs.
+            - generic:
+              - generic: "12"
+              - heading "Regular Reflections" [level=4]
+              - paragraph: Reflect regularly on operational effectiveness, tuning and adjusting behaviors.
+    - generic [ref=e193]:
+      - heading "Agile Frameworks & Scrum Deep Dive" [level=2] [ref=e194]
+      - generic [ref=e195]:
+        - generic [ref=e196]:
+          - button "Scrum" [ref=e197] [cursor=pointer]:
+            - generic [ref=e198]: Scrum
+            - img [ref=e281]
+          - button "Kanban" [ref=e201] [cursor=pointer]:
+            - generic [ref=e202]: Kanban
+            - img [ref=e283]
+          - button "XP (Engineering)" [active] [ref=e205] [cursor=pointer]:
+            - generic [ref=e206]: XP (Engineering)
+            - img [ref=e285]
+          - button "Lean" [ref=e209] [cursor=pointer]:
+            - generic [ref=e210]: Lean
+            - img [ref=e287]
+          - button "SAFe (Enterprise)" [ref=e213] [cursor=pointer]:
+            - generic [ref=e214]: SAFe (Enterprise)
+            - img [ref=e289]
+          - button "LeSS" [ref=e217] [cursor=pointer]:
+            - generic [ref=e218]: LeSS
+            - img [ref=e291]
+          - button "Crystal" [ref=e221] [cursor=pointer]:
+            - generic [ref=e222]: Crystal
+            - img [ref=e293]
+        - generic [ref=e226]:
+          - heading "Extreme Programming (XP) Framework" [level=3] [ref=e298]
+          - generic [ref=e299]:
+            - generic [ref=e300]:
+              - generic [ref=e301]: Best For
+              - text: Software engineering teams striving for technical excellence and code quality.
+            - generic [ref=e302]:
+              - generic [ref=e303]: Core Feature
+              - text: Aggressive, high-discipline software engineering practices focused on continuous quality.
+          - paragraph [ref=e304]: XP introduced the software world to modern engineering staples including Test-Driven Development (TDD), Pair Programming, Continuous Integration (CI), and Simple Design.
+          - generic [ref=e305]:
+            - generic [ref=e306]:
+              - generic [ref=e307]:
+                - heading "Roles & Ownership" [level=4] [ref=e308]:
+                  - img [ref=e309]
+                  - text: Roles & Ownership
+                - list [ref=e314]:
+                  - listitem [ref=e315]: "• Customer: Represents business, writes user stories, and conducts acceptance testing."
+                  - listitem [ref=e316]: "• Tracker: Gathers team metrics, velocity, and measures development pace."
+                  - listitem [ref=e317]: "• Coach: Technical guide ensuring engineering standards and XP practices are maintained."
+              - generic [ref=e318]:
+                - heading "Core Artifacts" [level=4] [ref=e319]:
+                  - img [ref=e320]
+                  - text: Core Artifacts
+                - list [ref=e324]:
+                  - listitem [ref=e325]: "• User Stories: Small customer requirements mapped to business values."
+                  - listitem [ref=e326]: "• Automated Tests: 100% automated regression coverage required before any code merge."
+            - generic [ref=e328]:
+              - heading "Key Ceremonies / Rituals" [level=4] [ref=e329]:
+                - img [ref=e330]
+                - text: Key Ceremonies / Rituals
+              - list [ref=e332]:
+                - listitem [ref=e333]: "• Iteration Planning: Select user stories for the immediate 1-2 week development cycle."
+                - listitem [ref=e334]: "• Daily Stand-up: Brief status sync among developers."
+                - listitem [ref=e335]: "• Refactoring Sessions: Continuous improvement of internal code design without changing behavior."
+    - generic:
+      - generic:
+        - heading "Where to Use Agile vs. Where NOT to Use" [level=2]
+        - generic:
+          - generic:
+            - generic:
+              - heading "Software Product Development" [level=3]:
+                - img
+                - text: Software Product Development
+              - paragraph: Developing customer-facing apps, SaaS platforms, or internal enterprise tools where user behaviors, technologies, and market environments evolve rapidly based on feedback.
+            - generic:
+              - heading "Innovation, MVPs, & R&D" [level=3]:
+                - img
+                - text: Innovation, MVPs, & R&D
+              - paragraph: Building Minimum Viable Products (MVPs) for startups to validate market fit before heavy investment, or piloting emerging AI/ML technologies where final answers are unknown.
+            - generic:
+              - heading "Complex Migrations & Refactors" [level=3]:
+                - img
+                - text: Complex Migrations & Refactors
+              - paragraph: Migrating complex legacy platforms (e.g. core mainframes to cloud-native microservices) where target structures and requirements emerge organically as you peel back technical debt.
+          - generic:
+            - generic:
+              - heading "FDA & Strict Regulatory Systems" [level=3]:
+                - img
+                - text: FDA & Strict Regulatory Systems
+              - paragraph:
+                - strong: "Example:"
+                - text: MRI scanners, aerospace guidance, nuclear reactors (standards like IEC 62304).
+              - paragraph: Demands complete traceability, heavy documentation, and formal design sign-offs before coding.
+              - generic:
+                - strong: "QA Mitigation:"
+                - text: Use Hybrid "Wagile"—development sprints inside rigid regulatory document milestones.
+            - generic:
+              - heading "Fixed-Price Procurement Contracts" [level=3]:
+                - img
+                - text: Fixed-Price Procurement Contracts
+              - paragraph:
+                - strong: "Example:"
+                - text: Government tender contracts paying strictly for an exact defined Statement of Work (SOW).
+              - paragraph: Locking scope, price, and deadlines upfront eliminates Agile's core adaptiveness.
+              - generic:
+                - strong: "QA Mitigation:"
+                - text: Frame agreements at epic-level milestones, keeping story details flexible.
+            - generic:
+              - heading "Hardware & Pure Ops/Maintenance" [level=3]:
+                - img
+                - text: Hardware & Pure Ops/Maintenance
+              - paragraph:
+                - strong: "Example:"
+                - text: Car engine block casting or running updates on a stable 15-year old legacy COBOL platform.
+              - paragraph: Long manufacturing lead times or routine updates render Scrum timeboxes wasteful.
+              - generic:
+                - strong: "QA Mitigation:"
+                - text: Adapt pure continuous flow Kanban instead of forcing Scrum ceremonies.
+    - generic:
+      - generic:
+        - 'heading "Agile in Enterprise: Case Studies & Traps" [level=2]'
+        - generic:
+          - generic:
+            - generic:
+              - img
+              - generic:
+                - heading "Spotify Model (Autonomy)" [level=4]
+                - paragraph:
+                  - text: Replaced hierarchies with cross-functional
+                  - strong: Squads
+                  - text: (mini-startups), aligned under
+                  - strong: Tribes
+                  - text: ", with horizontal expertise shared via"
+                  - strong: Chapters
+                  - text: and communities of interest via
+                  - strong: Guilds
+                  - text: .
+            - generic:
+              - img
+              - generic:
+                - heading "ING Bank Netherlands (Restructuring)" [level=4]
+                - paragraph: Dissolved traditional marketing, operations, and IT silos, reorganizing 3,500 employees into 350 cross-functional squads to drastically improve market response speeds.
+            - generic:
+              - img
+              - generic:
+                - heading "Amazon (Two-Pizza Teams)" [level=4]
+                - paragraph:
+                  - text: "Every service has a micro-team sized to be fed by two pizzas (6–10 people) who own their microservice end-to-end:"
+                  - emphasis: "\"You build it, you run it.\""
+            - generic:
+              - img
+              - generic:
+                - heading "JPMorgan & Siemens (Scale & Regulated)" [level=4]
+                - paragraph: JPMC scales Scrum across thousands of developers using SAFe Agile Release Trains (ARTs). Siemens coordinates automated testing traceability for FDA CT/MRI medical scanners.
+          - generic:
+            - generic:
+              - img
+              - generic: "DORA Metrics: Measuring Agile / DevOps Success"
+            - generic:
+              - generic:
+                - heading "Lead Time" [level=5]
+                - paragraph: Time from code commit to running in production.
+              - generic:
+                - heading "Deployment Freq" [level=5]
+                - paragraph: How often code is successfully deployed to production.
+              - generic:
+                - heading "Change Fail Rate" [level=5]
+                - paragraph: Deployments resulting in production incidents/degradation.
+              - generic:
+                - heading "MTTR" [level=5]
+                - paragraph: Mean Time to Restore service after a production issue.
+            - generic:
+              - heading "Enterprise \"Agile Theater\" Anti-Patterns" [level=4]:
+                - img
+                - text: Enterprise "Agile Theater" Anti-Patterns
+              - paragraph:
+                - text: •
+                - strong: "Water-Scrum-Fall:"
+                - text: Agile coding, but Waterfall design planning and delayed QA deployment pipelines.
+                - text: •
+                - strong: "Proxy Product Owner:"
+                - text: Business Analyst acting as PO with zero authority to make scope priorities.
+                - text: •
+                - strong: "Velocity as a Weapon:"
+                - text: Management pushing teams to raise story point estimates, causing estimation inflation.
+                - text: •
+                - strong: "No-Documentation Extreme:"
+                - text: Refusing to write critical setup logs under the excuse of "Working software."
+    - generic:
+      - generic:
+        - heading "The Testing Pyramid" [level=2]
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - generic: E2E / UI
+                - generic: 5 - 10%
+              - generic:
+                - generic: Integration
+                - generic: 15 - 20%
+              - generic:
+                - generic: Unit Tests
+                - generic: 70 - 80%
+            - generic: Modern Extensions
+            - generic:
+              - button "Contract":
+                - img
+                - text: Contract
+              - button "Component":
+                - img
+                - text: Component
+              - button "Manual / Exploratory":
+                - img
+                - text: Manual / Exploratory
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - heading "Unit Testing (The Base)" [level=3]
+              - generic:
+                - generic:
+                  - generic: Quantity
+                  - generic: Should make up the vast majority of your tests
+                - generic:
+                  - generic: Execution Speed
+                  - generic: Extremely fast, usually executing in milliseconds.
+                - generic:
+                  - generic: Cost
+                  - generic: Very cheap to write and maintain.
+                - generic:
+                  - generic: Reliability
+                  - generic: Highly reliable; failures almost always indicate a real bug in the unit under test.
+              - generic:
+                - generic:
+                  - generic:
+                    - heading "What they Verify" [level=4]:
+                      - img
+                      - text: What they Verify
+                    - list:
+                      - listitem: • Logic, algorithms, and data transformations.
+                      - listitem: • Edge cases, boundary inputs, and exception paths.
+                      - listitem: • Public contracts and behaviors of individual units in complete isolation.
+                  - generic:
+                    - heading "Key Requirements" [level=4]:
+                      - img
+                      - text: Key Requirements
+                    - list:
+                      - listitem: • All external dependencies (databases, network APIs, file systems, clocks) must be mocked or stubbed.
+                      - listitem: • Tests must be deterministic—the same inputs must always produce the same outputs.
+                      - listitem: • Tests must be independent—execution order must not affect outcomes.
+                - generic:
+                  - generic:
+                    - heading "Enterprise Example" [level=4]:
+                      - img
+                      - text: Enterprise Example
+                    - paragraph:
+                      - text: Testing a
+                      - code: calculateTax(amount, rate)
+                      - text: function to ensure it returns the correct tax value for normal inputs, zero, and extreme values, with external mock configurations.
+    - generic:
+      - generic:
+        - heading "Why the Pyramid Shape Matters" [level=2]
+        - generic:
+          - generic:
+            - generic:
+              - img
+              - generic:
+                - heading "Wide Base (Unit Tests)" [level=3]
+                - paragraph: Maximize volume at the bottom for instant, highly deterministic feedback.
+            - generic:
+              - img
+              - generic:
+                - heading "Narrow Top (E2E / UI Tests)" [level=3]
+                - paragraph: Minimize volume at the top to prevent slow execution and high maintenance cost.
+          - generic:
+            - table:
+              - rowgroup:
+                - row "Aspect Wide Base (Unit) Narrow Top (E2E)":
+                  - columnheader "Aspect"
+                  - columnheader "Wide Base (Unit)"
+                  - columnheader "Narrow Top (E2E)"
+              - rowgroup:
+                - row "Feedback Speed Instant developer feedback (milliseconds) Slow feedback loop (seconds to minutes per test)":
+                  - cell "Feedback Speed"
+                  - cell "Instant developer feedback (milliseconds)":
+                    - strong: Instant developer feedback
+                    - text: (milliseconds)
+                  - cell "Slow feedback loop (seconds to minutes per test)":
+                    - strong: Slow feedback loop
+                    - text: (seconds to minutes per test)
+                - row "Debugging Ease Pinpoints exact failing function/class instantly Hard to locate root cause (requires analyzing logs/states)":
+                  - cell "Debugging Ease"
+                  - cell "Pinpoints exact failing function/class instantly":
+                    - strong: Pinpoints exact failing function
+                    - text: /class instantly
+                  - cell "Hard to locate root cause (requires analyzing logs/states)":
+                    - strong: Hard to locate root cause
+                    - text: (requires analyzing logs/states)
+                - row "Maintenance Cost Low; very simple to update and refactor High; brittle to UI changes and prone to flakiness":
+                  - cell "Maintenance Cost"
+                  - cell "Low; very simple to update and refactor":
+                    - strong: Low
+                    - text: ; very simple to update and refactor
+                  - cell "High; brittle to UI changes and prone to flakiness":
+                    - strong: High
+                    - text: ; brittle to UI changes and prone to flakiness
+                - row "Infrastructure Developer machine only; completely mocked environment Requires staging/production-like environment with active systems":
+                  - cell "Infrastructure"
+                  - cell "Developer machine only; completely mocked environment":
+                    - strong: Developer machine only
+                    - text: ; completely mocked environment
+                  - cell "Requires staging/production-like environment with active systems":
+                    - strong: Requires staging/production-like environment
+                    - text: with active systems
+                - row "Confidence Level High for localized business logic correctness High for full system-wide, end-to-end integration":
+                  - cell "Confidence Level"
+                  - cell "High for localized business logic correctness":
+                    - strong: High for localized business logic correctness
+                  - cell "High for full system-wide, end-to-end integration":
+                    - strong: High for full system-wide, end-to-end integration
+    - generic:
+      - generic:
+        - heading "Pyramid Anti-Patterns & Heuristics" [level=2]
+        - generic:
+          - generic:
+            - generic:
+              - img
+              - generic:
+                - heading "The Testing Ice-Cone (Inverted Pyramid)" [level=3]
+                - paragraph:
+                  - strong: Too many E2E tests and too few unit tests.
+                  - text: Leads to painfully slow build pipelines, constant flaky test failures, high maintenance costs, and severe developer frustration.
+            - generic:
+              - img
+              - generic:
+                - heading "The Testing Hourglass" [level=3]
+                - paragraph:
+                  - strong: Many unit tests and many E2E tests, but almost no integration tests.
+                  - text: Leaves a dangerous untested gap in the middle where service communication and database schema interactions can fail undetected.
+            - generic:
+              - img
+              - generic:
+                - heading "Testing Implementation instead of Behavior" [level=3]
+                - paragraph:
+                  - strong: Writing unit tests tightly coupled to internal code details.
+                  - text: Causes test suites to break on every code refactoring even when user-facing behavior remains completely correct.
+            - generic:
+              - img
+              - paragraph:
+                - strong: "Key Heuristic:"
+                - text: The Testing Pyramid is a guide, not a rigid law. The goal is to maximize confidence per unit of cost and time by building a strong, fast, automated test foundation.
+          - generic:
+            - table:
+              - rowgroup:
+                - row "Level Scope Speed Quantity Isolation":
+                  - columnheader "Level"
+                  - columnheader "Scope"
+                  - columnheader "Speed"
+                  - columnheader "Quantity"
+                  - columnheader "Isolation"
+              - rowgroup:
+                - row "Unit Single function/class Milliseconds Most (70-80%) Fully mocked":
+                  - cell "Unit"
+                  - cell "Single function/class"
+                  - cell "Milliseconds"
+                  - cell "Most (70-80%)"
+                  - cell "Fully mocked"
+                - row "Integration Multiple components Seconds Medium (15-20%) Real internal, mocked external":
+                  - cell "Integration"
+                  - cell "Multiple components"
+                  - cell "Seconds"
+                  - cell "Medium (15-20%)"
+                  - cell "Real internal, mocked external"
+                - row "E2E / UI Full system/user journey Minutes Least (5-10%) Staging/Production-like":
+                  - cell "E2E / UI"
+                  - cell "Full system/user journey"
+                  - cell "Minutes"
+                  - cell "Least (5-10%)"
+                  - cell "Staging/Production-like"
+    - generic:
+      - generic:
+        - 'heading "Modern Enterprise: STLC + SDLC Integration" [level=2]'
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - img
+                - heading "Agile + DevOps Flow" [level=3]
+              - list:
+                - listitem:
+                  - text: ✓
+                  - strong: "Parallel Execution:"
+                  - text: SDLC runs in 2-week agile sprints; STLC runs concurrently in the same sprint.
+                - listitem:
+                  - text: ✓
+                  - strong: "Continuous Integration:"
+                  - text: Automated regression suites trigger on every git merge request.
+                - listitem:
+                  - text: ✓
+                  - strong: "Exploratory Testing:"
+                  - text: Carried out by QA during feature demos to capture unexpected edge cases.
+                - listitem:
+                  - text: ✓
+                  - strong: "Shift-Left:"
+                  - text: Involving QA in design sessions saves up to 100x bug-fixing costs.
+          - generic:
+            - generic:
+              - generic:
+                - img
+                - heading "AI/ML Testing Extension" [level=3]
+              - paragraph: "Traditional STLC has expanded to cover non-deterministic AI chatbot or model behaviors:"
+              - generic:
+                - generic: Hallucination Checks
+                - generic: Prompt Injection
+                - generic: Bias & Fairness
+                - generic: Latency Metrics
+              - paragraph:
+                - text: "Tools:"
+                - strong: Promptfoo, Ragas, Langfuse
+            - generic:
+              - generic:
+                - img
+                - heading "Modern QA Tech Stack" [level=3]
+              - generic:
+                - generic:
+                  - img
+                  - generic: Playwright
+                - generic:
+                  - img
+                  - generic: k6 (Load)
+                - generic:
+                  - generic: CI/CD
+                - generic:
+                  - img
+                  - generic: Grafana
+    - generic:
+      - generic:
+        - heading "Key Session Takeaways" [level=2]
+        - generic:
+          - generic:
+            - generic: "01"
+            - generic:
+              - heading "7 Principles are Paramount" [level=4]
+              - paragraph: They apply to all modern systems—from standard database APIs to complex AI/ML chatbots.
+          - generic:
+            - generic: "02"
+            - generic:
+              - heading "STLC is Structured Quality" [level=4]
+              - paragraph: 6 robust phases with strict entry and exit criteria prevent defective releases.
+          - generic:
+            - generic: "03"
+            - generic:
+              - heading "STLC Fits Inside SDLC" [level=4]
+              - paragraph: Testing is not an isolated final step; it is woven through the entire engineering lifecycle.
+          - generic:
+            - generic: "04"
+            - generic:
+              - heading "Shift-Left Prevents Loss" [level=4]
+              - paragraph: Catching requirements gaps in Phase 1 guarantees massive speed and financial savings.
+          - generic:
+            - generic: "05"
+            - generic:
+              - heading "DevOps & Automation are Key" [level=4]
+              - paragraph: CI/CD, regression automation, and ephemeral QA environments are standard in major enterprises.
+          - generic:
+            - generic: "06"
+            - generic:
+              - heading "AI Testing is the Next Frontier" [level=4]
+              - paragraph: Model evaluations, safety checks, and deterministic wrappers are modern extensions to STLC.
+    - generic:
+      - generic:
+        - generic: End of Session
+        - heading "Thank You!" [level=1]
+        - heading "Any Questions?" [level=2]
+        - generic:
+          - generic:
+            - img
+            - generic: qa-class@enterprise.com
+          - generic:
+            - img
+            - generic: testing-fundamentals.io
+        - paragraph: Software Testing Fundamentals | STLC & SDLC Deep Dive
+  - generic [ref=e35]:
+    - generic [ref=e36]:
+      - button "Previous (Left Arrow / PageUp)" [ref=e37] [cursor=pointer]:
+        - img [ref=e336]
+      - generic [ref=e40]: Slide 20 of 28
+      - button "Next (Right Arrow / Space / PageDown)" [ref=e41] [cursor=pointer]:
+        - img [ref=e338]
+    - generic [ref=e45]:
+      - combobox [ref=e46] [cursor=pointer]:
+        - 'option "01. Title: Software Testing Fundamentals"'
+        - option "02. Session Overview (TOC)"
+        - option "03. What is Software Testing?"
+        - option "04. Testing Types (Micro to Macro)"
+        - option "05. 7 Principles of Testing (Part 1)"
+        - option "06. 7 Principles of Testing (Part 2)"
+        - option "07. Intro to STLC"
+        - option "08. STLC Flow - Interactive Dashboard"
+        - 'option "09. STLC Phase 1: Requirement Analysis"'
+        - 'option "10. STLC Phase 2: Test Planning"'
+        - 'option "11. STLC Phase 3: Test Case Design"'
+        - 'option "12. STLC Phase 4: Test Env Setup"'
+        - 'option "13. STLC Phase 5: Test Execution"'
+        - 'option "14. STLC Phase 6: Test Closure"'
+        - option "15. Intro to SDLC"
+        - option "16. SDLC Core Phases & QA Sync"
+        - 'option "17. Comparison: STLC vs SDLC"'
+        - 'option "18. SDLC Models: Waterfall vs. Agile"'
+        - option "19. The 12 Principles of Agile"
+        - option "20. Agile Frameworks & Scrum Deep Dive" [selected]
+        - option "21. Where to Use Agile vs. Where NOT"
+        - 'option "22. Agile in Enterprise: Case Studies & Traps"'
+        - option "23. The Testing Pyramid (Interactive)"
+        - option "24. Why the Pyramid Shape Matters"
+        - option "25. Pyramid Anti-Patterns & Heuristics"
+        - option "26. Enterprise Agile & AI Integrations"
+        - option "27. Key Takeaways Summary"
+        - 'option "28. End: Questions & Thank You"'
+      - img
+    - generic [ref=e47]:
+      - button "Auto-Play Slideshow (P)" [ref=e48] [cursor=pointer]:
+        - img [ref=e340]
+      - button "Show Keyboard Shortcuts (H)" [ref=e51] [cursor=pointer]:
+        - img [ref=e342]
+  - generic:
+    - generic:
+      - generic:
+        - heading "Keyboard Shortcuts" [level=3]
+        - button "×"
+      - generic:
+        - generic:
+          - generic: Space
+          - text: or
+          - generic: →
+          - text: or
+          - generic: PgDn
+          - generic: Next Slide
+        - generic:
+          - generic: ←
+          - text: or
+          - generic: PgUp
+          - generic: Previous Slide
+        - generic:
+          - generic: Home
+          - text: /
+          - generic: End
+          - generic: First / Last Slide
+        - generic:
+          - generic: F
+          - generic: Toggle Fullscreen
+        - generic:
+          - generic: L
+          - generic: Toggle Light/Dark Theme
+        - generic:
+          - generic: P
+          - generic: Toggle Auto-Play Slideshow
+        - generic:
+          - generic: H
+          - generic: Toggle this Help Dialog

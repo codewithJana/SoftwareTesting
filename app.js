@@ -2,7 +2,7 @@
 // STATE MANAGEMENT & DATA
 // ==========================================================================
 let currentSlide = 1;
-const totalSlides = 20;
+const totalSlides = 28;
 let isPlaying = false;
 let playInterval = null;
 const playSpeed = 5000; // 5 seconds per slide
@@ -26,9 +26,17 @@ const slidesMetadata = [
   { id: 15, title: "15. Intro to SDLC" },
   { id: 16, title: "16. SDLC Core Phases & QA Sync" },
   { id: 17, title: "17. Comparison: STLC vs SDLC" },
-  { id: 18, title: "18. Enterprise Agile & AI Integrations" },
-  { id: 19, title: "19. Key Takeaways Summary" },
-  { id: 20, title: "20. End: Questions & Thank You" }
+  { id: 18, title: "18. SDLC Models: Waterfall vs. Agile" },
+  { id: 19, title: "19. The 12 Principles of Agile" },
+  { id: 20, title: "20. Agile Frameworks & Scrum Deep Dive" },
+  { id: 21, title: "21. Where to Use Agile vs. Where NOT" },
+  { id: 22, title: "22. Agile in Enterprise: Case Studies & Traps" },
+  { id: 23, title: "23. The Testing Pyramid (Interactive)" },
+  { id: 24, title: "24. Why the Pyramid Shape Matters" },
+  { id: 25, title: "25. Pyramid Anti-Patterns & Heuristics" },
+  { id: 26, title: "26. Enterprise Agile & AI Integrations" },
+  { id: 27, title: "27. Key Takeaways Summary" },
+  { id: 28, title: "28. End: Questions & Thank You" }
 ];
 
 // Interactive STLC Phases Data for Slide 8 Dashboard
@@ -150,6 +158,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Initialize Slide 8 STLC Interactive Dashboard
   selectStlcPhase(1);
+
+  // Initialize Slide 20 Agile Frameworks Interactive Dashboard
+  selectAgileFramework('scrum');
+
+  // Initialize Slide 23 Pyramid Interactive Dashboard
+  selectPyramidLevel('unit');
 
   // Render Current Slide
   updateSlidesUI();
@@ -406,6 +420,411 @@ function handleKeyDown(e) {
   }
 }
 
+// ==========================================================================
+// AGILE FRAMEWORKS DATA & INTERACTIVE LOGIC (SLIDE 20)
+// ==========================================================================
+const agileFrameworksData = {
+  scrum: {
+    title: "Scrum",
+    bestFor: "Most cross-functional software product development teams.",
+    feature: "Highly structured time-boxed loops (Sprints) with defined sprint rituals and strict team roles.",
+    roles: [
+      "Product Owner (PO): Owns the 'What'—manages and prioritizes the Product Backlog.",
+      "Scrum Master (SM): Owns the 'How'—removes team blockers, coaches Scrum, protects team focus.",
+      "Development Team: Cross-functional creators who build the actual increments."
+    ],
+    artifacts: [
+      "Product Backlog: The master list of all customer-facing features, epics, and requirements.",
+      "Sprint Backlog: Selected set of user stories committed to the current sprint.",
+      "Increment: A fully tested, usable, and potentially releasable piece of software at sprint end."
+    ],
+    ceremonies: [
+      "Sprint Planning (Timebox: 2-4 hrs): Define Sprint Goal and select backlog items.",
+      "Daily Stand-up (Timebox: 15 mins): Synchronize work, plan next 24 hrs, flag blockers.",
+      "Sprint Review (Timebox: 1-2 hrs): Demo the working increment to business stakeholders.",
+      "Sprint Retrospective (Timebox: 1-2 hrs): Inspect and adapt process for quality improvements."
+    ],
+    description: "Scrum is the most widely adopted Agile framework. It divides development cycles into sprints (typically 2 weeks long) and encourages self-organization and high-fidelity continuous feedback loops."
+  },
+  kanban: {
+    title: "Kanban",
+    bestFor: "Ops, support, system engineering, and continuous delivery teams.",
+    feature: "Visual continuous workflow management using strict WIP (Work-In-Progress) limits without fixed-time sprints.",
+    roles: [
+      "No mandatory roles defined: Teams are collaborative and self-organize around the flow of cards.",
+      "Optional roles: Service Delivery Manager (flow manager) and Service Request Manager."
+    ],
+    artifacts: [
+      "Kanban Board: Physical or digital board showing stages (To Do, In Progress, Review, Done).",
+      "WIP Limits: Explicit caps on maximum cards allowed in a single column to prevent bottlenecks."
+    ],
+    ceremonies: [
+      "Daily Standup Meeting: Review the board flow from right to left (unblocking closest to Done).",
+      "Queue Replenishment Meeting: Gather to pull and prioritize new requests from backlog.",
+      "Service Delivery Review: Retrospective focus analyzing cycle time, throughput, and lead time."
+    ],
+    description: "Adapted from the Toyota Production System, Kanban focuses on visualizing work, limiting WIP to match capacity, and continuously optimizing flow to reduce lead time."
+  },
+  xp: {
+    title: "Extreme Programming (XP)",
+    bestFor: "Software engineering teams striving for technical excellence and code quality.",
+    feature: "Aggressive, high-discipline software engineering practices focused on continuous quality.",
+    roles: [
+      "Customer: Represents business, writes user stories, and conducts acceptance testing.",
+      "Tracker: Gathers team metrics, velocity, and measures development pace.",
+      "Coach: Technical guide ensuring engineering standards and XP practices are maintained."
+    ],
+    artifacts: [
+      "User Stories: Small customer requirements mapped to business values.",
+      "Automated Tests: 100% automated regression coverage required before any code merge."
+    ],
+    ceremonies: [
+      "Iteration Planning: Select user stories for the immediate 1-2 week development cycle.",
+      "Daily Stand-up: Brief status sync among developers.",
+      "Refactoring Sessions: Continuous improvement of internal code design without changing behavior."
+    ],
+    description: "XP introduced the software world to modern engineering staples including Test-Driven Development (TDD), Pair Programming, Continuous Integration (CI), and Simple Design."
+  },
+  lean: {
+    title: "Lean Software Development",
+    bestFor: "Teams aiming to optimize value stream delivery and eliminate process waste.",
+    feature: "Focus on eliminating waste, amplifying learning, delivering fast, and building quality in.",
+    roles: [
+      "Champions: Executive promoters of Lean continuous improvement initiatives.",
+      "Empowered Developers: Team members authorized to make local optimization decisions."
+    ],
+    artifacts: [
+      "Value Stream Map: Visual schematic tracing requirements from business idea down to production deployment.",
+      "Kanban Pull-Signal: Kanban cards prompting just-in-time development tasks."
+    ],
+    ceremonies: [
+      "Kaizen Events: Continuous improvement workshops focusing on unblocking bottlenecks.",
+      "Gemba Walks: Management observing operations directly at the active workstation."
+    ],
+    description: "Adapted from Toyota's manufacturing system, Lean emphasizes 7 principles: Eliminate waste, build quality in, create knowledge, defer commitment, deliver fast, respect people, and optimize the whole."
+  },
+  safe: {
+    title: "SAFe (Scaled Agile Framework)",
+    bestFor: "Extremely large enterprise organizations (500+ developers) with heavy governance.",
+    feature: "A highly structured, hierarchical scaling framework linking strategy directly to sprint teams.",
+    roles: [
+      "Release Train Engineer (RTE): The chief Scrum Master coordinating multi-team release trains.",
+      "Product Management: Coordinates product vision across multiple Product Backlogs.",
+      "System Architect: Directs high-level technical strategy across all development trains."
+    ],
+    artifacts: [
+      "Program Backlog: High-level epics and features spanning multiple sprint teams.",
+      "Agile Release Train (ART): A virtual program structure coordinating 5-12 agile teams."
+    ],
+    ceremonies: [
+      "PI Planning (Program Increment): A massive 2-day planning event aligning 100+ developers.",
+      "Scrum of Scrums: Regular sync meetings for Scrum Masters to align and resolve cross-team dependencies.",
+      "Inspect & Adapt: Program-level retrospective analyzing train delivery quality and flow."
+    ],
+    description: "SAFe is the most popular corporate scaling framework, blending Scrum, Kanban, Lean, and DevOps. However, it is criticized for heavy administrative overhead and rigid structures."
+  },
+  less: {
+    title: "LeSS (Large-Scale Scrum)",
+    bestFor: "Medium to large scale groups wanting Scrum's simplicity without corporate administrative bloat.",
+    feature: "Applying regular multi-team Scrum directly using a single Product Backlog and Product Owner.",
+    roles: [
+      "Single Product Owner: One PO manages the master backlog across all LeSS teams.",
+      "Scrum Masters: Multi-team facilitators supporting up to 3 teams simultaneously.",
+      "Feature Teams: Cross-functional, self-organizing teams building independent customer features."
+    ],
+    artifacts: [
+      "Single Product Backlog: One master queue of features, avoiding multi-backlog synchronization issues.",
+      "Joint Increment: A single, fully integrated build containing contributions from all squads."
+    ],
+    ceremonies: [
+      "Overall Sprint Planning: Representatives from all teams meet to partition backlog items.",
+      "Product Backlog Refinement: Multi-team backlog reviews clarifying user stories jointly.",
+      "Overall Retrospective: Joint meeting focusing on cross-team relationships and global processes."
+    ],
+    description: "LeSS operates on the principle of 'scaling Scrum by descaling the organization'. It removes unnecessary coordination layers, focusing on cross-functional product backlog team autonomy."
+  },
+  crystal: {
+    title: "Crystal",
+    bestFor: "Small to medium size teams wanting lightweight, custom-tailored agile processes.",
+    feature: "Methodology family grouped by color (Clear, Yellow, Orange, Red) representing team size and project risk criticality.",
+    roles: [
+      "Sponsor: Executive supporter funding operations and signing off releases.",
+      "Facilitator: Coach unblocking team communication.",
+      "Coordinating Designer: Technical strategist managing product architecture."
+    ],
+    artifacts: [
+      "Requirements Backlog: Prioritized feature list.",
+      "Release Plan: Milestone-driven timeline tailored to safety and complexity requirements."
+    ],
+    ceremonies: [
+      "Reflection Workshop: Bi-weekly retrospective focusing on tuning the custom team workflow.",
+      "Delivery Iterations: Regular cycles to deliver validated software increments to users."
+    ],
+    description: "Developed by Alistair Cockburn, Crystal is highly lightweight and tailors process weight directly to team size (Crystal Clear for 1-6 people, Crystal Orange for 40+ people) and criticality."
+  }
+};
+
+window.selectAgileFramework = function(framework) {
+  // Highlight active button/pill in HTML
+  const pills = document.querySelectorAll(".framework-pill");
+  pills.forEach(pill => pill.classList.remove("active"));
+  
+  const activePill = document.getElementById(`framework-${framework}`);
+  if (activePill) {
+    activePill.classList.add("active");
+  }
+
+  // Populate Details Panel
+  const data = agileFrameworksData[framework];
+  const container = document.getElementById("framework-details-container");
+  if (!container || !data) return;
+
+  const roleItems = data.roles.map(role => `<li>${role}</li>`).join("");
+  const artifactItems = data.artifacts.map(art => `<li>${art}</li>`).join("");
+  const ceremonyItems = data.ceremonies.map(cer => `<li>${cer}</li>`).join("");
+
+  container.innerHTML = `
+    <div class="framework-details-header">
+      <div class="details-title-row">
+        <div>
+          <h3>${data.title} Framework</h3>
+        </div>
+      </div>
+    </div>
+    
+    <div class="framework-summary-box">
+      <div class="f-summary-item">
+        <span class="f-sum-label">Best For</span>
+        <span class="f-sum-val">${data.bestFor}</span>
+      </div>
+      <div class="f-summary-item">
+        <span class="f-sum-label">Core Feature</span>
+        <span class="f-sum-val">${data.feature}</span>
+      </div>
+    </div>
+
+    <p class="framework-description-paragraph">${data.description}</p>
+
+    <div class="framework-content-split">
+      <div class="framework-left-lists">
+        <div class="f-details-box roles-box">
+          <h4><i data-lucide="users"></i> Roles & Ownership</h4>
+          <ul>${roleItems}</ul>
+        </div>
+        <div class="f-details-box artifacts-box">
+          <h4><i data-lucide="package-open"></i> Core Artifacts</h4>
+          <ul>${artifactItems}</ul>
+        </div>
+      </div>
+      <div class="framework-right-ceremonies">
+        <div class="f-details-box ceremonies-box">
+          <h4><i data-lucide="calendar-days"></i> Key Ceremonies / Rituals</h4>
+          <ul>${ceremonyItems}</ul>
+        </div>
+      </div>
+    </div>
+  `;
+
+  // Re-run lucide icons rendering
+  lucide.createIcons({
+    attrs: {
+      class: 'lucide-custom'
+    },
+    nameAttr: 'data-lucide'
+  });
+};
+
+// ==========================================================================
+// TESTING PYRAMID DATA & INTERACTIVE LOGIC (SLIDE 23)
+// ==========================================================================
+const pyramidData = {
+  unit: {
+    title: "Unit Testing (The Base)",
+    quantity: "Should make up the vast majority of your tests (roughly 70-80% of the pyramid).",
+    speed: "Extremely fast, usually executing in milliseconds.",
+    cost: "Very cheap to write and maintain.",
+    reliability: "Highly reliable; failures almost always indicate a real bug in the unit under test.",
+    scope: "Very narrow. They test one thing at a time.",
+    verify: [
+      "Logic, algorithms, and data transformations.",
+      "Edge cases, boundary inputs, and exception paths.",
+      "Public contracts and behaviors of individual units in complete isolation."
+    ],
+    requirements: [
+      "All external dependencies (databases, network APIs, file systems, clocks) must be mocked or stubbed.",
+      "Tests must be deterministic—the same inputs must always produce the same outputs.",
+      "Tests must be independent—execution order must not affect outcomes."
+    ],
+    example: "Testing a <code>calculateTax(amount, rate)</code> function to ensure it returns the correct tax value for normal inputs, zero, and extreme values, with external mock configurations."
+  },
+  integration: {
+    title: "Integration Testing (The Middle)",
+    quantity: "Fewer than unit tests (roughly 15-20% of the pyramid).",
+    speed: "Moderate—slower than unit tests because they may involve real infrastructure.",
+    cost: "More expensive to write and maintain due to setup complexity.",
+    reliability: "Generally reliable, but failures can stem from configuration, network, or environment.",
+    scope: "Medium. They cross module boundaries but usually stay within system boundaries.",
+    verify: [
+      "Database queries and transactions actually work with the real (or test-instance) database schema.",
+      "API endpoints correctly serialize and deserialize requests and responses.",
+      "Message queues and event buses process events properly.",
+      "Service-to-service communication within the same application."
+    ],
+    requirements: [
+      "Use real but lightweight infrastructure where possible (e.g., Testcontainers, in-memory databases).",
+      "Avoid testing third-party services you don't control; mock or stub external APIs.",
+      "Focus on the integration interface and data flow, not internal unit logic."
+    ],
+    example: "Testing a <code>UserRepository</code> class to ensure that calling <code>save(user)</code> persists the user record to a real PostgreSQL database and can be queried correctly."
+  },
+  e2e: {
+    title: "End-to-End (E2E) / UI Testing (The Top)",
+    quantity: "The fewest tests (roughly 5-10% of the pyramid).",
+    speed: "Very slow, often taking seconds or minutes per test.",
+    cost: "Expensive to write, run, and maintain; brittle and prone to UI changes.",
+    reliability: "Lower reliability—failures may be caused by network latency, third-party downtime, or race conditions.",
+    scope: "Very broad. They test the complete system as a black box.",
+    verify: [
+      "Critical user journeys (e.g., 'User signs up &rarr; Adds item to cart &rarr; Completes checkout').",
+      "System-wide workflows that span multiple microservices.",
+      "That the deployed application actually works in a production-like staging environment."
+    ],
+    requirements: [
+      "Run against a fully deployed environment or a high-fidelity staging system.",
+      "Minimize the number of E2E tests—only cover the most critical user paths.",
+      "Implement robust waiting strategies instead of fixed sleeps to prevent flakiness.",
+      "Isolate test data to prevent collisions between parallel test runs."
+    ],
+    example: "Using browser automation (Playwright/Cypress) to load the login page, fill user credentials, click submit, add an item to the shopping cart, enter billing details, and verify checkout success page."
+  },
+  contract: {
+    title: "Contract Testing (Modern Variation)",
+    quantity: "Sits between integration and E2E tests in microservice architectures.",
+    speed: "Fast to moderate—does not require spinning up entire client-server pipelines.",
+    cost: "Medium setup cost, low execution cost.",
+    reliability: "Very high; focused specifically on message/schema integrity.",
+    scope: "Medium-narrow. Focuses on the contract (request/response structure) between services.",
+    verify: [
+      "Verify that API providers and consumers agree on the exact request/response schema.",
+      "Detect breaking interface changes before code is merged or deployed."
+    ],
+    requirements: [
+      "Write consumer-driven contract definitions (e.g., using Pact).",
+      "Validate API provider mocks against the generated contract in CI/CD pipeline."
+    ],
+    example: "Verifying that the Order Microservice API payload format matches exactly what the Billing Microservice expects, preventing breaking serialization changes."
+  },
+  component: {
+    title: "Component / Service Testing (Modern Variation)",
+    quantity: "Intermediate quantity, often replacing extensive integration testing.",
+    speed: "Fast to moderate—runs in isolation with localized dependency containers.",
+    cost: "Medium maintenance cost.",
+    reliability: "High; isolated dependencies reduce external network flakiness.",
+    scope: "Medium. Validates a single service or UI component in isolation.",
+    verify: [
+      "Verify a single service or microservice operates correctly with its internal dependencies.",
+      "Validate visual components (React/Vue/Angular) render and handle state updates properly."
+    ],
+    requirements: [
+      "All external boundary services are mocked.",
+      "Internal database, cache, or message broker is spun up locally (e.g., Docker)."
+    ],
+    example: "Testing a React 'CheckoutForm' component in isolation by supplying mock state props and verifying payment submission handlers are triggered upon button click."
+  },
+  manual: {
+    title: "Manual / Exploratory Testing (The Cloud)",
+    quantity: "Conducted selectively; sits above the automated pyramid framework.",
+    speed: "Very slow, limited by human physical testing speed.",
+    cost: "High operational costs, but requires no initial automation codebase setup.",
+    reliability: "Extremely high for usability and edge-case discovery; low for repetitive regression checks.",
+    scope: "Broad and creative. Guided by experience and intuition.",
+    verify: [
+      "Human usability, overall user experience, visual layouts, and intuitive flows.",
+      "Complex edge-cases that automated test suites cannot easily catch.",
+      "Creative destructive testing ('What happens if I perform unpredicted, rapid actions?')."
+    ],
+    requirements: [
+      "Real human QA testers or business stakeholders.",
+      "Exploratory charters and scenarios instead of rigid step-by-step scripts."
+    ],
+    example: "A QA professional manually testing a new dynamic drag-and-drop kanban board feature on mobile devices to evaluate touch sensitivity, layout responsiveness, and ease of use."
+  }
+};
+
+window.selectPyramidLevel = function(level) {
+  // Highlight active level/node in HTML
+  const nodes = document.querySelectorAll(".pyramid-layer-clickable, .variation-pill");
+  nodes.forEach(node => node.classList.remove("active"));
+  
+  const activeNode = document.getElementById(`pyramid-${level}`);
+  if (activeNode) {
+    activeNode.classList.add("active");
+  }
+
+  // Populate Details Panel
+  const data = pyramidData[level];
+  const container = document.getElementById("pyramid-details-container");
+  if (!container || !data) return;
+
+  const verifyItems = data.verify.map(item => `<li>${item}</li>`).join("");
+  const reqItems = data.requirements.map(item => `<li>${item}</li>`).join("");
+
+  container.innerHTML = `
+    <div class="pyramid-details-header">
+      <div class="details-title-row">
+        <div>
+          <h3>${data.title}</h3>
+        </div>
+      </div>
+    </div>
+    
+    <div class="pyramid-metrics-grid">
+      <div class="pyramid-metric-badge">
+        <span class="p-metric-label">Quantity</span>
+        <span class="p-metric-val">${data.quantity.split(' (')[0]}</span>
+      </div>
+      <div class="pyramid-metric-badge">
+        <span class="p-metric-label">Execution Speed</span>
+        <span class="p-metric-val">${data.speed}</span>
+      </div>
+      <div class="pyramid-metric-badge">
+        <span class="p-metric-label">Cost</span>
+        <span class="p-metric-val">${data.cost}</span>
+      </div>
+      <div class="pyramid-metric-badge">
+        <span class="p-metric-label">Reliability</span>
+        <span class="p-metric-val">${data.reliability}</span>
+      </div>
+    </div>
+
+    <div class="pyramid-content-split">
+      <div class="pyramid-left-bullets">
+        <div class="p-details-box verify-box">
+          <h4><i data-lucide="check-circle-2"></i> What they Verify</h4>
+          <ul>${verifyItems}</ul>
+        </div>
+        <div class="p-details-box req-box">
+          <h4><i data-lucide="list-checks"></i> Key Requirements</h4>
+          <ul>${reqItems}</ul>
+        </div>
+      </div>
+      <div class="pyramid-right-example">
+        <div class="p-details-box example-box">
+          <h4><i data-lucide="braces"></i> Enterprise Example</h4>
+          <p>${data.example}</p>
+        </div>
+      </div>
+    </div>
+  `;
+
+  // Re-run lucide icons rendering
+  lucide.createIcons({
+    attrs: {
+      class: 'lucide-custom'
+    },
+    nameAttr: 'data-lucide'
+  });
+};
 
 // ==========================================================================
 // TESTING TYPES INTERACTIVE DETAILS (SLIDE 4)

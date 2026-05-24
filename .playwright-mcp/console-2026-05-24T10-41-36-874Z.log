@@ -1,0 +1,6 @@
+[     313ms] [WARNING] <i data-lucide="github"></i> icon name was not found in the provided icons object. @ https://unpkg.com/lucide@latest:7
+[     317ms] [WARNING] <i data-lucide="github"></i> icon name was not found in the provided icons object. @ https://unpkg.com/lucide@latest:7
+[     320ms] [WARNING] <i data-lucide="github"></i> icon name was not found in the provided icons object. @ https://unpkg.com/lucide@latest:7
+[     322ms] [WARNING] <i data-lucide="github"></i> icon name was not found in the provided icons object. @ https://unpkg.com/lucide@latest:7
+[     492ms] [ERROR] Failed to load resource: the server responded with a status of 404 (File not found) @ http://localhost:8080/favicon.ico:0
+[   92274ms] [WARNING] <i data-lucide="github"></i> icon name was not found in the provided icons object. @ https://unpkg.com/lucide@latest:7

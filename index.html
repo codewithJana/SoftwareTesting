@@ -61,8 +61,8 @@
     <section class="slide" id="slide-2">
       <div class="slide-content">
         <h2 class="slide-header">Session Overview</h2>
-        <div class="toc-grid">
-          <div class="toc-card" onclick="goToSlide(3)">
+        <div class="toc-grid" style="gap: 10px;">
+          <div class="toc-card" onclick="goToSlide(3)" style="padding: 10px 20px;">
             <span class="toc-num color-1">01</span>
             <div class="toc-info">
               <h3>Definition & Importance</h3>
@@ -70,7 +70,7 @@
             </div>
             <i data-lucide="arrow-right" class="toc-arrow"></i>
           </div>
-          <div class="toc-card" onclick="goToSlide(5)">
+          <div class="toc-card" onclick="goToSlide(5)" style="padding: 10px 20px;">
             <span class="toc-num color-2">02</span>
             <div class="toc-info">
               <h3>7 Principles of Testing</h3>
@@ -78,7 +78,7 @@
             </div>
             <i data-lucide="arrow-right" class="toc-arrow"></i>
           </div>
-          <div class="toc-card" onclick="goToSlide(7)">
+          <div class="toc-card" onclick="goToSlide(7)" style="padding: 10px 20px;">
             <span class="toc-num color-3">03</span>
             <div class="toc-info">
               <h3>STLC (Deep Dive)</h3>
@@ -86,7 +86,7 @@
             </div>
             <i data-lucide="arrow-right" class="toc-arrow"></i>
           </div>
-          <div class="toc-card" onclick="goToSlide(15)">
+          <div class="toc-card" onclick="goToSlide(15)" style="padding: 10px 20px;">
             <span class="toc-num color-4">04</span>
             <div class="toc-info">
               <h3>SDLC Fundamentals</h3>
@@ -94,11 +94,27 @@
             </div>
             <i data-lucide="arrow-right" class="toc-arrow"></i>
           </div>
-          <div class="toc-card" onclick="goToSlide(17)">
+          <div class="toc-card" onclick="goToSlide(17)" style="padding: 10px 20px;">
             <span class="toc-num color-5">05</span>
             <div class="toc-info">
               <h3>STLC vs SDLC</h3>
               <p>Key differences, integration, & modern DevOps pipelines.</p>
+            </div>
+            <i data-lucide="arrow-right" class="toc-arrow"></i>
+          </div>
+          <div class="toc-card" onclick="goToSlide(18)" style="padding: 10px 20px;">
+            <span class="toc-num color-6">06</span>
+            <div class="toc-info">
+              <h3>SDLC Models: Waterfall vs. Agile</h3>
+              <p>Deep dive into sequential vs. iterative engineering lifecycles and criteria.</p>
+            </div>
+            <i data-lucide="arrow-right" class="toc-arrow"></i>
+          </div>
+          <div class="toc-card" onclick="goToSlide(23)" style="padding: 10px 20px;">
+            <span class="toc-num color-1">07</span>
+            <div class="toc-info">
+              <h3>The Testing Pyramid</h3>
+              <p>Conceptual model for automated test distribution, shape heuristics, and anti-patterns.</p>
             </div>
             <i data-lucide="arrow-right" class="toc-arrow"></i>
           </div>
@@ -741,8 +757,532 @@
       </div>
     </section>
 
-    <!-- SLIDE 18: Modern Enterprise Integration -->
-    <section class="slide" id="slide-18">
+    <!-- SLIDE 18: SDLC Models: Waterfall vs. Agile -->
+    <section class="slide scrollable-slide" id="slide-18">
+      <div class="slide-content">
+        <h2 class="slide-header">SDLC Models: Waterfall vs. Agile</h2>
+        <div class="split-layout">
+          <div class="content-left">
+            <div class="glass-card danger-border height-full">
+              <div class="card-header">
+                <i data-lucide="arrow-down-narrow-wide" style="color: var(--accent-red);"></i>
+                <h3>The Pre-Agile Era: Waterfall Model</h3>
+              </div>
+              <p style="font-size: 12.5px; margin-bottom: 12px; color: var(--text-muted);">
+                A linear, sequential engineering model where each phase must be fully completed and signed off before the next phase begins.
+              </p>
+              
+              <div class="waterfall-timeline">
+                <div class="waterfall-step active">
+                  <i data-lucide="file-text" style="width: 14px; height: 14px;"></i>
+                  <span>Reqs</span>
+                </div>
+                <div class="waterfall-arrow">&rarr;</div>
+                <div class="waterfall-step">
+                  <i data-lucide="layout" style="width: 14px; height: 14px;"></i>
+                  <span>Design</span>
+                </div>
+                <div class="waterfall-arrow">&rarr;</div>
+                <div class="waterfall-step">
+                  <i data-lucide="code" style="width: 14px; height: 14px;"></i>
+                  <span>Code</span>
+                </div>
+                <div class="waterfall-arrow">&rarr;</div>
+                <div class="waterfall-step">
+                  <i data-lucide="shield-alert" style="width: 14px; height: 14px;"></i>
+                  <span>Verify</span>
+                </div>
+              </div>
+
+              <ul class="styled-list dark-list" style="font-size: 11.5px; gap: 6px;">
+                <li><strong>Rigid Sequential Flow:</strong> Going back to a prior stage is highly expensive and bureaucratic.</li>
+                <li><strong>Late Verification:</strong> Working software and testing occur only at the final stages.</li>
+                <li><strong>Waterfall Pain Points:</strong> According to the Standish CHAOS reports, over 60-70% of Waterfall software projects historically failed or ran significantly over budget.</li>
+              </ul>
+              
+              <div class="enterprise-box" style="margin-top: 10px; font-size: 11px;">
+                <strong>V-Model & Spiral variations:</strong> Heavy documentation gates attempting to manage risks upfront, borrowed from physical construction engineering.
+              </div>
+            </div>
+          </div>
+
+          <div class="content-right">
+            <div class="glass-card success-border height-full">
+              <div class="card-header">
+                <i data-lucide="refresh-cw" style="color: var(--accent-green);"></i>
+                <h3>The Modern Era: Agile Methodology</h3>
+              </div>
+              <p style="font-size: 12.5px; margin-bottom: 12px; color: var(--text-muted);">
+                An iterative, incremental approach dividing development into small timeboxes (Sprints of 1–4 weeks) focused on continuous adaptation and collaboration.
+              </p>
+
+              <div class="table-container" style="box-shadow: none; border-color: rgba(255,255,255,0.05); margin-bottom: 15px;">
+                <table class="premium-table" style="font-size: 11.5px;">
+                  <thead>
+                    <tr>
+                      <th style="padding: 6px 12px; background: rgba(15, 110, 86, 0.25);">We Value (Agile Principles)</th>
+                      <th style="padding: 6px 12px; background: rgba(0, 0, 0, 0.25);">Over (Waterfall Constraints)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="padding: 6px 12px;"><strong>Individuals and interactions</strong></td>
+                      <td style="padding: 6px 12px; color: var(--text-muted);">Processes and tools</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 6px 12px;"><strong>Working software</strong></td>
+                      <td style="padding: 6px 12px; color: var(--text-muted);">Comprehensive documentation</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 6px 12px;"><strong>Customer collaboration</strong></td>
+                      <td style="padding: 6px 12px; color: var(--text-muted);">Contract negotiation</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 6px 12px;"><strong>Responding to change</strong></td>
+                      <td style="padding: 6px 12px; color: var(--text-muted);">Following a plan</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="card-tip" style="font-size: 11px; padding: 10px;">
+                <i data-lucide="lightbulb" style="color: var(--accent-yellow);"></i>
+                <span><strong>The Mindset Shift:</strong> Software is malleable (like clay), not concrete. While documentation and processes have value, we prioritize shipping working code and adapting to user feedback.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 19: The 12 Principles of Agile -->
+    <section class="slide scrollable-slide" id="slide-19">
+      <div class="slide-content">
+        <h2 class="slide-header">The 12 Principles of Agile</h2>
+        <div class="principles-layout">
+          <div class="principles-header-toggle">
+            <p style="font-size: 12.5px; line-height: 1.5; max-width: 800px; color: var(--text-main);">
+              The operational foundation of Agile. Hover over cards to explore. Cards highlighted in <strong style="color: var(--accent-green);">emerald green</strong> represent principles that directly empower high-fidelity Quality Assurance.
+            </p>
+          </div>
+          
+          <div class="principles-grid">
+            <div class="principle-card qa-highlight">
+              <span class="p-num">01</span>
+              <h4>Satisfy Customers First</h4>
+              <p>Continuous early delivery of valuable software builds client trust.</p>
+            </div>
+            <div class="principle-card qa-highlight">
+              <span class="p-num">02</span>
+              <h4>Welcome Changing Reqs</h4>
+              <p>Adapt to change, even late in development, for customer competitive edge.</p>
+            </div>
+            <div class="principle-card qa-highlight">
+              <span class="p-num">03</span>
+              <h4>Frequent Delivery</h4>
+              <p>Deliver working software in weeks rather than months for rapid feedback.</p>
+            </div>
+            <div class="principle-card">
+              <span class="p-num">04</span>
+              <h4>Daily Collaboration</h4>
+              <p>Business experts and developers must work together daily throughout the project.</p>
+            </div>
+            <div class="principle-card">
+              <span class="p-num">05</span>
+              <h4>Motivated Individuals</h4>
+              <p>Provide team members with environment, trust, and support to get work done.</p>
+            </div>
+            <div class="principle-card">
+              <span class="p-num">06</span>
+              <h4>Face-to-Face Chat</h4>
+              <p>Conveying information via direct face-to-face conversation is most efficient.</p>
+            </div>
+            <div class="principle-card qa-highlight">
+              <span class="p-num">07</span>
+              <h4>Working Software</h4>
+              <p>Functional, tested working software is the primary progress metric.</p>
+            </div>
+            <div class="principle-card qa-highlight">
+              <span class="p-num">08</span>
+              <h4>Sustainable Development</h4>
+              <p>Maintain a constant, sustainable, repeatable delivery pace indefinitely.</p>
+            </div>
+            <div class="principle-card qa-highlight">
+              <span class="p-num">09</span>
+              <h4>Technical Excellence</h4>
+              <p>Continuous focus on high-fidelity designs and clean engineering improves agility.</p>
+            </div>
+            <div class="principle-card">
+              <span class="p-num">10</span>
+              <h4>Simplicity is Essential</h4>
+              <p>Simplicity is the critical art of maximizing the amount of work NOT done.</p>
+            </div>
+            <div class="principle-card">
+              <span class="p-num">11</span>
+              <h4>Self-Organizing Teams</h4>
+              <p>Autonomous self-organizing teams produce optimal architectures and designs.</p>
+            </div>
+            <div class="principle-card qa-highlight">
+              <span class="p-num">12</span>
+              <h4>Regular Reflections</h4>
+              <p>Reflect regularly on operational effectiveness, tuning and adjusting behaviors.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 20: Agile Frameworks & Scrum Deep Dive (Interactive Dashboard) -->
+    <section class="slide" id="slide-20">
+      <div class="slide-content">
+        <h2 class="slide-header">Agile Frameworks & Scrum Deep Dive</h2>
+        <div class="frameworks-dashboard-layout">
+          <div class="frameworks-left-panel">
+            <button class="framework-pill active" id="framework-scrum" onclick="selectAgileFramework('scrum')">
+              <span>Scrum</span> <i data-lucide="chevron-right"></i>
+            </button>
+            <button class="framework-pill" id="framework-kanban" onclick="selectAgileFramework('kanban')">
+              <span>Kanban</span> <i data-lucide="chevron-right"></i>
+            </button>
+            <button class="framework-pill" id="framework-xp" onclick="selectAgileFramework('xp')">
+              <span>XP (Engineering)</span> <i data-lucide="chevron-right"></i>
+            </button>
+            <button class="framework-pill" id="framework-lean" onclick="selectAgileFramework('lean')">
+              <span>Lean</span> <i data-lucide="chevron-right"></i>
+            </button>
+            <button class="framework-pill" id="framework-safe" onclick="selectAgileFramework('safe')">
+              <span>SAFe (Enterprise)</span> <i data-lucide="chevron-right"></i>
+            </button>
+            <button class="framework-pill" id="framework-less" onclick="selectAgileFramework('less')">
+              <span>LeSS</span> <i data-lucide="chevron-right"></i>
+            </button>
+            <button class="framework-pill" id="framework-crystal" onclick="selectAgileFramework('crystal')">
+              <span>Crystal</span> <i data-lucide="chevron-right"></i>
+            </button>
+          </div>
+          
+          <div class="frameworks-right-panel">
+            <div class="framework-details-panel" id="framework-details-container">
+              <!-- Dynamically populated via app.js -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 21: Where to Use Agile vs. Where NOT to Use -->
+    <section class="slide scrollable-slide" id="slide-21">
+      <div class="slide-content">
+        <h2 class="slide-header">Where to Use Agile vs. Where NOT to Use</h2>
+        <div class="heuristics-split">
+          <div class="heuristics-column">
+            <div class="scenario-card success-border">
+              <h3><i data-lucide="check-circle-2"></i> Software Product Development</h3>
+              <p>Developing customer-facing apps, SaaS platforms, or internal enterprise tools where user behaviors, technologies, and market environments evolve rapidly based on feedback.</p>
+            </div>
+            <div class="scenario-card success-border">
+              <h3><i data-lucide="rocket"></i> Innovation, MVPs, & R&D</h3>
+              <p>Building Minimum Viable Products (MVPs) for startups to validate market fit before heavy investment, or piloting emerging AI/ML technologies where final answers are unknown.</p>
+            </div>
+            <div class="scenario-card success-border">
+              <h3><i data-lucide="git-branch"></i> Complex Migrations & Refactors</h3>
+              <p>Migrating complex legacy platforms (e.g. core mainframes to cloud-native microservices) where target structures and requirements emerge organically as you peel back technical debt.</p>
+            </div>
+          </div>
+
+          <div class="heuristics-column">
+            <div class="scenario-card danger-border">
+              <h3><i data-lucide="alert-octagon"></i> FDA & Strict Regulatory Systems</h3>
+              <p><strong>Example:</strong> MRI scanners, aerospace guidance, nuclear reactors (standards like IEC 62304).</p>
+              <p style="color: var(--text-muted);">Demands complete traceability, heavy documentation, and formal design sign-offs before coding.</p>
+              <div class="scenario-mitigation">
+                <strong>QA Mitigation:</strong> Use Hybrid "Wagile"—development sprints inside rigid regulatory document milestones.
+              </div>
+            </div>
+            <div class="scenario-card danger-border">
+              <h3><i data-lucide="dollar-sign"></i> Fixed-Price Procurement Contracts</h3>
+              <p><strong>Example:</strong> Government tender contracts paying strictly for an exact defined Statement of Work (SOW).</p>
+              <p style="color: var(--text-muted);">Locking scope, price, and deadlines upfront eliminates Agile's core adaptiveness.</p>
+              <div class="scenario-mitigation">
+                <strong>QA Mitigation:</strong> Frame agreements at epic-level milestones, keeping story details flexible.
+              </div>
+            </div>
+            <div class="scenario-card danger-border">
+              <h3><i data-lucide="wrench"></i> Hardware & Pure Ops/Maintenance</h3>
+              <p><strong>Example:</strong> Car engine block casting or running updates on a stable 15-year old legacy COBOL platform.</p>
+              <p style="color: var(--text-muted);">Long manufacturing lead times or routine updates render Scrum timeboxes wasteful.</p>
+              <div class="scenario-mitigation">
+                <strong>QA Mitigation:</strong> Adapt pure continuous flow Kanban instead of forcing Scrum ceremonies.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 22: Agile in Enterprise: Case Studies & Traps -->
+    <section class="slide scrollable-slide" id="slide-22">
+      <div class="slide-content">
+        <h2 class="slide-header">Agile in Enterprise: Case Studies & Traps</h2>
+        <div class="scale-patterns-layout">
+          <div class="case-study-list">
+            <div class="case-study-card">
+              <i data-lucide="music-4"></i>
+              <div>
+                <h4>Spotify Model (Autonomy)</h4>
+                <p>Replaced hierarchies with cross-functional <strong>Squads</strong> (mini-startups), aligned under <strong>Tribes</strong>, with horizontal expertise shared via <strong>Chapters</strong> and communities of interest via <strong>Guilds</strong>.</p>
+              </div>
+            </div>
+            <div class="case-study-card">
+              <i data-lucide="circle-dot"></i>
+              <div>
+                <h4>ING Bank Netherlands (Restructuring)</h4>
+                <p>Dissolved traditional marketing, operations, and IT silos, reorganizing 3,500 employees into 350 cross-functional squads to drastically improve market response speeds.</p>
+              </div>
+            </div>
+            <div class="case-study-card">
+              <i data-lucide="box"></i>
+              <div>
+                <h4>Amazon (Two-Pizza Teams)</h4>
+                <p>Every service has a micro-team sized to be fed by two pizzas (6–10 people) who own their microservice end-to-end: <em>"You build it, you run it."</em></p>
+              </div>
+            </div>
+            <div class="case-study-card">
+              <i data-lucide="heart-handshake"></i>
+              <div>
+                <h4>JPMorgan & Siemens (Scale & Regulated)</h4>
+                <p>JPMC scales Scrum across thousands of developers using SAFe Agile Release Trains (ARTs). Siemens coordinates automated testing traceability for FDA CT/MRI medical scanners.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="dora-metrics-container">
+            <div class="dora-metrics-title">
+              <i data-lucide="activity" style="color: var(--secondary);"></i>
+              <span>DORA Metrics: Measuring Agile / DevOps Success</span>
+            </div>
+            
+            <div class="dora-grid">
+              <div class="dora-card">
+                <h5>Lead Time</h5>
+                <p>Time from code commit to running in production.</p>
+              </div>
+              <div class="dora-card">
+                <h5>Deployment Freq</h5>
+                <p>How often code is successfully deployed to production.</p>
+              </div>
+              <div class="dora-card">
+                <h5>Change Fail Rate</h5>
+                <p>Deployments resulting in production incidents/degradation.</p>
+              </div>
+              <div class="dora-card">
+                <h5>MTTR</h5>
+                <p>Mean Time to Restore service after a production issue.</p>
+              </div>
+            </div>
+
+            <div class="glass-card alert-card" style="padding: 14px 18px; border-left: 4px solid var(--accent-red); margin-top: 5px;">
+              <h4 style="font-size: 13px; color: var(--accent-red); margin-bottom: 6px; font-weight: 700; display: flex; align-items: center; gap: 8px;">
+                <i data-lucide="alert-triangle"></i> Enterprise "Agile Theater" Anti-Patterns
+              </h4>
+              <p style="font-size: 11.5px; line-height: 1.55; color: var(--text-muted);">
+                • <strong>Water-Scrum-Fall:</strong> Agile coding, but Waterfall design planning and delayed QA deployment pipelines.<br>
+                • <strong>Proxy Product Owner:</strong> Business Analyst acting as PO with zero authority to make scope priorities.<br>
+                • <strong>Velocity as a Weapon:</strong> Management pushing teams to raise story point estimates, causing estimation inflation.<br>
+                • <strong>No-Documentation Extreme:</strong> Refusing to write critical setup logs under the excuse of "Working software."
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 23: The Testing Pyramid (Interactive Dashboard) -->
+    <section class="slide" id="slide-23">
+      <div class="slide-content">
+        <h2 class="slide-header">The Testing Pyramid</h2>
+        <div class="pyramid-dashboard-layout">
+          <div class="pyramid-left-panel">
+            <div class="pyramid-visual">
+              <!-- Top Layer: E2E -->
+              <div class="pyramid-layer-clickable e2e-layer" id="pyramid-e2e" onclick="selectPyramidLevel('e2e')">
+                <span class="layer-label">E2E / UI</span>
+                <span class="layer-percentage">5 - 10%</span>
+              </div>
+              <!-- Middle Layer: Integration -->
+              <div class="pyramid-layer-clickable integration-layer" id="pyramid-integration" onclick="selectPyramidLevel('integration')">
+                <span class="layer-label">Integration</span>
+                <span class="layer-percentage">15 - 20%</span>
+              </div>
+              <!-- Base Layer: Unit -->
+              <div class="pyramid-layer-clickable unit-layer" id="pyramid-unit" onclick="selectPyramidLevel('unit')">
+                <span class="layer-label">Unit Tests</span>
+                <span class="layer-percentage">70 - 80%</span>
+              </div>
+            </div>
+            
+            <div class="pyramid-variations-title">Modern Extensions</div>
+            <div class="pyramid-variations">
+              <button class="variation-pill" id="pyramid-contract" onclick="selectPyramidLevel('contract')">
+                <i data-lucide="file-signature"></i> Contract
+              </button>
+              <button class="variation-pill" id="pyramid-component" onclick="selectPyramidLevel('component')">
+                <i data-lucide="package"></i> Component
+              </button>
+              <button class="variation-pill" id="pyramid-manual" onclick="selectPyramidLevel('manual')">
+                <i data-lucide="smile"></i> Manual / Exploratory
+              </button>
+            </div>
+          </div>
+          
+          <div class="pyramid-right-panel">
+            <div class="pyramid-details-panel" id="pyramid-details-container">
+              <!-- Dynamically populated via app.js -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 24: Why the Pyramid Shape Matters -->
+    <section class="slide" id="slide-24">
+      <div class="slide-content">
+        <h2 class="slide-header">Why the Pyramid Shape Matters</h2>
+        <div class="comparison-layout">
+          <div class="comparison-header-split">
+            <div class="comp-banner-card left-card">
+              <i data-lucide="chevron-down-square" style="color: var(--primary);"></i>
+              <div>
+                <h3>Wide Base (Unit Tests)</h3>
+                <p>Maximize volume at the bottom for instant, highly deterministic feedback.</p>
+              </div>
+            </div>
+            <div class="comp-banner-card right-card">
+              <i data-lucide="chevron-up-square" style="color: var(--accent-red);"></i>
+              <div>
+                <h3>Narrow Top (E2E / UI Tests)</h3>
+                <p>Minimize volume at the top to prevent slow execution and high maintenance cost.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="table-container" style="margin-top: 5px;">
+            <table class="premium-table">
+              <thead>
+                <tr>
+                  <th>Aspect</th>
+                  <th style="background: rgba(6, 90, 130, 0.25);">Wide Base (Unit)</th>
+                  <th style="background: rgba(153, 0, 17, 0.25);">Narrow Top (E2E)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="td-header">Feedback Speed</td>
+                  <td><strong>Instant developer feedback</strong> (milliseconds)</td>
+                  <td><strong>Slow feedback loop</strong> (seconds to minutes per test)</td>
+                </tr>
+                <tr>
+                  <td class="td-header">Debugging Ease</td>
+                  <td><strong>Pinpoints exact failing function</strong>/class instantly</td>
+                  <td><strong>Hard to locate root cause</strong> (requires analyzing logs/states)</td>
+                </tr>
+                <tr>
+                  <td class="td-header">Maintenance Cost</td>
+                  <td><strong>Low</strong>; very simple to update and refactor</td>
+                  <td><strong>High</strong>; brittle to UI changes and prone to flakiness</td>
+                </tr>
+                <tr>
+                  <td class="td-header">Infrastructure</td>
+                  <td><strong>Developer machine only</strong>; completely mocked environment</td>
+                  <td><strong>Requires staging/production-like environment</strong> with active systems</td>
+                </tr>
+                <tr>
+                  <td class="td-header">Confidence Level</td>
+                  <td><strong>High for localized business logic correctness</strong></td>
+                  <td><strong>High for full system-wide, end-to-end integration</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 25: Pyramid Heuristics & Anti-Patterns -->
+    <section class="slide scrollable-slide" id="slide-25">
+      <div class="slide-content">
+        <h2 class="slide-header">Pyramid Anti-Patterns & Heuristics</h2>
+        <div class="antipattern-split">
+          <div class="antipattern-list">
+            <div class="antipattern-card danger-border">
+              <i data-lucide="alert-octagon" style="color: var(--accent-red);"></i>
+              <div>
+                <h3>The Testing Ice-Cone (Inverted Pyramid)</h3>
+                <p><strong>Too many E2E tests and too few unit tests.</strong> Leads to painfully slow build pipelines, constant flaky test failures, high maintenance costs, and severe developer frustration.</p>
+              </div>
+            </div>
+            <div class="antipattern-card warning-border">
+              <i data-lucide="alert-triangle" style="color: var(--accent-orange);"></i>
+              <div>
+                <h3>The Testing Hourglass</h3>
+                <p><strong>Many unit tests and many E2E tests, but almost no integration tests.</strong> Leaves a dangerous untested gap in the middle where service communication and database schema interactions can fail undetected.</p>
+              </div>
+            </div>
+            <div class="antipattern-card info-border">
+              <i data-lucide="shield-alert" style="color: var(--secondary);"></i>
+              <div>
+                <h3>Testing Implementation instead of Behavior</h3>
+                <p><strong>Writing unit tests tightly coupled to internal code details.</strong> Causes test suites to break on every code refactoring even when user-facing behavior remains completely correct.</p>
+              </div>
+            </div>
+            <div class="heuristic-panel">
+              <i data-lucide="lightbulb"></i>
+              <p><strong>Key Heuristic:</strong> The Testing Pyramid is a guide, not a rigid law. The goal is to maximize confidence per unit of cost and time by building a strong, fast, automated test foundation.</p>
+            </div>
+          </div>
+
+          <div class="table-container" style="margin-top: 0;">
+            <table class="premium-table">
+              <thead>
+                <tr>
+                  <th>Level</th>
+                  <th>Scope</th>
+                  <th>Speed</th>
+                  <th>Quantity</th>
+                  <th>Isolation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="font-weight: 700; color: var(--secondary);">Unit</td>
+                  <td>Single function/class</td>
+                  <td>Milliseconds</td>
+                  <td>Most (70-80%)</td>
+                  <td>Fully mocked</td>
+                </tr>
+                <tr>
+                  <td style="font-weight: 700; color: var(--accent-yellow);">Integration</td>
+                  <td>Multiple components</td>
+                  <td>Seconds</td>
+                  <td>Medium (15-20%)</td>
+                  <td>Real internal, mocked external</td>
+                </tr>
+                <tr>
+                  <td style="font-weight: 700; color: var(--accent-red);">E2E / UI</td>
+                  <td>Full system/user journey</td>
+                  <td>Minutes</td>
+                  <td>Least (5-10%)</td>
+                  <td>Staging/Production-like</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 26: Modern Enterprise Integration -->
+    <section class="slide" id="slide-26">
       <div class="slide-content">
         <h2 class="slide-header">Modern Enterprise: STLC + SDLC Integration</h2>
         <div class="split-layout">
@@ -792,8 +1332,8 @@
       </div>
     </section>
 
-    <!-- SLIDE 19: Key Takeaways -->
-    <section class="slide" id="slide-19">
+    <!-- SLIDE 27: Key Takeaways -->
+    <section class="slide" id="slide-27">
       <div class="slide-content">
         <h2 class="slide-header">Key Session Takeaways</h2>
         <div class="takeaways-list">
@@ -843,8 +1383,8 @@
       </div>
     </section>
 
-    <!-- SLIDE 20: Thank You / QA -->
-    <section class="slide dark-bg" id="slide-20">
+    <!-- SLIDE 28: Thank You / QA -->
+    <section class="slide dark-bg" id="slide-28">
       <div class="slide-content centered">
         <div class="splash-badge text-glow animate-pulse">End of Session</div>
         <h1 class="giant-headline scale-in">Thank You!</h1>
