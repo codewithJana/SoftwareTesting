@@ -1634,3 +1634,182 @@ strong {
   from { transform: scale(0.9); opacity: 0; }
   to { transform: scale(1); opacity: 1; }
 }
+
+
+/* ==========================================================================
+   INTERACTIVE TESTING TYPES DETAILS
+   ========================================================================== */
+.clickable-card {
+  cursor: pointer;
+  position: relative;
+}
+
+.clickable-card::after {
+  content: 'Click for Details';
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-size: 10px;
+  padding: 4px 8px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.08);
+  color: var(--text-muted);
+  border: 1px solid var(--border-color);
+}
+
+.testing-details-panel {
+  margin-top: 28px;
+  min-height: 420px;
+  border-left: 5px solid var(--secondary);
+}
+
+.testing-placeholder {
+  height: 100%;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 16px;
+}
+
+.testing-placeholder svg {
+  width: 52px;
+  height: 52px;
+  color: var(--secondary);
+}
+
+.testing-placeholder h3 {
+  font-family: var(--font-family-title);
+  font-size: 24px;
+}
+
+.testing-placeholder p {
+  max-width: 700px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.testing-detail-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 15px;
+}
+
+.testing-detail-title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.testing-detail-title svg {
+  width: 28px;
+  height: 28px;
+  color: var(--secondary);
+}
+
+.testing-detail-title h3 {
+  font-family: var(--font-family-title);
+  font-size: 30px;
+}
+
+.testing-live-badge {
+  padding: 8px 14px;
+  border-radius: 20px;
+  background: rgba(6, 90, 130, 0.15);
+  color: var(--secondary);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.testing-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.testing-detail-card {
+  background: rgba(0,0,0,0.10);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 18px;
+}
+
+.testing-detail-card h4 {
+  font-family: var(--font-family-title);
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: var(--secondary);
+}
+
+.testing-detail-card p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-main);
+}
+
+.testing-extra-info {
+  margin-top: 18px;
+  background: rgba(28,114,147,0.08);
+  border-left: 4px solid var(--secondary);
+  border-radius: 14px;
+  padding: 18px;
+}
+
+.testing-extra-info h4 {
+  font-family: var(--font-family-title);
+  margin-bottom: 10px;
+  color: var(--secondary);
+}
+
+.testing-extra-info p {
+  line-height: 1.6;
+  font-size: 13px;
+}
+
+@media (max-width: 900px) {
+  .testing-detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .testing-detail-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}
+
+/* ==========================================================================
+   SCROLLABLE SLIDE SUPPORT FOR TESTING TYPES
+   ========================================================================== */
+.scrollable-slide {
+  overflow-y: auto !important;
+  justify-content: flex-start !important;
+  padding-right: 15px; /* prevent layout shift from scrollbar */
+}
+
+.scrollable-slide .slide-content {
+  margin-top: 0 !important;
+  margin-bottom: 40px !important;
+  height: auto !important;
+}
+
+/* Custom Scrollbar for premium feel */
+.scrollable-slide::-webkit-scrollbar {
+  width: 8px;
+}
+.scrollable-slide::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
+.scrollable-slide::-webkit-scrollbar-thumb {
+  background: rgba(28, 114, 147, 0.3);
+  border-radius: 10px;
+}
+.scrollable-slide::-webkit-scrollbar-thumb:hover {
+  background: rgba(28, 114, 147, 0.5);
+}

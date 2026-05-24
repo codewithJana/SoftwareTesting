@@ -165,6 +165,7 @@ function updateSlidesUI() {
   const currentActiveSlide = document.getElementById(`slide-${currentSlide}`);
   if (currentActiveSlide) {
     currentActiveSlide.classList.add("active");
+    currentActiveSlide.scrollTop = 0;
   }
 
   // Update Progress Bar
@@ -404,3 +405,143 @@ function handleKeyDown(e) {
       break;
   }
 }
+
+
+// ==========================================================================
+// TESTING TYPES INTERACTIVE DETAILS (SLIDE 4)
+// ==========================================================================
+const testingTypesData = {
+  unit: {
+    title: "Unit Testing",
+    icon: "code-2",
+    what: "Unit Testing validates individual methods, functions, classes, or components independently from the rest of the application. It is the smallest level of testing and focuses on internal business logic correctness.",
+    when: "Used during development whenever developers implement new functionality, bug fixes, utility methods, API services, or reusable components.",
+    owner: "Primarily owned by Developers and sometimes supported by SDETs or Automation Engineers.",
+    needs: "Source code access, mock dependencies, unit test framework, test doubles/mocks, local development environment, and coding standards.",
+    goal: "Goal is to ensure each unit behaves correctly in isolation with high code coverage and stable logic validation. Testing generally stops when all critical paths pass and coverage targets are achieved.",
+    tools: "JUnit, TestNG, Mockito, Jest, NUnit, PyTest, xUnit, SonarQube, Jacoco.",
+    extra: "Fastest feedback cycle. Usually integrated into CI/CD pipelines and executed on every pull request or commit. Helps enable Shift-Left Testing."
+  },
+  integration: {
+    title: "Integration Testing",
+    icon: "git-merge",
+    what: "Integration Testing validates communication and data flow between modules, APIs, databases, microservices, queues, or external systems.",
+    when: "Used after Unit Testing when multiple components need to work together, especially in microservices, APIs, cloud-native apps, and enterprise platforms.",
+    owner: "Developers, QA Engineers, API Testers, SDETs, and Integration Teams.",
+    needs: "Integrated environment, APIs, databases, service dependencies, stubs/mocks, test data, and network connectivity.",
+    goal: "Goal is to identify interface failures, schema mismatches, data corruption, timeout issues, and service communication defects.",
+    tools: "Postman, REST Assured, Karate, SoapUI, WireMock, Pact, Docker, Kubernetes.",
+    extra: "Critical in banking, healthcare, and e-commerce systems where multiple external systems continuously exchange data."
+  },
+  system: {
+    title: "System Testing",
+    icon: "monitor-smartphone",
+    what: "System Testing validates the fully integrated application against functional and non-functional requirements in an environment close to production.",
+    when: "Used after integration testing once the entire application build is stable and deployable.",
+    owner: "QA Team, Functional Testers, Automation Engineers, and Business QA Teams.",
+    needs: "Stable QA environment, integrated build, test cases, test data, automation frameworks, and requirement documents.",
+    goal: "Goal is to verify complete end-to-end workflows, business logic, usability, compatibility, and overall system behavior.",
+    tools: "Playwright, Selenium, Cypress, TestRail, Jira, Azure DevOps.",
+    extra: "This is where most regression, exploratory, UI, API, and end-to-end business flow testing happens."
+  },
+  acceptance: {
+    title: "Acceptance Testing (UAT)",
+    icon: "badge-check",
+    what: "Acceptance Testing validates whether the application satisfies business expectations, user workflows, and real-world operational needs.",
+    when: "Used before production release or go-live approval after system testing is completed.",
+    owner: "Business Users, Product Owners, Clients, SMEs, and QA Facilitators.",
+    needs: "Business scenarios, near-production environment, production-like data, sign-off criteria, and validated workflows.",
+    goal: "Goal is business approval and stakeholder confidence that the product is ready for release.",
+    tools: "Jira, Azure DevOps, Zephyr, TestRail, UAT dashboards, collaboration tools.",
+    extra: "This testing is highly business-focused rather than technical. Final release decisions often depend on UAT sign-off."
+  },
+  performance: {
+    title: "Performance Testing",
+    icon: "gauge",
+    what: "Performance Testing evaluates application speed, scalability, reliability, stability, and responsiveness under varying workloads.",
+    when: "Used before major releases, peak events, production scaling, cloud migration, or architecture changes.",
+    owner: "Performance Test Engineers, SRE Teams, DevOps Teams, and Specialized QA Teams.",
+    needs: "Performance environment, workload models, monitoring tools, production-like infrastructure, and realistic traffic patterns.",
+    goal: "Goal is to identify bottlenecks and ensure SLA compliance for response time, throughput, CPU, memory, and scalability.",
+    tools: "JMeter, k6, LoadRunner, Gatling, Grafana, Dynatrace, New Relic.",
+    extra: "Includes Load Testing, Stress Testing, Spike Testing, Endurance Testing, and Scalability Testing."
+  },
+  security: {
+    title: "Security Testing",
+    icon: "shield-alert",
+    what: "Security Testing identifies vulnerabilities, threats, authentication gaps, authorization failures, and sensitive data exposure risks.",
+    when: "Used before production release, during compliance audits, after architecture changes, and continuously in DevSecOps pipelines.",
+    owner: "Security Testers, Ethical Hackers, DevSecOps Engineers, Penetration Testing Teams, and Security Auditors.",
+    needs: "Security requirements, vulnerability scanners, authentication systems, logs, access controls, and hardened environments.",
+    goal: "Goal is to ensure confidentiality, integrity, availability, and resilience against cyber threats and attacks.",
+    tools: "OWASP ZAP, Burp Suite, Nessus, Snyk, SonarQube, Metasploit.",
+    extra: "Modern security testing also includes API Security, Cloud Security, Container Security, and AI prompt injection testing."
+  }
+};
+
+window.showTestingType = function(type) {
+  const data = testingTypesData[type];
+  const panel = document.getElementById("testing-details-panel");
+
+  if (!panel || !data) return;
+
+  panel.innerHTML = `
+    <div class="testing-detail-header">
+      <div class="testing-detail-title">
+        <i data-lucide="${data.icon}"></i>
+        <h3>${data.title}</h3>
+      </div>
+      <span class="testing-live-badge">Interactive Learning View</span>
+    </div>
+
+    <div class="testing-detail-grid">
+      <div class="testing-detail-card">
+        <h4>1. What is this Testing Type?</h4>
+        <p>${data.what}</p>
+      </div>
+
+      <div class="testing-detail-card">
+        <h4>2. When to Use?</h4>
+        <p>${data.when}</p>
+      </div>
+
+      <div class="testing-detail-card">
+        <h4>3. Ownership / Responsible Team</h4>
+        <p>${data.owner}</p>
+      </div>
+
+      <div class="testing-detail-card">
+        <h4>4. What is Needed?</h4>
+        <p>${data.needs}</p>
+      </div>
+
+      <div class="testing-detail-card">
+        <h4>5. Goal / Exit Criteria</h4>
+        <p>${data.goal}</p>
+      </div>
+
+      <div class="testing-detail-card">
+        <h4>6. Tools & Frameworks</h4>
+        <p>${data.tools}</p>
+      </div>
+    </div>
+
+    <div class="testing-extra-info">
+      <h4>7. Additional Enterprise Insights</h4>
+      <p>${data.extra}</p>
+    </div>
+  `;
+
+  lucide.createIcons();
+
+  // Smooth scroll to details panel
+  const slide4 = document.getElementById("slide-4");
+  if (slide4 && panel) {
+    setTimeout(() => {
+      slide4.scrollTo({
+        top: panel.offsetTop - 20,
+        behavior: "smooth"
+      });
+    }, 80);
+  }
+};

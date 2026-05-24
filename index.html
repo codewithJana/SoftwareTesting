@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
   <!-- Lucide Icons for premium feel -->
   <script src="https://unpkg.com/lucide@latest"></script>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
   <!-- Top Navigation / Progress Bar -->
@@ -161,39 +161,47 @@
     </section>
 
     <!-- SLIDE 4: Types of Testing -->
-    <section class="slide" id="slide-4">
+    <section class="slide scrollable-slide" id="slide-4">
       <div class="slide-content">
         <h2 class="slide-header">Testing Types - From Micro to Macro</h2>
         <div class="testing-types-grid">
-          <div class="type-card" style="--border-color: var(--primary);">
+          <div class="type-card clickable-card" onclick="showTestingType('unit')" style="--border-color: var(--primary);">
             <div class="type-badge" style="background: var(--primary);">U</div>
             <h3>Unit Testing</h3>
             <p>Testing individual components, functions, or methods in isolation. Primarily written by developers.</p>
           </div>
-          <div class="type-card" style="--border-color: var(--secondary);">
+          <div class="type-card clickable-card" onclick="showTestingType('integration')" style="--border-color: var(--secondary);">
             <div class="type-badge" style="background: var(--secondary);">I</div>
             <h3>Integration Testing</h3>
             <p>Verifying interactions between modules, third-party APIs, database systems, or microservices.</p>
           </div>
-          <div class="type-card" style="--border-color: var(--accent-green);">
+          <div class="type-card clickable-card" onclick="showTestingType('system')" style="--border-color: var(--accent-green);">
             <div class="type-badge" style="background: var(--accent-green);">S</div>
             <h3>System Testing</h3>
             <p>Validating the complete, integrated software package as a whole against the functional specs.</p>
           </div>
-          <div class="type-card" style="--border-color: var(--accent-yellow);">
+          <div class="type-card clickable-card" onclick="showTestingType('acceptance')" style="--border-color: var(--accent-yellow);">
             <div class="type-badge" style="background: var(--accent-yellow);">A</div>
             <h3>Acceptance Testing</h3>
             <p>User Acceptance Testing (UAT). Confirms the application aligns with actual user expectations and business needs.</p>
           </div>
-          <div class="type-card" style="--border-color: var(--accent-orange);">
+          <div class="type-card clickable-card" onclick="showTestingType('performance')" style="--border-color: var(--accent-orange);">
             <div class="type-badge" style="background: var(--accent-orange);">P</div>
             <h3>Performance Testing</h3>
             <p>Assessing responsiveness, scalability, speed, and reliability under load, stress, or spikes.</p>
           </div>
-          <div class="type-card" style="--border-color: var(--accent-red);">
+          <div class="type-card clickable-card" onclick="showTestingType('security')" style="--border-color: var(--accent-red);">
             <div class="type-badge" style="background: var(--accent-red);">X</div>
             <h3>Security Testing</h3>
             <p>Scanning for system vulnerabilities, authorization bypasses, data leaks, and external threats.</p>
+          </div>
+        </div>
+
+        <div class="testing-details-panel glass-card" id="testing-details-panel">
+          <div class="testing-placeholder">
+            <i data-lucide="mouse-pointer-click"></i>
+            <h3>Interactive Testing Type Details</h3>
+            <p>Click any testing type card above to explore detailed explanation, ownership, tools, goals, entry/exit criteria, and enterprise examples.</p>
           </div>
         </div>
       </div>
