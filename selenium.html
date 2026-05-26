@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selenium WebDriver Training</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="style.css?v=2">
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <div class="presentation-header">
+    <div class="header-left">
+      <i data-lucide="terminal-square" class="brand-icon"></i>
+      <span class="presentation-title">Selenium WebDriver Training</span>
+    </div>
+    <div class="header-center">
+      <div class="course-switcher">
+        <a href="index.html" class="course-pill">Software Testing</a>
+        <a href="selenium.html" class="course-pill active">Selenium Training</a>
+      </div>
+    </div>
+    <div class="header-right">
+      <button id="theme-toggle" class="header-btn" title="Toggle Theme (L)">
+        <i data-lucide="sun" class="icon-sun"></i>
+        <i data-lucide="moon" class="icon-moon"></i>
+      </button>
+      <button id="fullscreen-toggle" class="header-btn" title="Fullscreen (F)">
+        <i data-lucide="maximize" class="icon-max"></i>
+        <i data-lucide="minimize" class="icon-min" style="display: none;"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="progress-container">
+    <div class="progress-bar" id="progress-bar"></div>
+  </div>
+
+  <!-- Slides Container -->
+  <div class="slides-container" id="slides-container">
+
+    <!-- SLIDE 1: Title Slide -->
+    <section class="slide active title-slide" id="slide-1">
+      <div class="slide-content">
+        <div class="title-badge">Automation Testing Deep Dive</div>
+        <h1 class="main-title">Selenium WebDriver Training</h1>
+        <p class="subtitle">A comprehensive, hands-on guide to browser automation, test frameworks, and professional QA automation engineering</p>
+        <div class="title-footer">
+          <div class="footer-item">
+            <i data-lucide="terminal"></i>
+            <span>Selenium Training Class</span>
+          </div>
+          <div class="footer-item">
+            <i data-lucide="calendar"></i>
+            <span>2026</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 2: Table of Contents -->
+    <section class="slide" id="slide-2">
+      <div class="slide-content">
+        <h2 class="slide-header">Course Overview</h2>
+        <div class="toc-grid" style="gap: 10px;">
+          <div class="toc-card" onclick="goToSlide(3)" style="padding: 10px 20px;">
+            <span class="toc-num color-1">01</span>
+            <div class="toc-info">
+              <h3>Selenium Ecosystem & Architecture</h3>
+              <p>What is Selenium, evolution, components, W3C protocol, Selenium 4 vs 3, comparisons.</p>
+            </div>
+            <i data-lucide="arrow-right" class="toc-arrow"></i>
+          </div>
+          <div class="toc-card" onclick="goToSlide(14)" style="padding: 10px 20px;">
+            <span class="toc-num color-2">02</span>
+            <div class="toc-info">
+              <h3>Day 2 — To be provided</h3>
+              <p>Topics & content to be provided.</p>
+            </div>
+            <i data-lucide="arrow-right" class="toc-arrow"></i>
+          </div>
+          <div class="toc-card" onclick="goToSlide(16)" style="padding: 10px 20px;">
+            <span class="toc-num color-3">03</span>
+            <div class="toc-info">
+              <h3>Day 3 — To be provided</h3>
+              <p>Topics & content to be provided.</p>
+            </div>
+            <i data-lucide="arrow-right" class="toc-arrow"></i>
+          </div>
+          <div class="toc-card" onclick="goToSlide(18)" style="padding: 10px 20px;">
+            <span class="toc-num color-4">04</span>
+            <div class="toc-info">
+              <h3>Day 4 — To be provided</h3>
+              <p>Topics & content to be provided.</p>
+            </div>
+            <i data-lucide="arrow-right" class="toc-arrow"></i>
+          </div>
+          <div class="toc-card" onclick="goToSlide(20)" style="padding: 10px 20px;">
+            <span class="toc-num color-5">05</span>
+            <div class="toc-info">
+              <h3>Day 5 — To be provided</h3>
+              <p>Topics & content to be provided.</p>
+            </div>
+            <i data-lucide="arrow-right" class="toc-arrow"></i>
+          </div>
+          <div class="toc-card" onclick="goToSlide(22)" style="padding: 10px 20px;">
+            <span class="toc-num color-6">06</span>
+            <div class="toc-info">
+              <h3>Day 6 — To be provided</h3>
+              <p>Topics & content to be provided.</p>
+            </div>
+            <i data-lucide="arrow-right" class="toc-arrow"></i>
+          </div>
+          <div class="toc-card" onclick="goToSlide(24)" style="padding: 10px 20px;">
+            <span class="toc-num color-1">07</span>
+            <div class="toc-info">
+              <h3>Day 7 — To be provided</h3>
+              <p>Topics & content to be provided.</p>
+            </div>
+            <i data-lucide="arrow-right" class="toc-arrow"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 3: Day 1 Intro Splash -->
+    <section class="slide dark-bg" id="slide-3">
+      <div class="slide-content centered">
+        <div class="splash-badge">Day 01 · Selenium Training</div>
+        <h1 class="giant-headline">Selenium</h1>
+        <h2 class="sub-headline">Ecosystem & Architecture</h2>
+        <p class="splash-text">A deep dive into the world's most widely used browser automation framework — from its 2004 origins to the modern W3C-compliant Selenium 4 suite.</p>
+        <div class="criteria-highlight">
+          <i data-lucide="layers"></i>
+          <span>WebDriver · Grid · IDE · Manager · W3C Protocol · Selenium 4 vs 3 · Evolution · Comparisons</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 4: What is Selenium? -->
+    <section class="slide" id="slide-4">
+      <div class="slide-content">
+        <h2 class="slide-header">What is Selenium?</h2>
+        <div class="split-layout">
+          <div class="content-left">
+            <div class="glass-card accent-card">
+              <div class="card-header">
+                <i data-lucide="terminal-square" class="icon-primary"></i>
+                <h3>Definition</h3>
+              </div>
+              <p>Selenium is a <strong>free, open-source browser automation suite</strong> and the world's most widely used framework for automating web application testing. It controls browsers programmatically using native browser APIs, not injected JavaScript.</p>
+              <p style="margin-top: 8px; font-size: 12px; color: var(--text-muted);">Originally created in 2004 by Jason Huggins at ThoughtWorks. Maintained by the non-profit <strong>Software Freedom Conservancy</strong>.</p>
+            </div>
+            <div class="glass-card success-card margin-top">
+              <div class="card-header">
+                <i data-lucide="zap" class="icon-success"></i>
+                <h3>What CAN you do with Selenium?</h3>
+              </div>
+              <ul class="styled-list">
+                <li>Automated <strong>functional & regression testing</strong> of web applications</li>
+                <li><strong>Cross-browser compatibility</strong> testing (Chrome, Firefox, Edge, Safari)</li>
+                <li>Full <strong>CI/CD pipeline integration</strong> — Jenkins, GitHub Actions, Azure DevOps</li>
+                <li><strong>Web scraping</strong> and structured data extraction workflows</li>
+                <li><strong>Screenshot & visual regression</strong> testing (Applitools, Percy)</li>
+                <li><strong>Mobile web testing</strong> via Appium (extends the WebDriver API)</li>
+                <li><strong>Headless browser</strong> automation for server-side / cloud execution</li>
+                <li>Integration with <strong>AI-powered testing platforms</strong> and smart locators</li>
+              </ul>
+            </div>
+          </div>
+          <div class="content-right">
+            <div class="glass-card dark-card height-full">
+              <div class="card-header">
+                <i data-lucide="bar-chart-3" style="color: var(--secondary);"></i>
+                <h3>Industry Adoption & Impact</h3>
+              </div>
+              <div class="metrics-panel" style="grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px;">
+                <div class="metric-item">
+                  <span class="metric-val">80%+</span>
+                  <span class="metric-label">Enterprise QA Teams</span>
+                </div>
+                <div class="metric-item">
+                  <span class="metric-val">6</span>
+                  <span class="metric-label">Language Bindings</span>
+                </div>
+                <div class="metric-item">
+                  <span class="metric-val">20+</span>
+                  <span class="metric-label">Years Active</span>
+                </div>
+                <div class="metric-item">
+                  <span class="metric-val">W3C</span>
+                  <span class="metric-label">Official Standard</span>
+                </div>
+              </div>
+              <div class="enterprise-box" style="margin-bottom: 12px;">
+                <strong>Industry Leaders Using Selenium:</strong> Amazon, Google, Microsoft, Meta, Booking.com, Netflix, IBM, Salesforce, and thousands of enterprise QA teams globally.
+              </div>
+              <div class="enterprise-box">
+                <strong>Language Support:</strong> Java · Python · C# · JavaScript (Node.js) · Ruby · Kotlin<br>
+                <strong>Browsers:</strong> Chrome · Firefox · Edge · Safari · (IE — legacy)
+              </div>
+              <div class="card-tip" style="margin-top: 12px;">
+                <i data-lucide="lightbulb"></i>
+                <span>Selenium does NOT include a built-in test runner or assertions — it's a browser automation library. You pair it with TestNG, JUnit, pytest, NUnit, or Mocha to build a full testing framework.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 5: Evolution of Selenium -->
+    <section class="slide" id="slide-5">
+      <div class="slide-content">
+        <div class="slide-subheader color-1">Day 01</div>
+        <h2 class="slide-header">The Evolution of Selenium</h2>
+        <p class="slide-intro">From a ThoughtWorks internal tool in 2004 to a W3C-standardized global automation framework — Selenium's journey spans two decades of browser automation innovation.</p>
+        <div class="sel-timeline-grid">
+          <!-- Left Column: Origins & Foundation -->
+          <div class="sel-timeline-col">
+            <div class="sel-timeline-col-header">Origins &amp; Foundation (2004 – 2011)</div>
+            <div class="sel-tl-item">
+              <span class="sel-tl-year">2004</span>
+              <span class="sel-tl-title">Birth of Selenium (JavaScriptTestRunner)</span>
+              <span class="sel-tl-desc">Jason Huggins at ThoughtWorks builds a JavaScript-based test tool to automate web app testing. Core idea: JavaScript controlling the browser from within the page.</span>
+            </div>
+            <div class="sel-tl-item">
+              <span class="sel-tl-year">2006</span>
+              <span class="sel-tl-title">WebDriver Created at Google</span>
+              <span class="sel-tl-desc">Simon Stewart at Google creates "WebDriver" — bypassing JavaScript limitations by calling native OS-level browser APIs directly for more reliable automation.</span>
+            </div>
+            <div class="sel-tl-item">
+              <span class="sel-tl-year">2008</span>
+              <span class="sel-tl-title">Selenium RC 1.0 &amp; Selenium IDE Released</span>
+              <span class="sel-tl-desc">Selenium Remote Control (RC) officially released. Selenium IDE (Firefox plugin) launches for record-and-playback test creation for non-programmers.</span>
+            </div>
+            <div class="sel-tl-item">
+              <span class="sel-tl-year">2009</span>
+              <span class="sel-tl-title">WebDriver Donated to SeleniumHQ</span>
+              <span class="sel-tl-desc">Google donates WebDriver to the Selenium project. Merger of both projects announced — combining the best of Selenium and WebDriver into one framework.</span>
+            </div>
+            <div class="sel-tl-item key-release">
+              <span class="sel-tl-year">2011</span>
+              <span class="sel-tl-title">Selenium 2.0 — The Landmark Merger</span>
+              <span class="sel-tl-desc">Selenium 2.0 released — WebDriver API merged with Selenium. Deprecated the slow RC architecture. Introduced the clean WebDriver API that became the industry standard.</span>
+            </div>
+          </div>
+          <!-- Right Column: Standardization & Modern Era -->
+          <div class="sel-timeline-col">
+            <div class="sel-timeline-col-header">Standardization &amp; Modern Era (2013 – Present)</div>
+            <div class="sel-tl-item">
+              <span class="sel-tl-year">2013</span>
+              <span class="sel-tl-title">Global Dominance</span>
+              <span class="sel-tl-desc">Selenium WebDriver becomes the most widely used web automation tool globally. JSON Wire Protocol standardization discussions begin between browser vendors.</span>
+            </div>
+            <div class="sel-tl-item key-release">
+              <span class="sel-tl-year">2018</span>
+              <span class="sel-tl-title">W3C WebDriver Standard Published</span>
+              <span class="sel-tl-desc">W3C officially publishes WebDriver as a W3C Recommendation — a universal browser automation standard, ensuring cross-vendor consistency across all major browsers.</span>
+            </div>
+            <div class="sel-tl-item key-release">
+              <span class="sel-tl-year">2021</span>
+              <span class="sel-tl-title">Selenium 4.0 — Full Modernisation</span>
+              <span class="sel-tl-desc">Major release: Full W3C WebDriver compliance, Selenium Grid 4 (complete rewrite), Relative Locators, Chrome DevTools Protocol (CDP) integration, new tab/window APIs.</span>
+            </div>
+            <div class="sel-tl-item key-release">
+              <span class="sel-tl-year">2022</span>
+              <span class="sel-tl-title">Selenium 4.6 — Selenium Manager</span>
+              <span class="sel-tl-desc">Selenium Manager bundled in — automatically downloads and manages browser drivers. Eliminates the #1 developer pain point: manual ChromeDriver version management.</span>
+            </div>
+            <div class="sel-tl-item">
+              <span class="sel-tl-year">2023+</span>
+              <span class="sel-tl-title">BiDi Protocol &amp; AI-era Integration</span>
+              <span class="sel-tl-desc">Selenium BiDi (bidirectional WebDriver protocol) integration, enhanced CDP bridging, AI-assisted smart locators, and WebDriver Bidi observability features under active development.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 6: Selenium Suite Components (Interactive) -->
+    <section class="slide" id="slide-6">
+      <div class="slide-content">
+        <div class="slide-subheader color-1">Day 01</div>
+        <h2 class="slide-header">Selenium Suite — Components</h2>
+        <p class="slide-intro">Selenium is not a single tool — it is a <strong>suite of four core components</strong>. Click each component below to explore its role, features, and use case.</p>
+        <div class="sel-component-nodes">
+          <div class="sel-component-node active" id="comp-webdriver" onclick="selectSeleniumComponent('webdriver')">
+            <i data-lucide="terminal"></i>
+            <span class="sel-component-node-name">WebDriver</span>
+            <span class="sel-component-node-sub">Core API</span>
+          </div>
+          <div class="sel-component-node" id="comp-grid" onclick="selectSeleniumComponent('grid')">
+            <i data-lucide="network"></i>
+            <span class="sel-component-node-name">Grid</span>
+            <span class="sel-component-node-sub">Parallel Execution</span>
+          </div>
+          <div class="sel-component-node" id="comp-ide" onclick="selectSeleniumComponent('ide')">
+            <i data-lucide="mouse-pointer-2"></i>
+            <span class="sel-component-node-name">IDE</span>
+            <span class="sel-component-node-sub">Record &amp; Playback</span>
+          </div>
+          <div class="sel-component-node" id="comp-manager" onclick="selectSeleniumComponent('manager')">
+            <i data-lucide="package-2"></i>
+            <span class="sel-component-node-name">Manager</span>
+            <span class="sel-component-node-sub">Driver Management</span>
+          </div>
+        </div>
+        <div class="sel-component-details" id="sel-component-details-container">
+          <!-- Populated dynamically via selenium-app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 7: Selenium 4 vs 3 Key Differences -->
+    <section class="slide scrollable-slide" id="slide-7">
+      <div class="slide-content">
+        <div class="slide-subheader color-1">Day 01</div>
+        <h2 class="slide-header">Selenium 4 vs Selenium 3 — Key Differences</h2>
+        <p class="slide-intro">Selenium 4 is not just an incremental update — it is a fundamental architectural overhaul driven by the W3C WebDriver standard. Here are the critical differences every automation engineer must know.</p>
+        <div class="table-container">
+          <table class="premium-table">
+            <thead>
+              <tr>
+                <th style="width: 24%;">Feature / Area</th>
+                <th style="width: 38%;">Selenium 3</th>
+                <th style="width: 38%;">Selenium 4</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="td-header">WebDriver Protocol</td>
+                <td>JSON Wire Protocol — a custom, vendor-specific protocol not officially standardised.</td>
+                <td><strong>W3C WebDriver Protocol</strong> — the official, cross-vendor W3C Recommendation standard.</td>
+              </tr>
+              <tr>
+                <td class="td-header">W3C Compliance</td>
+                <td>Partial compliance. Browser vendors implemented their own extensions to the protocol.</td>
+                <td><strong>Full W3C compliance</strong> — consistent, predictable behaviour across all browsers.</td>
+              </tr>
+              <tr>
+                <td class="td-header">Grid Architecture</td>
+                <td>Hub-Node model only. Hub is a single point of failure. Limited scalability.</td>
+                <td><strong>Three modes:</strong> Standalone, Hub-Node (legacy), and Fully Distributed. Kubernetes-native, Docker-friendly.</td>
+              </tr>
+              <tr>
+                <td class="td-header">Driver Management</td>
+                <td>Manual download required. Developer must match browser version to driver version manually.</td>
+                <td><strong>Selenium Manager</strong> (4.6+) — auto-detects browser, downloads the correct driver automatically.</td>
+              </tr>
+              <tr>
+                <td class="td-header">Chrome DevTools Protocol</td>
+                <td>Not supported.</td>
+                <td><strong>Built-in CDP integration</strong> — enables network interception, console log capture, geo-mocking, performance metrics.</td>
+              </tr>
+              <tr>
+                <td class="td-header">Relative Locators</td>
+                <td>Not available. Only standard locators (id, name, xpath, css, etc.).</td>
+                <td><strong>5 new relative locators:</strong> above(), below(), near(), toLeftOf(), toRightOf() — locate elements spatially relative to others.</td>
+              </tr>
+              <tr>
+                <td class="td-header">BiDi Protocol</td>
+                <td>Not supported.</td>
+                <td><strong>Experimental BiDi</strong> support (Selenium 4.5+) — two-way communication for event listening and network interception.</td>
+              </tr>
+              <tr>
+                <td class="td-header">Tab / Window API</td>
+                <td>Limited — <code>getWindowHandles()</code> only, no built-in new tab method.</td>
+                <td><strong>driver.switchTo().newWindow(WindowType.TAB)</strong> and <strong>WindowType.WINDOW</strong> APIs.</td>
+              </tr>
+              <tr>
+                <td class="td-header">Screenshot Capability</td>
+                <td>Basic window-level screenshot only.</td>
+                <td><strong>Full-page &amp; element-level</strong> screenshot support built-in natively.</td>
+              </tr>
+              <tr>
+                <td class="td-header">Browser Authentication</td>
+                <td>No built-in HTTP Basic Auth handling.</td>
+                <td><strong>registerBasicAuth()</strong> for handling HTTP Basic Authentication dialogs without extensions.</td>
+              </tr>
+              <tr>
+                <td class="td-header">Internet Explorer</td>
+                <td>Full IE support.</td>
+                <td><strong>IE support dropped</strong> — Microsoft officially deprecated IE. IE Mode in Edge available as workaround.</td>
+              </tr>
+              <tr>
+                <td class="td-header">Capabilities API</td>
+                <td><code>DesiredCapabilities</code> class (now deprecated).</td>
+                <td><strong>Options classes:</strong> ChromeOptions, FirefoxOptions, EdgeOptions, SafariOptions — type-safe and IDE-friendly.</td>
+              </tr>
+              <tr>
+                <td class="td-header">Grid Observability</td>
+                <td>No built-in monitoring or metrics.</td>
+                <td><strong>Built-in observability</strong> — OpenTelemetry tracing, Prometheus metrics, live session dashboard via Grid UI.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 8: W3C WebDriver Protocol & Browser-Driver Communication -->
+    <section class="slide" id="slide-8">
+      <div class="slide-content">
+        <div class="slide-subheader color-1">Day 01</div>
+        <h2 class="slide-header">W3C WebDriver Protocol &amp; Browser-Driver Communication</h2>
+        <div class="split-layout">
+          <div class="content-left" style="flex: 1.1;">
+            <div class="glass-card accent-card" style="margin-bottom: 12px;">
+              <div class="card-header">
+                <i data-lucide="globe" class="icon-primary"></i>
+                <h3>What is the W3C WebDriver Protocol?</h3>
+              </div>
+              <ul class="styled-list" style="font-size: 12px;">
+                <li>An <strong>HTTP/REST-based communication standard</strong> published by the W3C in 2018</li>
+                <li>Commands sent as <strong>JSON-encoded HTTP requests</strong> (GET / POST / DELETE)</li>
+                <li>Each browser session has a <strong>unique session ID</strong> used in every endpoint URL</li>
+                <li>Standardised across all browser vendors — no more proprietary quirks</li>
+                <li>Replaces the old, non-standard JSON Wire Protocol used in Selenium 3</li>
+              </ul>
+            </div>
+            <div class="glass-card dark-card">
+              <h4 style="font-size: 13px; margin-bottom: 10px; font-family: var(--font-family-title);">Key HTTP Endpoints (Examples)</h4>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px;">
+                <div class="enterprise-box" style="font-size: 10.5px; padding: 6px 10px;"><code>POST /session</code><br><span style="color: var(--text-muted);">Create a browser session</span></div>
+                <div class="enterprise-box" style="font-size: 10.5px; padding: 6px 10px;"><code>DELETE /session/{id}</code><br><span style="color: var(--text-muted);">Close / quit session</span></div>
+                <div class="enterprise-box" style="font-size: 10.5px; padding: 6px 10px;"><code>POST /session/{id}/url</code><br><span style="color: var(--text-muted);">Navigate to URL</span></div>
+                <div class="enterprise-box" style="font-size: 10.5px; padding: 6px 10px;"><code>POST /session/{id}/element</code><br><span style="color: var(--text-muted);">Find element</span></div>
+                <div class="enterprise-box" style="font-size: 10.5px; padding: 6px 10px;"><code>POST /.../element/{id}/click</code><br><span style="color: var(--text-muted);">Click element</span></div>
+                <div class="enterprise-box" style="font-size: 10.5px; padding: 6px 10px;"><code>POST /.../execute/sync</code><br><span style="color: var(--text-muted);">Execute JavaScript</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="content-right" style="flex: 0.9;">
+            <div class="glass-card dark-card height-full" style="display: flex; flex-direction: column; gap: 12px;">
+              <h3 style="font-family: var(--font-family-title); font-size: 15px; font-weight: 600;">Communication Architecture</h3>
+              <div class="sel-arch-flow">
+                <div class="sel-arch-node primary-node">
+                  <div class="sel-arch-node-title">Test Script</div>
+                  <div class="sel-arch-node-sub">Java · Python · C# · JavaScript · Ruby · Kotlin</div>
+                </div>
+                <div class="sel-arch-connector">
+                  <i data-lucide="chevron-down"></i>
+                  <span class="sel-arch-connector-label">Selenium Language Binding</span>
+                  <i data-lucide="chevron-down"></i>
+                </div>
+                <div class="sel-arch-node primary-node">
+                  <div class="sel-arch-node-title">WebDriver API</div>
+                  <div class="sel-arch-node-sub">Serialises commands → HTTP/REST requests + JSON payload</div>
+                </div>
+                <div class="sel-arch-connector">
+                  <i data-lucide="chevron-down"></i>
+                  <span class="sel-arch-connector-label">W3C WebDriver Protocol · HTTP/REST over localhost</span>
+                  <i data-lucide="chevron-down"></i>
+                </div>
+                <div class="sel-arch-node driver-node">
+                  <div class="sel-arch-node-title">Browser Driver</div>
+                  <div class="sel-arch-node-sub">ChromeDriver · GeckoDriver · EdgeDriver · SafariDriver</div>
+                </div>
+                <div class="sel-arch-connector">
+                  <i data-lucide="chevron-down"></i>
+                  <span class="sel-arch-connector-label">Internal: CDP · Marionette · WebKit Remote Debug Protocol</span>
+                  <i data-lucide="chevron-down"></i>
+                </div>
+                <div class="sel-arch-node browser-node">
+                  <div class="sel-arch-node-title">Browser</div>
+                  <div class="sel-arch-node-sub">Chrome · Firefox · Edge · Safari</div>
+                </div>
+              </div>
+              <div class="card-tip" style="margin-top: auto;">
+                <i data-lucide="info"></i>
+                <span>In Selenium Grid, the <strong>Node</strong> hosts the driver process. The <strong>Hub/Router</strong> accepts HTTP requests from your test script and forwards them to the correct node.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 9: Advantages, Limitations & Possibilities -->
+    <section class="slide" id="slide-9">
+      <div class="slide-content">
+        <div class="slide-subheader color-1">Day 01</div>
+        <h2 class="slide-header">Selenium — Advantages, Limitations &amp; Possibilities</h2>
+        <div class="possibilities-strip">
+          <div class="possibility-tag"><i data-lucide="check-circle"></i>Functional &amp; Regression Testing</div>
+          <div class="possibility-tag"><i data-lucide="check-circle"></i>Cross-Browser Testing</div>
+          <div class="possibility-tag"><i data-lucide="check-circle"></i>CI/CD Integration</div>
+          <div class="possibility-tag"><i data-lucide="check-circle"></i>Web Scraping</div>
+          <div class="possibility-tag"><i data-lucide="check-circle"></i>Screenshot Testing</div>
+          <div class="possibility-tag"><i data-lucide="check-circle"></i>Mobile Web via Appium</div>
+          <div class="possibility-tag"><i data-lucide="check-circle"></i>Headless Execution</div>
+          <div class="possibility-tag"><i data-lucide="check-circle"></i>AI Platform Integration</div>
+          <div class="possibility-tag"><i data-lucide="check-circle"></i>Network Interception (CDP)</div>
+          <div class="possibility-tag"><i data-lucide="check-circle"></i>Performance Recording</div>
+        </div>
+        <div class="pros-cons-grid">
+          <div class="glass-card success-border" style="padding: 16px 18px;">
+            <h4 style="font-family: var(--font-family-title); font-size: 14px; font-weight: 700; margin-bottom: 10px; color: #5DCAA5;">Advantages</h4>
+            <ul class="pros-list">
+              <li><span class="mark">✓</span><span>100% <strong>open source</strong> — completely free with no licensing cost</span></li>
+              <li><span class="mark">✓</span><span><strong>Multi-language</strong> support: Java, Python, C#, JS, Ruby, Kotlin</span></li>
+              <li><span class="mark">✓</span><span><strong>All major browsers</strong>: Chrome, Firefox, Edge, Safari</span></li>
+              <li><span class="mark">✓</span><span><strong>Cross-platform</strong>: runs on Windows, macOS, and Linux</span></li>
+              <li><span class="mark">✓</span><span>Massive, active <strong>community</strong> and extensive ecosystem</span></li>
+              <li><span class="mark">✓</span><span>Deep <strong>CI/CD integration</strong>: Jenkins, GitHub Actions, GitLab CI</span></li>
+              <li><span class="mark">✓</span><span>Integrates with <strong>TestNG, JUnit, pytest, NUnit</strong> frameworks</span></li>
+              <li><span class="mark">✓</span><span><strong>No vendor lock-in</strong> — complete freedom in toolchain choices</span></li>
+              <li><span class="mark">✓</span><span>W3C standard-backed — <strong>future-proof</strong> and cross-vendor compatible</span></li>
+              <li><span class="mark">✓</span><span>Selenium Grid enables <strong>massively parallel</strong> cloud execution</span></li>
+            </ul>
+          </div>
+          <div class="glass-card danger-border" style="padding: 16px 18px;">
+            <h4 style="font-family: var(--font-family-title); font-size: 14px; font-weight: 700; margin-bottom: 10px; color: #FF6B6B;">Limitations</h4>
+            <ul class="cons-list">
+              <li><span class="mark">✕</span><span><strong>No built-in test runner</strong> or assertion library — needs TestNG, JUnit, etc.</span></li>
+              <li><span class="mark">✕</span><span><strong>No native mobile app</strong> support — only mobile web via Appium bridge</span></li>
+              <li><span class="mark">✕</span><span>Prone to <strong>flaky tests</strong> due to timing, dynamic elements, and waits</span></li>
+              <li><span class="mark">✕</span><span><strong>Steeper learning curve</strong> vs. Playwright or Cypress for modern apps</span></li>
+              <li><span class="mark">✕</span><span><strong>No built-in reporting</strong> — requires Allure, ExtentReports, or custom</span></li>
+              <li><span class="mark">✕</span><span>No native <strong>network idle waiting</strong> — manual waits required</span></li>
+              <li><span class="mark">✕</span><span><strong>Grid setup overhead</strong> for parallel execution in self-hosted environments</span></li>
+              <li><span class="mark">✕</span><span>BiDi / CDP features are <strong>still maturing</strong> compared to Playwright</span></li>
+              <li><span class="mark">✕</span><span><strong>Slower execution</strong> on modern single-page apps vs. Playwright/Cypress</span></li>
+              <li><span class="mark">✕</span><span>Cannot automate <strong>Flash/Silverlight</strong> (deprecated browser plugins)</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 10: Selenium vs Playwright vs Cypress -->
+    <section class="slide scrollable-slide" id="slide-10">
+      <div class="slide-content">
+        <div class="slide-subheader color-1">Day 01</div>
+        <h2 class="slide-header">Selenium vs Playwright vs Cypress — Overview</h2>
+        <p class="slide-intro">Understanding where Selenium fits in the modern automation landscape helps you make the right tooling decisions for the right project.</p>
+        <div class="table-container">
+          <table class="premium-table">
+            <thead>
+              <tr>
+                <th style="width: 20%;">Aspect</th>
+                <th class="td-highlight-sel" style="width: 27%;">Selenium</th>
+                <th class="td-highlight-pw" style="width: 27%;">Playwright</th>
+                <th class="td-highlight-cy" style="width: 26%;">Cypress</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="td-header">Created By</td>
+                <td class="td-highlight-sel">SeleniumHQ / ThoughtWorks (2004)</td>
+                <td class="td-highlight-pw">Microsoft (2020)</td>
+                <td class="td-highlight-cy">Cypress.io (2017)</td>
+              </tr>
+              <tr>
+                <td class="td-header">Open Source</td>
+                <td class="td-highlight-sel"><span class="td-check">✓</span> Completely free</td>
+                <td class="td-highlight-pw"><span class="td-check">✓</span> Completely free</td>
+                <td class="td-highlight-cy"><span class="td-check">✓</span> Core free; Cloud paid</td>
+              </tr>
+              <tr>
+                <td class="td-header">Language Support</td>
+                <td class="td-highlight-sel">Java, Python, C#, JS, Ruby, Kotlin</td>
+                <td class="td-highlight-pw">JS/TS, Python, Java, C#</td>
+                <td class="td-highlight-cy"><span class="td-cross">JS / TypeScript only</span></td>
+              </tr>
+              <tr>
+                <td class="td-header">Architecture</td>
+                <td class="td-highlight-sel">External process via WebDriver (HTTP/REST)</td>
+                <td class="td-highlight-pw">Direct browser CDP — no HTTP overhead</td>
+                <td class="td-highlight-cy">Runs <em>inside</em> the browser as JS engine</td>
+              </tr>
+              <tr>
+                <td class="td-header">Browser Support</td>
+                <td class="td-highlight-sel">Chrome, Firefox, Edge, Safari, IE (legacy)</td>
+                <td class="td-highlight-pw">Chrome, Firefox, Edge, Safari (WebKit)</td>
+                <td class="td-highlight-cy">Chrome, Firefox, Edge <span class="td-cross">(no Safari)</span></td>
+              </tr>
+              <tr>
+                <td class="td-header">Execution Speed</td>
+                <td class="td-highlight-sel"><span class="td-partial">Moderate</span></td>
+                <td class="td-highlight-pw"><span class="td-check">Fast</span></td>
+                <td class="td-highlight-cy"><span class="td-check">Fast</span></td>
+              </tr>
+              <tr>
+                <td class="td-header">Auto-Waits</td>
+                <td class="td-highlight-sel"><span class="td-cross">Manual</span> — explicit / implicit waits required</td>
+                <td class="td-highlight-pw"><span class="td-check">Built-in</span> smart auto-wait for all actions</td>
+                <td class="td-highlight-cy"><span class="td-check">Built-in</span> auto-retry and auto-wait</td>
+              </tr>
+              <tr>
+                <td class="td-header">Parallel Execution</td>
+                <td class="td-highlight-sel">Selenium Grid (self-managed)</td>
+                <td class="td-highlight-pw"><span class="td-check">Built-in natively</span></td>
+                <td class="td-highlight-cy">Cypress Cloud only <span class="td-cross">(paid)</span></td>
+              </tr>
+              <tr>
+                <td class="td-header">Network Interception</td>
+                <td class="td-highlight-sel">Via CDP integration (Selenium 4)</td>
+                <td class="td-highlight-pw"><span class="td-check">Built-in, powerful</span></td>
+                <td class="td-highlight-cy"><span class="td-check">Built-in</span></td>
+              </tr>
+              <tr>
+                <td class="td-header">Mobile Testing</td>
+                <td class="td-highlight-sel"><span class="td-check">Real device</span> via Appium</td>
+                <td class="td-highlight-pw"><span class="td-partial">Browser emulation only</span></td>
+                <td class="td-highlight-cy"><span class="td-partial">Browser emulation only</span></td>
+              </tr>
+              <tr>
+                <td class="td-header">Shadow DOM</td>
+                <td class="td-highlight-sel"><span class="td-partial">Limited support</span></td>
+                <td class="td-highlight-pw"><span class="td-check">Full support</span></td>
+                <td class="td-highlight-cy"><span class="td-partial">Limited (plugin needed)</span></td>
+              </tr>
+              <tr>
+                <td class="td-header">Built-in Reporting</td>
+                <td class="td-highlight-sel"><span class="td-cross">None</span> — external tools required</td>
+                <td class="td-highlight-pw"><span class="td-check">Built-in HTML reporter</span></td>
+                <td class="td-highlight-cy"><span class="td-check">Built-in dashboard</span></td>
+              </tr>
+              <tr>
+                <td class="td-header">Learning Curve</td>
+                <td class="td-highlight-sel"><span class="td-cross">Steeper</span> — more setup needed</td>
+                <td class="td-highlight-pw"><span class="td-partial">Moderate</span></td>
+                <td class="td-highlight-cy"><span class="td-check">Low</span> (JS-only environment)</td>
+              </tr>
+              <tr>
+                <td class="td-header">Industry Maturity</td>
+                <td class="td-highlight-sel"><span class="td-check">Very High</span> — 20+ years, W3C standard</td>
+                <td class="td-highlight-pw">Growing rapidly since 2020</td>
+                <td class="td-highlight-cy">Established since 2017</td>
+              </tr>
+              <tr>
+                <td class="td-header">Best For</td>
+                <td class="td-highlight-sel">Enterprise, multi-language, cross-browser, legacy systems</td>
+                <td class="td-highlight-pw">Modern web apps, fast feedback loops, multi-language teams</td>
+                <td class="td-highlight-cy">JS teams, component testing, demos, front-end workflows</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 11: Client-Server Architecture → Selenium Architecture -->
+    <section class="slide" id="slide-11">
+      <div class="slide-content">
+        <div class="slide-subheader color-1">Day 01</div>
+        <h2 class="slide-header">From Client-Server to Selenium Architecture</h2>
+        <p class="slide-intro">Selenium is built on the same simple idea that powers the entire web — the <strong>Client-Server model</strong>. Once you understand this, Selenium's architecture makes perfect sense!</p>
+
+        <div class="cs-evo-grid">
+          <!-- LEFT: Classic Client-Server -->
+          <div class="cs-evo-panel">
+            <div class="cs-evo-panel-header">
+              <i data-lucide="globe"></i>
+              <h3>The Classic Client-Server Model</h3>
+              <span class="cs-evo-tag">How The Web Works</span>
+            </div>
+            <div class="cs-evo-diagram">
+              <div class="cs-evo-box cs-box-client">
+                <i data-lucide="monitor"></i>
+                <div class="cs-evo-box-info">
+                  <div class="cs-evo-box-title">Client (Your Browser)</div>
+                  <div class="cs-evo-box-sub">Chrome, Firefox, Edge — you browsing the web</div>
+                </div>
+              </div>
+              <div class="cs-evo-arrow-block">
+                <span class="cs-evo-arrow-text fwd">→ HTTP GET /login.html</span>
+                <span class="cs-evo-arrow-text ret">← 200 OK (HTML page returned)</span>
+              </div>
+              <div class="cs-evo-box cs-box-server">
+                <i data-lucide="server"></i>
+                <div class="cs-evo-box-info">
+                  <div class="cs-evo-box-title">Server (Web Application)</div>
+                  <div class="cs-evo-box-sub">Nginx, Apache, Node.js — hosts the web app</div>
+                </div>
+              </div>
+            </div>
+            <div class="cs-evo-points">
+              <div class="cs-evo-point"><span class="cs-point-num">1</span><span>Client sends an <strong>HTTP Request</strong> to the server (GET, POST, DELETE)</span></div>
+              <div class="cs-evo-point"><span class="cs-point-num">2</span><span>Server processes the request and sends back an <strong>HTTP Response</strong> (HTML, JSON)</span></div>
+              <div class="cs-evo-point"><span class="cs-point-num">3</span><span>The client and server <strong>never need to be on the same machine</strong> — just a network!</span></div>
+            </div>
+          </div>
+
+          <!-- BRIDGE -->
+          <div class="cs-evo-bridge">
+            <div class="cs-bridge-icon"><i data-lucide="arrow-right-left"></i></div>
+            <div class="cs-bridge-label">Same idea, different actors</div>
+          </div>
+
+          <!-- RIGHT: Selenium applies the same model -->
+          <div class="cs-evo-panel">
+            <div class="cs-evo-panel-header">
+              <i data-lucide="terminal-square"></i>
+              <h3>Selenium Uses the Same Pattern!</h3>
+              <span class="cs-evo-tag">How Selenium Works</span>
+            </div>
+            <div class="cs-evo-diagram">
+              <div class="cs-evo-box cs-box-testscript">
+                <i data-lucide="code-2"></i>
+                <div class="cs-evo-box-info">
+                  <div class="cs-evo-box-title">Client (Your Test Script)</div>
+                  <div class="cs-evo-box-sub">Java, Python, C#, JavaScript — your automation code</div>
+                </div>
+              </div>
+              <div class="cs-evo-arrow-block">
+                <span class="cs-evo-arrow-text fwd">→ POST /session/{id}/element/click (JSON)</span>
+                <span class="cs-evo-arrow-text ret">← 200 OK {"value": null} (done!)</span>
+              </div>
+              <div class="cs-evo-box cs-box-driver">
+                <i data-lucide="cpu"></i>
+                <div class="cs-evo-box-info">
+                  <div class="cs-evo-box-title">Server (Browser Driver)</div>
+                  <div class="cs-evo-box-sub">ChromeDriver, GeckoDriver — listens on localhost:9515</div>
+                </div>
+              </div>
+              <div class="cs-evo-arrow-block">
+                <span class="cs-evo-arrow-text fwd">→ CDP / Marionette (internal protocol)</span>
+                <span class="cs-evo-arrow-text ret">← Element found, action done!</span>
+              </div>
+              <div class="cs-evo-box cs-box-browser">
+                <i data-lucide="globe"></i>
+                <div class="cs-evo-box-info">
+                  <div class="cs-evo-box-title">The Real Browser</div>
+                  <div class="cs-evo-box-sub">Chrome, Firefox — performs the actual action</div>
+                </div>
+              </div>
+            </div>
+            <div class="cs-evo-points">
+              <div class="cs-evo-point"><span class="cs-point-num">1</span><span>Test script = <strong>Client</strong> — sends HTTP commands to the driver server</span></div>
+              <div class="cs-evo-point"><span class="cs-point-num">2</span><span>Browser driver = <strong>Server</strong> — receives commands, translates, controls browser</span></div>
+              <div class="cs-evo-point"><span class="cs-point-num">3</span><span>They talk via <strong>W3C WebDriver Protocol</strong> = same HTTP/JSON as the web!</span></div>
+            </div>
+            <div class="cs-evo-extra-note">
+              <i data-lucide="info"></i>
+              <span>This means Selenium tests can run the browser driver on a <strong>remote machine</strong> (Selenium Grid) just like a web app can have a remote server — it's all just HTTP!</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cs-insight-bar">
+          <i data-lucide="lightbulb"></i>
+          <span><strong>Key Insight for Beginners:</strong> Your test script is the <em>"browser"</em> placing orders. ChromeDriver is the <em>"web server"</em> taking orders. They communicate over <strong>HTTP + JSON</strong> — the same technology that powers every website you visit. Selenium just uses it to automate instead of display pages!</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 12: Selenium 4 Architecture — Interactive Diagram -->
+    <section class="slide" id="slide-12">
+      <div class="slide-content">
+        <div class="slide-subheader color-1">Day 01</div>
+        <h2 class="slide-header">Selenium 4 — Full Architecture Diagram</h2>
+        <p class="slide-intro">Click each layer below to understand its role. Every command you write travels through <strong>all 5 layers</strong> before the browser does anything.</p>
+        <div class="arch-wrapper">
+          <!-- Left: Clickable Layer Stack -->
+          <div class="arch-left">
+            <!-- Layer 1 -->
+            <div class="arch-layer-card arch-active-test active" id="arch-layer-test" onclick="selectArchLayer('test')">
+              <div class="arch-layer-icon-box" style="background:rgba(6,90,130,0.15);">
+                <i data-lucide="code-2" style="color:#065A82;"></i>
+              </div>
+              <div class="arch-layer-text">
+                <h4>Your Test Code</h4>
+                <p>Java · Python · C# · JavaScript · Ruby · Kotlin</p>
+              </div>
+              <div class="arch-layer-num">1</div>
+            </div>
+            <div class="arch-conn">
+              <div class="arch-conn-line"></div>
+              <div class="arch-conn-label">Selenium library method call</div>
+            </div>
+
+            <!-- Layer 2 -->
+            <div class="arch-layer-card" id="arch-layer-binding" onclick="selectArchLayer('binding')">
+              <div class="arch-layer-icon-box" style="background:rgba(28,114,147,0.15);">
+                <i data-lucide="layers" style="color:#1C7293;"></i>
+              </div>
+              <div class="arch-layer-text">
+                <h4>Selenium Language Bindings</h4>
+                <p>Selenium library installed in your project</p>
+              </div>
+              <div class="arch-layer-num">2</div>
+            </div>
+            <div class="arch-conn">
+              <div class="arch-conn-line"></div>
+              <div class="arch-conn-label">Serialises to HTTP/REST + JSON</div>
+            </div>
+
+            <!-- Layer 3: W3C Protocol -->
+            <div class="arch-layer-card" id="arch-layer-protocol" onclick="selectArchLayer('protocol')">
+              <div class="arch-layer-icon-box" style="background:rgba(155,89,182,0.15);">
+                <i data-lucide="globe" style="color:#9B59B6;"></i>
+              </div>
+              <div class="arch-layer-text">
+                <h4>W3C WebDriver Protocol</h4>
+                <p>HTTP/REST over localhost · JSON payloads · Official W3C Standard</p>
+              </div>
+              <div class="arch-layer-num">3</div>
+            </div>
+            <div class="arch-conn">
+              <div class="arch-conn-line"></div>
+              <div class="arch-conn-label">HTTP server: localhost:9515 (Chrome) / :4444 (Grid)</div>
+            </div>
+
+            <!-- Layer 4: Browser Driver -->
+            <div class="arch-layer-card" id="arch-layer-driver" onclick="selectArchLayer('driver')">
+              <div class="arch-layer-icon-box" style="background:rgba(217,93,57,0.12);">
+                <i data-lucide="cpu" style="color:#D95D39;"></i>
+              </div>
+              <div class="arch-layer-text">
+                <h4>Browser Driver Process</h4>
+                <p>ChromeDriver · GeckoDriver · EdgeDriver · SafariDriver</p>
+              </div>
+              <div class="arch-layer-num">4</div>
+            </div>
+            <div class="arch-conn">
+              <div class="arch-conn-line"></div>
+              <div class="arch-conn-label">CDP (Chrome/Edge) · Marionette (Firefox) · WebKit Debug</div>
+            </div>
+
+            <!-- Layer 5: Browser -->
+            <div class="arch-layer-card" id="arch-layer-browser" onclick="selectArchLayer('browser')">
+              <div class="arch-layer-icon-box" style="background:rgba(15,110,86,0.12);">
+                <i data-lucide="monitor" style="color:#0F6E56;"></i>
+              </div>
+              <div class="arch-layer-text">
+                <h4>Browser</h4>
+                <p>Chrome · Firefox · Edge · Safari — real browser process</p>
+              </div>
+              <div class="arch-layer-num">5</div>
+            </div>
+
+            <!-- Extra: Selenium Manager + Grid -->
+            <div class="arch-extras">
+              <div class="arch-extra-badge badge-manager" id="arch-layer-manager" onclick="selectArchLayer('manager')">
+                <i data-lucide="package-2"></i>
+                <div>
+                  <strong>Selenium Manager (4.6+)</strong>
+                  <span>Auto-downloads &amp; configures the correct driver binary — zero manual setup</span>
+                </div>
+              </div>
+              <div class="arch-extra-badge badge-grid" id="arch-layer-grid" onclick="selectArchLayer('grid')">
+                <i data-lucide="network"></i>
+                <div>
+                  <strong>Selenium Grid 4 (Optional)</strong>
+                  <span>Routes sessions to remote Nodes for parallel cross-browser execution</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Detail Panel (populated by JS) -->
+          <div class="arch-detail-box" id="arch-detail-box">
+            <div class="arch-detail-hint-state">
+              <i data-lucide="mouse-pointer-click"></i>
+              <p>Click any layer on the left to explore its role in Selenium's architecture.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 13: Request Flow — How Selenium Handles Your Command -->
+    <section class="slide" id="slide-13">
+      <div class="slide-content">
+        <div class="slide-subheader color-1">Day 01</div>
+        <h2 class="slide-header">How Selenium Handles Your Request — Step by Step</h2>
+        <p class="slide-intro">Trace exactly what happens from the moment you write <code style="background:rgba(28,114,147,0.12);padding:2px 8px;border-radius:5px;font-size:12px;">driver.findElement(By.id("login")).click()</code> to the browser actually clicking.</p>
+        <div class="rflow-layout">
+          <!-- Actors row -->
+          <div class="rflow-actors">
+            <div class="rflow-actor is-active" id="rflow-actor-0">
+              <div class="rflow-actor-icon" style="background:rgba(6,90,130,0.15);">
+                <i data-lucide="code-2" style="color:#065A82;"></i>
+              </div>
+              <div class="rflow-actor-name">Test Script</div>
+              <div class="rflow-actor-sub">Java · Python · C#</div>
+            </div>
+            <div class="rflow-arrow" id="rflow-arrow-0"><i data-lucide="chevron-right"></i></div>
+            <div class="rflow-actor" id="rflow-actor-1">
+              <div class="rflow-actor-icon" style="background:rgba(28,114,147,0.15);">
+                <i data-lucide="layers" style="color:#1C7293;"></i>
+              </div>
+              <div class="rflow-actor-name">Language Binding</div>
+              <div class="rflow-actor-sub">Selenium Library</div>
+            </div>
+            <div class="rflow-arrow" id="rflow-arrow-1"><i data-lucide="chevron-right"></i></div>
+            <div class="rflow-actor" id="rflow-actor-2">
+              <div class="rflow-actor-icon" style="background:rgba(217,93,57,0.12);">
+                <i data-lucide="cpu" style="color:#D95D39;"></i>
+              </div>
+              <div class="rflow-actor-name">Browser Driver</div>
+              <div class="rflow-actor-sub">ChromeDriver · GeckoDriver</div>
+            </div>
+            <div class="rflow-arrow" id="rflow-arrow-2"><i data-lucide="chevron-right"></i></div>
+            <div class="rflow-actor" id="rflow-actor-3">
+              <div class="rflow-actor-icon" style="background:rgba(15,110,86,0.12);">
+                <i data-lucide="monitor" style="color:#0F6E56;"></i>
+              </div>
+              <div class="rflow-actor-name">Browser</div>
+              <div class="rflow-actor-sub">Chrome · Firefox · Edge</div>
+            </div>
+          </div>
+
+          <!-- Step navigation row -->
+          <div class="rflow-steps-row">
+            <span class="rflow-steps-label">Jump to step:</span>
+            <div class="rflow-step-btns">
+              <button class="rflow-step-btn active" onclick="rflowGoToStep(1)">1</button>
+              <button class="rflow-step-btn" onclick="rflowGoToStep(2)">2</button>
+              <button class="rflow-step-btn" onclick="rflowGoToStep(3)">3</button>
+              <button class="rflow-step-btn" onclick="rflowGoToStep(4)">4</button>
+              <button class="rflow-step-btn" onclick="rflowGoToStep(5)">5</button>
+              <button class="rflow-step-btn" onclick="rflowGoToStep(6)">6</button>
+              <button class="rflow-step-btn" onclick="rflowGoToStep(7)">7</button>
+            </div>
+            <div class="rflow-nav">
+              <button class="rflow-btn" id="rflow-prev-btn" onclick="rflowPrev()" disabled>
+                <i data-lucide="chevron-left"></i> Prev
+              </button>
+              <div class="rflow-nav-progress" id="rflow-progress">Step 1 of 7</div>
+              <button class="rflow-btn next-btn" id="rflow-next-btn" onclick="rflowNext()">
+                Next <i data-lucide="chevron-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Detail card — populated by JS -->
+          <div class="rflow-detail" id="rflow-detail"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 14: Day 2 — Intro Splash (Placeholder) -->
+    <section class="slide dark-bg" id="slide-14">
+      <div class="slide-content centered">
+        <div class="splash-badge">Day 02 · Selenium Training</div>
+        <h1 class="giant-headline">Day 02</h1>
+        <h2 class="sub-headline">Section Title to be Provided</h2>
+        <p class="splash-text">Topics and learning objectives for Day 2 will be added once the content is provided.</p>
+        <div class="criteria-highlight">
+          <i data-lucide="clock"></i>
+          <span>Content for this session is coming soon</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 15: Day 2 — Content (Placeholder) -->
+    <section class="slide" id="slide-15">
+      <div class="slide-content">
+        <div class="slide-subheader color-2">Day 02</div>
+        <h2 class="slide-header">Content to be Provided</h2>
+        <div class="placeholder-section">
+          <div class="placeholder-icon"><i data-lucide="file-clock"></i></div>
+          <h3>Slides &amp; Content Coming Soon</h3>
+          <p>Detailed slide content for Day 2 will be added in the next update. The layout and interactive components are ready for population.</p>
+          <div class="placeholder-note"><i data-lucide="info"></i><span>The slide structure, navigation, and interactive framework for this session are fully prepared and awaiting content insertion.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 16: Day 3 — Intro Splash (Placeholder) -->
+    <section class="slide dark-bg" id="slide-16">
+      <div class="slide-content centered">
+        <div class="splash-badge">Day 03 · Selenium Training</div>
+        <h1 class="giant-headline">Day 03</h1>
+        <h2 class="sub-headline">Section Title to be Provided</h2>
+        <p class="splash-text">Topics and learning objectives for Day 3 will be added once the content is provided.</p>
+        <div class="criteria-highlight">
+          <i data-lucide="clock"></i>
+          <span>Content for this session is coming soon</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 17: Day 3 — Content (Placeholder) -->
+    <section class="slide" id="slide-17">
+      <div class="slide-content">
+        <div class="slide-subheader color-3">Day 03</div>
+        <h2 class="slide-header">Content to be Provided</h2>
+        <div class="placeholder-section">
+          <div class="placeholder-icon"><i data-lucide="file-clock"></i></div>
+          <h3>Slides &amp; Content Coming Soon</h3>
+          <p>Detailed slide content for Day 3 will be added in the next update.</p>
+          <div class="placeholder-note"><i data-lucide="info"></i><span>The slide structure and interactive framework for this session are fully prepared and awaiting content insertion.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 18: Day 4 — Intro Splash (Placeholder) -->
+    <section class="slide dark-bg" id="slide-18">
+      <div class="slide-content centered">
+        <div class="splash-badge">Day 04 · Selenium Training</div>
+        <h1 class="giant-headline">Day 04</h1>
+        <h2 class="sub-headline">Section Title to be Provided</h2>
+        <p class="splash-text">Topics and learning objectives for Day 4 will be added once the content is provided.</p>
+        <div class="criteria-highlight">
+          <i data-lucide="clock"></i>
+          <span>Content for this session is coming soon</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 19: Day 4 — Content (Placeholder) -->
+    <section class="slide" id="slide-19">
+      <div class="slide-content">
+        <div class="slide-subheader color-4">Day 04</div>
+        <h2 class="slide-header">Content to be Provided</h2>
+        <div class="placeholder-section">
+          <div class="placeholder-icon"><i data-lucide="file-clock"></i></div>
+          <h3>Slides &amp; Content Coming Soon</h3>
+          <p>Detailed slide content for Day 4 will be added in the next update.</p>
+          <div class="placeholder-note"><i data-lucide="info"></i><span>The slide structure and interactive framework for this session are fully prepared and awaiting content insertion.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 20: Day 5 — Intro Splash (Placeholder) -->
+    <section class="slide dark-bg" id="slide-20">
+      <div class="slide-content centered">
+        <div class="splash-badge">Day 05 · Selenium Training</div>
+        <h1 class="giant-headline">Day 05</h1>
+        <h2 class="sub-headline">Section Title to be Provided</h2>
+        <p class="splash-text">Topics and learning objectives for Day 5 will be added once the content is provided.</p>
+        <div class="criteria-highlight">
+          <i data-lucide="clock"></i>
+          <span>Content for this session is coming soon</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 21: Day 5 — Content (Placeholder) -->
+    <section class="slide" id="slide-21">
+      <div class="slide-content">
+        <div class="slide-subheader color-5">Day 05</div>
+        <h2 class="slide-header">Content to be Provided</h2>
+        <div class="placeholder-section">
+          <div class="placeholder-icon"><i data-lucide="file-clock"></i></div>
+          <h3>Slides &amp; Content Coming Soon</h3>
+          <p>Detailed slide content for Day 5 will be added in the next update.</p>
+          <div class="placeholder-note"><i data-lucide="info"></i><span>The slide structure and interactive framework for this session are fully prepared and awaiting content insertion.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 22: Day 6 — Intro Splash (Placeholder) -->
+    <section class="slide dark-bg" id="slide-22">
+      <div class="slide-content centered">
+        <div class="splash-badge">Day 06 · Selenium Training</div>
+        <h1 class="giant-headline">Day 06</h1>
+        <h2 class="sub-headline">Section Title to be Provided</h2>
+        <p class="splash-text">Topics and learning objectives for Day 6 will be added once the content is provided.</p>
+        <div class="criteria-highlight">
+          <i data-lucide="clock"></i>
+          <span>Content for this session is coming soon</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 23: Day 6 — Content (Placeholder) -->
+    <section class="slide" id="slide-23">
+      <div class="slide-content">
+        <div class="slide-subheader color-6">Day 06</div>
+        <h2 class="slide-header">Content to be Provided</h2>
+        <div class="placeholder-section">
+          <div class="placeholder-icon"><i data-lucide="file-clock"></i></div>
+          <h3>Slides &amp; Content Coming Soon</h3>
+          <p>Detailed slide content for Day 6 will be added in the next update.</p>
+          <div class="placeholder-note"><i data-lucide="info"></i><span>The slide structure and interactive framework for this session are fully prepared and awaiting content insertion.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 24: Day 7 — Intro Splash (Placeholder) -->
+    <section class="slide dark-bg" id="slide-24">
+      <div class="slide-content centered">
+        <div class="splash-badge">Day 07 · Selenium Training</div>
+        <h1 class="giant-headline">Day 07</h1>
+        <h2 class="sub-headline">Section Title to be Provided</h2>
+        <p class="splash-text">Topics and learning objectives for Day 7 will be added once the content is provided.</p>
+        <div class="criteria-highlight">
+          <i data-lucide="clock"></i>
+          <span>Content for this session is coming soon</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 25: Day 7 — Content (Placeholder) -->
+    <section class="slide" id="slide-25">
+      <div class="slide-content">
+        <div class="slide-subheader color-1">Day 07</div>
+        <h2 class="slide-header">Content to be Provided</h2>
+        <div class="placeholder-section">
+          <div class="placeholder-icon"><i data-lucide="file-clock"></i></div>
+          <h3>Slides &amp; Content Coming Soon</h3>
+          <p>Detailed slide content for Day 7 will be added in the next update.</p>
+          <div class="placeholder-note"><i data-lucide="info"></i><span>The slide structure and interactive framework for this session are fully prepared and awaiting content insertion.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 26: Key Takeaways Summary (Placeholder) -->
+    <section class="slide" id="slide-26">
+      <div class="slide-content">
+        <h2 class="slide-header">Key Takeaways &amp; Summary</h2>
+        <div class="placeholder-section">
+          <div class="placeholder-icon"><i data-lucide="list-checks"></i></div>
+          <h3>Summary Content Coming Soon</h3>
+          <p>A consolidated summary of key learnings, best practices, and actionable takeaways from all sessions will be built here once all content is delivered.</p>
+          <div class="placeholder-note"><i data-lucide="info"></i><span>Summary slides will be built once all daily content has been provided and integrated.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 27: Thank You / Q&A -->
+    <section class="slide dark-bg" id="slide-27">
+      <div class="slide-content centered">
+        <div class="splash-badge text-glow animate-pulse">End of Session</div>
+        <h1 class="giant-headline scale-in">Thank You!</h1>
+        <h2 class="sub-headline">Any Questions?</h2>
+        <div class="qa-links">
+          <div class="qa-item">
+            <i data-lucide="mail"></i>
+            <span>qa-class@enterprise.com</span>
+          </div>
+          <div class="qa-item">
+            <i data-lucide="globe"></i>
+            <span>selenium-training.io</span>
+          </div>
+        </div>
+        <p class="small-copyright">Selenium WebDriver Training | Automation Testing Deep Dive</p>
+      </div>
+    </section>
+
+  </div>
+  <!-- Bottom Navigation Panel -->
+  <div class="presentation-controls">
+    <div class="controls-left">
+      <button id="prev-btn" class="control-btn" title="Previous (Left Arrow / PageUp)">
+        <i data-lucide="chevron-left"></i>
+      </button>
+      <span class="slide-index" id="slide-index">Slide 1 of 26</span>
+      <button id="next-btn" class="control-btn" title="Next (Right Arrow / Space / PageDown)">
+        <i data-lucide="chevron-right"></i>
+      </button>
+    </div>
+    <div class="controls-center">
+      <div class="select-container">
+        <select id="slide-select" class="slide-select">
+          <!-- Populated dynamically via selenium-app.js -->
+        </select>
+        <i data-lucide="chevron-down" class="select-arrow"></i>
+      </div>
+    </div>
+    <div class="controls-right">
+      <button id="play-btn" class="control-btn" title="Auto-Play Slideshow (P)">
+        <i data-lucide="play" class="icon-play"></i>
+        <i data-lucide="pause" class="icon-pause" style="display: none;"></i>
+      </button>
+      <button id="help-btn" class="control-btn" title="Show Keyboard Shortcuts (H)">
+        <i data-lucide="help-circle"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Keyboard Help Modal -->
+  <div class="modal" id="help-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Keyboard Shortcuts</h3>
+        <button id="close-modal-btn" class="close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="shortcut-row">
+          <span class="key">Space</span> or <span class="key">&rarr;</span> or <span class="key">PgDn</span>
+          <span>Next Slide</span>
+        </div>
+        <div class="shortcut-row">
+          <span class="key">&larr;</span> or <span class="key">PgUp</span>
+          <span>Previous Slide</span>
+        </div>
+        <div class="shortcut-row">
+          <span class="key">Home</span> / <span class="key">End</span>
+          <span>First / Last Slide</span>
+        </div>
+        <div class="shortcut-row">
+          <span class="key">F</span>
+          <span>Toggle Fullscreen</span>
+        </div>
+        <div class="shortcut-row">
+          <span class="key">L</span>
+          <span>Toggle Light/Dark Theme</span>
+        </div>
+        <div class="shortcut-row">
+          <span class="key">P</span>
+          <span>Toggle Auto-Play Slideshow</span>
+        </div>
+        <div class="shortcut-row">
+          <span class="key">H</span>
+          <span>Toggle this Help Dialog</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="selenium-app.js"></script>
+</body>
+</html>

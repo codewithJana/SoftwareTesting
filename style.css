@@ -131,6 +131,123 @@ strong {
   gap: 10px;
 }
 
+/* ==========================================================================
+   COURSE / MODULE SWITCHER (Multi-deck navigation)
+   ========================================================================== */
+.presentation-header {
+  position: relative;
+}
+
+.header-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.course-switcher {
+  display: flex;
+  gap: 4px;
+  background: var(--bg-card);
+  padding: 4px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(8px);
+}
+
+.course-pill {
+  padding: 5px 18px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: var(--font-family-body);
+  letter-spacing: 0.4px;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: var(--transition-fast);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.course-pill:hover {
+  color: var(--text-main);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.course-pill.active {
+  background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(6, 90, 130, 0.4);
+}
+
+/* ==========================================================================
+   PLACEHOLDER SLIDES (Content Coming Soon)
+   ========================================================================== */
+.placeholder-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px;
+  text-align: center;
+  flex: 1;
+  min-height: 340px;
+}
+
+.placeholder-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 20px;
+  background: var(--bg-card);
+  border: 1px dashed var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.placeholder-icon svg {
+  width: 34px;
+  height: 34px;
+  color: var(--text-muted);
+  opacity: 0.6;
+}
+
+.placeholder-section h3 {
+  font-family: var(--font-family-title);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-muted);
+  opacity: 0.75;
+}
+
+.placeholder-section p {
+  font-size: 15px;
+  color: var(--text-muted);
+  max-width: 480px;
+  line-height: 1.7;
+  opacity: 0.7;
+}
+
+.placeholder-note {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  font-size: 13px;
+  color: var(--text-muted);
+  max-width: 560px;
+}
+
+.placeholder-note svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: var(--secondary);
+}
+
 .header-btn {
   background: transparent;
   border: 1px solid var(--border-color);
@@ -2672,6 +2789,440 @@ strong {
   gap: 12px;
 }
 
+/* ==========================================================================
+   SELENIUM TRAINING — EVOLUTION TIMELINE (Slide 5)
+   ========================================================================== */
+.sel-timeline-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 40px;
+}
+
+.sel-timeline-col {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-left: 26px;
+}
+
+.sel-timeline-col::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 12px;
+  bottom: 12px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--secondary), rgba(28, 114, 147, 0.1));
+}
+
+.sel-timeline-col-header {
+  font-family: var(--font-family-title);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.sel-tl-item {
+  position: relative;
+  padding-bottom: 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sel-tl-item::before {
+  content: '';
+  position: absolute;
+  left: -22px;
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--secondary);
+  border: 2px solid var(--bg-main);
+  box-shadow: 0 0 6px rgba(28, 114, 147, 0.5);
+}
+
+.sel-tl-item.key-release::before {
+  background: var(--accent-green);
+  box-shadow: 0 0 10px rgba(15, 110, 86, 0.6);
+  width: 12px;
+  height: 12px;
+  left: -23px;
+  top: 5px;
+}
+
+.sel-tl-year {
+  font-family: var(--font-family-title);
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--secondary);
+  letter-spacing: 0.4px;
+}
+
+.sel-tl-item.key-release .sel-tl-year {
+  color: var(--accent-green);
+}
+
+.sel-tl-title {
+  font-family: var(--font-family-title);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-main);
+  line-height: 1.3;
+}
+
+.sel-tl-desc {
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+/* ==========================================================================
+   SELENIUM TRAINING — COMPONENT INTERACTIVE NODES (Slide 6)
+   ========================================================================== */
+.sel-component-nodes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.sel-component-node {
+  padding: 14px 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: center;
+  transition: var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.sel-component-node:hover {
+  border-color: var(--secondary);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(28, 114, 147, 0.15);
+}
+
+.sel-component-node.active {
+  border-color: var(--secondary);
+  background: rgba(28, 114, 147, 0.15);
+  box-shadow: 0 0 18px rgba(28, 114, 147, 0.25);
+}
+
+.sel-component-node svg {
+  width: 22px;
+  height: 22px;
+  color: var(--secondary);
+}
+
+.sel-component-node.active svg {
+  color: #5dc4e8;
+}
+
+.sel-component-node-name {
+  font-family: var(--font-family-title);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.sel-component-node-sub {
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.sel-component-details {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 18px 22px;
+  min-height: 210px;
+}
+
+/* ==========================================================================
+   SELENIUM TRAINING — W3C ARCHITECTURE FLOW (Slide 8)
+   ========================================================================== */
+.sel-arch-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  align-items: stretch;
+}
+
+.sel-arch-node {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 10px 16px;
+  text-align: center;
+}
+
+.sel-arch-node.primary-node {
+  border-color: var(--secondary);
+  background: rgba(28, 114, 147, 0.12);
+}
+
+.sel-arch-node.driver-node {
+  border-color: var(--accent-orange);
+  background: rgba(217, 93, 57, 0.08);
+}
+
+.sel-arch-node.browser-node {
+  border-color: var(--accent-green);
+  background: rgba(15, 110, 86, 0.1);
+}
+
+.sel-arch-node-title {
+  font-family: var(--font-family-title);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.sel-arch-node-sub {
+  font-size: 10px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.sel-arch-connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 3px 0;
+}
+
+.sel-arch-connector-label {
+  font-size: 9.5px;
+  font-weight: 600;
+  color: var(--secondary);
+  background: var(--badge-bg);
+  padding: 2px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.3px;
+}
+
+.sel-arch-connector svg {
+  width: 14px;
+  height: 14px;
+  color: var(--text-muted);
+  opacity: 0.5;
+}
+
+/* ==========================================================================
+   SELENIUM TRAINING — ADVANTAGES & LIMITATIONS (Slide 9)
+   ========================================================================== */
+.pros-cons-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.pros-list,
+.cons-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.pros-list li,
+.cons-list li {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  font-size: 11.5px;
+  line-height: 1.4;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: var(--bg-card);
+}
+
+.pros-list li .mark {
+  color: #5DCAA5;
+  font-weight: 700;
+  font-size: 13px;
+  flex-shrink: 0;
+  margin-top: 0px;
+}
+
+.cons-list li .mark {
+  color: #FF6B6B;
+  font-weight: 700;
+  font-size: 13px;
+  flex-shrink: 0;
+  margin-top: 0px;
+}
+
+/* ==========================================================================
+   SELENIUM TRAINING — POSSIBILITIES STRIP (Slide 9)
+   ========================================================================== */
+.possibilities-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-bottom: 14px;
+}
+
+.possibility-tag {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  background: rgba(28, 114, 147, 0.1);
+  border: 1px solid rgba(28, 114, 147, 0.25);
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+.possibility-tag svg {
+  width: 12px;
+  height: 12px;
+  color: var(--secondary);
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   SELENIUM TRAINING — COMPARISON TABLE BADGE CELLS (Slide 10)
+   ========================================================================== */
+.td-check {
+  color: #5DCAA5;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.td-cross {
+  color: #FF6B6B;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.td-partial {
+  color: var(--accent-yellow);
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.td-highlight-sel {
+  background: rgba(28, 114, 147, 0.08) !important;
+}
+
+.td-highlight-pw {
+  background: rgba(15, 110, 86, 0.06) !important;
+}
+
+.td-highlight-cy {
+  background: rgba(186, 117, 23, 0.06) !important;
+}
+
+/* Component details layout inside sel-component-details */
+.comp-details-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 16px;
+  height: 100%;
+}
+
+.comp-details-left {}
+
+.comp-details-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.comp-details-header svg {
+  width: 24px;
+  height: 24px;
+  color: var(--secondary);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.comp-details-header h3 {
+  font-family: var(--font-family-title);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.comp-details-header .comp-tagline {
+  font-size: 11px;
+  color: var(--secondary);
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.comp-desc-text {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin-bottom: 10px;
+}
+
+.comp-usecase-box {
+  background: rgba(28, 114, 147, 0.08);
+  border-left: 3px solid var(--secondary);
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 11px;
+  color: var(--text-main);
+  line-height: 1.45;
+}
+
+.comp-features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.comp-features-list li {
+  display: flex;
+  gap: 7px;
+  align-items: flex-start;
+  font-size: 11.5px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.comp-features-list li::before {
+  content: '›';
+  color: var(--secondary);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.1;
+  flex-shrink: 0;
+}
+
+.comp-drivers-badge {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 5px 12px;
+  background: var(--badge-bg);
+  border-radius: 20px;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--badge-text);
+}
+
 .case-study-card {
   display: flex;
   gap: 12px;
@@ -2795,5 +3346,642 @@ strong {
   }
 }
 
+/* ==========================================================================
+   SELENIUM 4 ARCHITECTURE INTERACTIVE DIAGRAM — SLIDE 11
+   ========================================================================== */
+.arch-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+}
 
+.arch-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.arch-layer-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 14px;
+  border-radius: 12px;
+  border: 2px solid var(--border-color);
+  background: var(--bg-card);
+  cursor: pointer;
+  transition: var(--transition-fast);
+  position: relative;
+}
+
+.arch-layer-card:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+}
+
+.arch-layer-card.active { transform: translateX(4px); }
+.arch-layer-card.arch-active-test   { border-color: #065A82; background: rgba(6,90,130,0.1); box-shadow: 0 0 0 2px rgba(6,90,130,0.25), 0 6px 20px rgba(6,90,130,0.15); }
+.arch-layer-card.arch-active-binding { border-color: #1C7293; background: rgba(28,114,147,0.1); box-shadow: 0 0 0 2px rgba(28,114,147,0.25), 0 6px 20px rgba(28,114,147,0.15); }
+.arch-layer-card.arch-active-driver  { border-color: #D95D39; background: rgba(217,93,57,0.08); box-shadow: 0 0 0 2px rgba(217,93,57,0.25), 0 6px 20px rgba(217,93,57,0.12); }
+.arch-layer-card.arch-active-browser { border-color: #0F6E56; background: rgba(15,110,86,0.08); box-shadow: 0 0 0 2px rgba(15,110,86,0.25), 0 6px 20px rgba(15,110,86,0.12); }
+
+.arch-layer-icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.arch-layer-icon-box svg { width: 20px; height: 20px; }
+
+.arch-layer-text { flex: 1; }
+.arch-layer-text h4 { font-family: var(--font-family-title); font-size: 13px; font-weight: 700; margin: 0; }
+.arch-layer-text p  { font-size: 10px; color: var(--text-muted); margin: 2px 0 0; }
+
+.arch-layer-num {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-muted);
+  font-family: var(--font-family-title);
+  flex-shrink: 0;
+}
+
+.arch-layer-card.active .arch-layer-num {
+  background: var(--secondary);
+  border-color: var(--secondary);
+  color: white;
+}
+
+.arch-conn {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 2px 0 2px 18px;
+}
+
+.arch-conn-line {
+  width: 2px;
+  height: 18px;
+  background: linear-gradient(to bottom, var(--secondary), rgba(28,114,147,0.2));
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.arch-conn-label {
+  font-size: 9.5px;
+  color: var(--secondary);
+  background: var(--badge-bg);
+  padding: 2px 10px;
+  border-radius: 10px;
+  margin-left: 8px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+.arch-extras {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.arch-extra-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px dashed;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  font-size: 11px;
+}
+
+.arch-extra-badge:hover { transform: translateX(3px); }
+.arch-extra-badge svg { width: 14px; height: 14px; flex-shrink: 0; }
+.arch-extra-badge div { display: flex; flex-direction: column; gap: 1px; }
+.arch-extra-badge strong { font-size: 11px; display: block; }
+.arch-extra-badge span { font-size: 10px; color: var(--text-muted); }
+.arch-extra-badge.badge-manager { border-color: rgba(186,117,23,0.35); background: rgba(186,117,23,0.04); }
+.arch-extra-badge.badge-manager svg { color: var(--accent-yellow); }
+.arch-extra-badge.badge-grid { border-color: rgba(28,114,147,0.35); background: rgba(28,114,147,0.04); }
+.arch-extra-badge.badge-grid svg { color: var(--secondary); }
+
+/* Right detail panel */
+.arch-detail-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow: auto;
+}
+
+.arch-detail-hint-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 12px;
+  color: var(--text-muted);
+  opacity: 0.5;
+  text-align: center;
+}
+
+.arch-detail-hint-state svg { width: 34px; height: 34px; }
+
+.arch-detail-title {
+  font-family: var(--font-family-title);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.arch-detail-section { display: flex; flex-direction: column; gap: 4px; }
+.arch-detail-section-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--secondary);
+}
+
+.arch-detail-section p {
+  font-size: 11.5px;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+.arch-detail-analogy-box {
+  background: rgba(186,117,23,0.07);
+  border-left: 3px solid var(--accent-yellow);
+  padding: 9px 13px;
+  border-radius: 0 8px 8px 0;
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.arch-detail-analogy-box .alabel {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--accent-yellow);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.arch-detail-code {
+  background: rgba(0,0,0,0.25);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-family: 'Courier New', monospace;
+  font-size: 10.5px;
+  color: #88d4ab;
+  line-height: 1.65;
+  white-space: pre;
+  overflow-x: auto;
+}
+
+.arch-detail-code .clabel {
+  font-family: var(--font-family-body);
+  font-size: 9.5px;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  white-space: normal;
+}
+
+[data-theme="light"] .arch-detail-code { background: rgba(0,0,0,0.05); border-color: var(--border-color); color: #1a6b3a; }
+
+/* ==========================================================================
+   REQUEST FLOW INTERACTIVE — SLIDE 12
+   ========================================================================== */
+.rflow-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  min-height: 0;
+}
+
+/* Actor boxes row */
+.rflow-actors {
+  display: grid;
+  grid-template-columns: 1fr 28px 1fr 28px 1fr 28px 1fr;
+  gap: 4px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.rflow-actor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 11px 8px;
+  border-radius: 14px;
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  transition: all 0.35s cubic-bezier(0.16,1,0.3,1);
+  text-align: center;
+}
+
+.rflow-actor.is-active {
+  border-color: var(--secondary);
+  background: rgba(28,114,147,0.14);
+  box-shadow: 0 0 18px rgba(28,114,147,0.2);
+  transform: translateY(-4px);
+}
+
+.rflow-actor.is-return {
+  border-color: var(--accent-green);
+  background: rgba(15,110,86,0.1);
+  box-shadow: 0 0 14px rgba(15,110,86,0.15);
+  transform: translateY(-4px);
+}
+
+.rflow-actor-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rflow-actor-icon svg { width: 22px; height: 22px; }
+.rflow-actor-name { font-family: var(--font-family-title); font-size: 11.5px; font-weight: 700; }
+.rflow-actor-sub  { font-size: 9.5px; color: var(--text-muted); }
+
+.rflow-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+}
+
+.rflow-arrow svg { width: 20px; height: 20px; color: var(--border-color); transition: var(--transition-fast); }
+.rflow-arrow.arrow-fwd svg { color: var(--secondary); }
+.rflow-arrow.arrow-ret svg { color: var(--accent-green); transform: scaleX(-1); }
+
+/* Step navigation buttons */
+.rflow-steps-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.rflow-steps-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.rflow-step-btns { display: flex; gap: 5px; flex-wrap: wrap; }
+
+.rflow-step-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid var(--border-color);
+  background: var(--bg-card);
+  color: var(--text-muted);
+  font-size: 11.5px;
+  font-weight: 700;
+  font-family: var(--font-family-title);
+  cursor: pointer;
+  transition: var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rflow-step-btn:hover { border-color: var(--secondary); color: var(--secondary); }
+.rflow-step-btn.active { background: var(--secondary); border-color: var(--secondary); color: white; box-shadow: 0 3px 10px rgba(28,114,147,0.4); }
+.rflow-step-btn.done { background: rgba(15,110,86,0.12); border-color: rgba(15,110,86,0.4); color: #5DCAA5; }
+
+/* Detail card */
+.rflow-detail {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 14px 18px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.rflow-detail-header { display: flex; align-items: flex-start; gap: 12px; }
+
+.rflow-step-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--secondary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-family-title);
+  font-size: 14px;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.rflow-detail-title-col {}
+.rflow-detail-title { font-family: var(--font-family-title); font-size: 15px; font-weight: 700; }
+.rflow-detail-phase { font-size: 10.5px; color: var(--secondary); font-weight: 600; margin-top: 2px; }
+
+.rflow-detail-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  flex: 1;
+  min-height: 0;
+}
+
+.rflow-explain {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  line-height: 1.65;
+  overflow: auto;
+}
+
+.rflow-wire {
+  background: rgba(0,0,0,0.22);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-family: 'Courier New', monospace;
+  font-size: 10.5px;
+  color: #88c8e8;
+  line-height: 1.65;
+  white-space: pre;
+  overflow: auto;
+}
+
+.rflow-wire .wlabel {
+  font-family: var(--font-family-body);
+  font-size: 9.5px;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  white-space: normal;
+}
+
+[data-theme="light"] .rflow-wire { background: rgba(0,0,0,0.04); border-color: var(--border-color); color: #1a5a8a; }
+
+.rflow-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.rflow-nav-progress {
+  flex: 1;
+  font-size: 11px;
+  color: var(--text-muted);
+  text-align: center;
+  font-weight: 600;
+}
+
+.rflow-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background: transparent;
+  color: var(--text-main);
+  font-size: 12px;
+  font-weight: 600;
+  font-family: var(--font-family-body);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.rflow-btn:hover:not(:disabled) { border-color: var(--secondary); color: var(--secondary); }
+.rflow-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+.rflow-btn.next-btn { background: var(--secondary); border-color: var(--secondary); color: white; }
+.rflow-btn.next-btn:hover:not(:disabled) { background: var(--primary); border-color: var(--primary); }
+.rflow-btn svg { width: 13px; height: 13px; }
+
+/* ==========================================================================
+   SELENIUM ARCHITECTURE — PROTOCOL LAYER (extra active class)
+   ========================================================================== */
+.arch-layer-card.arch-active-protocol {
+  border-color: #9B59B6;
+  background: rgba(155,89,182,0.1);
+  box-shadow: 0 0 0 2px rgba(155,89,182,0.25), 0 6px 20px rgba(155,89,182,0.12);
+}
+.arch-extra-badge.active.badge-manager {
+  border-color: var(--accent-yellow);
+  background: rgba(186,117,23,0.12);
+  box-shadow: 0 0 0 2px rgba(186,117,23,0.2);
+}
+.arch-extra-badge.active.badge-grid {
+  border-color: var(--secondary);
+  background: rgba(28,114,147,0.12);
+  box-shadow: 0 0 0 2px rgba(28,114,147,0.2);
+}
+
+/* ==========================================================================
+   CLIENT-SERVER → SELENIUM EVOLUTION DIAGRAM — SLIDE 11
+   ========================================================================== */
+.cs-evo-grid {
+  display: grid;
+  grid-template-columns: 1fr 60px 1fr;
+  gap: 14px;
+  flex: 1;
+  min-height: 0;
+  align-items: start;
+}
+
+.cs-evo-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cs-evo-panel-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.cs-evo-panel-header svg { width: 20px; height: 20px; color: var(--secondary); flex-shrink: 0; }
+.cs-evo-panel-header h3 { font-family: var(--font-family-title); font-size: 14px; font-weight: 700; flex: 1; margin: 0; }
+
+.cs-evo-tag {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--badge-text);
+  background: var(--badge-bg);
+  padding: 3px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.cs-evo-diagram {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+}
+
+.cs-evo-box {
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg-card);
+  transition: var(--transition-fast);
+}
+.cs-evo-box:hover { transform: scale(1.01); }
+.cs-evo-box svg { width: 20px; height: 20px; flex-shrink: 0; }
+.cs-evo-box-info { display: flex; flex-direction: column; gap: 2px; }
+.cs-evo-box-title { font-family: var(--font-family-title); font-size: 13px; font-weight: 700; }
+.cs-evo-box-sub { font-size: 10px; color: var(--text-muted); }
+
+.cs-box-client  { border-color: rgba(6,90,130,0.45);   background: rgba(6,90,130,0.06); }
+.cs-box-client svg { color: #065A82; }
+.cs-box-server  { border-color: rgba(15,110,86,0.45);  background: rgba(15,110,86,0.06); }
+.cs-box-server svg { color: #0F6E56; }
+.cs-box-testscript { border-color: rgba(217,93,57,0.45);  background: rgba(217,93,57,0.06); }
+.cs-box-testscript svg { color: #D95D39; }
+.cs-box-driver  { border-color: rgba(28,114,147,0.45); background: rgba(28,114,147,0.06); }
+.cs-box-driver svg { color: #1C7293; }
+.cs-box-browser { border-color: rgba(155,89,182,0.45); background: rgba(155,89,182,0.06); }
+.cs-box-browser svg { color: #9B59B6; }
+
+.cs-evo-arrow-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 6px 0;
+}
+.cs-evo-arrow-text {
+  font-size: 10.5px;
+  font-family: 'Courier New', monospace;
+  padding: 3px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.cs-evo-arrow-text.fwd { color: var(--secondary); background: rgba(28,114,147,0.08); border-left: 2px solid var(--secondary); }
+.cs-evo-arrow-text.ret { color: #5DCAA5; background: rgba(15,110,86,0.08); border-left: 2px solid #5DCAA5; }
+
+.cs-evo-points { display: flex; flex-direction: column; gap: 7px; margin-top: 2px; }
+.cs-evo-point {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 11.5px;
+  line-height: 1.55;
+}
+.cs-point-num {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--secondary);
+  color: white;
+  font-size: 10.5px; font-weight: 700;
+  font-family: var(--font-family-title);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 1px;
+}
+
+.cs-evo-bridge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 90px;
+  gap: 8px;
+}
+.cs-bridge-icon { color: var(--accent-yellow); }
+.cs-bridge-icon svg { width: 24px; height: 24px; }
+.cs-bridge-label {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--accent-yellow);
+  text-align: center;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  line-height: 1.3;
+}
+
+.cs-insight-bar {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: rgba(186,117,23,0.07);
+  border: 1px solid rgba(186,117,23,0.3);
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 12px;
+  line-height: 1.6;
+  margin-top: 10px;
+  flex-shrink: 0;
+}
+.cs-insight-bar svg { width: 18px; height: 18px; color: var(--accent-yellow); flex-shrink: 0; margin-top: 1px; }
+
+.cs-evo-extra-note {
+  background: var(--bg-card);
+  border: 1px dashed rgba(155,89,182,0.35);
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-size: 11px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+.cs-evo-extra-note svg { width: 15px; height: 15px; color: #9B59B6; flex-shrink: 0; }
 
