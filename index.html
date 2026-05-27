@@ -124,6 +124,14 @@
             </div>
             <i data-lucide="arrow-right" class="toc-arrow"></i>
           </div>
+          <div class="toc-card" onclick="goToSlide(29)" style="padding: 10px 20px;">
+            <span class="toc-num color-3">08</span>
+            <div class="toc-info">
+              <h3>Jira for Testers</h3>
+              <p>Jira mastery: user ecosystem, pros/cons, Jira vs Azure DevOps, JQL, terminologies &amp; enterprise practices.</p>
+            </div>
+            <i data-lucide="arrow-right" class="toc-arrow"></i>
+          </div>
         </div>
       </div>
     </section>
@@ -1405,9 +1413,564 @@
             <span>testing-fundamentals.io</span>
           </div>
         </div>
-        <p class="small-copyright">Software Testing Fundamentals | STLC & SDLC Deep Dive</p>
+        <p class="small-copyright">Software Testing Fundamentals | STLC &amp; SDLC Deep Dive</p>
       </div>
     </section>
+
+    <!-- ================================================================== -->
+    <!-- MODULE 08: JIRA FOR TESTERS (SLIDES 29–36)                         -->
+    <!-- ================================================================== -->
+
+    <!-- SLIDE 29: Jira Module — Section Title -->
+    <section class="slide dark-bg" id="slide-29">
+      <div class="slide-content centered">
+        <div class="splash-badge text-glow animate-pulse">Module 08 — Bug Tracking &amp; Project Management</div>
+        <h1 class="giant-headline scale-in" style="font-size: clamp(2.2rem, 5.5vw, 4.2rem);">Jira for Testers</h1>
+        <h2 class="sub-headline">Defect Tracking · Sprint Management · JQL · Enterprise Practices</h2>
+        <div class="jira-splash-grid">
+          <div class="jira-splash-stat">
+            <span class="splash-stat-number">65%</span>
+            <span class="splash-stat-label">of Fortune 500 use Jira</span>
+          </div>
+          <div class="jira-splash-stat">
+            <span class="splash-stat-number">10M+</span>
+            <span class="splash-stat-label">active users in 190+ countries</span>
+          </div>
+          <div class="jira-splash-stat">
+            <span class="splash-stat-number">#1</span>
+            <span class="splash-stat-label">project tracking tool in software</span>
+          </div>
+        </div>
+        <div class="title-footer" style="justify-content: center; gap: 24px; flex-wrap: wrap; margin-top: 20px;">
+          <div class="footer-item"><i data-lucide="bug"></i><span>Defect Management</span></div>
+          <div class="footer-item"><i data-lucide="layout-dashboard"></i><span>Sprint Boards</span></div>
+          <div class="footer-item"><i data-lucide="search-code"></i><span>JQL Mastery</span></div>
+          <div class="footer-item"><i data-lucide="git-compare"></i><span>Jira vs Azure DevOps</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 30: What is Jira & Why Testers Use It -->
+    <section class="slide" id="slide-30">
+      <div class="slide-content">
+        <h2 class="slide-header">What is Jira — and Why Do Testers Use It?</h2>
+        <div class="split-layout">
+          <div class="content-left">
+            <div class="glass-card accent-card">
+              <div class="card-header">
+                <i data-lucide="info" class="icon-primary"></i>
+                <h3>What is Jira?</h3>
+              </div>
+              <p>Jira is a <strong>web-based project tracking and issue management platform</strong> developed by Atlassian (founded 2002, Sydney). Originally built for bug tracking, Jira has evolved into the world's leading Agile project management tool used by software teams globally.</p>
+              <div class="metrics-panel" style="margin-top: 14px;">
+                <div class="metric-item"><span class="metric-val">2002</span><span class="metric-label">Founded</span></div>
+                <div class="metric-item"><span class="metric-val">10M+</span><span class="metric-label">Users</span></div>
+                <div class="metric-item"><span class="metric-val">190+</span><span class="metric-label">Countries</span></div>
+              </div>
+            </div>
+            <div class="glass-card success-card margin-top">
+              <div class="card-header">
+                <i data-lucide="package" class="icon-success"></i>
+                <h3>Jira Product Family</h3>
+              </div>
+              <ul class="styled-list">
+                <li><strong>Jira Software:</strong> Core product for Agile development &amp; bug tracking</li>
+                <li><strong>Jira Service Management (JSM):</strong> IT service desk &amp; incident management</li>
+                <li><strong>Jira Work Management:</strong> Business team task management</li>
+                <li><strong>Confluence:</strong> Documentation wiki tightly integrated with Jira</li>
+              </ul>
+            </div>
+          </div>
+          <div class="content-right">
+            <div class="glass-card height-full" style="border-left: 3px solid var(--secondary);">
+              <div class="card-header">
+                <i data-lucide="flask-conical" class="icon-secondary"></i>
+                <h3>Why QA Teams Use Jira</h3>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 9px;">
+                <div class="jira-reason-item">
+                  <span class="reason-num">01</span>
+                  <div><strong>Bug Logging &amp; Defect Management</strong><br><span style="font-size: 11px; color: var(--text-muted);">Log detailed defect reports with screenshots, logs, reproduction steps, severity, and fix version — all in one traceable record.</span></div>
+                </div>
+                <div class="jira-reason-item">
+                  <span class="reason-num">02</span>
+                  <div><strong>Sprint Participation &amp; Test Tracking</strong><br><span style="font-size: 11px; color: var(--text-muted);">QA tracks testing tasks, test case review, and automation work alongside developers in the same sprint board.</span></div>
+                </div>
+                <div class="jira-reason-item">
+                  <span class="reason-num">03</span>
+                  <div><strong>Traceability: Requirement → Test → Bug</strong><br><span style="font-size: 11px; color: var(--text-muted);">Stories link to Epics; Bugs link to Stories. This creates the audit trail required by financial, healthcare, and government compliance frameworks.</span></div>
+                </div>
+                <div class="jira-reason-item">
+                  <span class="reason-num">04</span>
+                  <div><strong>Quality Dashboards &amp; Release Metrics</strong><br><span style="font-size: 11px; color: var(--text-muted);">JQL-powered dashboards show open defects by priority, sprint bug density, component defect hotspots, and release readiness status in real time.</span></div>
+                </div>
+                <div class="jira-reason-item">
+                  <span class="reason-num">05</span>
+                  <div><strong>Integration with Test Tools</strong><br><span style="font-size: 11px; color: var(--text-muted);">Integrates natively with Zephyr Scale, Xray, TestRail, Jenkins, and GitHub Actions to link automated test runs to Jira issues directly.</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 31: Jira User Ecosystem -->
+    <section class="slide scrollable-slide" id="slide-31">
+      <div class="slide-content">
+        <h2 class="slide-header">Who Uses Jira? — The Complete Stakeholder Ecosystem</h2>
+        <p style="font-size: 12.5px; color: var(--text-muted); margin-bottom: 16px; max-width: 900px;">Jira is not a QA-only tool. Every role in a software delivery team uses Jira differently. Understanding the full ecosystem helps testers collaborate effectively and use the platform to its full potential.</p>
+        <div class="jira-users-grid">
+
+          <div class="jira-user-card" style="--user-color: var(--secondary);">
+            <div class="juser-header">
+              <i data-lucide="flask-conical" style="color: var(--secondary);"></i>
+              <h4>QA Engineers / SDETs</h4>
+              <span class="juser-badge" style="background: rgba(28,114,147,0.18); color: var(--secondary);">Primary Users</span>
+            </div>
+            <ul class="juser-list">
+              <li>Log and manage Bug reports with full defect lifecycle ownership</li>
+              <li>Track test execution tasks alongside developers on the sprint board</li>
+              <li>Build JQL-powered quality dashboards and release gate reports</li>
+              <li>Link bugs to Stories/Epics for end-to-end requirement traceability</li>
+              <li>Integrate with Zephyr Scale / Xray for embedded test case management</li>
+            </ul>
+          </div>
+
+          <div class="jira-user-card" style="--user-color: var(--accent-green);">
+            <div class="juser-header">
+              <i data-lucide="code-2" style="color: var(--accent-green);"></i>
+              <h4>Software Developers</h4>
+              <span class="juser-badge" style="background: rgba(15,110,86,0.18); color: var(--accent-green);">Daily Users</span>
+            </div>
+            <ul class="juser-list">
+              <li>Pick up and execute User Stories from the Sprint Backlog</li>
+              <li>Log technical Tasks, Spikes, and Sub-tasks for their work</li>
+              <li>Transition bugs through workflow states (In Progress → Dev Done)</li>
+              <li>Comment on bug reports for clarification and attach PR links</li>
+              <li>Track Code Review status using Jira–Bitbucket/GitHub integrations</li>
+            </ul>
+          </div>
+
+          <div class="jira-user-card" style="--user-color: var(--accent-yellow);">
+            <div class="juser-header">
+              <i data-lucide="clipboard-list" style="color: var(--accent-yellow);"></i>
+              <h4>Product Managers (PMs)</h4>
+              <span class="juser-badge" style="background: rgba(247,166,0,0.18); color: var(--accent-yellow);">Strategic Users</span>
+            </div>
+            <ul class="juser-list">
+              <li>Create and prioritize Epics and User Stories in the Product Backlog</li>
+              <li>Set Bug Priority (P1–P4) and assign Fix Versions for each release</li>
+              <li>Monitor sprint velocity, burndown charts, and feature delivery pace</li>
+              <li>Make Go/No-Go release decisions using version quality dashboards</li>
+              <li>Maintain Jira Roadmaps for quarterly and annual planning cycles</li>
+            </ul>
+          </div>
+
+          <div class="jira-user-card" style="--user-color: var(--accent-orange);">
+            <div class="juser-header">
+              <i data-lucide="users" style="color: var(--accent-orange);"></i>
+              <h4>Scrum Masters</h4>
+              <span class="juser-badge" style="background: rgba(255,127,17,0.18); color: var(--accent-orange);">Process Owners</span>
+            </div>
+            <ul class="juser-list">
+              <li>Facilitate sprint ceremonies using the Jira Sprint Board</li>
+              <li>Manage sprint planning by grooming and ordering the Jira Backlog</li>
+              <li>Monitor and remove blockers visible on the Sprint Board columns</li>
+              <li>Review Sprint Velocity and Burndown Reports post-sprint</li>
+              <li>Configure Jira Automations for workflow efficiency improvements</li>
+            </ul>
+          </div>
+
+          <div class="jira-user-card" style="--user-color: var(--primary);">
+            <div class="juser-header">
+              <i data-lucide="file-search" style="color: var(--primary);"></i>
+              <h4>Business Analysts (BAs)</h4>
+              <span class="juser-badge" style="background: rgba(99,64,165,0.18); color: var(--primary);">Requirements Owners</span>
+            </div>
+            <ul class="juser-list">
+              <li>Write and maintain User Stories with detailed Acceptance Criteria</li>
+              <li>Groom the Product Backlog for upcoming sprint cycles</li>
+              <li>Create Jira Epics linked to BRD / FRS requirement documents</li>
+              <li>Review and clarify requirement ambiguities on bug reports</li>
+              <li>Maintain Requirement Traceability Matrix via Jira issue links</li>
+            </ul>
+          </div>
+
+          <div class="jira-user-card" style="--user-color: var(--accent-red);">
+            <div class="juser-header">
+              <i data-lucide="bar-chart-2" style="color: var(--accent-red);"></i>
+              <h4>Engineering Managers</h4>
+              <span class="juser-badge" style="background: rgba(255,107,107,0.18); color: var(--accent-red);">Leadership View</span>
+            </div>
+            <ul class="juser-list">
+              <li>Monitor cross-team delivery metrics and engineering KPIs</li>
+              <li>Review release version health dashboards for executive reporting</li>
+              <li>Manage team capacity, sprint allocation, and resource planning</li>
+              <li>Configure Jira Permissions, Workflow Schemes, and Project Settings</li>
+              <li>Audit defect escape rates for QA process improvement initiatives</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 32: Jira Pros, Cons & Limitations -->
+    <section class="slide scrollable-slide" id="slide-32">
+      <div class="slide-content">
+        <h2 class="slide-header">Jira — Pros, Cons, Limitations &amp; Real-World Usage</h2>
+        <div class="split-layout" style="gap: 16px;">
+          <div class="content-left" style="display: flex; flex-direction: column; gap: 12px;">
+            <div class="glass-card success-card">
+              <div class="card-header">
+                <i data-lucide="thumbs-up" class="icon-success"></i>
+                <h3>Advantages &amp; Strengths</h3>
+              </div>
+              <ul class="pros-list">
+                <li><span class="mark">✓</span><div><strong>World's #1 Agile Tool:</strong> Industry-standard platform with massive community, plugins, and enterprise adoption across banking, retail, healthcare, and tech sectors globally.</div></li>
+                <li><span class="mark">✓</span><div><strong>JQL Power:</strong> Extremely flexible query language enables custom reporting and dashboard building that rivals dedicated BI tools for engineering metrics.</div></li>
+                <li><span class="mark">✓</span><div><strong>Ecosystem of 3,000+ Apps:</strong> Marketplace integrations including Confluence, Bitbucket, GitHub, Jenkins, Slack, TestRail, Zephyr Scale, Xray, and PagerDuty.</div></li>
+                <li><span class="mark">✓</span><div><strong>Scrum &amp; Kanban Native:</strong> Sprint Boards, Backlog, Velocity Charts, Burndown Charts, and Cumulative Flow Diagrams built in—no external planning tools required.</div></li>
+                <li><span class="mark">✓</span><div><strong>Highly Customizable:</strong> Custom workflows, fields, screen schemes, and notification rules can model virtually any enterprise QA process or compliance requirement.</div></li>
+                <li><span class="mark">✓</span><div><strong>Audit Trail &amp; Compliance:</strong> Every change to every issue is logged with user, timestamp, and change detail—critical for ISO 27001, SOX, HIPAA, and FDA audit trails.</div></li>
+              </ul>
+            </div>
+          </div>
+          <div class="content-right" style="display: flex; flex-direction: column; gap: 12px;">
+            <div class="glass-card" style="border: 1px solid var(--border-color); border-left: 4px solid var(--accent-red);">
+              <div class="card-header">
+                <i data-lucide="thumbs-down" style="color: var(--accent-red);"></i>
+                <h3>Disadvantages &amp; Limitations</h3>
+              </div>
+              <ul class="cons-list">
+                <li><span class="mark">✗</span><div><strong>Expensive at Scale:</strong> Jira Cloud at $8.15/user/month (Standard) to $16/user/month (Premium). A 500-user enterprise team pays $4,000–$8,000/month.</div></li>
+                <li><span class="mark">✗</span><div><strong>Performance at Scale:</strong> Large instances with 100,000+ issues and complex JQL dashboards can become noticeably slow, impacting QA daily workflows.</div></li>
+                <li><span class="mark">✗</span><div><strong>Steep Learning Curve:</strong> New testers struggle with project configuration, workflow schemes, permission hierarchies, and JQL syntax—training is essential.</div></li>
+                <li><span class="mark">✗</span><div><strong>No Native Test Management:</strong> Jira has zero built-in test case management. Teams must purchase Zephyr Scale (~$4/user/month) or Xray (~$7/user/month) as paid add-ons.</div></li>
+                <li><span class="mark">✗</span><div><strong>Over-Customization Risk:</strong> 'Jira rot'—bloated configurations from years of ad-hoc changes—breaks upgrade paths and confuses new team members.</div></li>
+                <li><span class="mark">✗</span><div><strong>No Built-in CI/CD:</strong> Unlike Azure DevOps, Jira has no native build pipelines, artifact management, or source code hosting. Third-party tools are always required.</div></li>
+              </ul>
+            </div>
+            <div class="glass-card" style="border: 1px solid var(--border-color); border-left: 4px solid var(--accent-yellow); padding: 14px 18px;">
+              <div class="card-header" style="margin-bottom: 10px;">
+                <i data-lucide="building-2" style="color: var(--accent-yellow);"></i>
+                <h3>Real Enterprise Adoption</h3>
+              </div>
+              <div style="display: flex; gap: 7px; flex-wrap: wrap;">
+                <span class="ai-tag" style="font-size: 10.5px;">Spotify — 2,000+ engineers + Confluence</span>
+                <span class="ai-tag" style="font-size: 10.5px;">Airbnb — 500+ person Scrum org</span>
+                <span class="ai-tag" style="font-size: 10.5px;">NASA JPL — mission compliance tracking</span>
+                <span class="ai-tag" style="font-size: 10.5px;">BMW Digital — SAFe + Jira Portfolio</span>
+                <span class="ai-tag" style="font-size: 10.5px;">HSBC — 10,000+ user Data Center instance</span>
+                <span class="ai-tag" style="font-size: 10.5px;">Visa — PCI-DSS compliance workflows</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 33: Jira vs Azure DevOps — Feature Comparison -->
+    <section class="slide scrollable-slide" id="slide-33">
+      <div class="slide-content">
+        <h2 class="slide-header">Jira vs Azure DevOps — Feature &amp; Capability Comparison</h2>
+        <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">Both are enterprise-grade platforms used by hundreds of thousands of teams globally. The right choice depends on your ecosystem, budget, and DevOps maturity.</p>
+        <div class="table-container">
+          <table class="premium-table" style="font-size: 11.5px;">
+            <thead>
+              <tr>
+                <th style="width: 22%;">Capability</th>
+                <th style="width: 39%; background: rgba(28,114,147,0.15); color: var(--secondary);">🔵 Jira Software (Atlassian)</th>
+                <th style="width: 39%; background: rgba(99,64,165,0.12); color: #9B7FD4;">🟣 Azure DevOps (Microsoft)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="td-header">Primary Focus</td>
+                <td>Agile project management, issue tracking &amp; bug lifecycle</td>
+                <td>End-to-end DevOps: Planning + Repos + Pipelines + Test Plans</td>
+              </tr>
+              <tr>
+                <td class="td-header">Project Management</td>
+                <td>⭐⭐⭐⭐⭐ Best-in-class Scrum, Kanban, Roadmaps, and Backlogs</td>
+                <td>⭐⭐⭐⭐ Solid Boards, Backlogs, Sprints, and Delivery Plans</td>
+              </tr>
+              <tr>
+                <td class="td-header">Bug / Defect Tracking</td>
+                <td>⭐⭐⭐⭐⭐ Purpose-built; rich custom fields, JQL, SLA timers</td>
+                <td>⭐⭐⭐⭐ Work Items with WIQL queries and built-in dashboards</td>
+              </tr>
+              <tr>
+                <td class="td-header">Test Management</td>
+                <td><span style="color: var(--accent-orange);">⚠️</span> Requires Zephyr Scale or Xray add-on (~$4–7/user/month)</td>
+                <td><span style="color: var(--accent-green);">✅</span> Azure Test Plans built-in: test cases, runs, results, and coverage</td>
+              </tr>
+              <tr>
+                <td class="td-header">Source Code Repos</td>
+                <td>Requires Bitbucket (separate Atlassian product)</td>
+                <td><span style="color: var(--accent-green);">✅</span> Azure Repos (Git + TFVC) built-in with unlimited free private repos</td>
+              </tr>
+              <tr>
+                <td class="td-header">CI/CD Pipelines</td>
+                <td>Requires Bitbucket Pipelines or third-party (Jenkins, GitHub Actions)</td>
+                <td><span style="color: var(--accent-green);">✅</span> Azure Pipelines: built-in, 1,800 free minutes/month, cloud agents</td>
+              </tr>
+              <tr>
+                <td class="td-header">Artifact Management</td>
+                <td>No native artifact store (requires Artifactory or Nexus)</td>
+                <td><span style="color: var(--accent-green);">✅</span> Azure Artifacts: npm, Maven, NuGet, Python, Universal packages</td>
+              </tr>
+              <tr>
+                <td class="td-header">Query Language</td>
+                <td>JQL — highly expressive, readable, extensive function library</td>
+                <td>WIQL (Work Item Query Language) — SQL-like, powerful but verbose</td>
+              </tr>
+              <tr>
+                <td class="td-header">Dashboards &amp; Reports</td>
+                <td>⭐⭐⭐⭐⭐ Highly customizable via JQL gadgets and Confluence</td>
+                <td>⭐⭐⭐⭐ Built-in Analytics, Power BI integration, custom widgets</td>
+              </tr>
+              <tr>
+                <td class="td-header">Integration Ecosystem</td>
+                <td>⭐⭐⭐⭐⭐ 3,000+ Marketplace apps: Slack, GitHub, Salesforce, AWS</td>
+                <td>⭐⭐⭐⭐ Microsoft ecosystem: Teams, VS Code, M365, GitHub, Azure</td>
+              </tr>
+              <tr>
+                <td class="td-header">Pricing (Cloud)</td>
+                <td>Free (≤10 users), $8.15/user/month (Standard), $16/user (Premium)</td>
+                <td>Free (≤5 users), $6/user/month (Basic), +$2 with Test Plans add-on</td>
+              </tr>
+              <tr>
+                <td class="td-header">On-Premises Option</td>
+                <td>Jira Data Center (self-hosted) for large regulated enterprises</td>
+                <td>Azure DevOps Server for government and air-gapped networks</td>
+              </tr>
+              <tr>
+                <td class="td-header">Learning Curve</td>
+                <td>Moderate-High: Deep configuration, JQL, workflow schemes</td>
+                <td>Moderate: More intuitive for Microsoft ecosystem users</td>
+              </tr>
+              <tr>
+                <td class="td-header">Best For</td>
+                <td>Non-Microsoft stacks (AWS, GCP, Linux, Open Source)</td>
+                <td>Microsoft/.NET stack + Azure Cloud infrastructure</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 34: Jira vs Azure DevOps — Decision Guide -->
+    <section class="slide scrollable-slide" id="slide-34">
+      <div class="slide-content">
+        <h2 class="slide-header">Jira vs Azure DevOps — When to Use Which?</h2>
+        <div class="split-layout" style="gap: 16px;">
+          <div class="content-left">
+            <div class="glass-card" style="border-left: 3px solid var(--secondary);">
+              <div class="card-header">
+                <i data-lucide="check-circle-2" style="color: var(--secondary);"></i>
+                <h3 style="color: var(--secondary);">Choose Jira When...</h3>
+              </div>
+              <ul class="styled-list">
+                <li>Your team uses <strong>Atlassian tools</strong> (Confluence, Bitbucket, Trello) — deep native integration creates a single source of truth.</li>
+                <li>You need <strong>advanced Agile capabilities</strong>: complex workflows, multi-team planning, and SAFe/Portfolio management at scale.</li>
+                <li>Your organization is <strong>multi-disciplinary</strong> — Jira Work Management also serves Marketing, HR, Finance, and Legal teams.</li>
+                <li>You require <strong>highly customized bug workflows</strong> with validation rules, automation, and compliance-grade audit fields.</li>
+                <li>Your team uses <strong>third-party CI/CD</strong> (Jenkins, CircleCI, ArgoCD, GitHub Actions) — Jira integrates with all of them seamlessly.</li>
+                <li><strong>Non-Microsoft tech stack:</strong> AWS, GCP, Linux, open-source ecosystems — Jira is fully tech-stack agnostic.</li>
+              </ul>
+              <div class="card-tip">
+                <i data-lucide="building-2"></i>
+                <span><strong>Real Examples:</strong> Spotify, Airbnb, Twitter, Dropbox, Booking.com, and Atlassian itself all use Jira. Dominant in non-Microsoft cloud-native environments.</span>
+              </div>
+            </div>
+          </div>
+          <div class="content-right" style="display: flex; flex-direction: column; gap: 12px;">
+            <div class="glass-card" style="border-left: 3px solid #9B7FD4;">
+              <div class="card-header">
+                <i data-lucide="check-circle-2" style="color: #9B7FD4;"></i>
+                <h3 style="color: #9B7FD4;">Choose Azure DevOps When...</h3>
+              </div>
+              <ul class="styled-list">
+                <li>Your organization is <strong>Microsoft-first</strong>: Azure Cloud, .NET, Windows, Visual Studio, and Microsoft 365 — deep native integration is a decisive advantage.</li>
+                <li>You need <strong>native test management</strong> at no extra add-on cost — Azure Test Plans is included for test cases, execution runs, and coverage reports.</li>
+                <li>Your team wants <strong>CI/CD pipelines, artifact repos, and source control</strong> in a single unified platform.</li>
+                <li>You work in <strong>government or heavily regulated enterprise</strong> organizations already under Microsoft Azure licensing contracts.</li>
+                <li>You need <strong>tight GitHub integration</strong> — Microsoft owns GitHub and the cross-platform integration is first-class.</li>
+                <li><strong>Total cost is a priority:</strong> Azure DevOps is typically cheaper per user, especially under M365 Enterprise Agreements.</li>
+              </ul>
+              <div class="card-tip" style="border-color: rgba(155,127,212,0.3);">
+                <i data-lucide="building-2"></i>
+                <span><strong>Real Examples:</strong> NHS Digital, US DoD agencies, SAP, Dell, T-Mobile, and Microsoft's own engineering teams standardize on Azure DevOps.</span>
+              </div>
+            </div>
+            <div class="glass-card" style="padding: 14px 18px; border-left: 3px solid var(--accent-yellow);">
+              <div class="card-header" style="margin-bottom: 8px;">
+                <i data-lucide="alert-triangle" style="color: var(--accent-yellow);"></i>
+                <h3>The Hybrid Enterprise Reality</h3>
+              </div>
+              <p style="font-size: 11.5px; color: var(--text-muted); line-height: 1.5;">Many large enterprises (major banks, telcos, retailers) run <strong>both tools simultaneously</strong>: Jira for Agile project management and defect tracking; Azure DevOps for CI/CD pipelines and source control. Bi-directional sync tools like <strong>Exalate</strong> or <strong>Unito</strong> keep both platforms in sync.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 35: Jira Terminologies — Interactive Dashboard -->
+    <section class="slide" id="slide-35">
+      <div class="slide-content">
+        <h2 class="slide-header">Jira Terminologies — Testing Perspective (Interactive)</h2>
+        <div class="frameworks-dashboard-layout">
+          <div class="frameworks-left-panel">
+            <button class="framework-pill active" id="jterm-project" onclick="selectJiraTerm('project')">
+              <span>Project</span> <i data-lucide="chevron-right"></i>
+            </button>
+            <button class="framework-pill" id="jterm-issue" onclick="selectJiraTerm('issue')">
+              <span>Issue Types</span> <i data-lucide="chevron-right"></i>
+            </button>
+            <button class="framework-pill" id="jterm-epic" onclick="selectJiraTerm('epic')">
+              <span>Epic</span> <i data-lucide="chevron-right"></i>
+            </button>
+            <button class="framework-pill" id="jterm-story" onclick="selectJiraTerm('story')">
+              <span>User Story</span> <i data-lucide="chevron-right"></i>
+            </button>
+            <button class="framework-pill" id="jterm-bug" onclick="selectJiraTerm('bug')">
+              <span>Bug / Defect</span> <i data-lucide="chevron-right"></i>
+            </button>
+            <button class="framework-pill" id="jterm-sprint" onclick="selectJiraTerm('sprint')">
+              <span>Sprint</span> <i data-lucide="chevron-right"></i>
+            </button>
+            <button class="framework-pill" id="jterm-board" onclick="selectJiraTerm('board')">
+              <span>Board</span> <i data-lucide="chevron-right"></i>
+            </button>
+            <button class="framework-pill" id="jterm-jql" onclick="selectJiraTerm('jql')">
+              <span>JQL</span> <i data-lucide="chevron-right"></i>
+            </button>
+            <button class="framework-pill" id="jterm-workflow" onclick="selectJiraTerm('workflow')">
+              <span>Workflow</span> <i data-lucide="chevron-right"></i>
+            </button>
+            <button class="framework-pill" id="jterm-version" onclick="selectJiraTerm('version')">
+              <span>Fix Version</span> <i data-lucide="chevron-right"></i>
+            </button>
+          </div>
+          <div class="frameworks-right-panel">
+            <div class="framework-details-panel" id="jira-terms-container">
+              <!-- Dynamically populated via app.js selectJiraTerm() -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 36: Jira in Enterprise Testing Practice -->
+    <section class="slide scrollable-slide" id="slide-36">
+      <div class="slide-content">
+        <h2 class="slide-header">Jira in Enterprise Testing — Practical Workflows &amp; Best Practices</h2>
+        <div class="split-layout" style="gap: 16px;">
+          <div class="content-left" style="display: flex; flex-direction: column; gap: 12px;">
+            <div class="glass-card accent-card">
+              <div class="card-header">
+                <i data-lucide="git-branch" class="icon-primary"></i>
+                <h3>Complete Bug Lifecycle in Jira</h3>
+              </div>
+              <div class="bug-lifecycle-flow">
+                <div class="lifecycle-step open-step">Open</div>
+                <div class="lifecycle-arrow">→</div>
+                <div class="lifecycle-step dev-step">Dev In Progress</div>
+                <div class="lifecycle-arrow">→</div>
+                <div class="lifecycle-step devdone-step">Dev Done</div>
+                <div class="lifecycle-arrow">→</div>
+                <div class="lifecycle-step qa-step">In QA</div>
+                <div class="lifecycle-arrow">→</div>
+                <div class="lifecycle-step closed-step">Closed ✓</div>
+              </div>
+              <p style="font-size: 10.5px; text-align: center; color: var(--accent-red); margin-top: 5px;">↳ QA Failed → Reopened → Dev In Progress (retry loop)</p>
+              <ul class="styled-list" style="margin-top: 12px;">
+                <li><strong>QA logs the Bug</strong> with all mandatory fields and links it to the parent Story</li>
+                <li><strong>Dev picks it up</strong>, fixes it, and transitions to 'Dev Done' with fix build noted in comments</li>
+                <li><strong>QA retests</strong> the fix in the exact build version and environment where the bug was found</li>
+                <li><strong>If pass:</strong> QA transitions to Closed. <strong>If fail:</strong> QA reopens with retest failure evidence attached</li>
+              </ul>
+            </div>
+            <div class="glass-card success-card">
+              <div class="card-header">
+                <i data-lucide="plug" class="icon-success"></i>
+                <h3>Jira + Test Tool Integrations</h3>
+              </div>
+              <div class="tools-grid-icons">
+                <div class="tool-ic"><i data-lucide="layers"></i><span>Zephyr Scale</span></div>
+                <div class="tool-ic"><i data-lucide="shield-check"></i><span>Xray</span></div>
+                <div class="tool-ic"><i data-lucide="list-checks"></i><span>TestRail</span></div>
+                <div class="tool-ic"><i data-lucide="terminal"></i><span>Jenkins</span></div>
+                <div class="tool-ic"><i data-lucide="github"></i><span>GitHub Actions</span></div>
+                <div class="tool-ic"><i data-lucide="message-square"></i><span>Slack / Teams</span></div>
+              </div>
+              <p style="font-size: 11px; color: var(--text-muted); margin-top: 10px;"><strong>Zephyr Scale &amp; Xray</strong> embed test cases, test cycles, and execution results directly inside Jira — linking test pass/fail results to Stories and Bugs without leaving the platform.</p>
+            </div>
+          </div>
+          <div class="content-right" style="display: flex; flex-direction: column; gap: 12px;">
+            <div class="glass-card" style="border-left: 3px solid var(--accent-yellow);">
+              <div class="card-header">
+                <i data-lucide="lightbulb" style="color: var(--accent-yellow);"></i>
+                <h3>Enterprise Best Practices &amp; Anti-Patterns</h3>
+              </div>
+              <div class="antipattern-list" style="gap: 8px;">
+                <div class="antipattern-card" style="border-left-color: var(--accent-green); padding: 8px 12px;">
+                  <i data-lucide="check-circle-2" style="color: var(--accent-green); flex-shrink: 0;"></i>
+                  <div>
+                    <h4 style="font-size: 12.5px;">Standardize Bug Templates</h4>
+                    <p style="font-size: 11px;">Use Jira Issue Templates to enforce consistent Bug reports. Mandatory fields: Environment, Build, Steps, Expected vs Actual, Severity. Reduces dev–QA friction by up to 60%.</p>
+                  </div>
+                </div>
+                <div class="antipattern-card" style="border-left-color: var(--accent-green); padding: 8px 12px;">
+                  <i data-lucide="check-circle-2" style="color: var(--accent-green); flex-shrink: 0;"></i>
+                  <div>
+                    <h4 style="font-size: 12.5px;">Build a QA Metrics Dashboard</h4>
+                    <p style="font-size: 11px;">Create a Jira Dashboard with JQL gadgets: open P1/P2 bugs, bugs per sprint, regression failures, and release readiness. A living dashboard makes QA impact visible to leadership.</p>
+                  </div>
+                </div>
+                <div class="antipattern-card" style="border-left-color: var(--accent-green); padding: 8px 12px;">
+                  <i data-lucide="check-circle-2" style="color: var(--accent-green); flex-shrink: 0;"></i>
+                  <div>
+                    <h4 style="font-size: 12.5px;">Use Labels &amp; Components Consistently</h4>
+                    <p style="font-size: 11px;">Labels like 'regression', 'UAT-blocker', 'perf-issue' and Components for feature areas enable surgical JQL filters. Enables precise test triaging during release crunches.</p>
+                  </div>
+                </div>
+                <div class="antipattern-card" style="border-left-color: var(--accent-red); padding: 8px 12px;">
+                  <i data-lucide="alert-octagon" style="color: var(--accent-red); flex-shrink: 0;"></i>
+                  <div>
+                    <h4 style="font-size: 12.5px;">Anti-Pattern: Developers Closing Bugs Directly</h4>
+                    <p style="font-size: 11px;">Use a mandatory 'QA Verify' workflow step with a validator that prevents the Closed transition from anyone except the QA Assignee. Without this, unverified bugs get shipped to production.</p>
+                  </div>
+                </div>
+                <div class="antipattern-card" style="border-left-color: var(--accent-red); padding: 8px 12px;">
+                  <i data-lucide="alert-octagon" style="color: var(--accent-red); flex-shrink: 0;"></i>
+                  <div>
+                    <h4 style="font-size: 12.5px;">Anti-Pattern: Missing Fix Version on Bugs</h4>
+                    <p style="font-size: 11px;">Enforce 'Fix Version' as a mandatory field on all Bug transitions to 'Dev Done'. Bugs without Fix Version make release health dashboards completely unreliable for Go/No-Go decisions.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="enterprise-box" style="padding: 12px 16px; border-radius: 12px; background: var(--bg-card); border: 1px solid var(--border-color);">
+              <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                <i data-lucide="award" style="color: var(--accent-yellow); width: 18px; height: 18px;"></i>
+                <strong style="font-size: 13px;">QA Engineer — Jira Maturity Levels</strong>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 5px;">
+                <div style="font-size: 11.5px;"><span style="color: var(--text-muted);">Level 1 — </span><strong>Beginner:</strong> Log bugs, add comments, change status, attach screenshots</div>
+                <div style="font-size: 11.5px;"><span style="color: var(--text-muted);">Level 2 — </span><strong>Intermediate:</strong> Write JQL queries, manage sprints, build saved filters and dashboards</div>
+                <div style="font-size: 11.5px;"><span style="color: var(--text-muted);">Level 3 — </span><strong>Advanced:</strong> Configure workflows, automation rules, custom fields, and Zephyr/Xray test cycles</div>
+                <div style="font-size: 11.5px;"><span style="color: var(--text-muted);">Level 4 — </span><strong>Expert:</strong> Administer projects, design workflow schemes, build JQL dashboards for executive and compliance reporting</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </div>
 
   <!-- Bottom Navigation Panel -->

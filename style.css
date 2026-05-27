@@ -3985,3 +3985,399 @@ strong {
 }
 .cs-evo-extra-note svg { width: 15px; height: 15px; color: #9B59B6; flex-shrink: 0; }
 
+/* ==========================================================================
+   MODULE 08 — JIRA FOR TESTERS (SLIDES 29–36)
+   ========================================================================== */
+
+/* ---- SLIDE 29: Title Splash Stats ---- */
+.jira-splash-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin: 28px 0 10px;
+}
+
+.jira-splash-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 18px 28px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  min-width: 160px;
+  backdrop-filter: blur(6px);
+}
+
+.splash-stat-number {
+  font-family: var(--font-family-title);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--secondary), var(--accent-green));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.splash-stat-label {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  text-align: center;
+  max-width: 140px;
+  line-height: 1.4;
+}
+
+/* ---- SLIDE 30: Reason Items ---- */
+.jira-reason-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-color);
+  transition: var(--transition-fast);
+}
+
+.jira-reason-item:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--secondary);
+}
+
+.reason-num {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--secondary), var(--primary));
+  color: #fff;
+  font-family: var(--font-family-title);
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+}
+
+/* ---- SLIDE 31: User Ecosystem Grid ---- */
+.jira-users-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  width: 100%;
+}
+
+.jira-user-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-left: 3px solid var(--user-color, var(--secondary));
+  border-radius: 14px;
+  padding: 14px 16px;
+  box-shadow: var(--glass-shadow);
+  transition: var(--transition-fast);
+}
+
+.jira-user-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.juser-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.juser-header i {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.juser-header h4 {
+  font-family: var(--font-family-title);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-main);
+  flex: 1;
+}
+
+.juser-badge {
+  font-size: 9.5px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 20px;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+.juser-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.juser-list li {
+  font-size: 11px;
+  line-height: 1.4;
+  color: var(--text-main);
+  padding-left: 12px;
+  position: relative;
+}
+
+.juser-list li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--user-color, var(--secondary));
+  font-size: 9px;
+  top: 2px;
+}
+
+/* ---- SLIDE 35: Jira Terminologies Interactive Panel ---- */
+.jterm-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.jterm-icon-lg {
+  width: 38px;
+  height: 38px;
+  color: var(--secondary);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.jterm-header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.jterm-title {
+  font-family: var(--font-family-title);
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text-main);
+  margin: 0;
+}
+
+.jterm-def {
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.jterm-body-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  flex: 1;
+}
+
+.jterm-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.jterm-section {
+  background: rgba(0, 0, 0, 0.12);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 12px 16px;
+}
+
+.jterm-section h4 {
+  font-family: var(--font-family-title);
+  font-size: 12.5px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--secondary);
+}
+
+.jterm-section h4 i,
+.jterm-section h4 svg {
+  width: 14px;
+  height: 14px;
+}
+
+.jterm-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.jterm-list li {
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: var(--text-main);
+  padding-left: 14px;
+  position: relative;
+}
+
+.jterm-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--secondary);
+  font-weight: 700;
+}
+
+.jterm-list.types-list li::before {
+  color: var(--accent-yellow);
+}
+
+.jterm-tip-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: rgba(247, 166, 0, 0.07);
+  border: 1px solid rgba(247, 166, 0, 0.25);
+}
+
+.jterm-tip-box i,
+.jterm-tip-box svg {
+  width: 16px;
+  height: 16px;
+  color: var(--accent-yellow);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.jterm-tip-box p {
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: var(--text-main);
+  margin: 0;
+}
+
+.jterm-example-box {
+  background: rgba(15, 110, 86, 0.07);
+  border: 1px solid rgba(15, 110, 86, 0.25);
+  border-radius: 12px;
+  padding: 10px 14px;
+  flex: 1;
+}
+
+.jterm-example-box h4 {
+  font-family: var(--font-family-title);
+  font-size: 12.5px;
+  font-weight: 700;
+  margin-bottom: 7px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--accent-green);
+}
+
+.jterm-example-box h4 i,
+.jterm-example-box h4 svg {
+  width: 14px;
+  height: 14px;
+}
+
+.jterm-example-box p {
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: var(--text-main);
+  margin: 0;
+}
+
+/* ---- SLIDE 36: Bug Lifecycle Flow ---- */
+.bug-lifecycle-flow {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+  margin: 10px 0 6px;
+  justify-content: center;
+}
+
+.lifecycle-step {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-family: var(--font-family-title);
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.lifecycle-arrow {
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.open-step {
+  background: rgba(255, 107, 107, 0.15);
+  border: 1px solid rgba(255, 107, 107, 0.4);
+  color: var(--accent-red);
+}
+
+.dev-step {
+  background: rgba(28, 114, 147, 0.15);
+  border: 1px solid rgba(28, 114, 147, 0.4);
+  color: var(--secondary);
+}
+
+.devdone-step {
+  background: rgba(99, 64, 165, 0.15);
+  border: 1px solid rgba(99, 64, 165, 0.4);
+  color: var(--primary);
+}
+
+.qa-step {
+  background: rgba(247, 166, 0, 0.15);
+  border: 1px solid rgba(247, 166, 0, 0.4);
+  color: var(--accent-yellow);
+}
+
+.closed-step {
+  background: rgba(15, 110, 86, 0.15);
+  border: 1px solid rgba(15, 110, 86, 0.4);
+  color: var(--accent-green);
+}
+
+/* ---- Responsive: Jira User Grid ---- */
+@media (max-width: 1100px) {
+  .jira-users-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .jira-users-grid {
+    grid-template-columns: 1fr;
+  }
+  .jira-splash-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  .jterm-body-grid {
+    grid-template-columns: 1fr;
+  }
+}
+

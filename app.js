@@ -2,7 +2,7 @@
 // STATE MANAGEMENT & DATA
 // ==========================================================================
 let currentSlide = 1;
-const totalSlides = 28;
+const totalSlides = 36;
 let isPlaying = false;
 let playInterval = null;
 const playSpeed = 5000; // 5 seconds per slide
@@ -36,7 +36,15 @@ const slidesMetadata = [
   { id: 25, title: "25. Pyramid Anti-Patterns & Heuristics" },
   { id: 26, title: "26. Enterprise Agile & AI Integrations" },
   { id: 27, title: "27. Key Takeaways Summary" },
-  { id: 28, title: "28. End: Questions & Thank You" }
+  { id: 28, title: "28. End: Questions & Thank You" },
+  { id: 29, title: "29. Jira: Module Introduction" },
+  { id: 30, title: "30. What is Jira & Why Testers Use It" },
+  { id: 31, title: "31. Jira User Ecosystem" },
+  { id: 32, title: "32. Jira Pros, Cons & Limitations" },
+  { id: 33, title: "33. Jira vs Azure DevOps (Feature Comparison)" },
+  { id: 34, title: "34. Jira vs Azure DevOps (Decision Guide)" },
+  { id: 35, title: "35. Jira Terminologies (Interactive)" },
+  { id: 36, title: "36. Jira in Enterprise Testing Practice" }
 ];
 
 // Interactive STLC Phases Data for Slide 8 Dashboard
@@ -164,6 +172,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Initialize Slide 23 Pyramid Interactive Dashboard
   selectPyramidLevel('unit');
+
+  // Initialize Slide 35 Jira Terminologies Interactive Dashboard
+  selectJiraTerm('project');
 
   // Render Current Slide
   updateSlidesUI();
@@ -896,6 +907,258 @@ const testingTypesData = {
     tools: "OWASP ZAP, Burp Suite, Nessus, Snyk, SonarQube, Metasploit.",
     extra: "Modern security testing also includes API Security, Cloud Security, Container Security, and AI prompt injection testing."
   }
+};
+
+// ==========================================================================
+// JIRA TERMINOLOGIES DATA & INTERACTIVE LOGIC (SLIDE 35)
+// ==========================================================================
+const jiraTermsData = {
+  project: {
+    name: "Jira Project",
+    icon: "folder-open",
+    definition: "A Jira Project is the top-level container holding all issues, boards, sprints, backlogs, and reports for a specific product, team, or initiative. Every issue belongs to exactly one project and carries the project key as a prefix (e.g., ECOM-421).",
+    testingUsage: [
+      "QA teams share the product project (e.g., 'ECOM') or use a dedicated Component within it to organize test tasks, automation spikes, and regression bugs.",
+      "Project settings control Issue Type Schemes (what issue types exist), Workflow Schemes (how bugs flow), and Permission Schemes (who can log and close bugs)—all critical for QA governance.",
+      "QA leads configure project-level dashboards, SLA gadgets, and defect density reports visible to all stakeholders.",
+      "In regulated industries (Banking, Healthcare), project configuration must comply with audit requirements—workflow validators enforce mandatory fields before a bug can be closed."
+    ],
+    types: [
+      "Scrum Project: Sprint-based with Sprint Backlog, velocity charts, and burndown reports.",
+      "Kanban Project: Continuous flow board with WIP limits and throughput charts.",
+      "Company-Managed Project: Full admin control; used by large enterprise teams.",
+      "Team-Managed Project: Simplified setup; used by small teams or startups."
+    ],
+    enterpriseExample: "At HSBC Digital, the single project 'DGTL' contains 2,000+ active issues per quarter. QA engineers use Component 'QA-Automation' to tag automation-related bugs and a dedicated Label 'regression-blocker' for issues that block regression sign-off.",
+    tip: "Use a single project with Components and Labels to differentiate QA issues rather than creating separate QA-only projects. This keeps traceability intact—defects link directly to the Stories and Epics they belong to."
+  },
+  issue: {
+    name: "Issue (Work Item)",
+    icon: "ticket",
+    definition: "An Issue is the fundamental unit of work in Jira. Every Bug, Story, Epic, Task, or Sub-task is an issue with a unique key (e.g., PROJ-123), a status, and configurable fields. Issues are the objects QA creates, tracks, updates, and closes daily.",
+    testingUsage: [
+      "QA primarily creates Bug issue types with detailed reproduction steps, environment info, severity/priority classification, and screenshot attachments.",
+      "Test-related Tasks (write test plan, setup automation framework, configure test data) are tracked as Task or Story issue types in the same sprint.",
+      "Issues are linked to parent Stories/Epics for full traceability: Requirement → Story → Bug (found during testing).",
+      "Custom fields (Severity, Affected Environment, Root Cause, Found In Build) are added to Bug issues for enterprise reporting."
+    ],
+    types: [
+      "Epic: Large initiative spanning multiple sprints (feature group).",
+      "Story: User-facing requirement scoped to one sprint.",
+      "Task: Technical work without direct user-facing value.",
+      "Bug: A deviation from expected system behavior—owned primarily by QA.",
+      "Sub-task: A granular breakdown of any parent issue."
+    ],
+    enterpriseExample: "QA logs ECOM-4521 (Bug): 'Checkout fails for guest users with special characters in email'. Fields: Priority=P1-Critical, Severity=Critical, Component=Payments, Affected Build=v2.3.0-build-194. Steps: [1] Add item to cart [2] Enter email with '+' [3] Click Checkout → Observe 500 error.",
+    tip: "Standardize your Bug issue template. Enforce mandatory fields: Environment, Build Version, Steps to Reproduce, Expected Result, Actual Result. Inconsistent bug reports are the #1 source of developer–QA friction in enterprise projects."
+  },
+  epic: {
+    name: "Epic",
+    icon: "layers",
+    definition: "An Epic is a large body of work representing a significant product feature or initiative, broken down into multiple User Stories, Tasks, and Bugs. Epics typically span 2–6 sprints and appear on the product roadmap. In testing, Epics define the scope of a test plan.",
+    testingUsage: [
+      "QA creates a Test Plan or Test Cycle scoped to each Epic—ensuring every story within the Epic has corresponding test coverage.",
+      "Epic-level defect metrics show feature quality: if an Epic has 30+ bugs logged, it signals design complexity or requirements ambiguity issues.",
+      "Test summary reports sent to stakeholders are organized at Epic level for a clear feature-quality narrative.",
+      "RTM (Requirement Traceability Matrix) is built at Epic level—mapping business requirements to test cases."
+    ],
+    types: [
+      "Feature Epic: Customer-facing feature group (e.g., 'User Authentication v2').",
+      "Technical Epic: Infrastructure or platform work (e.g., 'Cloud Migration to AWS').",
+      "Quality Epic: QA initiatives (e.g., 'Achieve 80% Automation Coverage').",
+      "Release Epic: All delivery work associated with a specific version release."
+    ],
+    enterpriseExample: "FinTech startup Epic 'FIN-100: Open Banking PSD2 API'. QA creates a Zephyr Test Cycle with 87 test cases covering: API authentication, consent management, transaction retrieval, error handling, and GDPR compliance checks.",
+    tip: "Always track the 'Epic Link' field when logging bugs. During sprint retrospectives, count bugs-per-Epic to identify high-risk areas. Epics with a >15% bug rate versus story count are strong candidates for dedicated exploratory testing sprints."
+  },
+  story: {
+    name: "User Story",
+    icon: "book-open",
+    definition: "A User Story is a requirement written from the end-user perspective: 'As a [user], I want [feature] so that [benefit]'. Stories are the primary sprint deliverables that QA tests. Each Story must have clear Acceptance Criteria (AC) before QA testing begins.",
+    testingUsage: [
+      "QA derives all functional test cases directly from the Story's Acceptance Criteria (AC). If AC is missing or ambiguous, QA flags it during backlog grooming—this is Shift-Left testing in practice.",
+      "A Story is only marked 'Done' when QA has executed all test cases AND all P1/P2 bugs are resolved—this is the Definition of Done.",
+      "Automation scripts are linked to their parent User Story via Jira issue links for full traceability.",
+      "Exploratory testing charters are written at story level to cover scenarios not explicitly listed in the AC."
+    ],
+    types: [
+      "Functional Story: User-facing feature behavior ('As a user, I can reset my password').",
+      "API Story: Backend contract definition ('Expose POST /orders endpoint with pagination').",
+      "QA Story: Testing infrastructure ('Set up Playwright regression pipeline for login module').",
+      "Spike Story: Time-boxed research/investigation with no direct deliverable."
+    ],
+    enterpriseExample: "Story SHOP-220: 'As a customer, I want to filter products by price range so I can find affordable options quickly.' QA writes 12 test cases: valid range, inverted range (min > max), decimal prices, €0.00 range, no products in range, 10,000+ product performance, mobile responsiveness.",
+    tip: "If a Story has no Acceptance Criteria, do NOT start testing it. Raise a comment requesting AC from the Product Owner. Testing a story without AC leads to missed defects and scope rework—this is one of the top root causes of escaped bugs in enterprise projects."
+  },
+  bug: {
+    name: "Bug / Defect",
+    icon: "bug",
+    definition: "A Bug is a Jira issue type representing a deviation between expected and actual system behavior. It is the primary issue type created and managed by QA engineers. Bugs drive the defect management process and are the central measurable artifact of software quality.",
+    testingUsage: [
+      "QA sets Bug Severity (how severe is the defect): Critical / Major / Minor / Trivial.",
+      "Product Owner sets Bug Priority (when should it be fixed): P1 (this sprint) / P2 (next sprint) / P3 (backlog) / P4 (nice-to-have).",
+      "Bug lifecycle: Open → In Progress → Dev Done → In QA (Retest) → QA Passed/Closed OR Reopened.",
+      "Regression bugs are tagged with the 'regression' label and treated as P1 regardless of feature severity.",
+      "Duplicate bugs are linked with 'duplicates' relationship and closed with 'Duplicate' resolution—not deleted."
+    ],
+    types: [
+      "Functional Bug: Feature does not work as specified in requirements.",
+      "UI/UX Bug: Visual defects, wrong layouts, missing/wrong text or icons.",
+      "Performance Bug: Response time exceeds SLA (e.g., API > 2 seconds).",
+      "Security Bug: XSS, SQL injection, authentication bypass, or data exposure.",
+      "Regression Bug: Previously working feature broken by new code changes."
+    ],
+    enterpriseExample: "Bug BUG-7841 — Summary: 'EUR payment rounds to wrong decimal'. Priority: P1-Critical | Severity: Critical | Found In: v2.3.0-build-194 | Steps: Add €9.99 item → Apply 10% discount → Total shows €9.0 instead of €8.99 | Component: Payments | Fix Version: v2.4.0.",
+    tip: "Always fill in 'Affects Version' (which build you found the bug in) and 'Fix Version' (which release will fix it). These two fields are mandatory for release quality reporting. Missing them makes sprint metrics and release health dashboards completely unreliable."
+  },
+  sprint: {
+    name: "Sprint",
+    icon: "timer",
+    definition: "A Sprint is a fixed timeboxed iteration (1–4 weeks, standard is 2 weeks) in which a Scrum team commits to delivering a set of User Stories from the backlog as a potentially shippable product increment. Sprints are the heartbeat of Agile delivery.",
+    testingUsage: [
+      "QA participates in Sprint Planning to review stories for testability, flag missing Acceptance Criteria, and estimate testing effort in Story Points or hours.",
+      "During the sprint, QA tracks test execution progress daily on the Sprint Board.",
+      "QA Gate: All stories must pass QA testing before the sprint can be formally closed—QA has formal Go/No-Go authority.",
+      "Sprint Burndown chart shows if testing is keeping pace—bug spikes at the end of a sprint indicate late-stage testing (a dangerous anti-pattern).",
+      "QA provides Sprint Retrospective data: test cases executed, pass rate, bugs found, automation scripts added, blocked testing time."
+    ],
+    types: [
+      "Regular Sprint: Standard 2-week delivery cycle.",
+      "Hardening Sprint: Dedicated bug-fixing sprint before a major release.",
+      "Zero Sprint: Pre-project sprint for environment setup and framework initialization.",
+      "PI Sprint (SAFe): Part of a 10-12 week Program Increment in enterprise SAFe."
+    ],
+    enterpriseExample: "Sprint 24 (2 weeks) at a SaaS company: QA committed to 6 Stories, 48 test cases, 3 automation scripts, and a full regression run. Results: 46/48 tests passed, 4 bugs logged (1 P2 deferred, 3 fixed and verified). Sprint closed with QA sign-off at Sprint Review.",
+    tip: "Push for 'QA Done' to be explicitly part of the Definition of Done for every story. Without it, developers mark stories as Done before testing, causing sprint carry-over and inaccurate velocity metrics—this is a common Scrum anti-pattern in growing teams."
+  },
+  board: {
+    name: "Scrum / Kanban Board",
+    icon: "layout-dashboard",
+    definition: "A Jira Board is a visual workspace showing all issues in a project or sprint organized by status columns (e.g., To Do → In Progress → QA Testing → Done). It provides the team—QA, developers, and stakeholders—real-time visibility of all work in progress.",
+    testingUsage: [
+      "QA uses the board to monitor which stories are 'Ready for QA' (developer done) and pulls them in First-In-First-Out order.",
+      "Custom QA columns: 'QA Ready', 'QA In Progress', 'QA Failed', 'QA Passed' provide full testing visibility directly on the board.",
+      "Bugs raised during a sprint appear on the board for the developer to pick up and fix in the same sprint.",
+      "Swimlanes can separate QA tasks (Bug Retests, Regression Execution) from development tasks on the same board.",
+      "Sprint Burndown Chart (accessible from the board) helps QA track if testing capacity is aligned with sprint scope."
+    ],
+    types: [
+      "Scrum Board: Sprint-scoped; shows committed sprint backlog only.",
+      "Kanban Board: Continuous flow with WIP limits and cumulative flow diagrams.",
+      "Roadmap Board: Timeline view of Epics across quarters (Portfolio level).",
+      "Custom Filtered Board: Board scoped to a specific component, label, or team."
+    ],
+    enterpriseExample: "At a major e-commerce company, the Jira Board has columns: Backlog → Dev In Progress → Code Review → QA Ready → QA Testing → QA Blocked → Staging → Done. Issues in 'QA Blocked' for more than 24 hours are automatically escalated via Jira Automation to the QA lead with a Slack notification.",
+    tip: "Add a dedicated 'QA Blocked' column to your sprint board and configure a Jira Automation rule to notify the QA lead when an issue stays blocked for more than 24 hours. This eliminates the daily stand-up 'are you blocked?' back-and-forth and makes bottlenecks visible."
+  },
+  jql: {
+    name: "JQL — Jira Query Language",
+    icon: "search-code",
+    definition: "JQL (Jira Query Language) is a powerful SQL-like structured query language built into Jira. It lets you search, filter, and build reporting dashboards by querying any issue field, date, sprint, version, or relationship—critical for QA daily work and release reporting.",
+    testingUsage: [
+      "Open critical bugs this sprint: project = ECOM AND issuetype = Bug AND priority in (P1,P2) AND sprint in openSprints() AND status != Done",
+      "All bugs found this week: project = ECOM AND issuetype = Bug AND created >= -7d ORDER BY priority ASC",
+      "Release readiness check: project = BANKING AND fixVersion = 'v3.1.0' AND issuetype = Bug AND status not in (Closed, Verified)",
+      "Regression failures: issuetype = Bug AND labels = regression AND sprint in openSprints()",
+      "Stories awaiting QA: issuetype = Story AND status = 'QA Ready' AND sprint in openSprints() AND assignee is EMPTY"
+    ],
+    types: [
+      "Field Operators: = , != , ~ (contains), in, is EMPTY, is not EMPTY",
+      "Date Functions: created >= -7d, updated >= startOfWeek(), duedate < endOfMonth()",
+      "Sprint Functions: sprint in openSprints(), sprint in closedSprints()",
+      "Ordering: ORDER BY priority ASC, created DESC",
+      "Relationship Queries: issue in linkedIssues('PROJ-100', 'is blocked by')"
+    ],
+    enterpriseExample: "QA Lead's weekly release gate JQL: project = BANKING AND issuetype = Bug AND fixVersion = 'v3.1-RC1' AND severity in (Critical, High) AND status not in (Closed, 'QA Verified') ORDER BY priority ASC — This runs every Monday and directly feeds the Release Go/No-Go decision meeting.",
+    tip: "Save your top 5 JQL queries as named Filters and build a Jira Dashboard wired to those filters. A well-maintained QA dashboard transforms you from a tester into a quality metrics owner—this skill is highly valued in senior QA and SDET roles across all enterprise companies."
+  },
+  workflow: {
+    name: "Workflow & Transitions",
+    icon: "git-branch",
+    definition: "A Jira Workflow defines the full lifecycle (statuses) an issue passes through and the allowed transitions between them. Workflows enforce quality gates—bugs cannot be closed without QA sign-off, and stories cannot be marked Done without all AC conditions being met.",
+    testingUsage: [
+      "Standard Bug Lifecycle: Open → In Progress (Dev) → Dev Done → In QA (Retest) → QA Passed/Closed OR Reopened.",
+      "Story Workflow: To Do → In Development → Code Review → QA Ready → QA Testing → QA Sign-off → Done.",
+      "Transition validators enforce mandatory fields: bugs cannot transition to 'Closed' without 'Root Cause' and 'Fix Build' fields completed.",
+      "Post-functions automate actions: when a bug is 'Reopened', automatically re-assign it to the original resolver and post a comment.",
+      "Screen schemes define which fields are shown at each workflow step—'Reopen' screen shows Root Cause + Reopen Reason fields."
+    ],
+    types: [
+      "Simple Workflow: To Do → In Progress → Done (for basic task boards).",
+      "Bug Lifecycle Workflow: Open → Dev In Progress → Dev Done → QA Verify → Closed / Reopen.",
+      "Enterprise QA Workflow: 8+ status workflow with mandatory validators and automation rules.",
+      "Release Approval Workflow: Draft → QA Review → Business Review → Approved → Released."
+    ],
+    enterpriseExample: "At a pharma company's regulated LIMS system, the Bug workflow requires: (1) 'Root Cause Category' field set before closing, (2) Manager approval for Critical bugs, (3) Post-function auto-creates a 'Preventive Action' task when a Critical bug closes. Full audit log maintained for FDA 21 CFR Part 11 compliance.",
+    tip: "Design a dedicated 'QA Verify' status in your bug workflow instead of jumping from 'Resolved' to 'Closed'. This gives QA formal ownership of the close sign-off and creates a compliance-friendly audit trail. Without it, developers will close bugs before QA retests them."
+  },
+  version: {
+    name: "Fix Version & Affects Version",
+    icon: "tag",
+    definition: "'Affects Version' captures which product release contained the bug when found. 'Fix Version' specifies which upcoming release will contain the developer's fix. Together, these fields power release-level quality dashboards, go/no-go decisions, and audit compliance reporting.",
+    testingUsage: [
+      "'Affects Version' is set by QA when logging a bug (e.g., Affects Version: v2.3.0-RC1-Build-194).",
+      "'Fix Version' is set by the developer when assigning the fix to a planned release (e.g., Fix Version: v2.4.0).",
+      "Version Health Page shows: total issues, resolved, unresolved, and critical blockers per release—used in Release Review meetings.",
+      "JQL for release readiness: project = ECOM AND fixVersion = 'v2.4.0' AND issuetype = Bug AND status not in (Closed, Verified)",
+      "Archived versions preserve historical defect data for compliance audits, post-mortems, and regulatory reporting."
+    ],
+    types: [
+      "Unreleased Version: Planned but not yet shipped to production.",
+      "Released Version: Shipped to production; issues locked as historical records.",
+      "Archived Version: Old versions moved to archive; not actively monitored.",
+      "Continuous Version: Used in Kanban projects with no fixed release schedule."
+    ],
+    enterpriseExample: "QA Manager reviews the 'v3.5.0' Version Health Page: 124 total issues, 118 resolved, 6 unresolved (2 Critical, 4 Minor). The 2 Critical bugs are escalated at the Release Review. Release is formally blocked until both Criticals reach 'QA Verified' status—ensuring no known Critical bugs ship to production.",
+    tip: "Align Jira Fix Versions with your CI/CD build version numbering (Jenkins, GitHub Actions). This creates a direct artifact-to-defect traceability chain. Auditors, compliance teams, and post-incident reviewers rely on this alignment to trace exactly what was shipped in each release."
+  }
+};
+
+window.selectJiraTerm = function(term) {
+  const pills = document.querySelectorAll("[id^='jterm-']");
+  pills.forEach(p => p.classList.remove("active"));
+  const activePill = document.getElementById(`jterm-${term}`);
+  if (activePill) activePill.classList.add("active");
+
+  const data = jiraTermsData[term];
+  const container = document.getElementById("jira-terms-container");
+  if (!container || !data) return;
+
+  const usageItems = data.testingUsage.map(u => `<li>${u}</li>`).join("");
+  const typeItems = data.types.map(t => `<li>${t}</li>`).join("");
+
+  container.innerHTML = `
+    <div class="jterm-header">
+      <i data-lucide="${data.icon}" class="jterm-icon-lg"></i>
+      <div class="jterm-header-text">
+        <h3 class="jterm-title">${data.name}</h3>
+        <p class="jterm-def">${data.definition}</p>
+      </div>
+    </div>
+    <div class="jterm-body-grid">
+      <div class="jterm-col">
+        <div class="jterm-section">
+          <h4><i data-lucide="flask-conical"></i> QA / Testing Usage</h4>
+          <ul class="jterm-list">${usageItems}</ul>
+        </div>
+        <div class="jterm-tip-box">
+          <i data-lucide="lightbulb"></i>
+          <p><strong>Pro Tip:</strong> ${data.tip}</p>
+        </div>
+      </div>
+      <div class="jterm-col">
+        <div class="jterm-section">
+          <h4><i data-lucide="list"></i> Types / Variants</h4>
+          <ul class="jterm-list types-list">${typeItems}</ul>
+        </div>
+        <div class="jterm-example-box">
+          <h4><i data-lucide="building-2"></i> Enterprise Example</h4>
+          <p>${data.enterpriseExample}</p>
+        </div>
+      </div>
+    </div>
+  `;
+  lucide.createIcons({ attrs: { class: "lucide-custom" }, nameAttr: "data-lucide" });
 };
 
 window.showTestingType = function(type) {
