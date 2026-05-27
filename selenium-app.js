@@ -2,7 +2,7 @@
 // STATE MANAGEMENT & DATA — SELENIUM TRAINING DECK
 // ==========================================================================
 let currentSlide = 1;
-const totalSlides = 27;
+const totalSlides = 31;
 let isPlaying = false;
 let playInterval = null;
 const playSpeed = 5000; // 5 seconds per slide
@@ -22,20 +22,24 @@ const slidesMetadata = [
   { id: 11, title: "11. Day 01 — Client-Server → Selenium Architecture" },
   { id: 12, title: "12. Day 01 — Selenium 4 Architecture Diagram (Interactive)" },
   { id: 13, title: "13. Day 01 — Request Flow: How Selenium Handles Commands" },
-  { id: 14, title: "14. Day 02 — Intro (Placeholder)" },
-  { id: 15, title: "15. Day 02 — Content (Placeholder)" },
-  { id: 16, title: "16. Day 03 — Intro (Placeholder)" },
-  { id: 17, title: "17. Day 03 — Content (Placeholder)" },
-  { id: 18, title: "18. Day 04 — Intro (Placeholder)" },
-  { id: 19, title: "19. Day 04 — Content (Placeholder)" },
-  { id: 20, title: "20. Day 05 — Intro (Placeholder)" },
-  { id: 21, title: "21. Day 05 — Content (Placeholder)" },
-  { id: 22, title: "22. Day 06 — Intro (Placeholder)" },
-  { id: 23, title: "23. Day 06 — Content (Placeholder)" },
-  { id: 24, title: "24. Day 07 — Intro (Placeholder)" },
-  { id: 25, title: "25. Day 07 — Content (Placeholder)" },
-  { id: 26, title: "26. Key Takeaways & Summary" },
-  { id: 27, title: "27. End: Questions & Thank You" }
+  { id: 14, title: "14. Day 02 — Intro: WebDriver Interface & Browser Drivers" },
+  { id: 15, title: "15. Day 02 — Selenium Library & Class Architecture" },
+  { id: 16, title: "16. Day 02 — WebDriver Interface & OOP Concepts" },
+  { id: 17, title: "17. Day 02 — Browser Driver Classes Deep Dive" },
+  { id: 18, title: "18. Day 02 — ChromeDriver Setup & Execution" },
+  { id: 19, title: "19. Day 02 — Troubleshooting Browser Invocation" },
+  { id: 20, title: "20. Day 03 — Intro (Placeholder)" },
+  { id: 21, title: "21. Day 03 — Content (Placeholder)" },
+  { id: 22, title: "22. Day 04 — Intro (Placeholder)" },
+  { id: 23, title: "23. Day 04 — Content (Placeholder)" },
+  { id: 24, title: "24. Day 05 — Intro (Placeholder)" },
+  { id: 25, title: "25. Day 05 — Content (Placeholder)" },
+  { id: 26, title: "26. Day 06 — Intro (Placeholder)" },
+  { id: 27, title: "27. Day 06 — Content (Placeholder)" },
+  { id: 28, title: "28. Day 07 — Intro (Placeholder)" },
+  { id: 29, title: "29. Day 07 — Content (Placeholder)" },
+  { id: 30, title: "30. Key Takeaways & Summary" },
+  { id: 31, title: "31. End: Questions & Thank You" }
 ];
 
 // ==========================================================================

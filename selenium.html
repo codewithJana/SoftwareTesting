@@ -80,12 +80,12 @@
           <div class="toc-card" onclick="goToSlide(14)" style="padding: 10px 20px;">
             <span class="toc-num color-2">02</span>
             <div class="toc-info">
-              <h3>Day 2 — To be provided</h3>
-              <p>Topics & content to be provided.</p>
+              <h3>WebDriver Interface & Browser Drivers</h3>
+              <p>Selenium class architecture, WebDriver interface, OOP concepts, browser drivers, and troubleshooting.</p>
             </div>
             <i data-lucide="arrow-right" class="toc-arrow"></i>
           </div>
-          <div class="toc-card" onclick="goToSlide(16)" style="padding: 10px 20px;">
+          <div class="toc-card" onclick="goToSlide(20)" style="padding: 10px 20px;">
             <span class="toc-num color-3">03</span>
             <div class="toc-info">
               <h3>Day 3 — To be provided</h3>
@@ -93,7 +93,7 @@
             </div>
             <i data-lucide="arrow-right" class="toc-arrow"></i>
           </div>
-          <div class="toc-card" onclick="goToSlide(18)" style="padding: 10px 20px;">
+          <div class="toc-card" onclick="goToSlide(22)" style="padding: 10px 20px;">
             <span class="toc-num color-4">04</span>
             <div class="toc-info">
               <h3>Day 4 — To be provided</h3>
@@ -101,7 +101,7 @@
             </div>
             <i data-lucide="arrow-right" class="toc-arrow"></i>
           </div>
-          <div class="toc-card" onclick="goToSlide(20)" style="padding: 10px 20px;">
+          <div class="toc-card" onclick="goToSlide(24)" style="padding: 10px 20px;">
             <span class="toc-num color-5">05</span>
             <div class="toc-info">
               <h3>Day 5 — To be provided</h3>
@@ -109,7 +109,7 @@
             </div>
             <i data-lucide="arrow-right" class="toc-arrow"></i>
           </div>
-          <div class="toc-card" onclick="goToSlide(22)" style="padding: 10px 20px;">
+          <div class="toc-card" onclick="goToSlide(26)" style="padding: 10px 20px;">
             <span class="toc-num color-6">06</span>
             <div class="toc-info">
               <h3>Day 6 — To be provided</h3>
@@ -117,7 +117,7 @@
             </div>
             <i data-lucide="arrow-right" class="toc-arrow"></i>
           </div>
-          <div class="toc-card" onclick="goToSlide(24)" style="padding: 10px 20px;">
+          <div class="toc-card" onclick="goToSlide(28)" style="padding: 10px 20px;">
             <span class="toc-num color-1">07</span>
             <div class="toc-info">
               <h3>Day 7 — To be provided</h3>
@@ -939,36 +939,737 @@
       </div>
     </section>
 
-    <!-- SLIDE 14: Day 2 — Intro Splash (Placeholder) -->
+    <!-- SLIDE 14: Day 2 — Intro Splash -->
     <section class="slide dark-bg" id="slide-14">
       <div class="slide-content centered">
         <div class="splash-badge">Day 02 · Selenium Training</div>
-        <h1 class="giant-headline">Day 02</h1>
-        <h2 class="sub-headline">Section Title to be Provided</h2>
-        <p class="splash-text">Topics and learning objectives for Day 2 will be added once the content is provided.</p>
+        <h1 class="giant-headline">WebDriver Interface</h1>
+        <h2 class="sub-headline">& Browser Drivers</h2>
+        <p class="splash-text">Understanding Selenium's class architecture, the WebDriver interface, OOP principles, browser driver implementation, and practical troubleshooting strategies for production environments.</p>
         <div class="criteria-highlight">
-          <i data-lucide="clock"></i>
-          <span>Content for this session is coming soon</span>
+          <i data-lucide="layers"></i>
+          <span>Class Architecture · WebDriver Interface · OOP Concepts · Browser Drivers · ChromeDriver · Troubleshooting</span>
         </div>
       </div>
     </section>
 
-    <!-- SLIDE 15: Day 2 — Content (Placeholder) -->
-    <section class="slide" id="slide-15">
+    <!-- SLIDE 15: Selenium Library & Class Architecture -->
+    <section class="slide scrollable-slide" id="slide-15">
       <div class="slide-content">
         <div class="slide-subheader color-2">Day 02</div>
-        <h2 class="slide-header">Content to be Provided</h2>
-        <div class="placeholder-section">
-          <div class="placeholder-icon"><i data-lucide="file-clock"></i></div>
-          <h3>Slides &amp; Content Coming Soon</h3>
-          <p>Detailed slide content for Day 2 will be added in the next update. The layout and interactive components are ready for population.</p>
-          <div class="placeholder-note"><i data-lucide="info"></i><span>The slide structure, navigation, and interactive framework for this session are fully prepared and awaiting content insertion.</span></div>
+        <h2 class="slide-header">Selenium Library & Class Architecture</h2>
+        <p class="slide-intro">Selenium's architecture follows a clean <strong>interface-based design pattern</strong> that enables cross-browser automation through a unified API. Let's explore the core components and their relationships.</p>
+        
+        <div class="split-layout">
+          <div class="content-left">
+            <div class="glass-card accent-card">
+              <div class="card-header">
+                <i data-lucide="box" class="icon-primary"></i>
+                <h3>Selenium Architecture Layers</h3>
+              </div>
+              <div style="margin-top: 12px;">
+                <div class="arch-layer-box" style="background: linear-gradient(135deg, #065A82 0%, #1C7293 100%); padding: 12px; border-radius: 8px; margin-bottom: 8px;">
+                  <strong style="display: block; margin-bottom: 4px;">🔹 Language Bindings (Client Library)</strong>
+                  <span style="font-size: 13px; opacity: 0.9;">Java: <code>selenium-java.jar</code> | Python: <code>pip install selenium</code></span><br>
+                  <span style="font-size: 12px; opacity: 0.8;">Provides WebDriver API, manages HTTP communication, handles JSON serialization</span>
+                </div>
+                <div class="arch-layer-box" style="background: linear-gradient(135deg, #9B59B6 0%, #8E44AD 100%); padding: 12px; border-radius: 8px; margin-bottom: 8px;">
+                  <strong style="display: block; margin-bottom: 4px;">🔹 W3C WebDriver Protocol</strong>
+                  <span style="font-size: 13px; opacity: 0.9;">RESTful HTTP/JSON API specification</span><br>
+                  <span style="font-size: 12px; opacity: 0.8;">Standard endpoints: /session, /element, /click, /url, /screenshot</span>
+                </div>
+                <div class="arch-layer-box" style="background: linear-gradient(135deg, #D95D39 0%, #C44D30 100%); padding: 12px; border-radius: 8px; margin-bottom: 8px;">
+                  <strong style="display: block; margin-bottom: 4px;">🔹 Browser Drivers (HTTP Servers)</strong>
+                  <span style="font-size: 13px; opacity: 0.9;">ChromeDriver, GeckoDriver, EdgeDriver, SafariDriver</span><br>
+                  <span style="font-size: 12px; opacity: 0.8;">Translates W3C commands to browser-specific protocols (CDP, Marionette)</span>
+                </div>
+                <div class="arch-layer-box" style="background: linear-gradient(135deg, #0F6E56 0%, #0A5542 100%); padding: 12px; border-radius: 8px;">
+                  <strong style="display: block; margin-bottom: 4px;">🔹 Browser Executable</strong>
+                  <span style="font-size: 13px; opacity: 0.9;">Chrome, Firefox, Edge, Safari</span><br>
+                  <span style="font-size: 12px; opacity: 0.8;">Actual browser that performs automation actions</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="glass-card margin-top">
+              <div class="card-header">
+                <i data-lucide="folder-tree"></i>
+                <h3>Core Package Structure (Java)</h3>
+              </div>
+              <div style="margin-top: 10px; font-family: 'Consolas', monospace; font-size: 12px; line-height: 1.6;">
+                <div style="margin-left: 0;"><strong>org.openqa.selenium</strong></div>
+                <div style="margin-left: 15px;">├── <span style="color: #61AFEF;">WebDriver</span> <em style="color: #98C379;">// Main interface</em></div>
+                <div style="margin-left: 15px;">├── <span style="color: #61AFEF;">WebElement</span> <em style="color: #98C379;">// Element interface</em></div>
+                <div style="margin-left: 15px;">├── <span style="color: #61AFEF;">By</span> <em style="color: #98C379;">// Locator strategies</em></div>
+                <div style="margin-left: 15px;">├── <span style="color: #61AFEF;">JavascriptExecutor</span> <em style="color: #98C379;">// JS execution</em></div>
+                <div style="margin-left: 0; margin-top: 8px;"><strong>org.openqa.selenium.chrome</strong></div>
+                <div style="margin-left: 15px;">├── <span style="color: #E5C07B;">ChromeDriver</span> <em style="color: #98C379;">// Implements WebDriver</em></div>
+                <div style="margin-left: 15px;">├── <span style="color: #E5C07B;">ChromeOptions</span> <em style="color: #98C379;">// Browser capabilities</em></div>
+                <div style="margin-left: 0; margin-top: 8px;"><strong>org.openqa.selenium.firefox</strong></div>
+                <div style="margin-left: 15px;">├── <span style="color: #E5C07B;">FirefoxDriver</span></div>
+                <div style="margin-left: 15px;">├── <span style="color: #E5C07B;">FirefoxOptions</span></div>
+                <div style="margin-left: 0; margin-top: 8px;"><strong>org.openqa.selenium.edge</strong></div>
+                <div style="margin-left: 15px;">├── <span style="color: #E5C07B;">EdgeDriver</span></div>
+                <div style="margin-left: 15px;">├── <span style="color: #E5C07B;">EdgeOptions</span></div>
+                <div style="margin-left: 0; margin-top: 8px;"><strong>org.openqa.selenium.support.ui</strong></div>
+                <div style="margin-left: 15px;">├── <span style="color: #C678DD;">WebDriverWait</span> <em style="color: #98C379;">// Explicit waits</em></div>
+                <div style="margin-left: 15px;">├── <span style="color: #C678DD;">ExpectedConditions</span></div>
+                <div style="margin-left: 15px;">├── <span style="color: #C678DD;">Select</span> <em style="color: #98C379;">// Dropdown handling</em></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="content-right">
+            <div class="glass-card dark-card">
+              <div class="card-header">
+                <i data-lucide="info" style="color: var(--secondary);"></i>
+                <h3>Key Architecture Principles</h3>
+              </div>
+              <ul class="styled-list" style="margin-top: 10px;">
+                <li><strong>Interface-Driven Design:</strong> All browser-specific classes implement the <code>WebDriver</code> interface, ensuring consistent API across browsers.</li>
+                <li><strong>Separation of Concerns:</strong> Language bindings handle HTTP, drivers handle browser communication, browsers execute actions.</li>
+                <li><strong>Open-Closed Principle:</strong> New browsers can be added by implementing the WebDriver interface without changing existing code.</li>
+                <li><strong>Protocol Independence:</strong> W3C WebDriver protocol acts as a vendor-neutral contract between client and driver.</li>
+              </ul>
+            </div>
+
+            <div class="glass-card success-card margin-top">
+              <div class="card-header">
+                <i data-lucide="briefcase" class="icon-success"></i>
+                <h3>Real-World Organizational Usage</h3>
+              </div>
+              <div style="margin-top: 10px; font-size: 13px; line-height: 1.6;">
+                <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 6px; margin-bottom: 10px;">
+                  <strong style="color: #4CAF50;">🏢 Enterprise E-Commerce (Amazon, Flipkart)</strong><br>
+                  <span style="font-size: 12px;">Use Selenium Grid for parallel regression testing across 50+ browser/OS combinations. Tests run on every deployment (10+ times/day), covering checkout flows, payment processing, and search functionality.</span>
+                </div>
+                <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 6px; margin-bottom: 10px;">
+                  <strong style="color: #2196F3;">🏦 Banking & Fintech (PayPal, HDFC, ICICI)</strong><br>
+                  <span style="font-size: 12px;">Selenium validates multi-factor authentication, transaction workflows, and regulatory compliance screens. Runs nightly regression suites with 2000+ test cases covering security-critical paths.</span>
+                </div>
+                <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 6px;">
+                  <strong style="color: #FF9800;">📱 SaaS Platforms (Salesforce, ServiceNow)</strong><br>
+                  <span style="font-size: 12px;">Automate complex multi-user workflows, integrations testing, and UI validation. Selenium integrated with CI/CD (Jenkins, GitLab CI) for continuous testing on feature branches.</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- SLIDE 16: Day 3 — Intro Splash (Placeholder) -->
-    <section class="slide dark-bg" id="slide-16">
+    <!-- SLIDE 16: WebDriver Interface & OOP Concepts -->
+    <section class="slide scrollable-slide" id="slide-16">
+      <div class="slide-content">
+        <div class="slide-subheader color-2">Day 02</div>
+        <h2 class="slide-header">WebDriver Interface & OOP Concepts</h2>
+        <p class="slide-intro">Understanding <code>WebDriver driver = new ChromeDriver()</code> — the most fundamental line in Selenium. This simple statement demonstrates polymorphism, interface implementation, and dependency inversion principles.</p>
+        
+        <div class="split-layout">
+          <div class="content-left">
+            <div class="glass-card accent-card">
+              <div class="card-header">
+                <i data-lucide="code-2" class="icon-primary"></i>
+                <h3>The Classic Declaration Explained</h3>
+              </div>
+              <div style="margin-top: 12px; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; font-family: 'Consolas', monospace; font-size: 13px;">
+                <div style="color: #C678DD;">WebDriver</div> <span style="color: #E06C75;">driver</span> = <span style="color: #C678DD;">new</span> <span style="color: #E5C07B;">ChromeDriver</span>();
+              </div>
+              <div style="margin-top: 15px;">
+                <div style="background: rgba(6, 90, 130, 0.2); padding: 10px; border-left: 3px solid #1C7293; margin-bottom: 10px; border-radius: 4px;">
+                  <strong style="color: #61AFEF;">WebDriver</strong> <em style="font-size: 12px; opacity: 0.8;">(Interface - Reference Type)</em><br>
+                  <span style="font-size: 12px; line-height: 1.5;">An interface defining the contract for browser automation. Contains method signatures like <code>get()</code>, <code>findElement()</code>, <code>quit()</code> — but no implementation.</span>
+                </div>
+                <div style="background: rgba(217, 93, 57, 0.2); padding: 10px; border-left: 3px solid #D95D39; margin-bottom: 10px; border-radius: 4px;">
+                  <strong style="color: #E5C07B;">ChromeDriver</strong> <em style="font-size: 12px; opacity: 0.8;">(Class - Actual Implementation)</em><br>
+                  <span style="font-size: 12px; line-height: 1.5;">A concrete class that implements the WebDriver interface specifically for Google Chrome. Contains the actual logic to start ChromeDriver.exe, send W3C commands, and communicate via CDP.</span>
+                </div>
+                <div style="background: rgba(15, 110, 86, 0.2); padding: 10px; border-left: 3px solid #0F6E56; border-radius: 4px;">
+                  <strong style="color: #98C379;">driver</strong> <em style="font-size: 12px; opacity: 0.8;">(Variable Name - Reference)</em><br>
+                  <span style="font-size: 12px; line-height: 1.5;">The variable that holds a reference to the ChromeDriver object. Can call any method defined in the WebDriver interface.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="glass-card margin-top">
+              <div class="card-header">
+                <i data-lucide="git-branch"></i>
+                <h3>OOP Principles in Action</h3>
+              </div>
+              <div style="margin-top: 10px;">
+                <div style="background: rgba(255,255,255,0.05); padding: 12px; border-radius: 6px; margin-bottom: 10px;">
+                  <strong style="color: #61AFEF;">1️⃣ Polymorphism (Interface-based Programming)</strong><br>
+                  <span style="font-size: 12px; margin-top: 5px; display: block; line-height: 1.5;">A <code>WebDriver</code> reference can point to <em>any</em> class that implements the interface — ChromeDriver, FirefoxDriver, EdgeDriver. Your test code doesn't care which browser it is — it just calls <code>driver.get(url)</code>, and the correct implementation executes.</span>
+                </div>
+                <div style="background: rgba(255,255,255,0.05); padding: 12px; border-radius: 6px; margin-bottom: 10px;">
+                  <strong style="color: #E5C07B;">2️⃣ Abstraction</strong><br>
+                  <span style="font-size: 12px; margin-top: 5px; display: block; line-height: 1.5;">The WebDriver interface <em>hides complexity</em>. You call <code>driver.findElement(By.id("login"))</code> — you don't need to know that internally ChromeDriver is sending HTTP POST requests, parsing JSON, or invoking CDP commands. All implementation details are abstracted away.</span>
+                </div>
+                <div style="background: rgba(255,255,255,0.05); padding: 12px; border-radius: 6px;">
+                  <strong style="color: #C678DD;">3️⃣ Dependency Inversion Principle</strong><br>
+                  <span style="font-size: 12px; margin-top: 5px; display: block; line-height: 1.5;">Your test code depends on the <code>WebDriver</code> <em>interface</em>, not the concrete ChromeDriver <em>class</em>. This means you can swap browsers easily without changing test logic — just change <code>new ChromeDriver()</code> to <code>new FirefoxDriver()</code>.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="content-right">
+            <div class="glass-card dark-card">
+              <div class="card-header">
+                <i data-lucide="shuffle" style="color: var(--secondary);"></i>
+                <h3>Alternative Declaration Options</h3>
+              </div>
+              <div style="margin-top: 12px; font-size: 13px; line-height: 1.7;">
+                <div style="background: rgba(76, 175, 80, 0.1); border: 1px solid #4CAF50; padding: 10px; border-radius: 6px; margin-bottom: 10px;">
+                  <strong style="color: #4CAF50;">✅ RECOMMENDED (Interface Reference)</strong>
+                  <pre style="margin: 8px 0 0 0; background: rgba(0,0,0,0.3); padding: 8px; border-radius: 4px; overflow-x: auto;"><code style="font-size: 12px;">WebDriver driver = new ChromeDriver();
+WebDriver driver = new FirefoxDriver();
+WebDriver driver = new EdgeDriver();</code></pre>
+                  <span style="font-size: 11px; display: block; margin-top: 6px; opacity: 0.9;"><strong>Why preferred:</strong> Maximum flexibility, polymorphic behavior, easy browser swapping, best practice for cross-browser testing.</span>
+                </div>
+
+                <div style="background: rgba(255, 152, 0, 0.1); border: 1px solid #FF9800; padding: 10px; border-radius: 6px; margin-bottom: 10px;">
+                  <strong style="color: #FF9800;">⚠️ WORKS BUT NOT RECOMMENDED</strong>
+                  <pre style="margin: 8px 0 0 0; background: rgba(0,0,0,0.3); padding: 8px; border-radius: 4px; overflow-x: auto;"><code style="font-size: 12px;">ChromeDriver driver = new ChromeDriver();</code></pre>
+                  <span style="font-size: 11px; display: block; margin-top: 6px; opacity: 0.9;"><strong>Why not preferred:</strong> Tightly couples your code to ChromeDriver class. Harder to switch browsers. Violates "program to interface, not implementation" principle. Limits reusability in framework design.</span>
+                </div>
+
+                <div style="background: rgba(244, 67, 54, 0.1); border: 1px solid #F44336; padding: 10px; border-radius: 6px; margin-bottom: 10px;">
+                  <strong style="color: #F44336;">❌ WRONG (Will not compile)</strong>
+                  <pre style="margin: 8px 0 0 0; background: rgba(0,0,0,0.3); padding: 8px; border-radius: 4px; overflow-x: auto;"><code style="font-size: 12px;">WebDriver driver = new WebDriver(); // ERROR!</code></pre>
+                  <span style="font-size: 11px; display: block; margin-top: 6px; opacity: 0.9;"><strong>Why it fails:</strong> WebDriver is an <em>interface</em> — it has no constructor. You cannot instantiate an interface directly. You must instantiate a concrete implementing class (ChromeDriver, FirefoxDriver, etc.).</span>
+                </div>
+
+                <div style="background: rgba(33, 150, 243, 0.1); border: 1px solid #2196F3; padding: 10px; border-radius: 6px;">
+                  <strong style="color: #2196F3;">🔹 SELENIUM GRID / REMOTE</strong>
+                  <pre style="margin: 8px 0 0 0; background: rgba(0,0,0,0.3); padding: 8px; border-radius: 4px; overflow-x: auto;"><code style="font-size: 12px;">WebDriver driver = new RemoteWebDriver(
+    new URL("http://grid-hub:4444"),
+    new ChromeOptions()
+);</code></pre>
+                  <span style="font-size: 11px; display: block; margin-top: 6px; opacity: 0.9;"><strong>Use case:</strong> Running tests on remote Selenium Grid nodes, cloud providers (BrowserStack, Sauce Labs), Docker containers, or Kubernetes clusters.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="glass-card success-card margin-top">
+              <div class="card-header">
+                <i data-lucide="lightbulb" class="icon-success"></i>
+                <h3>Real-World Justification</h3>
+              </div>
+              <div style="margin-top: 10px; font-size: 12px; line-height: 1.6;">
+                <p style="margin-bottom: 10px;"><strong>Why organizations use interface references:</strong></p>
+                <ul style="margin-left: 15px; line-height: 1.8;">
+                  <li><strong>CI/CD Pipeline Flexibility:</strong> Same test suite runs on Chrome locally, Firefox in Jenkins, Edge in Azure DevOps — just swap the driver instantiation.</li>
+                  <li><strong>Parallel Execution:</strong> Selenium Grid requires <code>RemoteWebDriver</code> — easier migration if already using <code>WebDriver</code> interface.</li>
+                  <li><strong>Framework Scalability:</strong> Base test classes accept <code>WebDriver</code>, not <code>ChromeDriver</code> — supports all browsers without code duplication.</li>
+                  <li><strong>Cloud Migration:</strong> Switching from local execution to BrowserStack/Sauce Labs just means changing <code>new ChromeDriver()</code> to <code>new RemoteWebDriver(...)</code>.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 17: Browser Driver Classes Deep Dive -->
+    <section class="slide scrollable-slide" id="slide-17">
+      <div class="slide-content">
+        <div class="slide-subheader color-2">Day 02</div>
+        <h2 class="slide-header">Browser Driver Classes & WebDriver Interface</h2>
+        <p class="slide-intro">Understanding the relationship between the WebDriver interface and browser-specific driver implementations — the foundation of Selenium's cross-browser automation architecture.</p>
+        
+        <div class="split-layout">
+          <div class="content-left">
+            <div class="glass-card accent-card">
+              <div class="card-header">
+                <i data-lucide="layers" class="icon-primary"></i>
+                <h3>WebDriver Interface Hierarchy</h3>
+              </div>
+              <div style="margin-top: 12px; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; font-family: 'Consolas', monospace; font-size: 12px; line-height: 1.8;">
+                <div style="color: #C678DD;">public interface</div> <span style="color: #61AFEF; font-weight: bold;">WebDriver</span> {<br>
+                <div style="margin-left: 20px; color: #98C379;">// Navigation methods</div>
+                <div style="margin-left: 20px;">void <span style="color: #61AFEF;">get</span>(String url);</div>
+                <div style="margin-left: 20px;">String <span style="color: #61AFEF;">getCurrentUrl</span>();</div>
+                <div style="margin-left: 20px;">String <span style="color: #61AFEF;">getTitle</span>();</div>
+                <div style="margin-left: 20px; margin-top: 8px; color: #98C379;">// Element interaction</div>
+                <div style="margin-left: 20px;">WebElement <span style="color: #61AFEF;">findElement</span>(By by);</div>
+                <div style="margin-left: 20px;">List&lt;WebElement&gt; <span style="color: #61AFEF;">findElements</span>(By by);</div>
+                <div style="margin-left: 20px; margin-top: 8px; color: #98C379;">// Window management</div>
+                <div style="margin-left: 20px;">void <span style="color: #61AFEF;">close</span>();</div>
+                <div style="margin-left: 20px;">void <span style="color: #61AFEF;">quit</span>();</div>
+                <div style="margin-left: 20px;">Set&lt;String&gt; <span style="color: #61AFEF;">getWindowHandles</span>();</div>
+                }
+              </div>
+              <div style="margin-top: 10px; font-size: 12px; background: rgba(6,90,130,0.1); padding: 10px; border-left: 3px solid #1C7293; border-radius: 4px;">
+                <strong>Key Point:</strong> This is a <em>contract</em> — every browser driver must implement these methods. Ensures consistent API across all browsers.
+              </div>
+            </div>
+
+            <div class="glass-card margin-top">
+              <div class="card-header">
+                <i data-lucide="git-merge"></i>
+                <h3>Browser Driver Class Implementations</h3>
+              </div>
+              <div style="margin-top: 10px;">
+                <div style="background: linear-gradient(135deg, #DB4437 0%, #C23321 100%); padding: 12px; border-radius: 8px; margin-bottom: 10px; color: white;">
+                  <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                    <i data-lucide="chrome" style="width: 18px; height: 18px;"></i>
+                    <strong style="font-size: 14px;">ChromeDriver</strong>
+                    <span style="margin-left: auto; font-size: 11px; background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 4px;">org.openqa.selenium.chrome</span>
+                  </div>
+                  <div style="font-size: 11px; line-height: 1.5; opacity: 0.95;">
+                    <strong>Executable:</strong> chromedriver.exe (Windows), chromedriver (Mac/Linux)<br>
+                    <strong>Protocol:</strong> Chrome DevTools Protocol (CDP) over WebSocket<br>
+                    <strong>Default Port:</strong> 9515<br>
+                    <strong>Download:</strong> <a href="#" style="color: #FFD54F;">https://chromedriver.chromium.org</a> or Selenium Manager auto-downloads
+                  </div>
+                </div>
+
+                <div style="background: linear-gradient(135deg, #FF7139 0%, #E5651F 100%); padding: 12px; border-radius: 8px; margin-bottom: 10px; color: white;">
+                  <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                    <i data-lucide="firefox" style="width: 18px; height: 18px;"></i>
+                    <strong style="font-size: 14px;">FirefoxDriver (GeckoDriver)</strong>
+                    <span style="margin-left: auto; font-size: 11px; background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 4px;">org.openqa.selenium.firefox</span>
+                  </div>
+                  <div style="font-size: 11px; line-height: 1.5; opacity: 0.95;">
+                    <strong>Executable:</strong> geckodriver.exe (Windows), geckodriver (Mac/Linux)<br>
+                    <strong>Protocol:</strong> Marionette protocol<br>
+                    <strong>Default Port:</strong> 7055<br>
+                    <strong>Download:</strong> <a href="#" style="color: #FFD54F;">https://github.com/mozilla/geckodriver/releases</a>
+                  </div>
+                </div>
+
+                <div style="background: linear-gradient(135deg, #0078D7 0%, #005A9E 100%); padding: 12px; border-radius: 8px; margin-bottom: 10px; color: white;">
+                  <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                    <i data-lucide="layout-grid" style="width: 18px; height: 18px;"></i>
+                    <strong style="font-size: 14px;">EdgeDriver</strong>
+                    <span style="margin-left: auto; font-size: 11px; background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 4px;">org.openqa.selenium.edge</span>
+                  </div>
+                  <div style="font-size: 11px; line-height: 1.5; opacity: 0.95;">
+                    <strong>Executable:</strong> msedgedriver.exe (Windows), msedgedriver (Mac/Linux)<br>
+                    <strong>Protocol:</strong> Chrome DevTools Protocol (CDP) — Edge is Chromium-based<br>
+                    <strong>Default Port:</strong> 9515<br>
+                    <strong>Download:</strong> <a href="#" style="color: #FFD54F;">https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/</a>
+                  </div>
+                </div>
+
+                <div style="background: linear-gradient(135deg, #006FFF 0%, #0052CC 100%); padding: 12px; border-radius: 8px; color: white;">
+                  <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                    <i data-lucide="compass" style="width: 18px; height: 18px;"></i>
+                    <strong style="font-size: 14px;">SafariDriver</strong>
+                    <span style="margin-left: auto; font-size: 11px; background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 4px;">org.openqa.selenium.safari</span>
+                  </div>
+                  <div style="font-size: 11px; line-height: 1.5; opacity: 0.95;">
+                    <strong>Executable:</strong> Built into macOS — no separate download required<br>
+                    <strong>Protocol:</strong> WebKit Remote Debug protocol<br>
+                    <strong>Setup:</strong> Enable via <code>safaridriver --enable</code> in Terminal<br>
+                    <strong>Note:</strong> Only available on macOS
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="content-right">
+            <div class="glass-card dark-card">
+              <div class="card-header">
+                <i data-lucide="info" style="color: var(--secondary);"></i>
+                <h3>Core Concepts Explained</h3>
+              </div>
+              <div style="margin-top: 12px; font-size: 13px; line-height: 1.7;">
+                <div style="background: rgba(255,255,255,0.05); padding: 12px; border-radius: 6px; margin-bottom: 10px;">
+                  <strong style="color: #61AFEF;">🔹 What is a Browser Driver?</strong><br>
+                  <span style="font-size: 12px; margin-top: 5px; display: block;">A browser driver is a <strong>standalone executable program</strong> that acts as a bridge between your Selenium test code and the actual browser. It runs as an HTTP server listening on localhost (e.g., port 9515 for Chrome). When you call <code>driver.get("https://example.com")</code>, the Selenium library sends an HTTP POST request to the driver, which then translates it into the browser's internal protocol (CDP for Chrome, Marionette for Firefox).</span>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.05); padding: 12px; border-radius: 6px; margin-bottom: 10px;">
+                  <strong style="color: #E5C07B;">🔹 Why Different Drivers for Different Browsers?</strong><br>
+                  <span style="font-size: 12px; margin-top: 5px; display: block;">Each browser has its own internal architecture and debugging protocol. Chrome uses CDP, Firefox uses Marionette, Safari uses WebKit Remote Debug. The driver's job is to <em>translate</em> the universal W3C WebDriver HTTP commands into these browser-specific protocols. Think of it like translators — all drivers speak W3C HTTP (input), but each translates to its browser's native language (output).</span>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.05); padding: 12px; border-radius: 6px; margin-bottom: 10px;">
+                  <strong style="color: #C678DD;">🔹 Version Compatibility is Critical</strong><br>
+                  <span style="font-size: 12px; margin-top: 5px; display: block;">The driver version must match the browser version. Chrome 124 needs ChromeDriver 124.x. If they don't match, you'll get errors like <code>session not created: This version of ChromeDriver only supports Chrome version 120</code>. <strong>Selenium Manager (4.6+) solves this automatically</strong> by detecting your browser version and downloading the matching driver.</span>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.05); padding: 12px; border-radius: 6px;">
+                  <strong style="color: #98C379;">🔹 Drivers are Language-Agnostic</strong><br>
+                  <span style="font-size: 12px; margin-top: 5px; display: block;">ChromeDriver.exe is the <em>same binary</em> whether you're writing tests in Java, Python, C#, or JavaScript. The driver only speaks W3C HTTP — it doesn't care what language your test is written in. The Selenium language binding (Java JAR, Python package, etc.) handles language-specific concerns and sends standard HTTP requests.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="glass-card success-card margin-top">
+              <div class="card-header">
+                <i data-lucide="briefcase" class="icon-success"></i>
+                <h3>Enterprise Best Practices</h3>
+              </div>
+              <div style="margin-top: 10px; font-size: 12px; line-height: 1.6;">
+                <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 6px; margin-bottom: 10px;">
+                  <strong>🏢 Driver Management Strategy</strong><br>
+                  <ul style="margin: 8px 0 0 15px; line-height: 1.7;">
+                    <li><strong>Modern (Selenium 4.6+):</strong> Use Selenium Manager — zero manual configuration.</li>
+                    <li><strong>Legacy (Selenium 3.x):</strong> Use WebDriverManager library (Java: <code>io.github.bonigarcia:webdrivermanager</code>) to auto-download drivers.</li>
+                    <li><strong>CI/CD Pipelines:</strong> Pre-install drivers in Docker images or cache directories to avoid download overhead on every test run.</li>
+                  </ul>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 6px;">
+                  <strong>🏢 Cross-Browser Testing in Organizations</strong><br>
+                  <ul style="margin: 8px 0 0 15px; line-height: 1.7;">
+                    <li>Run same test suite on Chrome (80% user base), Firefox (10%), Edge (8%), Safari (2% — Mac users only).</li>
+                    <li>Use parameterized tests or TestNG/JUnit <code>@Parameters</code> to switch drivers dynamically.</li>
+                    <li>Selenium Grid enables parallel cross-browser execution — 4 browsers × 10 tests = 40 parallel sessions.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 18: ChromeDriver Setup & Execution -->
+    <section class="slide scrollable-slide" id="slide-18">
+      <div class="slide-content">
+        <div class="slide-subheader color-2">Day 02</div>
+        <h2 class="slide-header">Running Tests in Chrome & ChromeDriver.exe</h2>
+        <p class="slide-intro">Step-by-step guide to setting up ChromeDriver, understanding its role, and running your first Selenium test in Google Chrome.</p>
+        
+        <div class="split-layout">
+          <div class="content-left">
+            <div class="glass-card accent-card">
+              <div class="card-header">
+                <i data-lucide="play-circle" class="icon-primary"></i>
+                <h3>Setup Methods (Modern vs Legacy)</h3>
+              </div>
+              
+              <div style="margin-top: 12px;">
+                <div style="background: linear-gradient(135deg, #4CAF50 0%, #388E3C 100%); padding: 15px; border-radius: 8px; margin-bottom: 15px; color: white;">
+                  <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
+                    <i data-lucide="zap" style="width: 20px; height: 20px;"></i>
+                    <strong style="font-size: 15px;">OPTION 1: Selenium Manager (Selenium 4.6+) — RECOMMENDED ✅</strong>
+                  </div>
+                  <div style="font-size: 13px; line-height: 1.6; margin-bottom: 12px;">
+                    <strong>Zero configuration required!</strong> Selenium Manager automatically detects Chrome version, downloads matching ChromeDriver, and sets PATH.
+                  </div>
+                  <div style="background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; font-family: 'Consolas', monospace; font-size: 12px; line-height: 1.8;">
+                    <span style="color: #98C379;">// Step 1: Install Selenium 4.6 or later</span><br>
+                    <span style="color: #7F848E;">// Maven: selenium-java 4.6.0+</span><br>
+                    <span style="color: #7F848E;">// pip install selenium (4.6+)</span><br><br>
+                    <span style="color: #98C379;">// Step 2: Just write your test — that's it!</span><br>
+                    <span style="color: #C678DD;">import</span> org.openqa.selenium.WebDriver;<br>
+                    <span style="color: #C678DD;">import</span> org.openqa.selenium.chrome.ChromeDriver;<br><br>
+                    <span style="color: #C678DD;">public class</span> <span style="color: #E5C07B;">FirstTest</span> {<br>
+                    <div style="margin-left: 20px;"><span style="color: #C678DD;">public static void</span> <span style="color: #61AFEF;">main</span>(String[] args) {</div>
+                    <div style="margin-left: 40px;">WebDriver driver = <span style="color: #C678DD;">new</span> <span style="color: #E5C07B;">ChromeDriver</span>();</div>
+                    <div style="margin-left: 40px; color: #98C379;">// Selenium Manager handles everything!</div>
+                    <div style="margin-left: 40px;">driver.get(<span style="color: #98C379;">"https://www.google.com"</span>);</div>
+                    <div style="margin-left: 40px;">System.out.println(driver.getTitle());</div>
+                    <div style="margin-left: 40px;">driver.quit();</div>
+                    <div style="margin-left: 20px;">}</div>
+                    }
+                  </div>
+                  <div style="margin-top: 10px; font-size: 11px; background: rgba(255,255,255,0.1); padding: 8px; border-radius: 4px;">
+                    <strong>What happens behind the scenes:</strong><br>
+                    1. Detects Chrome version (e.g., 124.0.6367.60)<br>
+                    2. Downloads ChromeDriver 124.x from <code>https://chromedriver.storage.googleapis.com</code><br>
+                    3. Caches it in <code>~/.cache/selenium/drivers/chromedriver/</code><br>
+                    4. Starts ChromeDriver.exe automatically
+                  </div>
+                </div>
+
+                <div style="background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%); padding: 15px; border-radius: 8px; color: white;">
+                  <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
+                    <i data-lucide="wrench" style="width: 20px; height: 20px;"></i>
+                    <strong style="font-size: 15px;">OPTION 2: Manual Setup (Selenium 3.x or specific control)</strong>
+                  </div>
+                  <div style="font-size: 13px; line-height: 1.6; margin-bottom: 12px;">
+                    You manually download ChromeDriver and configure the system property.
+                  </div>
+                  <div style="background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; font-family: 'Consolas', monospace; font-size: 12px; line-height: 1.8;">
+                    <span style="color: #98C379;">// Step 1: Download ChromeDriver</span><br>
+                    <span style="color: #7F848E;">// Visit: https://chromedriver.chromium.org/downloads</span><br>
+                    <span style="color: #7F848E;">// Download version matching your Chrome browser</span><br>
+                    <span style="color: #7F848E;">// Extract to C:\drivers\chromedriver.exe</span><br><br>
+                    <span style="color: #98C379;">// Step 2: Set system property before creating driver</span><br>
+                    System.<span style="color: #61AFEF;">setProperty</span>(<span style="color: #98C379;">"webdriver.chrome.driver"</span>,<br>
+                    <div style="margin-left: 20px;"><span style="color: #98C379;">"C:\\drivers\\chromedriver.exe"</span>);</div><br>
+                    WebDriver driver = <span style="color: #C678DD;">new</span> <span style="color: #E5C07B;">ChromeDriver</span>();<br>
+                    driver.get(<span style="color: #98C379;">"https://www.google.com"</span>);
+                  </div>
+                  <div style="margin-top: 10px; font-size: 11px; background: rgba(255,255,255,0.1); padding: 8px; border-radius: 4px;">
+                    <strong>⚠️ Common issues:</strong> Version mismatch errors, PATH issues, manual updates when Chrome updates.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="content-right">
+            <div class="glass-card dark-card">
+              <div class="card-header">
+                <i data-lucide="file-text" style="color: var(--secondary);"></i>
+                <h3>What is ChromeDriver.exe?</h3>
+              </div>
+              <div style="margin-top: 12px; font-size: 13px; line-height: 1.7;">
+                <div style="background: rgba(255,255,255,0.05); padding: 12px; border-radius: 6px; margin-bottom: 10px;">
+                  <strong style="color: #61AFEF;">🔹 Definition</strong><br>
+                  <span style="font-size: 12px; margin-top: 5px; display: block;">ChromeDriver is a <strong>standalone executable file</strong> (chromedriver.exe on Windows, chromedriver on Mac/Linux) developed and maintained by the Chromium project. It implements the W3C WebDriver protocol and acts as a server that receives HTTP commands from your Selenium test code and translates them into Chrome DevTools Protocol (CDP) commands that Chrome understands.</span>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.05); padding: 12px; border-radius: 6px; margin-bottom: 10px;">
+                  <strong style="color: #E5C07B;">🔹 Why is it a Separate File?</strong><br>
+                  <span style="font-size: 12px; margin-top: 5px; display: block;">Chrome browser and ChromeDriver are updated independently. Chrome is updated frequently (every 4-6 weeks), while your Selenium tests may use a stable version. Separating them allows flexibility — you can update Chrome without breaking your test suite, as long as ChromeDriver versions remain compatible. It also allows the Chromium team to add WebDriver features without modifying the browser itself.</span>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.05); padding: 12px; border-radius: 6px; margin-bottom: 10px;">
+                  <strong style="color: #C678DD;">🔹 How Does Selenium Find ChromeDriver?</strong><br>
+                  <span style="font-size: 12px; margin-top: 5px; display: block;">
+                    <strong>1. Selenium Manager (4.6+):</strong> Auto-downloads and sets PATH internally.<br>
+                    <strong>2. System PATH:</strong> If chromedriver.exe is in your system PATH environment variable.<br>
+                    <strong>3. Explicit Property:</strong> <code>System.setProperty("webdriver.chrome.driver", "C:\\path\\chromedriver.exe")</code><br>
+                    <strong>Priority:</strong> Explicit property > Selenium Manager > System PATH
+                  </span>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.05); padding: 12px; border-radius: 6px;">
+                  <strong style="color: #98C379;">🔹 ChromeDriver Startup Process</strong><br>
+                  <span style="font-size: 12px; margin-top: 5px; display: block;">
+                    When you call <code>new ChromeDriver()</code>:<br>
+                    1. Selenium starts chromedriver.exe as a background process<br>
+                    2. ChromeDriver starts listening on <code>localhost:9515</code> (default port)<br>
+                    3. ChromeDriver launches Chrome browser with special automation flags (<code>--remote-debugging-port=12345</code>)<br>
+                    4. Opens a WebSocket connection to Chrome's DevTools Protocol endpoint<br>
+                    5. Returns control to your test script — ready to receive commands
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="glass-card success-card margin-top">
+              <div class="card-header">
+                <i data-lucide="briefcase" class="icon-success"></i>
+                <h3>Real-World CI/CD Integration</h3>
+              </div>
+              <div style="margin-top: 10px; font-size: 12px; line-height: 1.6;">
+                <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 6px; margin-bottom: 10px;">
+                  <strong style="color: #4CAF50;">🏢 Jenkins CI Pipeline</strong><br>
+                  <pre style="margin: 8px 0 0 0; background: rgba(0,0,0,0.3); padding: 8px; border-radius: 4px; overflow-x: auto; font-size: 11px;"><code>pipeline {
+  agent any
+  stages {
+    stage('Run Tests') {
+      steps {
+        sh 'mvn clean test'
+        // Selenium Manager auto-downloads
+        // ChromeDriver inside Jenkins container
+      }
+    }
+  }
+}</code></pre>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 6px; margin-bottom: 10px;">
+                  <strong style="color: #2196F3;">🐳 Docker Container Approach</strong><br>
+                  <pre style="margin: 8px 0 0 0; background: rgba(0,0,0,0.3); padding: 8px; border-radius: 4px; overflow-x: auto; font-size: 11px;"><code>FROM selenium/standalone-chrome:latest
+# Pre-installed Chrome + ChromeDriver
+# No manual setup needed
+COPY test-suite.jar /app/
+CMD ["java", "-jar", "/app/test-suite.jar"]</code></pre>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 6px;">
+                  <strong style="color: #FF9800;">☁️ Cloud Execution (BrowserStack, Sauce Labs)</strong><br>
+                  <span style="font-size: 11px; margin-top: 5px; display: block;">Use <code>RemoteWebDriver</code> — no local ChromeDriver needed. The cloud provider manages drivers, browsers, and infrastructure.</span>
+                  <pre style="margin: 8px 0 0 0; background: rgba(0,0,0,0.3); padding: 8px; border-radius: 4px; overflow-x: auto; font-size: 11px;"><code>WebDriver driver = new RemoteWebDriver(
+  new URL("https://hub.browserstack.com/wd/hub"),
+  new ChromeOptions()
+);</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 19: Troubleshooting Browser Invocation -->
+    <section class="slide scrollable-slide" id="slide-19">
+      <div class="slide-content">
+        <div class="slide-subheader color-2">Day 02</div>
+        <h2 class="slide-header">Troubleshooting Chrome Browser Invocation Failures</h2>
+        <p class="slide-intro">Common errors when starting Chrome with Selenium, their root causes, and step-by-step resolution strategies used in production environments.</p>
+        
+        <div class="split-layout">
+          <div class="content-left">
+            <div class="glass-card" style="background: linear-gradient(135deg, rgba(244,67,54,0.1) 0%, rgba(211,47,47,0.1) 100%); border: 1px solid #F44336;">
+              <div class="card-header">
+                <i data-lucide="alert-triangle" style="color: #F44336;"></i>
+                <h3 style="color: #F44336;">ERROR 1: SessionNotCreatedException — Version Mismatch</h3>
+              </div>
+              <div style="margin-top: 12px; background: rgba(0,0,0,0.4); padding: 12px; border-radius: 6px; font-family: 'Consolas', monospace; font-size: 11px; color: #F44336; line-height: 1.6;">
+                org.openqa.selenium.SessionNotCreatedException:<br>
+                <strong style="color: #FF5252;">session not created: This version of ChromeDriver only supports Chrome version 120</strong><br>
+                Current browser version is 124.0.6367.60 with binary path C:\Program Files\Google\Chrome\Application\chrome.exe
+              </div>
+              <div style="margin-top: 12px; font-size: 13px;">
+                <strong style="color: #FFF;">🔍 Root Cause:</strong><br>
+                <span style="font-size: 12px; line-height: 1.6; display: block; margin-top: 5px;">ChromeDriver version (e.g., 120) does not match the installed Chrome browser version (e.g., 124). This happens when Chrome auto-updates but you're still using an old manually downloaded ChromeDriver.</span>
+              </div>
+              <div style="margin-top: 12px; background: rgba(76,175,80,0.15); padding: 10px; border-left: 3px solid #4CAF50; border-radius: 4px;">
+                <strong style="color: #4CAF50;">✅ Solution:</strong><br>
+                <ul style="margin: 8px 0 0 15px; font-size: 12px; line-height: 1.7;">
+                  <li><strong>Selenium 4.6+:</strong> Use Selenium Manager — it auto-matches versions. Just upgrade Selenium library to 4.6+.</li>
+                  <li><strong>Manual fix:</strong> Check Chrome version: <code>chrome://version</code> → Download matching ChromeDriver from <a href="#" style="color: #81C784;">https://chromedriver.chromium.org/downloads</a></li>
+                  <li><strong>Java/Maven:</strong> Use WebDriverManager library: <code>WebDriverManager.chromedriver().setup();</code></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="glass-card margin-top" style="background: linear-gradient(135deg, rgba(244,67,54,0.1) 0%, rgba(211,47,47,0.1) 100%); border: 1px solid #F44336;">
+              <div class="card-header">
+                <i data-lucide="alert-triangle" style="color: #F44336;"></i>
+                <h3 style="color: #F44336;">ERROR 2: WebDriverException — ChromeDriver Not Found</h3>
+              </div>
+              <div style="margin-top: 12px; background: rgba(0,0,0,0.4); padding: 12px; border-radius: 6px; font-family: 'Consolas', monospace; font-size: 11px; color: #F44336; line-height: 1.6;">
+                org.openqa.selenium.WebDriverException:<br>
+                <strong style="color: #FF5252;">The path to the driver executable must be set by the webdriver.chrome.driver system property</strong>
+              </div>
+              <div style="margin-top: 12px; font-size: 13px;">
+                <strong style="color: #FFF;">🔍 Root Cause:</strong><br>
+                <span style="font-size: 12px; line-height: 1.6; display: block; margin-top: 5px;">Selenium cannot locate chromedriver.exe. This happens in Selenium 3.x or when Selenium Manager is disabled/not available.</span>
+              </div>
+              <div style="margin-top: 12px; background: rgba(76,175,80,0.15); padding: 10px; border-left: 3px solid #4CAF50; border-radius: 4px;">
+                <strong style="color: #4CAF50;">✅ Solution:</strong><br>
+                <ul style="margin: 8px 0 0 15px; font-size: 12px; line-height: 1.7;">
+                  <li><strong>Option 1:</strong> Upgrade to Selenium 4.6+ (Selenium Manager handles it)</li>
+                  <li><strong>Option 2:</strong> Download ChromeDriver and set explicit path:
+                    <pre style="margin: 5px 0 0 0; background: rgba(0,0,0,0.3); padding: 6px; border-radius: 4px; font-size: 11px;"><code>System.setProperty("webdriver.chrome.driver",
+  "C:\\drivers\\chromedriver.exe");</code></pre>
+                  </li>
+                  <li><strong>Option 3:</strong> Add chromedriver.exe to system PATH environment variable</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="glass-card margin-top" style="background: linear-gradient(135deg, rgba(244,67,54,0.1) 0%, rgba(211,47,47,0.1) 100%); border: 1px solid #F44336;">
+              <div class="card-header">
+                <i data-lucide="alert-triangle" style="color: #F44336;"></i>
+                <h3 style="color: #F44336;">ERROR 3: WebDriverException — Chrome Failed to Start</h3>
+              </div>
+              <div style="margin-top: 12px; background: rgba(0,0,0,0.4); padding: 12px; border-radius: 6px; font-family: 'Consolas', monospace; font-size: 11px; color: #F44336; line-height: 1.6;">
+                org.openqa.selenium.WebDriverException:<br>
+                <strong style="color: #FF5252;">unknown error: Chrome failed to start: exited abnormally</strong><br>
+                (unknown error: DevToolsActivePort file doesn't exist)
+              </div>
+              <div style="margin-top: 12px; font-size: 13px;">
+                <strong style="color: #FFF;">🔍 Root Cause:</strong><br>
+                <span style="font-size: 12px; line-height: 1.6; display: block; margin-top: 5px;">Chrome browser failed to launch. Common in headless/CI environments without display (Linux servers, Docker containers). Chrome needs GPU/display access or must run in headless mode.</span>
+              </div>
+              <div style="margin-top: 12px; background: rgba(76,175,80,0.15); padding: 10px; border-left: 3px solid #4CAF50; border-radius: 4px;">
+                <strong style="color: #4CAF50;">✅ Solution:</strong><br>
+                <ul style="margin: 8px 0 0 15px; font-size: 12px; line-height: 1.7;">
+                  <li><strong>Run Chrome in headless mode (recommended for CI/CD):</strong>
+                    <pre style="margin: 5px 0 0 0; background: rgba(0,0,0,0.3); padding: 6px; border-radius: 4px; font-size: 11px;"><code>ChromeOptions options = new ChromeOptions();
+options.addArguments("--headless=new");
+options.addArguments("--no-sandbox");
+options.addArguments("--disable-dev-shm-usage");
+WebDriver driver = new ChromeDriver(options);</code></pre>
+                  </li>
+                  <li><strong>Linux servers:</strong> Install Xvfb (virtual display) or use Docker image <code>selenium/standalone-chrome</code></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="content-right">
+            <div class="glass-card dark-card">
+              <div class="card-header">
+                <i data-lucide="shield-check" style="color: var(--secondary);"></i>
+                <h3>Additional Common Issues</h3>
+              </div>
+              <div style="margin-top: 12px; font-size: 13px; line-height: 1.7;">
+                <div style="background: rgba(255,255,255,0.05); padding: 12px; border-radius: 6px; margin-bottom: 10px;">
+                  <strong style="color: #FF9800;">⚠️ ERROR 4: TimeoutException</strong><br>
+                  <span style="font-size: 11px; font-family: 'Consolas', monospace; display: block; margin: 5px 0; color: #F44336;">Timed out waiting for driver server to start.</span>
+                  <strong>Cause:</strong> Firewall, antivirus, or port 9515 already in use.<br>
+                  <strong>Solution:</strong> Check firewall settings, kill existing chromedriver.exe processes, specify a different port:
+                  <pre style="margin: 5px 0 0 0; background: rgba(0,0,0,0.3); padding: 6px; border-radius: 4px; font-size: 11px;"><code>ChromeDriverService service = new
+  ChromeDriverService.Builder()
+  .usingPort(9999).build();
+WebDriver driver = new ChromeDriver(service);</code></pre>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.05); padding: 12px; border-radius: 6px; margin-bottom: 10px;">
+                  <strong style="color: #FF9800;">⚠️ ERROR 5: Permission Denied (Linux/Mac)</strong><br>
+                  <span style="font-size: 11px; font-family: 'Consolas', monospace; display: block; margin: 5px 0; color: #F44336;">Permission denied: './chromedriver'</span>
+                  <strong>Cause:</strong> ChromeDriver file is not executable.<br>
+                  <strong>Solution:</strong> Grant execute permission:
+                  <pre style="margin: 5px 0 0 0; background: rgba(0,0,0,0.3); padding: 6px; border-radius: 4px; font-size: 11px;"><code>chmod +x /path/to/chromedriver</code></pre>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.05); padding: 12px; border-radius: 6px; margin-bottom: 10px;">
+                  <strong style="color: #FF9800;">⚠️ ERROR 6: InvalidArgumentException — Malformed URL</strong><br>
+                  <span style="font-size: 11px; font-family: 'Consolas', monospace; display: block; margin: 5px 0; color: #F44336;">invalid argument: 'url' must be a string</span>
+                  <strong>Cause:</strong> Passed invalid URL to <code>driver.get()</code> — missing <code>http://</code> or <code>https://</code>.<br>
+                  <strong>Solution:</strong> Always include protocol:
+                  <pre style="margin: 5px 0 0 0; background: rgba(0,0,0,0.3); padding: 6px; border-radius: 4px; font-size: 11px;"><code>driver.get("https://www.google.com");
+// NOT: driver.get("google.com");</code></pre>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.05); padding: 12px; border-radius: 6px;">
+                  <strong style="color: #FF9800;">⚠️ ERROR 7: Chrome Crashes / Becomes Unresponsive</strong><br>
+                  <strong>Cause:</strong> Memory issues, too many open tabs/windows, browser extension conflicts.<br>
+                  <strong>Solution:</strong> Disable extensions, increase memory, use <code>--disable-gpu</code>, call <code>driver.quit()</code> properly to clean up:
+                  <pre style="margin: 5px 0 0 0; background: rgba(0,0,0,0.3); padding: 6px; border-radius: 4px; font-size: 11px;"><code>ChromeOptions options = new ChromeOptions();
+options.addArguments("--disable-extensions");
+options.addArguments("--disable-gpu");
+options.addArguments("--disable-popup-blocking");</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="glass-card success-card margin-top">
+              <div class="card-header">
+                <i data-lucide="check-circle" class="icon-success"></i>
+                <h3>Debugging Checklist (Step-by-Step)</h3>
+              </div>
+              <div style="margin-top: 10px; font-size: 12px; line-height: 1.7;">
+                <ol style="margin-left: 15px;">
+                  <li><strong>Check Chrome Version:</strong> <code>chrome://version</code> → Note major version (e.g., 124)</li>
+                  <li><strong>Check ChromeDriver Version:</strong> Run <code>chromedriver --version</code> in terminal</li>
+                  <li><strong>Verify Selenium Version:</strong> Check <code>pom.xml</code> or <code>pip list | grep selenium</code> — ensure 4.6+</li>
+                  <li><strong>Test ChromeDriver Manually:</strong> Run <code>chromedriver.exe</code> directly → should say "ChromeDriver was started successfully"</li>
+                  <li><strong>Enable Selenium Logging:</strong>
+                    <pre style="margin: 5px 0 0 0; background: rgba(0,0,0,0.3); padding: 6px; border-radius: 4px; font-size: 11px;"><code>System.setProperty("webdriver.chrome.verboseLogging", "true");</code></pre>
+                  </li>
+                  <li><strong>Check for Zombie Processes:</strong> Kill orphaned chromedriver.exe or chrome.exe processes</li>
+                  <li><strong>Test in Headless Mode:</strong> If GUI launch fails, try <code>--headless=new</code></li>
+                  <li><strong>Verify Firewall/Antivirus:</strong> Ensure localhost:9515 is not blocked</li>
+                </ol>
+              </div>
+            </div>
+
+            <div class="glass-card margin-top" style="background: rgba(33,150,243,0.1); border: 1px solid #2196F3;">
+              <div class="card-header">
+                <i data-lucide="info" style="color: #2196F3;"></i>
+                <h3 style="color: #2196F3;">Pro Tips for Production Environments</h3>
+              </div>
+              <ul style="margin-top: 10px; font-size: 12px; line-height: 1.7; margin-left: 15px;">
+                <li><strong>Always call <code>driver.quit()</code> in <code>@AfterMethod</code> or <code>finally</code> block</strong> to prevent zombie processes</li>
+                <li><strong>Use Docker:</strong> <code>selenium/standalone-chrome</code> image has Chrome + ChromeDriver pre-configured</li>
+                <li><strong>Selenium Grid:</strong> Offload browser management to Grid nodes — your tests just send commands</li>
+                <li><strong>CI/CD Logs:</strong> Enable verbose logging (<code>--log-level=ALL</code>) in Jenkins/GitHub Actions for troubleshooting</li>
+                <li><strong>Version Pinning:</strong> Lock Chrome version in Docker images to prevent surprise failures from auto-updates</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 20: Day 3 — Intro Splash (Placeholder) -->
+    <section class="slide dark-bg" id="slide-20">
       <div class="slide-content centered">
         <div class="splash-badge">Day 03 · Selenium Training</div>
         <h1 class="giant-headline">Day 03</h1>
@@ -981,8 +1682,8 @@
       </div>
     </section>
 
-    <!-- SLIDE 17: Day 3 — Content (Placeholder) -->
-    <section class="slide" id="slide-17">
+    <!-- SLIDE 21: Day 3 — Content (Placeholder) -->
+    <section class="slide" id="slide-21">
       <div class="slide-content">
         <div class="slide-subheader color-3">Day 03</div>
         <h2 class="slide-header">Content to be Provided</h2>
@@ -995,8 +1696,8 @@
       </div>
     </section>
 
-    <!-- SLIDE 18: Day 4 — Intro Splash (Placeholder) -->
-    <section class="slide dark-bg" id="slide-18">
+    <!-- SLIDE 22: Day 4 — Intro Splash (Placeholder) -->
+    <section class="slide dark-bg" id="slide-22">
       <div class="slide-content centered">
         <div class="splash-badge">Day 04 · Selenium Training</div>
         <h1 class="giant-headline">Day 04</h1>
@@ -1009,8 +1710,8 @@
       </div>
     </section>
 
-    <!-- SLIDE 19: Day 4 — Content (Placeholder) -->
-    <section class="slide" id="slide-19">
+    <!-- SLIDE 23: Day 4 — Content (Placeholder) -->
+    <section class="slide" id="slide-23">
       <div class="slide-content">
         <div class="slide-subheader color-4">Day 04</div>
         <h2 class="slide-header">Content to be Provided</h2>
@@ -1023,8 +1724,8 @@
       </div>
     </section>
 
-    <!-- SLIDE 20: Day 5 — Intro Splash (Placeholder) -->
-    <section class="slide dark-bg" id="slide-20">
+    <!-- SLIDE 24: Day 5 — Intro Splash (Placeholder) -->
+    <section class="slide dark-bg" id="slide-24">
       <div class="slide-content centered">
         <div class="splash-badge">Day 05 · Selenium Training</div>
         <h1 class="giant-headline">Day 05</h1>
@@ -1037,8 +1738,8 @@
       </div>
     </section>
 
-    <!-- SLIDE 21: Day 5 — Content (Placeholder) -->
-    <section class="slide" id="slide-21">
+    <!-- SLIDE 25: Day 5 — Content (Placeholder) -->
+    <section class="slide" id="slide-25">
       <div class="slide-content">
         <div class="slide-subheader color-5">Day 05</div>
         <h2 class="slide-header">Content to be Provided</h2>
@@ -1051,8 +1752,8 @@
       </div>
     </section>
 
-    <!-- SLIDE 22: Day 6 — Intro Splash (Placeholder) -->
-    <section class="slide dark-bg" id="slide-22">
+    <!-- SLIDE 26: Day 6 — Intro Splash (Placeholder) -->
+    <section class="slide dark-bg" id="slide-26">
       <div class="slide-content centered">
         <div class="splash-badge">Day 06 · Selenium Training</div>
         <h1 class="giant-headline">Day 06</h1>
@@ -1065,8 +1766,8 @@
       </div>
     </section>
 
-    <!-- SLIDE 23: Day 6 — Content (Placeholder) -->
-    <section class="slide" id="slide-23">
+    <!-- SLIDE 27: Day 6 — Content (Placeholder) -->
+    <section class="slide" id="slide-27">
       <div class="slide-content">
         <div class="slide-subheader color-6">Day 06</div>
         <h2 class="slide-header">Content to be Provided</h2>
@@ -1079,8 +1780,8 @@
       </div>
     </section>
 
-    <!-- SLIDE 24: Day 7 — Intro Splash (Placeholder) -->
-    <section class="slide dark-bg" id="slide-24">
+    <!-- SLIDE 28: Day 7 — Intro Splash (Placeholder) -->
+    <section class="slide dark-bg" id="slide-28">
       <div class="slide-content centered">
         <div class="splash-badge">Day 07 · Selenium Training</div>
         <h1 class="giant-headline">Day 07</h1>
@@ -1093,8 +1794,8 @@
       </div>
     </section>
 
-    <!-- SLIDE 25: Day 7 — Content (Placeholder) -->
-    <section class="slide" id="slide-25">
+    <!-- SLIDE 29: Day 7 — Content (Placeholder) -->
+    <section class="slide" id="slide-29">
       <div class="slide-content">
         <div class="slide-subheader color-1">Day 07</div>
         <h2 class="slide-header">Content to be Provided</h2>
@@ -1107,8 +1808,8 @@
       </div>
     </section>
 
-    <!-- SLIDE 26: Key Takeaways Summary (Placeholder) -->
-    <section class="slide" id="slide-26">
+    <!-- SLIDE 30: Key Takeaways Summary (Placeholder) -->
+    <section class="slide" id="slide-30">
       <div class="slide-content">
         <h2 class="slide-header">Key Takeaways &amp; Summary</h2>
         <div class="placeholder-section">
@@ -1120,8 +1821,8 @@
       </div>
     </section>
 
-    <!-- SLIDE 27: Thank You / Q&A -->
-    <section class="slide dark-bg" id="slide-27">
+    <!-- SLIDE 31: Thank You / Q&A -->
+    <section class="slide dark-bg" id="slide-31">
       <div class="slide-content centered">
         <div class="splash-badge text-glow animate-pulse">End of Session</div>
         <h1 class="giant-headline scale-in">Thank You!</h1>
@@ -1147,7 +1848,7 @@
       <button id="prev-btn" class="control-btn" title="Previous (Left Arrow / PageUp)">
         <i data-lucide="chevron-left"></i>
       </button>
-      <span class="slide-index" id="slide-index">Slide 1 of 26</span>
+      <span class="slide-index" id="slide-index">Slide 1 of 31</span>
       <button id="next-btn" class="control-btn" title="Next (Right Arrow / Space / PageDown)">
         <i data-lucide="chevron-right"></i>
       </button>
