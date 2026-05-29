@@ -128,7 +128,15 @@
             <span class="toc-num color-3">08</span>
             <div class="toc-info">
               <h3>Jira for Testers</h3>
-              <p>Jira mastery: user ecosystem, pros/cons, Jira vs Azure DevOps, JQL, terminologies &amp; enterprise practices.</p>
+              <p>Jira mastery: project setup, custom workflows, STLC phases, traceability, enterprise test apps, dashboards &amp; real-time sprint practices.</p>
+            </div>
+            <i data-lucide="arrow-right" class="toc-arrow"></i>
+          </div>
+          <div class="toc-card" onclick="goToSlide(46)" style="padding: 10px 20px;">
+            <span class="toc-num color-4">09</span>
+            <div class="toc-info">
+              <h3>Test Artifacts in Software Testing</h3>
+              <p>All test artifacts, STLC phase mapping, enterprise templates, ownership &amp; real-world practices.</p>
             </div>
             <i data-lucide="arrow-right" class="toc-arrow"></i>
           </div>
@@ -1971,9 +1979,1794 @@
       </div>
     </section>
 
-  </div>
+    <!-- ================================================================== -->
+    <!-- MODULE 08 EXTENDED: JIRA DEEP DIVE (SLIDES 37–45)                  -->
+    <!-- ================================================================== -->
 
-  <!-- Bottom Navigation Panel -->
+    <!-- SLIDE 37: Jira Project Setup for QA -->
+    <section class="slide scrollable-slide" id="slide-37">
+      <div class="slide-content">
+        <h2 class="slide-header">Jira Project Setup for Software Testing</h2>
+        <div class="split-layout" style="gap: 16px;">
+          <div class="content-left">
+            <div class="glass-card accent-card">
+              <div class="card-header">
+                <i data-lucide="folder-plus" class="icon-primary"></i>
+                <h3>Step 1: Create the Project</h3>
+              </div>
+              <ul class="styled-list" style="font-size: 11.5px;">
+                <li>Jira Admin → <strong>Projects → Create Project</strong></li>
+                <li>Select <strong>Scrum</strong> (sprint-based) or <strong>Kanban</strong> (continuous flow)</li>
+                <li>Name: <em>E-Commerce Platform QA</em> or <em>Project X – Testing</em></li>
+                <li>Key auto-generated (e.g., <code>ECQA</code>) — prefix on every issue: <code>ECQA-1</code>, <code>ECQA-2</code></li>
+                <li>Set a <strong>Project Category</strong> (e.g., Active Development) for portfolio reporting</li>
+              </ul>
+            </div>
+            <div class="glass-card success-card margin-top">
+              <div class="card-header">
+                <i data-lucide="settings" class="icon-success"></i>
+                <h3>Step 2: Configure Issue Types for Testing</h3>
+              </div>
+              <p style="font-size: 11px; color: var(--text-muted); margin-bottom: 10px;">Go to <strong>Project Settings → Issue Types</strong>. Add these dedicated testing issue types:</p>
+              <div class="table-container" style="box-shadow: none; margin: 0;">
+                <table class="premium-table" style="font-size: 10.5px;">
+                  <thead><tr><th>Jira Issue Type</th><th>Testing Artifact</th><th>Created By</th><th>Verified By</th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>Epic</strong></td><td>Major feature / Release theme</td><td>Product Owner</td><td>Program Manager</td></tr>
+                    <tr><td><strong>Story</strong></td><td>User Story / Requirement</td><td>PO / BA</td><td>QA Lead (grooming)</td></tr>
+                    <tr><td><strong>Test Case</strong></td><td>Detailed test steps &amp; expected results</td><td>QA Engineer</td><td>QA Lead (peer review)</td></tr>
+                    <tr><td><strong>Test Plan</strong></td><td>Test strategy for a release/sprint</td><td>QA Lead</td><td>QA Manager / PM</td></tr>
+                    <tr><td><strong>Test Execution</strong></td><td>Test Run / Cycle instance</td><td>QA Lead / Automation</td><td>QA Lead</td></tr>
+                    <tr><td><strong>Bug</strong></td><td>Defect Report</td><td>QA Engineer</td><td>Developer → QA (close)</td></tr>
+                    <tr><td><strong>Task</strong></td><td>Env setup, data prep, analysis</td><td>DevOps / QA</td><td>QA Lead</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="content-right">
+            <div class="glass-card height-full" style="border-left: 3px solid var(--accent-yellow);">
+              <div class="card-header">
+                <i data-lucide="git-branch" style="color: var(--accent-yellow);"></i>
+                <h3>Step 3: Configure Components &amp; Versions</h3>
+              </div>
+              <p style="font-size: 11.5px; color: var(--text-muted); margin-bottom: 10px;"><strong>Components</strong> = feature areas for defect categorization. <strong>Fix Versions</strong> = release targets for progress tracking.</p>
+              <div style="display: flex; gap: 7px; flex-wrap: wrap; margin-bottom: 12px;">
+                <span class="ai-tag">Auth</span><span class="ai-tag">Payment</span><span class="ai-tag">Checkout</span><span class="ai-tag">Cart</span><span class="ai-tag">Admin Panel</span><span class="ai-tag">API Gateway</span>
+              </div>
+              <div class="enterprise-box" style="margin-bottom: 12px;">
+                <strong>Component auto-assignment:</strong> In Project Settings → Components, set a default assignee per component (e.g., Component "Payment" → auto-assign bugs to the Payment backend lead). This eliminates manual triage for 80% of bugs.
+              </div>
+              <div class="glass-card dark-card" style="padding: 12px 16px; border-radius: 10px;">
+                <h4 style="font-size: 12.5px; margin-bottom: 8px;"><i data-lucide="lightbulb" style="width:13px;height:13px;"></i> Teaching Tip</h4>
+                <p style="font-size: 11px; color: var(--text-muted);">If you do <strong>not</strong> have a test management app (Zephyr/Xray), you can use <em>Story</em> for requirements and <em>Sub-task</em> for test cases — but this pollutes sprint scope and velocity. Enterprise teams always prefer dedicated test management apps inside Jira.</p>
+              </div>
+              <div class="glass-card" style="padding: 12px 16px; border-radius: 10px; border-left: 3px solid var(--accent-green); margin-top: 10px;">
+                <h4 style="font-size: 12.5px; margin-bottom: 8px; color: var(--accent-green);">Step 4: Custom Fields to Add</h4>
+                <ul class="styled-list" style="font-size: 11px;">
+                  <li><strong>Severity</strong> (dropdown): Critical / Major / Minor / Trivial</li>
+                  <li><strong>Test Environment</strong> (text): UAT-AWS-01, Staging-GCP-02</li>
+                  <li><strong>Automation Status</strong> (dropdown): Automated / Manual / Planned</li>
+                  <li><strong>Root Cause Category</strong> (dropdown): Code / Config / Data / Env</li>
+                  <li><strong>Found In Build</strong> (text): v2.4.1-build-194</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 38: Custom QA Workflow in Jira -->
+    <section class="slide scrollable-slide" id="slide-38">
+      <div class="slide-content">
+        <h2 class="slide-header">Custom QA Workflow — The "Testing Lane"</h2>
+        <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">Default Jira workflows are too simple: <strong>To Do → In Progress → Done</strong>. A real enterprise QA workflow needs dedicated visibility into testing stages.</p>
+        <div class="split-layout" style="gap: 16px;">
+          <div class="content-left" style="display: flex; flex-direction: column; gap: 12px;">
+            <div class="glass-card accent-card">
+              <div class="card-header">
+                <i data-lucide="book-open" class="icon-primary"></i>
+                <h3>Story / Requirements Workflow</h3>
+              </div>
+              <div class="bug-lifecycle-flow" style="flex-wrap: wrap; gap: 6px;">
+                <div class="lifecycle-step open-step" style="font-size: 10px; padding: 5px 10px;">Backlog</div>
+                <div class="lifecycle-arrow">→</div>
+                <div class="lifecycle-step dev-step" style="font-size: 10px; padding: 5px 10px;">Ready for Refinement</div>
+                <div class="lifecycle-arrow">→</div>
+                <div class="lifecycle-step devdone-step" style="font-size: 10px; padding: 5px 10px;">Ready for Dev</div>
+                <div class="lifecycle-arrow">→</div>
+                <div class="lifecycle-step qa-step" style="font-size: 10px; padding: 5px 10px;">In Development</div>
+                <div class="lifecycle-arrow">→</div>
+                <div class="lifecycle-step" style="font-size: 10px; padding: 5px 10px; background: rgba(28,114,147,0.2); border-radius: 8px; color: var(--secondary);">Ready for Testing</div>
+                <div class="lifecycle-arrow">→</div>
+                <div class="lifecycle-step" style="font-size: 10px; padding: 5px 10px; background: rgba(247,166,0,0.2); border-radius: 8px; color: var(--accent-yellow);">In Testing</div>
+                <div class="lifecycle-arrow">→</div>
+                <div class="lifecycle-step closed-step" style="font-size: 10px; padding: 5px 10px;">QA Passed ✓</div>
+              </div>
+              <p style="font-size: 10.5px; color: var(--accent-red); margin-top: 6px; text-align: center;">↳ In Testing → QA Failed → In Development (send back loop)</p>
+            </div>
+            <div class="glass-card" style="border-left: 3px solid var(--accent-red); padding: 14px 18px;">
+              <div class="card-header" style="margin-bottom: 8px;">
+                <i data-lucide="bug" style="color: var(--accent-red);"></i>
+                <h3>Bug Workflow</h3>
+              </div>
+              <div class="bug-lifecycle-flow" style="flex-wrap: wrap; gap: 6px;">
+                <div class="lifecycle-step open-step" style="font-size: 10px; padding: 5px 10px;">Open / New</div>
+                <div class="lifecycle-arrow">→</div>
+                <div class="lifecycle-step dev-step" style="font-size: 10px; padding: 5px 10px;">In Progress (Dev)</div>
+                <div class="lifecycle-arrow">→</div>
+                <div class="lifecycle-step devdone-step" style="font-size: 10px; padding: 5px 10px;">Ready for Retest</div>
+                <div class="lifecycle-arrow">→</div>
+                <div class="lifecycle-step qa-step" style="font-size: 10px; padding: 5px 10px;">In Retest</div>
+                <div class="lifecycle-arrow">→</div>
+                <div class="lifecycle-step closed-step" style="font-size: 10px; padding: 5px 10px;">Verified / Closed</div>
+              </div>
+              <p style="font-size: 10.5px; color: var(--accent-red); margin-top: 6px; text-align: center;">↳ In Retest → Reopened → In Progress (retry loop)</p>
+            </div>
+            <div class="glass-card" style="border-left: 3px solid var(--accent-green); padding: 14px 18px;">
+              <div class="card-header" style="margin-bottom: 8px;">
+                <i data-lucide="list-checks" style="color: var(--accent-green);"></i>
+                <h3>Test Case Workflow</h3>
+              </div>
+              <div class="bug-lifecycle-flow" style="flex-wrap: wrap; gap: 6px;">
+                <div class="lifecycle-step open-step" style="font-size: 10px; padding: 5px 10px;">Draft</div>
+                <div class="lifecycle-arrow">→</div>
+                <div class="lifecycle-step dev-step" style="font-size: 10px; padding: 5px 10px;">In Review</div>
+                <div class="lifecycle-arrow">→</div>
+                <div class="lifecycle-step closed-step" style="font-size: 10px; padding: 5px 10px;">Approved</div>
+                <div class="lifecycle-arrow">→</div>
+                <div class="lifecycle-step qa-step" style="font-size: 10px; padding: 5px 10px;">Ready for Execution</div>
+                <div class="lifecycle-arrow">→</div>
+                <div class="lifecycle-step" style="font-size: 10px; padding: 5px 10px; background: rgba(255,107,107,0.15); border-radius: 8px; color: var(--accent-red);">Obsolete</div>
+              </div>
+            </div>
+          </div>
+          <div class="content-right">
+            <div class="glass-card height-full" style="border-left: 3px solid var(--secondary);">
+              <div class="card-header">
+                <i data-lucide="wrench" style="color: var(--secondary);"></i>
+                <h3>How to Build This in Jira</h3>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 10px;">
+                <div class="jira-reason-item">
+                  <span class="reason-num">01</span>
+                  <div><strong>Project Settings → Workflows → Add Workflow</strong><br><span style="font-size: 11px; color: var(--text-muted);">Create a new workflow or copy &amp; modify the default Jira workflow.</span></div>
+                </div>
+                <div class="jira-reason-item">
+                  <span class="reason-num">02</span>
+                  <div><strong>Add Statuses (the columns)</strong><br><span style="font-size: 11px; color: var(--text-muted);">Add: Ready for Testing, In Testing, QA Passed, QA Failed, Ready for Retest.</span></div>
+                </div>
+                <div class="jira-reason-item">
+                  <span class="reason-num">03</span>
+                  <div><strong>Add Transitions (the arrows)</strong><br><span style="font-size: 11px; color: var(--text-muted);">In Development → Ready for Testing (trigger: PR merged)<br>Ready for Testing → In Testing (trigger: QA picks up)<br>In Testing → QA Passed (condition: all linked TCs passed)<br>In Testing → QA Failed (condition: bug linked, path blocked)</span></div>
+                </div>
+                <div class="jira-reason-item">
+                  <span class="reason-num">04</span>
+                  <div><strong>Add Validators &amp; Post-functions</strong><br><span style="font-size: 11px; color: var(--text-muted);">Validator: Bugs cannot transition to "Closed" without Root Cause filled.<br>Post-function: On Reopened, re-assign to original developer automatically.</span></div>
+                </div>
+                <div class="jira-reason-item">
+                  <span class="reason-num">05</span>
+                  <div><strong>Board Settings: Map Statuses to Columns</strong><br><span style="font-size: 11px; color: var(--text-muted);">Board Settings → Columns → Drag &amp; map each status. This makes testing a visible first-class lane on the Sprint Board for the whole team.</span></div>
+                </div>
+              </div>
+              <div class="enterprise-box" style="margin-top: 12px;">
+                <strong>Enterprise Example:</strong> At Booking.com, the "QA Blocked" board column has a Jira Automation rule: any issue stuck in "In Testing" for more than 48 hours auto-posts a Slack alert to the QA Lead and adds a "needs-attention" label.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 39: STLC Phase-by-Phase in Jira (Phases 1-3) -->
+    <section class="slide scrollable-slide" id="slide-39">
+      <div class="slide-content">
+        <h2 class="slide-header">STLC Phase-by-Phase in Jira — Phases 1–3</h2>
+        <div class="split-layout" style="gap: 16px;">
+          <div class="content-left" style="display: flex; flex-direction: column; gap: 12px;">
+            <div class="glass-card" style="border-left: 3px solid var(--primary); padding: 14px 18px;">
+              <div class="card-header" style="margin-bottom: 10px;">
+                <i data-lucide="search" style="color: var(--primary);"></i>
+                <h3 style="color: var(--primary);">Phase 1: Requirement Analysis</h3>
+              </div>
+              <ul class="styled-list" style="font-size: 11.5px;">
+                <li>PO creates <strong>Epics &amp; Stories</strong> in the backlog</li>
+                <li>QA Lead reviews acceptance criteria during <strong>Backlog Grooming</strong></li>
+                <li>QA links each Story to a Confluence BRD/SRS page</li>
+              </ul>
+              <div class="enterprise-box" style="margin-top: 10px; font-size: 10.5px;">
+                <code style="display: block; background: rgba(0,0,0,0.3); padding: 8px; border-radius: 6px; font-size: 10px; line-height: 1.6;">Story: ECQA-42 "As a shopper, I want to pay by credit card"
+├── Acceptance Criteria: (in Description)
+├── Labels: payment, sprint-14, auto-candidate
+├── Linked Issues: <strong>is tested by</strong> ECQA-142 (Test Case)
+└── Confluence Link: PRD v2.4 – Payment Module</code>
+              </div>
+            </div>
+            <div class="glass-card" style="border-left: 3px solid var(--secondary); padding: 14px 18px;">
+              <div class="card-header" style="margin-bottom: 10px;">
+                <i data-lucide="clipboard-list" style="color: var(--secondary);"></i>
+                <h3 style="color: var(--secondary);">Phase 2: Test Planning</h3>
+              </div>
+              <p style="font-size: 11px; color: var(--text-muted); margin-bottom: 8px;">QA Lead creates a <strong>Test Plan issue</strong> with these key fields:</p>
+              <div class="table-container" style="box-shadow: none; margin: 0;">
+                <table class="premium-table" style="font-size: 10.5px;">
+                  <thead><tr><th>Field</th><th>Value</th></tr></thead>
+                  <tbody>
+                    <tr><td>Summary</td><td>Test Plan – Release v2.4 Payment Module</td></tr>
+                    <tr><td>Issue Type</td><td>Test Plan</td></tr>
+                    <tr><td>Fix Version</td><td>v2.4</td></tr>
+                    <tr><td>Test Environment</td><td>UAT-AWS-01</td></tr>
+                    <tr><td>Linked Stories</td><td>ECQA-42, ECQA-43, ECQA-44</td></tr>
+                    <tr><td>Attachment</td><td>Test Plan PDF / Confluence link</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="content-right">
+            <div class="glass-card height-full" style="border-left: 3px solid var(--accent-green);">
+              <div class="card-header">
+                <i data-lucide="pen-tool" style="color: var(--accent-green);"></i>
+                <h3 style="color: var(--accent-green);">Phase 3: Test Design</h3>
+              </div>
+              <p style="font-size: 11px; color: var(--text-muted); margin-bottom: 10px;">QA Engineers create <strong>Test Case issues</strong> and link them to parent Stories with the relationship <strong>"Tests" / "Is tested by"</strong>.</p>
+              <div class="enterprise-box" style="margin-bottom: 12px;">
+                <code style="display: block; background: rgba(0,0,0,0.3); padding: 10px; border-radius: 6px; font-size: 10px; line-height: 1.7;">Test Case: ECQA-142 – Verify successful Visa payment
+├── Preconditions: User logged in; item in cart; test card 4111...
+├── Test Steps:
+│   1. Navigate to /checkout
+│   2. Enter card details
+│   3. Click Pay Now
+├── Expected Result: Payment success; confirmation page; order ID
+├── Test Data: (attached: test_cards.csv)
+├── Priority: P1
+├── Automation Status: Automated (linked to Jenkins job)
+└── Linked Story: ECQA-42</code>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <div class="jira-reason-item">
+                  <span class="reason-num" style="background: rgba(15,110,86,0.15); color: var(--accent-green);">P0</span>
+                  <div><strong>Smoke Tests</strong> — Critical path only, run on every build</div>
+                </div>
+                <div class="jira-reason-item">
+                  <span class="reason-num" style="background: rgba(28,114,147,0.15); color: var(--secondary);">P1</span>
+                  <div><strong>Regression Tests</strong> — All core functionality</div>
+                </div>
+                <div class="jira-reason-item">
+                  <span class="reason-num" style="background: rgba(247,166,0,0.15); color: var(--accent-yellow);">P2</span>
+                  <div><strong>Extended Tests</strong> — Edge cases, exploratory scenarios</div>
+                </div>
+              </div>
+              <div class="card-tip" style="margin-top: 12px;">
+                <i data-lucide="lightbulb"></i>
+                <span><strong>Enterprise Tip:</strong> Use <strong>Zephyr Scale, Xray, or AIO Tests</strong> for a dedicated Test Case library with folders, version control, and step-level execution. Native Jira issue types work for small teams but do not scale beyond ~200 test cases.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 40: STLC Phase-by-Phase in Jira (Phases 4-6) -->
+    <section class="slide scrollable-slide" id="slide-40">
+      <div class="slide-content">
+        <h2 class="slide-header">STLC Phase-by-Phase in Jira — Phases 4–6</h2>
+        <div class="split-layout" style="gap: 16px;">
+          <div class="content-left" style="display: flex; flex-direction: column; gap: 12px;">
+            <div class="glass-card" style="border-left: 3px solid var(--accent-yellow); padding: 14px 18px;">
+              <div class="card-header" style="margin-bottom: 8px;">
+                <i data-lucide="server" style="color: var(--accent-yellow);"></i>
+                <h3 style="color: var(--accent-yellow);">Phase 4: Environment Setup</h3>
+              </div>
+              <ul class="styled-list" style="font-size: 11.5px;">
+                <li>DevOps creates a <strong>Task</strong>: "Provision UAT Environment v2.4.1"</li>
+                <li>QA creates a <strong>Sub-task</strong>: "Validate environment readiness – Smoke Test"</li>
+                <li>Once smoke tests pass, QA transitions the Task to Done and labels the build <code>ready-for-qa</code></li>
+              </ul>
+            </div>
+            <div class="glass-card" style="border-left: 3px solid var(--accent-orange); padding: 14px 18px;">
+              <div class="card-header" style="margin-bottom: 8px;">
+                <i data-lucide="play-circle" style="color: var(--accent-orange);"></i>
+                <h3 style="color: var(--accent-orange);">Phase 5: Test Execution</h3>
+              </div>
+              <ul class="styled-list" style="font-size: 11.5px;">
+                <li>QA Lead creates a <strong>Test Execution</strong> (or Zephyr "Test Cycle")</li>
+                <li>Adds Test Cases by searching: <code>Fix Version = v2.4</code></li>
+                <li>Assigns individual Test Cases to QA Engineers</li>
+                <li>As testers execute, they update step status: <strong>PASS / FAIL / BLOCKED / NOT RUN</strong></li>
+              </ul>
+              <div class="table-container" style="box-shadow: none; margin-top: 8px;">
+                <table class="premium-table" style="font-size: 10px;">
+                  <thead><tr><th>Exec ID</th><th>Test Case</th><th>Assignee</th><th>Status</th><th>Defect</th></tr></thead>
+                  <tbody>
+                    <tr><td>EXEC-09</td><td>ECQA-142</td><td>Jane Doe</td><td style="color: var(--accent-green);">PASS</td><td>—</td></tr>
+                    <tr><td>EXEC-09</td><td>ECQA-143</td><td>Jane Doe</td><td style="color: var(--accent-red);">FAIL</td><td>ECQA-201</td></tr>
+                    <tr><td>EXEC-09</td><td>ECQA-144</td><td>John Smith</td><td style="color: var(--accent-orange);">BLOCKED</td><td>ECQA-202</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="content-right">
+            <div class="glass-card height-full" style="border-left: 3px solid var(--accent-red);">
+              <div class="card-header">
+                <i data-lucide="bug" style="color: var(--accent-red);"></i>
+                <h3 style="color: var(--accent-red);">Phase 6: Defect Management — Bug Lifecycle</h3>
+              </div>
+              <p style="font-size: 11px; color: var(--text-muted); margin-bottom: 10px;">When a test fails, QA creates a Bug directly from the Test Execution screen:</p>
+              <div class="enterprise-box" style="margin-bottom: 12px;">
+                <code style="display: block; background: rgba(0,0,0,0.3); padding: 10px; border-radius: 6px; font-size: 10px; line-height: 1.7;">Bug: ECQA-201 – Payment email not sent after Visa transaction
+├── Priority: High | Severity: Critical
+├── Environment: UAT v2.4.1, Chrome 126
+├── Affects Version/s: v2.4.1
+├── Linked Test Case: ECQA-142
+├── Linked Story: ECQA-42
+├── Steps: (copied from failed test case)
+├── Expected: Email received within 60s
+├── Actual: No email; no SendGrid log entry
+├── Attachments: screenshot.png, network.har, app.log
+└── Assignee: Backend Dev (auto-assigned via Component=Payment)</code>
+              </div>
+              <div class="bug-lifecycle-flow" style="flex-wrap: wrap; gap: 6px; margin-bottom: 10px;">
+                <div class="lifecycle-step open-step" style="font-size: 10px; padding: 5px 10px;">New</div>
+                <div class="lifecycle-arrow">→</div>
+                <div class="lifecycle-step dev-step" style="font-size: 10px; padding: 5px 10px;">In Progress</div>
+                <div class="lifecycle-arrow">→</div>
+                <div class="lifecycle-step devdone-step" style="font-size: 10px; padding: 5px 10px;">Ready for Retest</div>
+                <div class="lifecycle-arrow">→</div>
+                <div class="lifecycle-step qa-step" style="font-size: 10px; padding: 5px 10px;">In Retest</div>
+                <div class="lifecycle-arrow">→</div>
+                <div class="lifecycle-step closed-step" style="font-size: 10px; padding: 5px 10px;">Verified ✓</div>
+              </div>
+              <div class="glass-card dark-card" style="padding: 10px 14px; border-radius: 8px;">
+                <h4 style="font-size: 12px; margin-bottom: 6px;"><i data-lucide="zap" style="width:13px;height:13px;"></i> Jira Automation Rules</h4>
+                <ul class="styled-list" style="font-size: 10.5px; gap: 4px;">
+                  <li>Bug → <em>Ready for Retest</em>: <strong>Notify QA Engineer</strong> via Slack/Email automatically</li>
+                  <li>Bug → <em>Closed</em>: <strong>Update linked Test Execution</strong> status to PASS automatically</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 41: Jira Test Closure & Phase 7 -->
+    <section class="slide scrollable-slide" id="slide-41">
+      <div class="slide-content">
+        <h2 class="slide-header">Phase 7: Test Closure in Jira</h2>
+        <div class="split-layout" style="gap: 16px;">
+          <div class="content-left">
+            <div class="glass-card accent-card">
+              <div class="card-header">
+                <i data-lucide="flag" class="icon-primary"></i>
+                <h3>Test Closure Jira Activities</h3>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 10px;">
+                <div class="jira-reason-item">
+                  <span class="reason-num">01</span>
+                  <div><strong>Generate Test Summary Report</strong><br><span style="font-size: 11px; color: var(--text-muted);">Use Jira Dashboards or export from Zephyr/Xray to compile test execution metrics.</span></div>
+                </div>
+                <div class="jira-reason-item">
+                  <span class="reason-num">02</span>
+                  <div><strong>Create Sign-off Task</strong><br><span style="font-size: 11px; color: var(--text-muted);">Create a <strong>Task issue</strong>: "Release v2.4 – QA Sign-off" and attach the Test Summary Report PDF.</span></div>
+                </div>
+                <div class="jira-reason-item">
+                  <span class="reason-num">03</span>
+                  <div><strong>Transition Stories to Released</strong><br><span style="font-size: 11px; color: var(--text-muted);">Transition all Stories in the Fix Version to Done or Released status.</span></div>
+                </div>
+                <div class="jira-reason-item">
+                  <span class="reason-num">04</span>
+                  <div><strong>Archive Test Plan &amp; Execution Records</strong><br><span style="font-size: 11px; color: var(--text-muted);">Mark the Fix Version as "Released" in Jira. Archive Zephyr/Xray test cycles. Retain for compliance audits (3–7 years).</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="content-right">
+            <div class="glass-card success-card height-full">
+              <div class="card-header">
+                <i data-lucide="layout-dashboard" class="icon-success"></i>
+                <h3>Jira Dashboards for QA Leadership</h3>
+              </div>
+              <p style="font-size: 11.5px; color: var(--text-muted); margin-bottom: 10px;">Build a QA Dashboard that updates in real-time for stand-ups and stakeholder reviews. Add these gadgets:</p>
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <div class="antipattern-card" style="border-left-color: var(--accent-green); padding: 8px 12px;">
+                  <i data-lucide="filter" style="color: var(--accent-green); flex-shrink: 0; width: 14px; height: 14px;"></i>
+                  <div style="font-size: 11px;"><strong>Filter Results:</strong> Open Bugs by Priority<br><code style="font-size: 10px;">type = Bug AND status != Closed ORDER BY priority DESC</code></div>
+                </div>
+                <div class="antipattern-card" style="border-left-color: var(--secondary); padding: 8px 12px;">
+                  <i data-lucide="pie-chart" style="color: var(--secondary); flex-shrink: 0; width: 14px; height: 14px;"></i>
+                  <div style="font-size: 11px;"><strong>Pie Chart:</strong> Test Execution Status by Fix Version (Pass/Fail/Blocked/Not Run)</div>
+                </div>
+                <div class="antipattern-card" style="border-left-color: var(--accent-yellow); padding: 8px 12px;">
+                  <i data-lucide="trending-up" style="color: var(--accent-yellow); flex-shrink: 0; width: 14px; height: 14px;"></i>
+                  <div style="font-size: 11px;"><strong>Created vs Resolved:</strong> Bug trend over the last 30 days</div>
+                </div>
+                <div class="antipattern-card" style="border-left-color: var(--accent-orange); padding: 8px 12px;">
+                  <i data-lucide="grid" style="color: var(--accent-orange); flex-shrink: 0; width: 14px; height: 14px;"></i>
+                  <div style="font-size: 11px;"><strong>2D Filter Statistics:</strong> Test Cases by Component × Priority</div>
+                </div>
+                <div class="antipattern-card" style="border-left-color: var(--primary); padding: 8px 12px;">
+                  <i data-lucide="shield-check" style="color: var(--primary); flex-shrink: 0; width: 14px; height: 14px;"></i>
+                  <div style="font-size: 11px;"><strong>Test Coverage Widget</strong> (Xray/Zephyr): Requirements covered vs. not covered %</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 42: Traceability in Jira — The Golden Thread -->
+    <section class="slide scrollable-slide" id="slide-42">
+      <div class="slide-content">
+        <h2 class="slide-header">Traceability in Jira — The "Golden Thread"</h2>
+        <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">Enterprise compliance (ISO, SOX, FDA, HIPAA) requires proof that every requirement was tested. In Jira, this is achieved through <strong>Issue Linking</strong> — creating an unbroken chain from business goal to defect.</p>
+        <div class="split-layout" style="gap: 16px;">
+          <div class="content-left">
+            <div class="glass-card accent-card">
+              <div class="card-header">
+                <i data-lucide="git-branch" class="icon-primary"></i>
+                <h3>The Link Chain</h3>
+              </div>
+              <div class="enterprise-box" style="margin-bottom: 12px;">
+                <code style="display: block; background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; font-size: 11px; line-height: 1.8;">Epic (Business Goal)
+  └── Story (Requirement) [implements Epic]
+        └── Test Case [tests Story]
+              └── Test Execution [executed in Cycle]
+                    └── Bug [caused by Test Case / blocks Story]</code>
+              </div>
+              <div class="card-header" style="margin-bottom: 8px; margin-top: 12px;">
+                <i data-lucide="link" class="icon-secondary"></i>
+                <h3>How to Link in Jira</h3>
+              </div>
+              <p style="font-size: 11.5px; margin-bottom: 8px;">Open any issue → <strong>More → Link</strong> → Choose link type:</p>
+              <div style="display: flex; gap: 7px; flex-wrap: wrap; margin-bottom: 10px;">
+                <span class="ai-tag" style="font-size: 10.5px;">tests / is tested by</span>
+                <span class="ai-tag" style="font-size: 10.5px;">relates to</span>
+                <span class="ai-tag" style="font-size: 10.5px;">blocks / is blocked by</span>
+                <span class="ai-tag" style="font-size: 10.5px;">causes / is caused by</span>
+                <span class="ai-tag" style="font-size: 10.5px;">duplicates</span>
+                <span class="ai-tag" style="font-size: 10.5px;">clones / is cloned by</span>
+              </div>
+            </div>
+          </div>
+          <div class="content-right">
+            <div class="glass-card height-full" style="border-left: 3px solid var(--secondary);">
+              <div class="card-header">
+                <i data-lucide="search-code" style="color: var(--secondary);"></i>
+                <h3>Traceability JQL Queries</h3>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px;">
+                <div class="antipattern-card" style="border-left-color: var(--secondary); padding: 8px 12px;">
+                  <div style="font-size: 10.5px;"><strong>All TCs covering Story ECQA-42:</strong><br><code>issue in linkedIssues("ECQA-42") AND type = "Test Case"</code></div>
+                </div>
+                <div class="antipattern-card" style="border-left-color: var(--accent-green); padding: 8px 12px;">
+                  <div style="font-size: 10.5px;"><strong>Stories ready for testing:</strong><br><code>status = "Ready for Testing" AND fixVersion = v2.4</code></div>
+                </div>
+                <div class="antipattern-card" style="border-left-color: var(--accent-yellow); padding: 8px 12px;">
+                  <div style="font-size: 10.5px;"><strong>All test cases for a release:</strong><br><code>type = "Test Case" AND fixVersion = v2.4</code></div>
+                </div>
+                <div class="antipattern-card" style="border-left-color: var(--accent-orange); padding: 8px 12px;">
+                  <div style="font-size: 10.5px;"><strong>Bugs found this week:</strong><br><code>type = Bug AND created &gt;= -7d</code></div>
+                </div>
+                <div class="antipattern-card" style="border-left-color: var(--accent-red); padding: 8px 12px;">
+                  <div style="font-size: 10.5px;"><strong>Unresolved critical bugs:</strong><br><code>priority = Critical AND status != Closed</code></div>
+                </div>
+                <div class="antipattern-card" style="border-left-color: var(--primary); padding: 8px 12px;">
+                  <div style="font-size: 10.5px;"><strong>Test cases without automation:</strong><br><code>type = "Test Case" AND labels != automated</code></div>
+                </div>
+              </div>
+              <div class="enterprise-box">
+                <strong>Compliance Use Case (SOX/FDA):</strong> Auditors run the traceability JQL to generate a complete matrix proving: every requirement had a test case, every test case was executed, and every failure was logged as a bug and resolved before release.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 43: Enterprise Test Management Apps in Jira -->
+    <section class="slide scrollable-slide" id="slide-43">
+      <div class="slide-content">
+        <h2 class="slide-header">Enterprise Test Management Apps in Jira — 2026 Landscape</h2>
+        <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">Jira alone is <strong>not</strong> a test management tool. Enterprises install apps from the Atlassian Marketplace. Here is the current landscape:</p>
+        <div class="table-container">
+          <table class="premium-table" style="font-size: 11.5px;">
+            <thead>
+              <tr>
+                <th style="width: 14%;">App</th>
+                <th style="width: 20%;">Best For</th>
+                <th style="width: 40%;">Key Features</th>
+                <th style="width: 13%;">Pricing</th>
+                <th style="width: 13%;">Notable Users</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="td-header" style="color: var(--secondary);">Xray for Jira</td>
+                <td>Teams wanting native Jira issues for tests; BDD teams</td>
+                <td>Tests ARE Jira issues; BDD/Cucumber support; CI/CD integration (Jenkins, GitHub Actions); test coverage widget; REST API</td>
+                <td>Per user/month (~$7)</td>
+                <td>Airbus, Siemens, NASA</td>
+              </tr>
+              <tr>
+                <td class="td-header" style="color: var(--accent-green);">Zephyr Scale (TM4J)</td>
+                <td>Large-scale structured testing; enterprise reporting</td>
+                <td>Folder-based test repository; 70+ built-in reports; test cycles; version-controlled test cases; Jira dashboard gadgets</td>
+                <td>Per user/month (~$4–8)</td>
+                <td>Pfizer, HP, Barclays</td>
+              </tr>
+              <tr>
+                <td class="td-header" style="color: var(--accent-yellow);">AIO Tests</td>
+                <td>AI-assisted test generation; small-medium teams</td>
+                <td>AI generates test cases from requirements; 20+ built-in reports; multi-language support; BDD/Gherkin editor</td>
+                <td>Per user/month (~$5)</td>
+                <td>Growing adoption 2025–26</td>
+              </tr>
+              <tr>
+                <td class="td-header" style="color: var(--accent-orange);">QMetry (QTM4J)</td>
+                <td>DevOps/Agile teams; predictive quality analytics</td>
+                <td>Gen-AI test case creation; predictive quality analytics; CI/CD integration; risk-based test selection</td>
+                <td>Per user/month</td>
+                <td>Cisco, PayPal</td>
+              </tr>
+              <tr>
+                <td class="td-header" style="color: var(--primary);">AgileTest</td>
+                <td>Teams needing execution time tracking &amp; capacity planning</td>
+                <td>Execution timers; work logging; defect widgets; sprint columns; native time-tracking for QA capacity reports</td>
+                <td>Per user/month</td>
+                <td>Agile shops, startups</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="split-layout" style="margin-top: 14px; gap: 16px;">
+          <div class="content-left">
+            <div class="glass-card" style="border-left: 3px solid var(--secondary); padding: 14px 18px;">
+              <h4 style="font-size: 13px; margin-bottom: 8px;"><i data-lucide="graduation-cap" style="width:14px;height:14px;"></i> Recommendation for Teaching</h4>
+              <ul class="styled-list" style="font-size: 11.5px;">
+                <li>Start with <strong>Xray or Zephyr Scale</strong> — they treat tests as native Jira issues, making the learning curve shallow</li>
+                <li>If teaching <strong>BDD/Agile</strong>, Xray has superior Cucumber/Gherkin integration</li>
+                <li>For a free classroom demo, use <strong>Xray Free Tier</strong> (up to 10 users) or Jira Cloud's free plan</li>
+              </ul>
+            </div>
+          </div>
+          <div class="content-right">
+            <div class="glass-card alert-card" style="padding: 14px 18px; border-left: 4px solid var(--accent-red);">
+              <h4 style="font-size: 13px; color: var(--accent-red); margin-bottom: 6px; display: flex; align-items: center; gap: 8px;">
+                <i data-lucide="alert-triangle"></i> Native Jira vs. Test Management App
+              </h4>
+              <p style="font-size: 11.5px; color: var(--text-muted); line-height: 1.5;">Native Jira issues (Stories as test cases) works for teams &lt;5 QA engineers and &lt;200 test cases. Beyond that, you need a dedicated app for: step-level execution, test case versioning, reuse across releases, automated result import from CI/CD, and one-click RTM/compliance reports.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 44: A Day in the Life — Real-Time Sprint -->
+    <section class="slide scrollable-slide" id="slide-44">
+      <div class="slide-content">
+        <h2 class="slide-header">A Day in the Life — Real-Time Sprint in Jira</h2>
+        <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">How a real enterprise QA team operates in Jira during a <strong>2-week sprint</strong>:</p>
+        <div class="table-container">
+          <table class="premium-table" style="font-size: 11.5px;">
+            <thead>
+              <tr>
+                <th style="width: 12%;">Day</th>
+                <th style="width: 22%;">Activity</th>
+                <th style="width: 66%;">Jira Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="td-header">Sprint Day 1</td>
+                <td>Sprint Planning</td>
+                <td>PO reviews Stories; QA Lead identifies test scope &amp; flags stories without AC; links Test Plan to Sprint; QA tasks added to board</td>
+              </tr>
+              <tr>
+                <td class="td-header">Day 2–3</td>
+                <td>Test Design</td>
+                <td>QA Engineers create Test Case issues; link them to parent Stories with <em>"is tested by"</em>; set Priority (P0/P1/P2); attach test data files</td>
+              </tr>
+              <tr>
+                <td class="td-header">Day 4</td>
+                <td>Test Review</td>
+                <td>QA Lead peer-reviews Test Cases; adds review comments; transitions approved TCs to <em>"Approved"</em> status</td>
+              </tr>
+              <tr>
+                <td class="td-header">Day 5–8</td>
+                <td>Development</td>
+                <td>Developers move Stories to <em>"In Development"</em>; QA prepares test data, updates test cases for design changes; monitors PR reviews</td>
+              </tr>
+              <tr>
+                <td class="td-header">Day 9</td>
+                <td>Build Deployed</td>
+                <td>DevOps deploys to UAT; Smoke Test Task created; automated smoke suite runs via Jenkins → results pushed to Jira (pass/fail per test)</td>
+              </tr>
+              <tr>
+                <td class="td-header">Day 10–12</td>
+                <td>Test Execution</td>
+                <td>QA runs Test Executions; failures are logged as Bugs with full details; Daily Stand-up uses the Jira board to review in-progress items &amp; blockers</td>
+              </tr>
+              <tr>
+                <td class="td-header">Day 13</td>
+                <td>Bug Triage</td>
+                <td>QA Lead + Dev Lead review all open Bugs; set/adjust priority; assign fixes; deferred P3/P4 bugs documented with justification</td>
+              </tr>
+              <tr>
+                <td class="td-header">Day 14</td>
+                <td>Retest &amp; Closure</td>
+                <td>QA retests fixed Bugs; transitions to <em>"Verified"</em>; QA Lead generates Test Summary Report; moves Sign-off Task to Done; Sprint Review demo</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="enterprise-box" style="margin-top: 14px; padding: 14px 18px; border-radius: 12px; background: var(--bg-card); border: 1px solid var(--border-color);">
+          <strong>Real-World Metric (Stripe Engineering, 2025):</strong> Teams using structured Jira workflows with automated Slack notifications for bug status changes reduced defect resolution cycle time by <strong>38%</strong> compared to email-based coordination. The visual Sprint Board reduced daily stand-up time from 25 minutes to under 10 minutes.
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 45: Jira Configuration Checklist & Native vs Apps -->
+    <section class="slide scrollable-slide" id="slide-45">
+      <div class="slide-content">
+        <h2 class="slide-header">Jira Config Checklist &amp; Native Jira vs. Test Management Apps</h2>
+        <div class="split-layout" style="gap: 16px;">
+          <div class="content-left">
+            <div class="glass-card accent-card">
+              <div class="card-header">
+                <i data-lucide="clipboard-check" class="icon-primary"></i>
+                <h3>Pre-Class Setup Checklist (Jira Admin)</h3>
+              </div>
+              <ul class="styled-list" style="font-size: 11.5px;">
+                <li><span style="color: var(--accent-green);">☐</span> Create a Scrum project named <strong>Training-QA-Demo</strong></li>
+                <li><span style="color: var(--accent-green);">☐</span> Add custom issue types: Test Case, Test Plan, Test Execution (or install Zephyr/Xray trial)</li>
+                <li><span style="color: var(--accent-green);">☐</span> Add custom statuses: Ready for Testing, In Testing, QA Passed, QA Failed, Ready for Retest</li>
+                <li><span style="color: var(--accent-green);">☐</span> Configure issue links: <em>tests / is tested by</em></li>
+                <li><span style="color: var(--accent-green);">☐</span> Add custom fields: Severity, Test Environment, Automation Status</li>
+                <li><span style="color: var(--accent-green);">☐</span> Set up Components: Auth, Payment, Checkout, Admin</li>
+                <li><span style="color: var(--accent-green);">☐</span> Create a Dashboard and share it with the class</li>
+              </ul>
+              <div class="card-header" style="margin-top: 14px; margin-bottom: 8px;">
+                <i data-lucide="monitor" class="icon-warning"></i>
+                <h3>Demo Script (15 Minutes)</h3>
+              </div>
+              <ol style="font-size: 11px; color: var(--text-muted); line-height: 1.8; padding-left: 16px;">
+                <li>Create an Epic: <em>"Release v1.0 – E-Commerce"</em></li>
+                <li>Create a Story: <em>"User can pay by credit card"</em> (add AC)</li>
+                <li>Create a Test Case: Link to Story; add 3 test steps</li>
+                <li>Create a Test Plan: Link Story; set Fix Version</li>
+                <li>Create a Test Execution: Add TC; assign to a student</li>
+                <li>Execute: Mark Step 2 as FAIL → auto-prompt creates Bug</li>
+                <li>Create the Bug: Show severity, env, linked TC</li>
+                <li>Move Bug through workflow: New → In Progress → Ready for Retest → Verified</li>
+                <li>Show Dashboard: Watch numbers update in real-time</li>
+                <li>Run JQL: Traceability query — Story → TC → Bug</li>
+              </ol>
+            </div>
+          </div>
+          <div class="content-right">
+            <div class="glass-card height-full" style="border-left: 3px solid var(--secondary);">
+              <div class="card-header">
+                <i data-lucide="columns" style="color: var(--secondary);"></i>
+                <h3>Native Jira vs. Test Management App</h3>
+              </div>
+              <div class="table-container" style="box-shadow: none; margin-bottom: 12px;">
+                <table class="premium-table" style="font-size: 11px;">
+                  <thead>
+                    <tr>
+                      <th style="width: 40%;">Capability</th>
+                      <th style="width: 30%; background: rgba(99,64,165,0.12);">Native Jira Only</th>
+                      <th style="width: 30%; background: rgba(28,114,147,0.15);">With Zephyr/Xray</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Test Case versioning</td><td style="color: var(--accent-red); text-align: center;">❌ No</td><td style="color: var(--accent-green); text-align: center;">✅ Yes</td></tr>
+                    <tr><td>Step-level execution</td><td style="color: var(--accent-red); text-align: center;">❌ No (issue-level only)</td><td style="color: var(--accent-green); text-align: center;">✅ Yes</td></tr>
+                    <tr><td>Reuse TCs across releases</td><td style="color: var(--accent-orange); text-align: center;">⚠️ Hard</td><td style="color: var(--accent-green); text-align: center;">✅ Yes (clone cycles)</td></tr>
+                    <tr><td>Requirement coverage %</td><td style="color: var(--accent-red); text-align: center;">❌ Manual Excel</td><td style="color: var(--accent-green); text-align: center;">✅ Built-in widget</td></tr>
+                    <tr><td>CI/CD test result import</td><td style="color: var(--accent-red); text-align: center;">❌ No</td><td style="color: var(--accent-green); text-align: center;">✅ JUnit, Cucumber, Selenium</td></tr>
+                    <tr><td>Regulatory traceability report</td><td style="color: var(--accent-red); text-align: center;">❌ Export + Excel</td><td style="color: var(--accent-green); text-align: center;">✅ One-click PDF/RTM</td></tr>
+                    <tr><td>BDD / Gherkin support</td><td style="color: var(--accent-red); text-align: center;">❌ No</td><td style="color: var(--accent-green); text-align: center;">✅ Cucumber/SpecFlow</td></tr>
+                    <tr><td>AI test case generation</td><td style="color: var(--accent-red); text-align: center;">❌ No</td><td style="color: var(--accent-green); text-align: center;">✅ AIO / QMetry AI</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="enterprise-box">
+                <strong>Bottom Line:</strong> Native Jira works for teams under 5 QA engineers with &lt;200 test cases. Enterprises at scale (50+ QA, 1,000+ test cases, regulated compliance) must use Zephyr Scale or Xray. The investment pays back in audit readiness alone — a single SOX/FDA audit requiring manual traceability from Jira + Excel can take 2 weeks; with Xray it takes under 2 hours.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 46: ShopRight E-Commerce — Real-Time Jira Hands-On Lab -->
+    <section class="slide scrollable-slide" id="slide-46">
+      <div class="slide-content">
+        <h2 class="slide-header">ShopRight E-Commerce v3.2 — Real-Time Jira Hands-On Lab</h2>
+        <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 14px;">Practice every Jira concept from this module on a realistic enterprise e-commerce project. Build the <strong>ECOM</strong> project in Jira from scratch — mirroring an actual Sprint 14 QA cycle for ShopRight's Checkout &amp; Payment release.</p>
+        <div class="split-layout" style="gap: 16px;">
+          <div class="content-left" style="display: flex; flex-direction: column; gap: 12px;">
+            <div class="glass-card accent-card">
+              <div class="card-header">
+                <i data-lucide="shopping-cart" class="icon-primary"></i>
+                <h3>Project Snapshot — ShopRight QA</h3>
+              </div>
+              <div class="table-container" style="box-shadow: none; margin: 0 0 10px 0;">
+                <table class="premium-table" style="font-size: 10.5px;">
+                  <tbody>
+                    <tr><td><strong>Project Key</strong></td><td><code>ECOM</code></td></tr>
+                    <tr><td><strong>Template</strong></td><td>Scrum (Sprint 14)</td></tr>
+                    <tr><td><strong>Release</strong></td><td>v3.2 — Checkout &amp; Payment Overhaul</td></tr>
+                    <tr><td><strong>Environment</strong></td><td>UAT-AWS-ECOM-01</td></tr>
+                    <tr><td><strong>Test Strategy</strong></td><td>65% Automated · 35% Manual</td></tr>
+                    <tr><td><strong>Team</strong></td><td>2 QA · 1 Automation · 3 Dev · 1 BA · 1 PO</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p style="font-size: 10.5px; color: var(--text-muted);"><strong>Entry Criteria:</strong> Build v3.2.1 deployed; smoke tests passed; test cases reviewed<br><strong>Exit Criteria:</strong> 95% pass; 0 Critical/High open bugs; performance SLA met</p>
+            </div>
+            <div class="glass-card" style="border-left: 3px solid var(--secondary); padding: 14px 18px;">
+              <div class="card-header" style="margin-bottom: 8px;">
+                <i data-lucide="book-open" style="color: var(--secondary);"></i>
+                <h3>Sprint 14 — 4 Stories to Create</h3>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 5px;">
+                <div class="antipattern-card" style="border-left-color: var(--accent-red); padding: 6px 10px;">
+                  <div><strong style="font-size: 10.5px;">ECOM-101</strong> <span style="font-size: 10px; color: var(--text-muted);">— Credit card payment (Visa/MC/Amex) · 8 pts · Highest</span></div>
+                </div>
+                <div class="antipattern-card" style="border-left-color: var(--accent-orange); padding: 6px 10px;">
+                  <div><strong style="font-size: 10.5px;">ECOM-102</strong> <span style="font-size: 10px; color: var(--text-muted);">— Apply discount code (valid/invalid/expired) · 5 pts · High</span></div>
+                </div>
+                <div class="antipattern-card" style="border-left-color: var(--accent-yellow); padding: 6px 10px;">
+                  <div><strong style="font-size: 10.5px;">ECOM-103</strong> <span style="font-size: 10px; color: var(--text-muted);">— Order confirmation email within 60s · 5 pts · High</span></div>
+                </div>
+                <div class="antipattern-card" style="border-left-color: var(--accent-green); padding: 6px 10px;">
+                  <div><strong style="font-size: 10.5px;">ECOM-104</strong> <span style="font-size: 10px; color: var(--text-muted);">— Admin: view &amp; export failed payment logs · 3 pts · Medium</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="glass-card" style="border-left: 3px solid var(--accent-green); padding: 14px 18px;">
+              <div class="card-header" style="margin-bottom: 8px;">
+                <i data-lucide="git-branch" style="color: var(--accent-green);"></i>
+                <h3>Full Issue Map — What to Create in Jira</h3>
+              </div>
+              <div class="table-container" style="box-shadow: none; margin: 0;">
+                <table class="premium-table" style="font-size: 10px;">
+                  <thead><tr><th>Issue ID</th><th>Type</th><th>Summary</th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>ECOM-100</strong></td><td style="color: var(--primary);">Epic</td><td>Release v3.2 — Checkout &amp; Payment Overhaul</td></tr>
+                    <tr><td><strong>ECOM-101–104</strong></td><td style="color: var(--secondary);">Story</td><td>4 user stories (payment, discount, email, admin)</td></tr>
+                    <tr><td><strong>ECOM-150</strong></td><td style="color: var(--accent-yellow);">Test Plan</td><td>Sprint 14: Checkout &amp; Payment v3.2</td></tr>
+                    <tr><td><strong>ECOM-201–207</strong></td><td style="color: var(--accent-green);">Test Case</td><td>7 test cases covering all acceptance criteria</td></tr>
+                    <tr><td><strong>ECOM-300</strong></td><td style="color: var(--accent-orange);">Test Execution</td><td>Sprint 14 Test Cycle (add all 7 TCs)</td></tr>
+                    <tr><td><strong>ECOM-400–402</strong></td><td style="color: var(--accent-red);">Bug</td><td>3 defects found (2 critical — fix &amp; retest; 1 deferred)</td></tr>
+                    <tr><td><strong>ECOM-500</strong></td><td style="color: var(--text-muted);">Task</td><td>Test Summary Report &amp; Release Sign-off</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="content-right" style="display: flex; flex-direction: column; gap: 12px;">
+            <div class="glass-card" style="border-left: 3px solid var(--accent-yellow); padding: 14px 18px; flex: 1;">
+              <div class="card-header" style="margin-bottom: 10px;">
+                <i data-lucide="graduation-cap" style="color: var(--accent-yellow);"></i>
+                <h3>Student Lab — 8 Hands-On Exercises</h3>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 7px;">
+                <div class="jira-reason-item">
+                  <span class="reason-num" style="background: rgba(99,64,165,0.15); color: var(--primary); min-width: 24px; text-align: center; font-size: 11px;">1</span>
+                  <div style="font-size: 11px;"><strong>Create ECOM Scrum Project</strong> — Key=ECOM. Add Issue Types: Test Plan, Test Case, Test Execution. Add custom fields: Severity, Automation Status, Test Environment. Set up Components &amp; Fix Version v3.2.</div>
+                </div>
+                <div class="jira-reason-item">
+                  <span class="reason-num" style="background: rgba(28,114,147,0.15); color: var(--secondary); min-width: 24px; text-align: center; font-size: 11px;">2</span>
+                  <div style="font-size: 11px;"><strong>Create Epic ECOM-100 &amp; 4 Stories</strong> — Add 2–3 Acceptance Criteria per story. Set Priority and Story Points. Start Sprint 14 and add all stories.</div>
+                </div>
+                <div class="jira-reason-item">
+                  <span class="reason-num" style="background: rgba(15,110,86,0.15); color: var(--accent-green); min-width: 24px; text-align: center; font-size: 11px;">3</span>
+                  <div style="font-size: 11px;"><strong>Create Test Plan ECOM-150</strong> — Fill: Start/End date, Environment, Entry/Exit Criteria, test strategy (65% auto / 35% manual). Link all 4 stories. Get it reviewed and approved.</div>
+                </div>
+                <div class="jira-reason-item">
+                  <span class="reason-num" style="background: rgba(247,166,0,0.15); color: var(--accent-yellow); min-width: 24px; text-align: center; font-size: 11px;">4</span>
+                  <div style="font-size: 11px;"><strong>Write 7 Test Cases (ECOM-201–207)</strong> — Add Preconditions, Steps, Expected Results. Link each to its Story with <em>"is tested by"</em>. Mark 3 as Automated, 4 as Manual.</div>
+                </div>
+                <div class="jira-reason-item">
+                  <span class="reason-num" style="background: rgba(255,107,107,0.15); color: var(--accent-red); min-width: 24px; text-align: center; font-size: 11px;">5</span>
+                  <div style="font-size: 11px;"><strong>Create Test Execution ECOM-300</strong> — Add all 7 TCs. Simulate: ECOM-201/202/204/205 → <span style="color:var(--accent-green);">PASS</span>; ECOM-203 &amp; 206 → <span style="color:var(--accent-red);">FAIL</span>; ECOM-207 → <span style="color:var(--accent-orange);">BLOCKED</span>.</div>
+                </div>
+                <div class="jira-reason-item">
+                  <span class="reason-num" style="background: rgba(255,127,0,0.15); color: var(--accent-orange); min-width: 24px; text-align: center; font-size: 11px;">6</span>
+                  <div style="font-size: 11px;"><strong>Log Bugs ECOM-400 &amp; ECOM-401</strong> — Create from failed tests. Fill: Priority, Severity, Build, Environment, Steps, Actual vs Expected. Link to Test Cases &amp; parent Stories.</div>
+                </div>
+                <div class="jira-reason-item">
+                  <span class="reason-num" style="background: rgba(99,64,165,0.15); color: var(--primary); min-width: 24px; text-align: center; font-size: 11px;">7</span>
+                  <div style="font-size: 11px;"><strong>Bug Lifecycle &amp; Retest</strong> — Transition both bugs: New → In Progress → Ready for Retest → Verified → Closed. Retest ECOM-203 &amp; 206 → PASS. Unblock ECOM-207 → execute → PASS.</div>
+                </div>
+                <div class="jira-reason-item">
+                  <span class="reason-num" style="background: rgba(28,114,147,0.15); color: var(--secondary); min-width: 24px; text-align: center; font-size: 11px;">8</span>
+                  <div style="font-size: 11px;"><strong>JQL Traceability &amp; Dashboard</strong> — Run all 5 JQL queries below. Build a QA Dashboard. Verify the full chain: Epic → Story → TC → Execution → Bug is linked and queryable.</div>
+                </div>
+              </div>
+            </div>
+            <div class="glass-card dark-card" style="padding: 12px 16px; border-radius: 10px;">
+              <div class="card-header" style="margin-bottom: 8px;">
+                <i data-lucide="search-code" style="color: var(--accent-green);"></i>
+                <h3 style="color: var(--accent-green);">JQL Practice Queries (Run All 5)</h3>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 5px;">
+                <code style="font-size: 9.5px; color: var(--accent-green); display: block; padding: 3px 0; border-bottom: 1px solid var(--border-color);">project = ECOM AND type = "Test Case" AND fixVersion = "v3.2"</code>
+                <code style="font-size: 9.5px; color: var(--secondary); display: block; padding: 3px 0; border-bottom: 1px solid var(--border-color);">issue in linkedIssues("ECOM-101") AND type = "Test Case"</code>
+                <code style="font-size: 9.5px; color: var(--accent-yellow); display: block; padding: 3px 0; border-bottom: 1px solid var(--border-color);">project = ECOM AND type = Bug AND status != Closed ORDER BY priority DESC</code>
+                <code style="font-size: 9.5px; color: var(--accent-orange); display: block; padding: 3px 0; border-bottom: 1px solid var(--border-color);">project = ECOM AND type = Bug AND status = "Ready for Retest"</code>
+                <code style="font-size: 9.5px; color: var(--accent-red); display: block; padding: 3px 0;">project = ECOM AND type = "Test Case" AND status = Blocked</code>
+              </div>
+            </div>
+            <div class="enterprise-box" style="padding: 12px 16px; border-radius: 10px;">
+              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 7px;">
+                <i data-lucide="check-circle-2" style="color: var(--accent-green); width: 16px; height: 16px;"></i>
+                <strong style="font-size: 12px;">Lab Success Criteria</strong>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 3px; font-size: 11px; color: var(--text-muted);">
+                <div>☑ All 7 test cases linked to parent stories (RTM query returns 7)</div>
+                <div>☑ 2 critical bugs logged with complete fields; lifecycle completed</div>
+                <div>☑ All 7 tests PASS after retests &amp; unblocking ECOM-207</div>
+                <div>☑ Dashboard shows: 7/7 Pass, 0 Open Critical/High, 100% coverage</div>
+                <div>☑ Full chain traceable: ECOM-100 → 101–104 → 201–207 → 300 → 400–402</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================== -->
+    <!-- MODULE 09: TEST ARTIFACTS IN SOFTWARE TESTING (SLIDES 47-60)       -->
+    <!-- ================================================================== -->
+
+    <!-- SLIDE 47: Test Artifacts Module — Section Title -->
+    <section class="slide dark-bg" id="slide-47">
+      <div class="slide-content centered">
+        <div class="splash-badge text-glow animate-pulse">Module 09 — Testing Documentation &amp; Deliverables</div>
+        <h1 class="giant-headline scale-in" style="font-size: clamp(2.2rem, 5.5vw, 4.2rem);">Test Artifacts</h1>
+        <h2 class="sub-headline">Documents, Records &amp; Deliverables Across the STLC</h2>
+        <div class="jira-splash-grid">
+          <div class="jira-splash-stat">
+            <span class="splash-stat-number">30+</span>
+            <span class="splash-stat-label">Distinct artifacts across 6 STLC phases</span>
+          </div>
+          <div class="jira-splash-stat">
+            <span class="splash-stat-number">100%</span>
+            <span class="splash-stat-label">Traceability from Req → Test → Defect</span>
+          </div>
+          <div class="jira-splash-stat">
+            <span class="splash-stat-number">6</span>
+            <span class="splash-stat-label">Enterprise-ready templates included</span>
+          </div>
+        </div>
+        <div class="title-footer" style="justify-content: center; gap: 24px; flex-wrap: wrap; margin-top: 20px;">
+          <div class="footer-item"><i data-lucide="file-text"></i><span>Test Plans &amp; Strategy</span></div>
+          <div class="footer-item"><i data-lucide="list-checks"></i><span>Test Cases &amp; Scenarios</span></div>
+          <div class="footer-item"><i data-lucide="bug"></i><span>Defect Reports</span></div>
+          <div class="footer-item"><i data-lucide="shield-check"></i><span>RTM &amp; Sign-off</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 48: What Are Test Artifacts? -->
+    <section class="slide" id="slide-48">
+      <div class="slide-content">
+        <h2 class="slide-header">What Are Test Artifacts?</h2>
+        <div class="split-layout">
+          <div class="content-left">
+            <div class="glass-card accent-card">
+              <div class="card-header">
+                <i data-lucide="file-text" class="icon-primary"></i>
+                <h3>Definition</h3>
+              </div>
+              <p>Test artifacts (also called <strong>test deliverables</strong>) are the documents, records, and deliverables produced during the testing lifecycle that provide evidence of <strong>what was tested</strong>, <strong>how it was tested</strong>, <strong>what defects were found</strong>, and <strong>whether the product is ready for release</strong>.</p>
+              <div class="card-tip" style="margin-top: 12px;">
+                <i data-lucide="lightbulb"></i>
+                <span>They create <strong>traceability</strong> from business requirements all the way to production sign-off — critical for audits, compliance (ISO 27001, SOX, HIPAA, FDA), and release gating.</span>
+              </div>
+            </div>
+            <div class="glass-card success-card margin-top">
+              <div class="card-header">
+                <i data-lucide="target" class="icon-success"></i>
+                <h3>Why Are They Critical?</h3>
+              </div>
+              <ul class="styled-list">
+                <li><strong>Audit Trail:</strong> Proves what was tested and what passed/failed for regulatory bodies</li>
+                <li><strong>Communication:</strong> Shared language between QA, Dev, BA, and Management</li>
+                <li><strong>Risk Management:</strong> Quantifies quality risks before production release</li>
+                <li><strong>Process Repeatability:</strong> Templates enable consistent testing across sprints</li>
+                <li><strong>Knowledge Transfer:</strong> New team members ramp up using existing artifacts</li>
+              </ul>
+            </div>
+          </div>
+          <div class="content-right">
+            <div class="glass-card height-full" style="border-left: 3px solid var(--secondary);">
+              <div class="card-header">
+                <i data-lucide="layers" class="icon-secondary"></i>
+                <h3>Complete Artifact Inventory</h3>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <div class="jira-reason-item">
+                  <span class="reason-num" style="background: rgba(99,64,165,0.15); color: var(--primary);">P1</span>
+                  <div><strong>Requirement Analysis:</strong> User Stories, BRD/FRD/SRS, RTM, Automation Feasibility Report</div>
+                </div>
+                <div class="jira-reason-item">
+                  <span class="reason-num" style="background: rgba(28,114,147,0.15); color: var(--secondary);">P2</span>
+                  <div><strong>Test Planning:</strong> Test Strategy, Test Plan, Estimation Report, Risk Assessment</div>
+                </div>
+                <div class="jira-reason-item">
+                  <span class="reason-num" style="background: rgba(15,110,86,0.15); color: var(--accent-green);">P3</span>
+                  <div><strong>Test Design:</strong> Test Scenarios, Test Cases, Test Data, Automation Scripts</div>
+                </div>
+                <div class="jira-reason-item">
+                  <span class="reason-num" style="background: rgba(247,166,0,0.15); color: var(--accent-yellow);">P4</span>
+                  <div><strong>Environment Setup:</strong> Env Setup Doc, Smoke Test Results, Readiness Report</div>
+                </div>
+                <div class="jira-reason-item">
+                  <span class="reason-num" style="background: rgba(255,127,17,0.15); color: var(--accent-orange);">P5</span>
+                  <div><strong>Test Execution:</strong> Execution Logs, Defect Reports, Status Reports, Updated RTM</div>
+                </div>
+                <div class="jira-reason-item">
+                  <span class="reason-num" style="background: rgba(255,107,107,0.15); color: var(--accent-red);">P6</span>
+                  <div><strong>Test Closure:</strong> Test Summary Report, Lessons Learned, Archive, UAT Sign-off</div>
+                </div>
+              </div>
+              <div class="enterprise-box" style="margin-top: 12px;">
+                <strong>Modern Practice (2025–2026):</strong> Organizations using AI-assisted testing (Copilot, Testsigma, Katalon) auto-generate test cases, defect reports, and summary dashboards — but human review &amp; sign-off remains mandatory for compliance.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 39: Phase 1 — Requirement Analysis Artifacts -->
+    <section class="slide scrollable-slide" id="slide-49">
+      <div class="slide-content">
+        <div class="slide-subheader color-1">STLC Phase 1 — Requirement Analysis</div>
+        <h2 class="slide-header">Requirement Analysis Artifacts</h2>
+        <div class="table-container">
+          <table class="premium-table" style="font-size: 11.5px;">
+            <thead>
+              <tr>
+                <th style="width: 22%;">Artifact</th>
+                <th style="width: 32%;">Description</th>
+                <th style="width: 16%;">Created By</th>
+                <th style="width: 16%;">Verified By</th>
+                <th style="width: 14%;">Tools Used</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="td-header">User Stories / BRD / FRD / SRS</td>
+                <td>Business &amp; functional requirements documenting acceptance criteria, user personas, and system behaviors expected by stakeholders.</td>
+                <td>Product Owner / Business Analyst (BA)</td>
+                <td>Stakeholders, QA Lead</td>
+                <td>Jira, Confluence, Azure DevOps</td>
+              </tr>
+              <tr>
+                <td class="td-header">Requirement Traceability Matrix (RTM)</td>
+                <td>Maps requirements → test conditions → test cases → defects. The "backbone" that connects every artifact for audit trail.</td>
+                <td>QA Lead / Test Manager</td>
+                <td>BA / Project Manager</td>
+                <td>Excel, Xray, Zephyr Scale, TestRail</td>
+              </tr>
+              <tr>
+                <td class="td-header">Automation Feasibility Report</td>
+                <td>Analysis of which tests can/should be automated based on ROI, complexity, frequency of execution, and tool compatibility.</td>
+                <td>Automation Architect / QA Lead</td>
+                <td>QA Manager</td>
+                <td>Confluence, Google Docs, Excel</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="split-layout" style="margin-top: 14px;">
+          <div class="content-left">
+            <div class="glass-card" style="border-left: 3px solid var(--primary); padding: 14px 18px;">
+              <h4 style="font-size: 13px; margin-bottom: 8px;"><i data-lucide="info" style="width: 14px; height: 14px; display: inline;"></i> Key Points</h4>
+              <ul class="styled-list" style="font-size: 11.5px;">
+                <li><strong>RTM is the single most important artifact</strong> — it proves to auditors that every requirement was tested</li>
+                <li>User Stories must include clear <strong>Acceptance Criteria</strong> (Given/When/Then format) for testability</li>
+                <li>Automation Feasibility is reviewed quarterly as tools and team skills evolve</li>
+              </ul>
+            </div>
+          </div>
+          <div class="content-right">
+            <div class="enterprise-box" style="padding: 14px 18px; border-radius: 12px; background: var(--bg-card); border: 1px solid var(--border-color);">
+              <strong>Enterprise Practice (Banking — Temenos T24):</strong> Every functional requirement from the core banking BRD is mapped 1:1 in RTM before a single test case is written. Regulatory auditors (RBI, FCA) demand this traceability for compliance sign-off.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 40: Phase 2 — Test Planning Artifacts -->
+    <section class="slide scrollable-slide" id="slide-50">
+      <div class="slide-content">
+        <div class="slide-subheader color-2">STLC Phase 2 — Test Planning</div>
+        <h2 class="slide-header">Test Planning Artifacts</h2>
+        <div class="table-container">
+          <table class="premium-table" style="font-size: 11.5px;">
+            <thead>
+              <tr>
+                <th style="width: 22%;">Artifact</th>
+                <th style="width: 32%;">Description</th>
+                <th style="width: 16%;">Created By</th>
+                <th style="width: 16%;">Verified By</th>
+                <th style="width: 14%;">Tools Used</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="td-header">Test Strategy</td>
+                <td>High-level approach document defining test types, levels, tools, techniques, entry/exit criteria, and risk appetite. <strong>One per project.</strong></td>
+                <td>QA Manager / QA Lead</td>
+                <td>Project Stakeholders, PM</td>
+                <td>Confluence, Word, SharePoint</td>
+              </tr>
+              <tr>
+                <td class="td-header">Test Plan</td>
+                <td>Granular document with schedule, scope (in/out), resources, environment details, deliverables, and dependencies. <strong>One per release or sprint.</strong></td>
+                <td>QA Lead / Test Manager</td>
+                <td>PM / Stakeholders</td>
+                <td>Confluence, TestRail, Azure DevOps Wiki</td>
+              </tr>
+              <tr>
+                <td class="td-header">Test Estimation Report</td>
+                <td>Effort, cost, and timeline estimates using WBS, PERT, Function Points, or Use Case Points methodology.</td>
+                <td>QA Lead</td>
+                <td>PM / Management</td>
+                <td>Excel, Jira Tempo, MS Project</td>
+              </tr>
+              <tr>
+                <td class="td-header">Resource Allocation Matrix</td>
+                <td>Roles, headcount, skill requirements, tool licenses, and environment allocation per team member.</td>
+                <td>QA Lead / PM</td>
+                <td>Management</td>
+                <td>Excel, Jira Resource Planning</td>
+              </tr>
+              <tr>
+                <td class="td-header">Risk Assessment &amp; Mitigation Plan</td>
+                <td>Testing risks (technical, schedule, resource, environment) with probability, impact, and contingency plans.</td>
+                <td>QA Lead</td>
+                <td>PM / Stakeholders</td>
+                <td>Confluence, Risk Register templates</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="glass-card" style="border-left: 3px solid var(--accent-yellow); padding: 14px 18px; margin-top: 14px;">
+          <h4 style="font-size: 13px; margin-bottom: 6px; display: flex; align-items: center; gap: 8px;">
+            <i data-lucide="alert-triangle" style="color: var(--accent-yellow); width: 16px; height: 16px;"></i> Critical Distinction: Strategy vs. Plan
+          </h4>
+          <p style="font-size: 11.5px; line-height: 1.55; color: var(--text-muted);">
+            <strong>Test Strategy</strong> = "What types of testing and why" (one per project, rarely changes).<br>
+            <strong>Test Plan</strong> = "Who does what, when, and where" (one per release or sprint, frequently updated).<br>
+            In many enterprise organizations (Google, Microsoft, Amazon), the Test Plan is embedded directly into the Sprint Planning document rather than maintained as a separate formal document.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 41: Phase 3 — Test Design Artifacts -->
+    <section class="slide scrollable-slide" id="slide-51">
+      <div class="slide-content">
+        <div class="slide-subheader color-3">STLC Phase 3 — Test Design</div>
+        <h2 class="slide-header">Test Design Artifacts</h2>
+        <div class="table-container">
+          <table class="premium-table" style="font-size: 11.5px;">
+            <thead>
+              <tr>
+                <th style="width: 22%;">Artifact</th>
+                <th style="width: 32%;">Description</th>
+                <th style="width: 16%;">Created By</th>
+                <th style="width: 16%;">Verified By</th>
+                <th style="width: 14%;">Tools Used</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="td-header">Test Scenarios</td>
+                <td>High-level business flows to validate (e.g., "Verify end-to-end checkout"). Each scenario maps to one or more detailed test cases.</td>
+                <td>Senior QA / Test Analyst</td>
+                <td>QA Lead / BA</td>
+                <td>Jira, Zephyr Scale, TestRail</td>
+              </tr>
+              <tr>
+                <td class="td-header">Test Cases</td>
+                <td>Step-by-step instructions with preconditions, input data, exact steps, expected results, and postconditions. The core execution artifact.</td>
+                <td>QA Engineers / Test Analysts</td>
+                <td>QA Lead (Peer Review)</td>
+                <td>TestRail, Xray, Zephyr, Excel</td>
+              </tr>
+              <tr>
+                <td class="td-header">Test Data</td>
+                <td>Input values (valid, invalid, boundary, equivalence partition, synthetic, production-like anonymized data) required for execution.</td>
+                <td>QA Team / Data Engineering</td>
+                <td>QA Lead</td>
+                <td>Mockaroo, Faker.js, SQL scripts, Informatica</td>
+              </tr>
+              <tr>
+                <td class="td-header">Automated Test Scripts</td>
+                <td>Code/scripts for regression, smoke, API, or UI automation. Stored in version control with CI/CD integration.</td>
+                <td>Automation Engineers / SDETs</td>
+                <td>QA Lead / Peer Review</td>
+                <td>Playwright, Cypress, Selenium, REST Assured, k6</td>
+              </tr>
+              <tr>
+                <td class="td-header">Updated RTM</td>
+                <td>RTM now mapped to specific test case IDs, showing coverage completeness for each requirement.</td>
+                <td>QA Lead</td>
+                <td>BA</td>
+                <td>Excel, Xray, Zephyr Scale</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="enterprise-box" style="padding: 14px 18px; border-radius: 12px; background: var(--bg-card); border: 1px solid var(--border-color); margin-top: 14px;">
+          <strong>Modern Practice (Shift-Left &amp; BDD):</strong> In 2025–2026, leading organizations (Spotify, Netflix, Stripe) write test scenarios during Sprint Planning using BDD format (Given/When/Then in Gherkin). Test cases are co-authored with developers before code is written. Tools like <strong>Cucumber, SpecFlow, and Behave</strong> turn these scenarios directly into executable automation scripts.
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 42: Phase 4 — Environment Setup Artifacts -->
+    <section class="slide scrollable-slide" id="slide-52">
+      <div class="slide-content">
+        <div class="slide-subheader color-4">STLC Phase 4 — Environment Setup</div>
+        <h2 class="slide-header">Environment Setup Artifacts</h2>
+        <div class="table-container">
+          <table class="premium-table" style="font-size: 11.5px;">
+            <thead>
+              <tr>
+                <th style="width: 22%;">Artifact</th>
+                <th style="width: 32%;">Description</th>
+                <th style="width: 16%;">Created By</th>
+                <th style="width: 16%;">Verified By</th>
+                <th style="width: 14%;">Tools Used</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="td-header">Environment Setup Document</td>
+                <td>Hardware, software versions, configurations, network topology, access credentials, database connections, and third-party service endpoints.</td>
+                <td>DevOps / System Admin / QA</td>
+                <td>QA Lead</td>
+                <td>Confluence, Terraform configs, Docker Compose</td>
+              </tr>
+              <tr>
+                <td class="td-header">Smoke Test Results</td>
+                <td>Quick validation (10–20 critical path tests) that the build is stable enough to begin full test execution.</td>
+                <td>QA Engineer</td>
+                <td>QA Lead</td>
+                <td>Jenkins, GitHub Actions, Playwright</td>
+              </tr>
+              <tr>
+                <td class="td-header">Environment Readiness Report</td>
+                <td>Formal sign-off confirming the environment matches production specs, test data is loaded, and all services are operational.</td>
+                <td>QA / DevOps</td>
+                <td>QA Lead</td>
+                <td>Confluence, Jira, Slack notifications</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="split-layout" style="margin-top: 14px;">
+          <div class="content-left">
+            <div class="glass-card" style="border-left: 3px solid var(--accent-green); padding: 14px 18px;">
+              <h4 style="font-size: 13px; margin-bottom: 8px;"><i data-lucide="check-circle-2" style="width: 14px; height: 14px; display: inline; color: var(--accent-green);"></i> Modern DevOps Practice</h4>
+              <ul class="styled-list" style="font-size: 11.5px;">
+                <li><strong>Infrastructure as Code (IaC):</strong> Terraform, Pulumi, or CloudFormation replaces manual environment documents — the code IS the documentation</li>
+                <li><strong>Ephemeral Environments:</strong> Spin up per-PR test environments using Kubernetes namespaces or AWS ECS tasks, auto-destroyed after testing</li>
+                <li><strong>Containerization:</strong> Docker Compose files serve as both environment setup doc AND executable config</li>
+              </ul>
+            </div>
+          </div>
+          <div class="content-right">
+            <div class="enterprise-box" style="padding: 14px 18px; border-radius: 12px; background: var(--bg-card); border: 1px solid var(--border-color);">
+              <strong>Enterprise Practice (Healthcare — Epic FHIR):</strong> HIPAA-compliant test environments require isolated VPCs with encrypted databases. Environment Readiness Reports must certify: (1) No real patient data present, (2) Synthetic data loaded via FHIR Synthea, (3) Network segmentation verified. This document is mandatory before any test execution begins.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 43: Phase 5 — Test Execution Artifacts -->
+    <section class="slide scrollable-slide" id="slide-53">
+      <div class="slide-content">
+        <div class="slide-subheader color-5">STLC Phase 5 — Test Execution</div>
+        <h2 class="slide-header">Test Execution Artifacts</h2>
+        <div class="table-container">
+          <table class="premium-table" style="font-size: 11.5px;">
+            <thead>
+              <tr>
+                <th style="width: 22%;">Artifact</th>
+                <th style="width: 32%;">Description</th>
+                <th style="width: 16%;">Created By</th>
+                <th style="width: 16%;">Verified By</th>
+                <th style="width: 14%;">Tools Used</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="td-header">Test Execution Logs / Results</td>
+                <td>Pass/fail status, actual results vs expected, screenshots, video recordings, and console logs per test case.</td>
+                <td>QA Engineers</td>
+                <td>QA Lead</td>
+                <td>TestRail, Xray, Zephyr, Allure Report</td>
+              </tr>
+              <tr>
+                <td class="td-header">Defect Report / Bug Report</td>
+                <td>Bug ID, title, severity, priority, environment, reproduction steps, expected vs actual, logs, screenshots, and root cause (post-fix).</td>
+                <td>QA Engineers</td>
+                <td>Developer (to fix) → QA (to close)</td>
+                <td>Jira, Azure DevOps, Bugzilla</td>
+              </tr>
+              <tr>
+                <td class="td-header">Daily / Weekly Status Reports</td>
+                <td>Progress metrics: % executed, pass/fail rates, defect trends (open/closed/reopened), blockers, and burn-down charts.</td>
+                <td>QA Lead</td>
+                <td>PM / Stakeholders</td>
+                <td>Jira Dashboards, Confluence, Power BI</td>
+              </tr>
+              <tr>
+                <td class="td-header">Updated RTM</td>
+                <td>Execution status (Pass/Fail/Blocked) and defect IDs linked to each requirement for real-time coverage visibility.</td>
+                <td>QA Lead</td>
+                <td>PM</td>
+                <td>Excel, Xray, Zephyr Scale</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="glass-card alert-card" style="padding: 14px 18px; border-left: 4px solid var(--accent-red); margin-top: 14px;">
+          <h4 style="font-size: 13px; color: var(--accent-red); margin-bottom: 6px; font-weight: 700; display: flex; align-items: center; gap: 8px;">
+            <i data-lucide="alert-triangle"></i> Defect Report — Unique Ownership Model
+          </h4>
+          <p style="font-size: 11.5px; line-height: 1.55; color: var(--text-muted);">
+            Unlike other artifacts, defect reports have a <strong>tri-party lifecycle</strong>:<br>
+            • <strong>Created by QA</strong> (reporter) with full reproduction evidence<br>
+            • <strong>Fixed by Developer</strong> (assignee) who documents root cause and resolution<br>
+            • <strong>Closed by QA</strong> (verifier) after successful retest in the same environment<br>
+            In enterprise practice, only QA engineers with the "QA Verify" permission can transition bugs to "Closed" — developers cannot close their own bugs.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 44: Phase 6 — Test Closure Artifacts -->
+    <section class="slide scrollable-slide" id="slide-54">
+      <div class="slide-content">
+        <div class="slide-subheader color-6">STLC Phase 6 — Test Closure</div>
+        <h2 class="slide-header">Test Closure Artifacts</h2>
+        <div class="table-container">
+          <table class="premium-table" style="font-size: 11.5px;">
+            <thead>
+              <tr>
+                <th style="width: 22%;">Artifact</th>
+                <th style="width: 32%;">Description</th>
+                <th style="width: 16%;">Created By</th>
+                <th style="width: 16%;">Verified By</th>
+                <th style="width: 14%;">Tools Used</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="td-header">Test Summary Report</td>
+                <td>Final quality snapshot: total coverage, defect density, risk areas, pass rates, performance SLA compliance, and Go/No-Go recommendation.</td>
+                <td>QA Lead</td>
+                <td>PM / Stakeholders</td>
+                <td>Confluence, Word, Jira Dashboards</td>
+              </tr>
+              <tr>
+                <td class="td-header">Lessons Learned Document</td>
+                <td>Process improvements identified, what worked well, what failed, root causes of escaped defects, and recommendations for future sprints.</td>
+                <td>QA Team</td>
+                <td>QA Manager</td>
+                <td>Confluence, Miro, Retro tools</td>
+              </tr>
+              <tr>
+                <td class="td-header">Test Artifact Archive</td>
+                <td>Archived test plans, cases, scripts, data, reports, and defect logs for compliance audits, knowledge transfer, and future regression baseline.</td>
+                <td>QA Team</td>
+                <td>QA Lead</td>
+                <td>SharePoint, Confluence, Git repos</td>
+              </tr>
+              <tr>
+                <td class="td-header">UAT Sign-off / Release Certificate</td>
+                <td>Formal stakeholder approval to deploy to production. Documents accepted risks, deferred defects, and rollback plan.</td>
+                <td>Business Stakeholders / UAT Lead</td>
+                <td>Product Owner / PM</td>
+                <td>Jira Release, DocuSign, Confluence</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="enterprise-box" style="padding: 14px 18px; border-radius: 12px; background: var(--bg-card); border: 1px solid var(--border-color); margin-top: 14px;">
+          <strong>Enterprise Practice (Financial Services — JPMorgan, Goldman Sachs):</strong> Test Summary Reports feed directly into the <strong>Change Advisory Board (CAB)</strong> decision-making process. The CAB reviews defect density, open risk count, and performance SLA metrics before granting production deployment approval. Archives are retained for 7+ years per SOX compliance requirements.
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 45: Template A — Test Plan (Enterprise Standard) -->
+    <section class="slide scrollable-slide" id="slide-55">
+      <div class="slide-content">
+        <h2 class="slide-header">Template A: Test Plan (Enterprise Standard)</h2>
+        <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">Production-ready template. Copy into Confluence, Word, or your Test Management Tool (TestRail, Zephyr, Xray).</p>
+        <div class="table-container">
+          <table class="premium-table" style="font-size: 11.5px;">
+            <thead>
+              <tr>
+                <th style="width: 25%;">Field</th>
+                <th style="width: 75%;">Description / Example</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="td-header">Test Plan ID</td>
+                <td>TP-PROJ-001</td>
+              </tr>
+              <tr>
+                <td class="td-header">Project Name</td>
+                <td>E-Commerce Platform v2.4</td>
+              </tr>
+              <tr>
+                <td class="td-header">Objective</td>
+                <td>Validate payment gateway integration, checkout flow, and order management against release 2.4 requirements</td>
+              </tr>
+              <tr>
+                <td class="td-header">Scope In</td>
+                <td>Functional testing of payment modules, regression of checkout, performance baseline</td>
+              </tr>
+              <tr>
+                <td class="td-header">Scope Out</td>
+                <td>Load testing beyond 10k concurrent users, mobile app (covered in separate plan)</td>
+              </tr>
+              <tr>
+                <td class="td-header">Test Strategy</td>
+                <td>70% automated regression (Selenium + API), 30% manual exploratory + UAT</td>
+              </tr>
+              <tr>
+                <td class="td-header">Test Levels</td>
+                <td>Unit (Dev), Integration (QA+Dev), System (QA), UAT (Business)</td>
+              </tr>
+              <tr>
+                <td class="td-header">Entry Criteria</td>
+                <td>Code complete; build deployed; smoke tests passed; test cases reviewed</td>
+              </tr>
+              <tr>
+                <td class="td-header">Exit Criteria</td>
+                <td>95% test cases passed; 0 Critical/High open defects; Medium defects &lt; 5; performance SLA met</td>
+              </tr>
+              <tr>
+                <td class="td-header">Schedule</td>
+                <td>Planning: Week 1; Design: Week 2; Execution: Weeks 3–4; Closure: Week 5</td>
+              </tr>
+              <tr>
+                <td class="td-header">Resources</td>
+                <td>3 QA Engineers, 1 Automation Engineer, 1 Performance Tester, 1 BA (UAT support)</td>
+              </tr>
+              <tr>
+                <td class="td-header">Environment</td>
+                <td>UAT: https://uat.company.com (AWS, Chrome/Edge/Safari, MySQL 8.0)</td>
+              </tr>
+              <tr>
+                <td class="td-header">Risks &amp; Mitigation</td>
+                <td>Tight schedule → prioritize critical path; Environment instability → nightly smoke tests</td>
+              </tr>
+              <tr>
+                <td class="td-header">Deliverables</td>
+                <td>Test Plan, Test Cases, RTM, Daily Status, Defect Reports, Test Summary Report</td>
+              </tr>
+              <tr>
+                <td class="td-header">Approvals</td>
+                <td>QA Lead: _______ Date: _______ / PM: _______ Date: _______</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 46: Template B — Test Case (Standard) -->
+    <section class="slide scrollable-slide" id="slide-56">
+      <div class="slide-content">
+        <h2 class="slide-header">Template B: Test Case (Standard Format)</h2>
+        <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">Each test case is a self-contained, repeatable instruction set. A well-written test case can be executed by any QA engineer without prior context.</p>
+        <div class="table-container">
+          <table class="premium-table" style="font-size: 11.5px;">
+            <thead>
+              <tr>
+                <th style="width: 22%;">Field</th>
+                <th style="width: 78%;">Example Content</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="td-header">Test Case ID</td>
+                <td>TC-CHECKOUT-042</td>
+              </tr>
+              <tr>
+                <td class="td-header">Test Scenario</td>
+                <td>Verify successful credit card payment</td>
+              </tr>
+              <tr>
+                <td class="td-header">Requirement ID</td>
+                <td>US-204, FR-18.2</td>
+              </tr>
+              <tr>
+                <td class="td-header">Priority</td>
+                <td>High / P1</td>
+              </tr>
+              <tr>
+                <td class="td-header">Preconditions</td>
+                <td>User logged in; item in cart; valid Visa test card available</td>
+              </tr>
+              <tr>
+                <td class="td-header">Test Data</td>
+                <td>Card: 4111 1111 1111 1111, Exp: 12/30, CVV: 123</td>
+              </tr>
+              <tr>
+                <td class="td-header">Test Steps</td>
+                <td>1. Navigate to checkout &nbsp; 2. Select "Credit Card" &nbsp; 3. Enter test card data &nbsp; 4. Click "Pay Now"</td>
+              </tr>
+              <tr>
+                <td class="td-header">Expected Result</td>
+                <td>Payment processes; confirmation page displays within 2s; order ID generated; email sent</td>
+              </tr>
+              <tr>
+                <td class="td-header">Actual Result</td>
+                <td><em>(filled during execution)</em></td>
+              </tr>
+              <tr>
+                <td class="td-header">Status</td>
+                <td>Pass / Fail / Blocked / Not Run</td>
+              </tr>
+              <tr>
+                <td class="td-header">Defect ID</td>
+                <td>BUG-1182 (if failed)</td>
+              </tr>
+              <tr>
+                <td class="td-header">Executed By</td>
+                <td>QA Engineer Name</td>
+              </tr>
+              <tr>
+                <td class="td-header">Execution Date</td>
+                <td>2026-05-29</td>
+              </tr>
+              <tr>
+                <td class="td-header">Attachments</td>
+                <td>Screenshot, logs, HAR file</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card-tip" style="margin-top: 12px;">
+          <i data-lucide="lightbulb"></i>
+          <span><strong>Best Practice:</strong> Write test steps as imperative commands ("Click", "Enter", "Verify") and expected results as observable outcomes. Avoid vague phrases like "Check if it works." Include exact data values and timing expectations.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 47: Template C — RTM & Template D — Defect Report -->
+    <section class="slide scrollable-slide" id="slide-57">
+      <div class="slide-content">
+        <h2 class="slide-header">Template C: RTM &amp; Template D: Defect Report</h2>
+        <div class="split-layout" style="gap: 16px;">
+          <div class="content-left">
+            <h3 style="font-size: 14px; margin-bottom: 10px; color: var(--secondary);"><i data-lucide="git-branch" style="width: 14px; height: 14px;"></i> Requirement Traceability Matrix (RTM)</h3>
+            <div class="table-container" style="box-shadow: none;">
+              <table class="premium-table" style="font-size: 10.5px;">
+                <thead>
+                  <tr>
+                    <th>Req ID</th>
+                    <th>Description</th>
+                    <th>TC ID</th>
+                    <th>Auto?</th>
+                    <th>Status</th>
+                    <th>Defect</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>US-201</td>
+                    <td>Add item to cart</td>
+                    <td>TC-CART-011</td>
+                    <td>Y</td>
+                    <td style="color: var(--accent-green);">Passed</td>
+                    <td>—</td>
+                  </tr>
+                  <tr>
+                    <td>US-202</td>
+                    <td>Apply discount code</td>
+                    <td>TC-CART-021</td>
+                    <td>N</td>
+                    <td style="color: var(--accent-red);">Failed</td>
+                    <td>BUG-1150</td>
+                  </tr>
+                  <tr>
+                    <td>FR-18.1</td>
+                    <td>Payment timeout handling</td>
+                    <td>TC-PAY-031</td>
+                    <td>Y</td>
+                    <td style="color: var(--accent-green);">Passed</td>
+                    <td>—</td>
+                  </tr>
+                  <tr>
+                    <td>FR-18.2</td>
+                    <td>Credit card payment</td>
+                    <td>TC-PAY-042</td>
+                    <td>Y</td>
+                    <td style="color: var(--accent-orange);">Blocked</td>
+                    <td>BUG-1182</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="card-tip" style="margin-top: 8px; font-size: 10.5px;">
+              <i data-lucide="lightbulb"></i>
+              <span><strong>RTM Insight:</strong> If an auditor asks "Did you test FR-18?" — point to this matrix. It proves requirement → test → result → defect traceability in one view.</span>
+            </div>
+          </div>
+          <div class="content-right">
+            <h3 style="font-size: 14px; margin-bottom: 10px; color: var(--accent-red);"><i data-lucide="bug" style="width: 14px; height: 14px;"></i> Defect Report Template</h3>
+            <div class="table-container" style="box-shadow: none;">
+              <table class="premium-table" style="font-size: 10.5px;">
+                <thead>
+                  <tr>
+                    <th style="width: 30%;">Field</th>
+                    <th style="width: 70%;">Example</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td class="td-header">Defect ID</td><td>BUG-1182</td></tr>
+                  <tr><td class="td-header">Title</td><td>Payment confirmation email not sent after successful Visa transaction</td></tr>
+                  <tr><td class="td-header">Severity</td><td>Critical</td></tr>
+                  <tr><td class="td-header">Priority</td><td>P1 (Fix immediately)</td></tr>
+                  <tr><td class="td-header">Environment</td><td>UAT v2.4.1, Chrome 126, Windows 11</td></tr>
+                  <tr><td class="td-header">Steps to Reproduce</td><td>1. Add item 2. Checkout with Visa 3. Complete payment 4. Check email</td></tr>
+                  <tr><td class="td-header">Expected</td><td>Email received within 60s</td></tr>
+                  <tr><td class="td-header">Actual</td><td>No email; no SendGrid log entry</td></tr>
+                  <tr><td class="td-header">Reproducibility</td><td>5/5 attempts</td></tr>
+                  <tr><td class="td-header">Reported By</td><td>Jane Doe (QA)</td></tr>
+                  <tr><td class="td-header">Assigned To</td><td>John Smith (Backend Dev)</td></tr>
+                  <tr><td class="td-header">Status</td><td>New → In Progress → Fixed → Retest → Closed</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 48: Template E — Test Summary Report & Template F — User Story -->
+    <section class="slide scrollable-slide" id="slide-58">
+      <div class="slide-content">
+        <h2 class="slide-header">Template E: Test Summary Report &amp; Template F: User Story</h2>
+        <div class="split-layout" style="gap: 16px;">
+          <div class="content-left">
+            <h3 style="font-size: 14px; margin-bottom: 10px; color: var(--accent-green);"><i data-lucide="bar-chart-2" style="width: 14px; height: 14px;"></i> Test Summary Report (Closure)</h3>
+            <div class="table-container" style="box-shadow: none;">
+              <table class="premium-table" style="font-size: 10.5px;">
+                <thead>
+                  <tr>
+                    <th style="width: 30%;">Field</th>
+                    <th style="width: 70%;">Example</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td class="td-header">Project / Release</td><td>E-Commerce Platform v2.4</td></tr>
+                  <tr><td class="td-header">Test Duration</td><td>2026-05-15 to 2026-06-04</td></tr>
+                  <tr><td class="td-header">Test Cases</td><td>Total: 450 | Executed: 448 | Passed: 430 | Failed: 12 | Blocked: 6</td></tr>
+                  <tr><td class="td-header">Automation Coverage</td><td>72% of executed tests</td></tr>
+                  <tr><td class="td-header">Defect Summary</td><td>Total: 45 | Critical: 0 | High: 2 (fixed) | Medium: 8 | Low: 35</td></tr>
+                  <tr><td class="td-header">Open Defects</td><td>2 Medium (workaround documented); 0 Critical/High</td></tr>
+                  <tr><td class="td-header">Requirement Coverage</td><td>98% (RTM verified)</td></tr>
+                  <tr><td class="td-header">Performance Result</td><td>95th percentile: 1.2s (SLA: &lt;2s)</td></tr>
+                  <tr><td class="td-header">Risk Assessment</td><td>Low risk; 2 medium defects are cosmetic in admin panel</td></tr>
+                  <tr><td class="td-header">Recommendation</td><td style="color: var(--accent-green); font-weight: 700;">GO for production deployment</td></tr>
+                  <tr><td class="td-header">Approved By</td><td>QA Lead / PM / Product Owner</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="content-right">
+            <h3 style="font-size: 14px; margin-bottom: 10px; color: var(--primary);"><i data-lucide="user" style="width: 14px; height: 14px;"></i> User Story (with Acceptance Criteria)</h3>
+            <div class="table-container" style="box-shadow: none;">
+              <table class="premium-table" style="font-size: 10.5px;">
+                <thead>
+                  <tr>
+                    <th style="width: 28%;">Field</th>
+                    <th style="width: 72%;">Example</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td class="td-header">Story ID</td><td>US-204</td></tr>
+                  <tr><td class="td-header">Title</td><td>As a shopper, I want to pay by credit card so that I can complete my purchase instantly</td></tr>
+                  <tr><td class="td-header">Description</td><td>Enable Visa, Mastercard, and Amex payments via Stripe integration</td></tr>
+                  <tr><td class="td-header">Acceptance Criteria</td><td>
+                    1. Given valid card → payment succeeds, confirmation within 2s<br>
+                    2. Given invalid card → "Invalid card" error within 1s<br>
+                    3. Given declined card → specific decline reason shown, can retry
+                  </td></tr>
+                  <tr><td class="td-header">Business Priority</td><td>Must-have (P0)</td></tr>
+                  <tr><td class="td-header">Story Points</td><td>8</td></tr>
+                  <tr><td class="td-header">Created By</td><td>Product Owner</td></tr>
+                  <tr><td class="td-header">Verified By</td><td>BA + QA Lead (during grooming)</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="card-tip" style="margin-top: 8px; font-size: 10.5px;">
+              <i data-lucide="lightbulb"></i>
+              <span><strong>QA Role:</strong> QA Lead participates in Sprint Grooming to verify each User Story has testable, measurable acceptance criteria BEFORE development begins (Shift-Left).</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 49: Artifact vs. SDLC Phase — Quick Reference -->
+    <section class="slide scrollable-slide" id="slide-59">
+      <div class="slide-content">
+        <h2 class="slide-header">Quick Reference: Artifact vs. SDLC Phase</h2>
+        <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">If your students ask "When does testing actually start?" — the answer is <strong>immediately when requirements are available</strong>. STLC runs in parallel with SDLC, not after it.</p>
+        <div class="table-container">
+          <table class="premium-table" style="font-size: 11.5px;">
+            <thead>
+              <tr>
+                <th style="width: 20%; background: rgba(99,64,165,0.15);">SDLC Phase</th>
+                <th style="width: 25%; background: rgba(28,114,147,0.15);">Parallel STLC Activity</th>
+                <th style="width: 35%; background: rgba(15,110,86,0.12);">Key Artifacts Produced</th>
+                <th style="width: 20%; background: rgba(247,166,0,0.12);">Primary Owner</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="td-header">Requirements</td>
+                <td>Requirement Analysis</td>
+                <td>RTM, Automation Feasibility Report, Reviewed User Stories</td>
+                <td>QA Lead + BA</td>
+              </tr>
+              <tr>
+                <td class="td-header">Design</td>
+                <td>Test Planning</td>
+                <td>Test Plan, Test Strategy, Estimation Report, Risk Register</td>
+                <td>QA Lead + PM</td>
+              </tr>
+              <tr>
+                <td class="td-header">Development</td>
+                <td>Test Design + Env Setup</td>
+                <td>Test Cases, Automation Scripts, Test Data, Environment Docs</td>
+                <td>QA Engineers + SDET</td>
+              </tr>
+              <tr>
+                <td class="td-header">Build / Integration</td>
+                <td>Test Execution</td>
+                <td>Execution Logs, Defect Reports, Status Reports, Updated RTM</td>
+                <td>QA Engineers + QA Lead</td>
+              </tr>
+              <tr>
+                <td class="td-header">Deployment</td>
+                <td>Test Closure</td>
+                <td>Summary Report, UAT Sign-off, Release Certificate, Archive</td>
+                <td>QA Lead + Product Owner</td>
+              </tr>
+              <tr>
+                <td class="td-header">Maintenance</td>
+                <td>Regression &amp; Monitoring</td>
+                <td>Regression Results, Production Smoke Logs, Patch Test Reports</td>
+                <td>SDET + QA Engineers</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="split-layout" style="margin-top: 14px; gap: 16px;">
+          <div class="content-left">
+            <div class="glass-card" style="border-left: 3px solid var(--secondary); padding: 14px 18px;">
+              <h4 style="font-size: 13px; margin-bottom: 8px;"><i data-lucide="trending-up" style="width: 14px; height: 14px; display: inline; color: var(--secondary);"></i> Modern Trends (2025–2026)</h4>
+              <ul class="styled-list" style="font-size: 11px; gap: 5px;">
+                <li><strong>AI-Generated Test Cases:</strong> GitHub Copilot, Testsigma AI, and Katalon GenAI auto-draft test cases from user stories — QA reviews &amp; refines</li>
+                <li><strong>Living Documentation:</strong> BDD (Cucumber/SpecFlow) test scripts serve as both test cases AND requirements documentation</li>
+                <li><strong>Observability as Artifact:</strong> Production monitoring dashboards (Grafana, Datadog) now serve as continuous test evidence</li>
+                <li><strong>Test Impact Analysis:</strong> Tools like Launchable and Microsoft TIA identify which tests to run based on code changes</li>
+              </ul>
+            </div>
+          </div>
+          <div class="content-right">
+            <div class="glass-card" style="border-left: 3px solid var(--accent-orange); padding: 14px 18px;">
+              <h4 style="font-size: 13px; margin-bottom: 8px;"><i data-lucide="building-2" style="width: 14px; height: 14px; display: inline; color: var(--accent-orange);"></i> Real-Time Org Practices</h4>
+              <ul class="styled-list" style="font-size: 11px; gap: 5px;">
+                <li><strong>Google:</strong> No separate Test Plan docs — testing strategy embedded in Design Docs; automated tests are the living plan</li>
+                <li><strong>Netflix:</strong> Chaos Engineering reports (Chaos Monkey) serve as resilience test artifacts</li>
+                <li><strong>Amazon:</strong> PR-level test evidence required — each pull request must include test execution proof</li>
+                <li><strong>Stripe:</strong> Contract tests (Pact) serve as API integration test documentation</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 50: Teaching Tips & Key Takeaways -->
+    <section class="slide scrollable-slide" id="slide-60">
+      <div class="slide-content">
+        <h2 class="slide-header">Test Artifacts — Key Takeaways &amp; Teaching Tips</h2>
+        <div class="split-layout" style="gap: 16px;">
+          <div class="content-left">
+            <div class="glass-card" style="border-left: 3px solid var(--primary);">
+              <div class="card-header">
+                <i data-lucide="graduation-cap" style="color: var(--primary);"></i>
+                <h3>Teaching Tips for Your Session</h3>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 10px;">
+                <div class="jira-reason-item">
+                  <span class="reason-num">01</span>
+                  <div><strong>Emphasize Traceability:</strong> Show how RTM is the "backbone" connecting User Stories → Test Cases → Defects. If an auditor asks "Did you test requirement FR-18?", the RTM proves it.</div>
+                </div>
+                <div class="jira-reason-item">
+                  <span class="reason-num">02</span>
+                  <div><strong>Distinguish Strategy vs. Plan:</strong> Strategy = "What types of testing and why" (one per project). Plan = "Who does what, when, and where" (one per release/sprint).</div>
+                </div>
+                <div class="jira-reason-item">
+                  <span class="reason-num">03</span>
+                  <div><strong>Entry/Exit Criteria Are Gates:</strong> No phase should begin until entry criteria are met. This prevents wasted effort on unstable builds.</div>
+                </div>
+                <div class="jira-reason-item">
+                  <span class="reason-num">04</span>
+                  <div><strong>Shift-Left Context:</strong> Modern teams write test cases during sprint planning (BDD/TDD). The "Test Design" phase still exists but happens earlier.</div>
+                </div>
+                <div class="jira-reason-item">
+                  <span class="reason-num">05</span>
+                  <div><strong>Artifact Ownership:</strong> QA creates most artifacts, but they are verified by PMs, BAs, and Stakeholders. Defects are unique — created by QA, fixed by Dev, closed by QA.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="content-right" style="display: flex; flex-direction: column; gap: 12px;">
+            <div class="glass-card success-card">
+              <div class="card-header">
+                <i data-lucide="check-circle-2" class="icon-success"></i>
+                <h3>Key Takeaways</h3>
+              </div>
+              <ul class="styled-list">
+                <li><strong>30+ artifacts</strong> span 6 STLC phases — know which phase produces which</li>
+                <li><strong>RTM</strong> is the single most critical artifact for traceability and compliance</li>
+                <li><strong>Test Plan ≠ Test Strategy</strong> — one per sprint vs. one per project</li>
+                <li><strong>Defect lifecycle</strong> involves tri-party ownership (QA → Dev → QA)</li>
+                <li><strong>UAT Sign-off</strong> is the final gate before production deployment</li>
+                <li><strong>Archives</strong> are retained for 3–7+ years in regulated industries</li>
+              </ul>
+            </div>
+            <div class="glass-card" style="border-left: 3px solid var(--accent-yellow); padding: 14px 18px;">
+              <div class="card-header" style="margin-bottom: 8px;">
+                <i data-lucide="tool" style="color: var(--accent-yellow);"></i>
+                <h3>Enterprise Tool Ecosystem</h3>
+              </div>
+              <div style="display: flex; gap: 7px; flex-wrap: wrap;">
+                <span class="ai-tag" style="font-size: 10.5px;">Jira + Zephyr Scale</span>
+                <span class="ai-tag" style="font-size: 10.5px;">Azure DevOps Test Plans</span>
+                <span class="ai-tag" style="font-size: 10.5px;">TestRail</span>
+                <span class="ai-tag" style="font-size: 10.5px;">Xray for Jira</span>
+                <span class="ai-tag" style="font-size: 10.5px;">Confluence (Documentation)</span>
+                <span class="ai-tag" style="font-size: 10.5px;">Allure Report</span>
+                <span class="ai-tag" style="font-size: 10.5px;">Playwright + GitHub Actions</span>
+                <span class="ai-tag" style="font-size: 10.5px;">Grafana (Metrics)</span>
+              </div>
+              <p style="font-size: 10.5px; color: var(--text-muted); margin-top: 8px;">In 2025–2026, <strong>AI-assisted artifact generation</strong> (Copilot, Testsigma AI, Katalon GenAI) is becoming standard — but human review, sign-off, and compliance verification remain non-negotiable.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
   <div class="presentation-controls">
     <div class="controls-left">
       <button id="prev-btn" class="control-btn" title="Previous (Left Arrow / PageUp)">

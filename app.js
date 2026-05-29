@@ -2,7 +2,7 @@
 // STATE MANAGEMENT & DATA
 // ==========================================================================
 let currentSlide = 1;
-const totalSlides = 36;
+const totalSlides = 60;
 let isPlaying = false;
 let playInterval = null;
 const playSpeed = 5000; // 5 seconds per slide
@@ -44,7 +44,31 @@ const slidesMetadata = [
   { id: 33, title: "33. Jira vs Azure DevOps (Feature Comparison)" },
   { id: 34, title: "34. Jira vs Azure DevOps (Decision Guide)" },
   { id: 35, title: "35. Jira Terminologies (Interactive)" },
-  { id: 36, title: "36. Jira in Enterprise Testing Practice" }
+  { id: 36, title: "36. Jira in Enterprise Testing Practice" },
+  { id: 37, title: "37. Jira Project Setup for QA" },
+  { id: 38, title: "38. Custom QA Workflow — The Testing Lane" },
+  { id: 39, title: "39. STLC in Jira: Phases 1–3" },
+  { id: 40, title: "40. STLC in Jira: Phases 4–6" },
+  { id: 41, title: "41. Test Closure & QA Dashboards in Jira" },
+  { id: 42, title: "42. Traceability in Jira — The Golden Thread" },
+  { id: 43, title: "43. Enterprise Test Management Apps in Jira" },
+  { id: 44, title: "44. A Day in the Life — Real-Time Sprint" },
+  { id: 45, title: "45. Jira Config Checklist & Native vs. Apps" },
+  { id: 46, title: "46. ShopRight E-Commerce — Real-Time Jira Lab" },
+  { id: 47, title: "47. Test Artifacts: Module Introduction" },
+  { id: 48, title: "48. What Are Test Artifacts?" },
+  { id: 49, title: "49. Phase 1 — Requirement Analysis Artifacts" },
+  { id: 50, title: "50. Phase 2 — Test Planning Artifacts" },
+  { id: 51, title: "51. Phase 3 — Test Design Artifacts" },
+  { id: 52, title: "52. Phase 4 — Environment Setup Artifacts" },
+  { id: 53, title: "53. Phase 5 — Test Execution Artifacts" },
+  { id: 54, title: "54. Phase 6 — Test Closure Artifacts" },
+  { id: 55, title: "55. Template A: Test Plan" },
+  { id: 56, title: "56. Template B: Test Case" },
+  { id: 57, title: "57. Template C: RTM & Template D: Defect Report" },
+  { id: 58, title: "58. Template E: Summary Report & Template F: User Story" },
+  { id: 59, title: "59. Quick Reference: Artifact vs. SDLC Phase" },
+  { id: 60, title: "60. Test Artifacts: Key Takeaways & Teaching Tips" }
 ];
 
 // Interactive STLC Phases Data for Slide 8 Dashboard
