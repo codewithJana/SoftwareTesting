@@ -2,7 +2,7 @@
 // STATE MANAGEMENT & DATA
 // ==========================================================================
 let currentSlide = 1;
-const totalSlides = 60;
+const totalSlides = 119;
 let isPlaying = false;
 let playInterval = null;
 const playSpeed = 5000; // 5 seconds per slide
@@ -68,7 +68,66 @@ const slidesMetadata = [
   { id: 57, title: "57. Template C: RTM & Template D: Defect Report" },
   { id: 58, title: "58. Template E: Summary Report & Template F: User Story" },
   { id: 59, title: "59. Quick Reference: Artifact vs. SDLC Phase" },
-  { id: 60, title: "60. Test Artifacts: Key Takeaways & Teaching Tips" }
+  { id: 60, title: "60. Test Artifacts: Key Takeaways & Teaching Tips" },
+  { id: 61, title: "61. Programming Languages - Basics, Types, Evolution" },
+  { id: 62, title: "62. Source Code to Machine Code - Compiler, Interpreter" },
+  { id: 63, title: "63. Why Java? Evolution & Design" },
+  { id: 64, title: "64. Applications of Java, Where It's Used, Pros & Cons" },
+  { id: 65, title: "65. JDK, JRE, JVM - Deep Dive" },
+  { id: 66, title: "66. Java Code to Machine Code - Complete Flow" },
+  { id: 67, title: "67. Java Setup & Installation" },
+  { id: 68, title: "68. Hello World Program" },
+  { id: 69, title: "69. Class & Packages" },
+  { id: 70, title: "70. Main Method & Basic Syntax" },
+  { id: 71, title: "71. Comments in Java" },
+  { id: 72, title: "72. Keywords & Identifiers" },
+  { id: 73, title: "73. Java Variables" },
+  { id: 74, title: "74. User Input with Scanner" },
+  { id: 75, title: "75. Java Data Types" },
+  { id: 76, title: "76. Type Casting" },
+  { id: 77, title: "77. Operators - Arithmetic & Unary" },
+  { id: 78, title: "78. Operators - Relational & Logical" },
+  { id: 79, title: "79. Operators - Assignment & Ternary" },
+  { id: 80, title: "80. Operators - Bitwise & Precedence" },
+  { id: 81, title: "81. Java Decision Making — Module Introduction" },
+  { id: 82, title: "82. if, if-else & if-else-if Ladder" },
+  { id: 83, title: "83. Nested if & Switch Statement" },
+  { id: 84, title: "84. For Loop & For-Each Loop" },
+  { id: 85, title: "85. While, Do-While, Break & Continue" },
+  { id: 86, title: "86. Java Strings — Deep Dive" },
+  { id: 87, title: "87. Java String Methods (15 Key Methods)" },
+  { id: 88, title: "88. Java Arrays — Deep Dive" },
+  { id: 89, title: "89. Array Methods (java.util.Arrays)" },
+  { id: 90, title: "90. Java ArrayList — Deep Dive" },
+  { id: 91, title: "91. ArrayList Methods — Complete Reference" },
+  { id: 92, title: "92. OOP Concepts in Java — High-Level Overview" },
+  { id: 93, title: "93. Classes and Objects in Java" },
+  { id: 94, title: "94. Java Class Attributes and Methods" },
+  { id: 95, title: "95. Variable Scopes in Java" },
+  { id: 96, title: "96. Constructors in Java — Types, Rules & Examples" },
+  { id: 97, title: "97. Java this & final Keywords" },
+  { id: 98, title: "98. Java static Keyword — Deep Dive" },
+  { id: 99, title: "99. OOP in Java — Module Introduction" },
+  { id: 100, title: "100. Pillar 1: Encapsulation — Data Hiding" },
+  { id: 101, title: "101. Pillar 2: Inheritance — Reuse & Extend" },
+  { id: 102, title: "102. Pillar 3: Abstraction — Hide Complexity" },
+  { id: 103, title: "103. Pillar 4: Interface — Define a Contract" },
+  { id: 104, title: "104. Pillar 5: Polymorphism — Many Forms" },
+  { id: 105, title: "105. OOP Summary — All 5 Pillars in Enterprise Framework" },
+  { id: 106, title: "106. Enum in Java — Type-Safe Constants" },
+  { id: 107, title: "107. Java Exception Handling — Graceful Error Management" },
+  { id: 108, title: "108. Java Collections Framework — Overview & Collection vs Collections" },
+  { id: 109, title: "109. Collection Interface — The Root Contract" },
+  { id: 110, title: "110. Java List — ArrayList & LinkedList" },
+  { id: 111, title: "111. Java Set — HashSet, LinkedHashSet, TreeSet" },
+  { id: 112, title: "112. Java Queue — FIFO & PriorityQueue" },
+  { id: 113, title: "113. Java Map — HashMap, LinkedHashMap, TreeMap" },
+  { id: 114, title: "114. Java File Handling — Read, Write & Manage Files" },
+  { id: 115, title: "115. Java Threading — Introduction to Multithreading" },
+  { id: 116, title: "116. Creating Threads — extends Thread vs implements Runnable" },
+  { id: 117, title: "117. Thread Lifecycle & States — From Birth to Death" },
+  { id: 118, title: "118. Thread Synchronization — Race Conditions & Locks" },
+  { id: 119, title: "119. Thread Pool & ExecutorService — Enterprise-Grade Threading" }
 ];
 
 // Interactive STLC Phases Data for Slide 8 Dashboard

@@ -360,8 +360,8 @@ pre code {
               transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding-bottom: 80px;
+  justify-content: flex-start;
+  overflow: hidden;
 }
 
 .slide.active {
@@ -378,8 +378,9 @@ pre code {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding-bottom: 40px;
+  justify-content: flex-start;
+  padding-bottom: 10px;
+  overflow-y: auto;
 }
 
 .slide-header {
@@ -1969,13 +1970,43 @@ pre code {
   overflow-y: auto !important;
   justify-content: flex-start !important;
   padding-right: 15px; /* prevent layout shift from scrollbar */
+  padding-bottom: 0 !important; /* override .slide padding-bottom to maximise scroll area */
 }
 
 .scrollable-slide .slide-content {
   margin-top: 0 !important;
-  margin-bottom: 100px !important;
+  margin-bottom: 50px !important; /* buffer so last item isn't flush at scroll bottom */
   height: auto !important;
-  padding-bottom: 60px !important;
+  padding-bottom: 20px !important;
+}
+
+/* SDET Note — used across Java slides for real-world automation context boxes */
+.sdet-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  background: rgba(186, 117, 23, 0.1);
+  border: 1px solid rgba(186, 117, 23, 0.28);
+  border-left: 3px solid var(--accent-yellow);
+  padding: 9px 12px;
+  border-radius: 10px;
+  font-size: 11.5px;
+  line-height: 1.65;
+  color: var(--text-main);
+  margin-top: 6px;
+}
+
+.sdet-note svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--accent-yellow);
+}
+
+[data-theme="light"] .sdet-note {
+  background: rgba(186, 117, 23, 0.07);
+  color: var(--text-main);
 }
 
 /* Custom Scrollbar for premium feel */
